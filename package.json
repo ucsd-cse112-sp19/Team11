@@ -1,7 +1,7 @@
 {
   "name": "team11",
   "version": "1.0.0",
-  "description": "",
+  "description": "testing mocha, chai, selenium",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ucsd-cse112/Team11/issues"
   },
-  "homepage": "https://github.com/ucsd-cse112/Team11#readme"
+  "homepage": "https://github.com/ucsd-cse112/Team11#readme",
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  }
 }
