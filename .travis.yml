@@ -1,4 +1,9 @@
 languge: node_js
+node_js:
+  - "stable"
+cache:
+  directoies:
+    - "node_modules"
 
 #dist: xenial
 #services:
