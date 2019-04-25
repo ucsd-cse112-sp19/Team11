@@ -1,8 +1,18 @@
 {
   "name": "team11",
   "version": "1.0.0",
-  "description": "setting up mocha and chai, selenium comes later",
-  "main": "index.js",
+  "description": "",
+  "main": "test.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^6.1.4"
+  },
   "scripts": {
     "test": "mocha"
   },
@@ -15,8 +25,5 @@
   "bugs": {
     "url": "https://github.com/ucsd-cse112/Team11/issues"
   },
-  "homepage": "https://github.com/ucsd-cse112/Team11#readme",
-  "dependencies": {
-    "mocha": "^6.1.4"
-  }
+  "homepage": "https://github.com/ucsd-cse112/Team11#readme"
 }
