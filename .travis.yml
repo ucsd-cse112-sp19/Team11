@@ -1,9 +1,10 @@
 languge: node_js
-dist: xenial
-services:
-  - xvfb
-before_script:
-  ## Required to run browswer tests (FF) ##
-  - export Display=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sleep 3 #give xvfb some time to start
+
+#dist: xenial
+#services:
+#  - xvfb
+#before_script:
+#  ## Required to run browswer tests (FF) ##
+#  - export Display=:99.0
+#  - sh -e /etc/init.d/xvfb start
+#  - sleep 3 #give xvfb some time to start
