@@ -1,0 +1,22 @@
+{
+  "name": "team11",
+  "version": "1.0.0",
+  "description": "setting up mocha and chai, selenium comes later",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucsd-cse112/Team11.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ucsd-cse112/Team11/issues"
+  },
+  "homepage": "https://github.com/ucsd-cse112/Team11#readme",
+  "dependencies": {
+    "mocha": "^6.1.4"
+  }
+}
