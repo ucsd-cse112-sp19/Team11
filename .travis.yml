@@ -7,4 +7,4 @@ cache:
 
 script:
   - npm run lint
-  - npom test
+  - npm test
