@@ -1,0 +1,26 @@
+{
+  "name": "team11",
+  "version": "1.0.0",
+  "description": "Richard Pena",
+  "main": "comp.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^6.1.4"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucsd-cse112/Team11.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ucsd-cse112/Team11/issues"
+  },
+  "homepage": "https://github.com/ucsd-cse112/Team11#readme"
+}
