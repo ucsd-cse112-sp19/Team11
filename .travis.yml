@@ -1,4 +1,4 @@
-languge: node_js
+language: node_js
 dist: xenial
 services:
   - xvfb
