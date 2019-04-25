@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ucsd-cse112/Team11#readme",
   "dependencies": {
+    "chai": "^4.2.0",
     "mocha": "^6.1.4",
     "selenium-webdriver": "^4.0.0-alpha.1"
   }
