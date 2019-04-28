@@ -2,7 +2,7 @@
   "name": "team11",
   "version": "1.0.0",
   "description": "",
-  "main": "test.js",
+  "main": "countdown-component.test.js",
   "dependencies": {},
   "devDependencies": {
     "eslint": "^5.16.0",
@@ -11,11 +11,14 @@
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
-    "mocha": "^6.1.4"
+    "mocha": "^6.1.4",
+    "puppeteer": "^1.15.0",
+    "showroom": "^0.9.3"
   },
   "scripts": {
     "lint": "eslint **/*.js",
-    "test": "mocha"
+    "showroom": "showroom",
+    "test": "mocha --exit --timeout 5000"
   },
   "repository": {
     "type": "git",
