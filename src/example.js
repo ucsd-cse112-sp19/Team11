@@ -16,3 +16,12 @@ function addOne (input) {
 function addTwo (x) {
   return x + 2
 }
+
+/**
+ * This function subtracts one from its input
+ * @param {number} input any number
+ * @retuens {number} that number, minus one
+ */
+function minusOne (x) {
+  return x - 1
+}
