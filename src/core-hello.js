@@ -11,8 +11,8 @@ customElements.define('core-hello', class extends HTMLElement {
     return ['message']
   }
 
-  attributeChangedCalledBack() {
-    this.message = this.getProperty('message')
+  attributeChangedCallback() {
+    this.message = this.getAttribute('message')
   }
 
   set message(value) {
