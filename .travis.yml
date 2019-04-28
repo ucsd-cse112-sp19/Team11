@@ -7,4 +7,6 @@ cache:
 
 script:
   - npm run lint
-  - npm test
+  - npm test tests/
+ 
+after_success: documentation build src/** -f html -o docs
