@@ -1,7 +1,7 @@
 const showroom = require('showroom/puppeteer')()
 const assert = require('assert')
 
-describe('core-hello', () => {
+describe('my-component', () => {
 
   before(async () => {
     await showroom.start()
@@ -12,7 +12,7 @@ describe('core-hello', () => {
   })
 
   beforeEach(async () => {
-    await showroom.setTestSubject('core-hello')
+    await showroom.setTestSubject('my-component')
   })
 
   it('Should update message', async () => {

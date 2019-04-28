@@ -1,4 +1,4 @@
-customElements.define('core-hello', class extends HTMLElement {
+customElements.define('my-component', class extends HTMLElement {
 
   constructor() {
     super()

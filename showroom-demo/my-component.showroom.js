@@ -1,6 +1,6 @@
 export default {
-  component: 'core-hello',
-  path: '/src/core-hello.js',
+  component: 'my-component',
+  path: '/src/my-component.js',
   events: ['message-changed'],
   attributes: {
     message: 'Hello'
