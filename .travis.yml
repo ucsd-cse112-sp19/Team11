@@ -7,5 +7,5 @@ cache:
 
 script:
   - npm run lint
-  - npm test
-  - documentation build 
+  - npm test tests/
+  - documentation build src/** -f html -o docs
