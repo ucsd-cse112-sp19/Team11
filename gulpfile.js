@@ -5,7 +5,11 @@ var runSequence = require('gulp4-run-sequence')
 var gulpDocumentation = require('gulp-documentation')
 
 
-gulp.task('clean', () => del(['dist']))
+gulp.task('clean', function(done) { 
+  del(['dist'])
+  del(['docs'])
+  done()
+})
 
 gulp.task('default', function(done) {
   runSequence('clean', 'documentation', 'uglify')
