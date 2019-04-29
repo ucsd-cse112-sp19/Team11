@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+// Create a class for the element
+class CoreHello extends HTMLElement{
+    constructor(){
+        super();
+        var shadow = this.attachShadow({mode: 'open'});
+        var lan_attr = "en"; //This variable decides a language to be displayed "ko" = Korean, "ja" = Japanese, "en" = English
+        var animation = false; //true if rainbow animation is displayed, false if not
+
+        var wrapper = document.createElement('span');
+        wrapper.setAttribute('class','wrapper');
+        
+        var phrase = document.createElement('p');
+        phrase.setAttribute('id', 'hello');
+        phrase.setAttribute('lang', lan_attr); //Setting 'lang' tag here
+
+        if(lan_attr === "en"){
+            phrase.textContent = "Hello";
+        }
+        else if(lan_attr === "ko"){
+            phrase.textContent = "안녕하세요";
+        }
+        else if(lan_attr === "ja"){
+            phrase.textContent = "こんにちは";
+        }
+        else{
+            phrase.textContext = "Unknown Language!"; //It only supports three languages; English, Korean, Japanese
+        }
+        
+        //logic for rainbow animation
+        if(animation){
+        var style = document.createElement('style');
+        style.textContent = '.wrapper {' + 'color: red;'+
+          'animation: animation 5s infinite}'+ '@keyframes animation {'+
+          '0%   {color: red;}'+
+          '14%   {color: orange;}'+
+          '28%  {color: yellow;}'+
+          '42% {color: green;}'+
+          '56%  {color: blue;}'+
+          '70% {color: indigo;}'+
+          '84% {color: violet;}}'
+          shadow.appendChild(style)
+        }
+
+        shadow.appendChild(wrapper);
+        wrapper.appendChild(phrase);
+    }
+}
+customElements.define('core-hello', CoreHello);
+</script>
+
+<core-hello rainbow> 
+
+</body>
+</html>
