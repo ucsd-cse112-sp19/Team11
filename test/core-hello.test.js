@@ -58,7 +58,7 @@ describe('core-hello', () => {
     assert.equal(text, 'こんにちは')
   })
 
-  it('Should say hello to the name' async () => {
+  it('Should say hello to the name', async () => {
     //TODO find out how to pull textcontent of <core-hello> to test against
     //should say "Hello World <name>"
   })
