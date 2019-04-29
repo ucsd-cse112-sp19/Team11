@@ -18,7 +18,7 @@
   },
   "scripts": {
     "lint": "eslint src/*.js",
-    "test": "testcafe chrome,firefox tests", 
+    "test": "testcafe chrome,firefox tests",
     "local-test": "testcafe chrome tests",
     "gulp": "^4.0.1",
     "gulp-documentation": "^3.2.1",
