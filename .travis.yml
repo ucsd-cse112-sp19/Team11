@@ -9,4 +9,4 @@ script:
   - npm run lint
   - npm test tests/
  
-after_success: documentation build src/** -f html -o docs
+after_success: gulp
