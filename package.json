@@ -16,7 +16,8 @@
   },
   "scripts": {
     "lint": "eslint **/*.js",
-    "test": "testcafe chrome" 
+    "test": "testcafe chrome,firefox tests", 
+    "local-test": "testcafe chrome tests"
   },
   "repository": {
     "type": "git",
