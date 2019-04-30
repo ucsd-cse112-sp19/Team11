@@ -74,6 +74,5 @@ describe('core-hello', () => {
     const changed = await showroom.getAttribute('font-size')
     assert.notEqual(unchanged, changed)
   })
-
-
+  
 })
