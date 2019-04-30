@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "test.js",
-  "dependencies": {},
+  "dependencies": {
+    "chai": "^4.2.0"
+  },
   "devDependencies": {
     "del": "^4.1.1",
     "documentation": "^10.1.0",
@@ -18,7 +20,7 @@
   },
   "scripts": {
     "lint": "eslint src/*.js",
-    "test-mocha": "mocha --exit --timeout 5000 test/core-hello.test.js",
+    "test-mocha": "mocha test/test.js",
     "local-test": "testcafe chrome test/cafeTest.js",
     "browser-test": "testcafe chrome,firefox test/cafeTest.js",
     "gulp": "^4.0.1",
@@ -26,8 +28,6 @@
     "gulp-uglify": "^3.0.2",
     "gulp4-run-sequence": "^0.3.2",
     "mocha": "^6.1.4",
-    "puppeteer": "^1.15.0",
-    "showroom": "^0.9.3",
     "run-sequence": "^2.2.1"
   },
   "repository": {

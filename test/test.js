@@ -1,12 +1,35 @@
-/* eslint-disable node/no-deprecated-api */
 /* eslint-disable no-undef */
-var assert = require('assert')
+/* eslint-disable no-unused-vars */
+var assert = require('chai').assert
+var expect = require('chai').expect
 
-describe('Basic Mocha String Test', function () {
-  it('should return number of charachters in a string', function () {
-    assert.equal('Hello'.length, 5)
+var testFunction = function (lanAttr) {
+  if (lanAttr === 'en') {
+  // phrase.textContent = "Hello world " //+ core_hello_tag.textContent;
+    return 'Hello World'
+  } else if (lanAttr === 'ko') {
+    // phrase.textContent = "안녕하세요 " //+ core_hello_tag.textContent;
+    return '안녕하세요'
+  } else if (lanAttr === 'ja') {
+    // phrase.textContent = "こんにちは " //+ core_hello_tag.textContent;
+    return 'こんにちは'
+  } else {
+    // phrase.textContext = "Unknown Language!"; //It only supports three languages; English, Korean, Japanese
+    return 'Unknown Language'
+  }
+}
+
+describe('Language Tests', function () {
+  it('English Test', function () {
+    assert.equal('Hello World', testFunction('en'))
   })
-  it('should return first charachter of the string', function () {
-    assert.equal('Hello'.charAt(0), 'H')
+  it('Korean Test', function () {
+    assert.equal('안녕하세요', testFunction('ko'))
+  })
+  it('Japanese Test', function () {
+    assert.equal('こんにちは', testFunction('ja'))
+  })
+  it('English Test', function () {
+    assert.equal('Unknown Language', testFunction(''))
   })
 })
