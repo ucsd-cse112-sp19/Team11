@@ -1,12 +1,33 @@
 language: node_js
+
 node_js:
-  - "stable"
+
+  - "9"
+
+dist: trusty
+
+sudo: false  
+
+addons:
+
+  chrome: stable
+
+before_install:
+
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+
 cache:
-  directoies:
-    - "node_modules"
+
+  yarn: true
+
+  directories:
+
+    - node_modules
+
+install:
+
+  - yarn install
 
 script:
-  - npm run lint
-  - npm test tests/
- 
-after_success: documentation build src/** -f html -o docs
+
+  - yarn test
