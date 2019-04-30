@@ -18,7 +18,7 @@
   },
   "scripts": {
     "lint": "eslint src/*.js",
-    "test": "testcafe chrome,firefox tests", 
+    "test-mocha": "mocha --exit --timeout 5000",
     "local-test": "testcafe chrome test/cafeTest.js",
     "browser-test":"testcafe chrome,firefox test/cafeTest.js",
     "gulp": "^4.0.1",
