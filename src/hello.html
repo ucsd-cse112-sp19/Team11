@@ -8,6 +8,30 @@
 <core-hello> gary </core-hello>
 <core-hello lang="en" rainbow> GILLESPIE </core-hello>
 
+<style>
+    
+core-hello[lang = "en"] {
+    font-size: 40px;
+    font-family: "Arial Black",sans-serif, fantasy;
+    }
+
+core-hello[lang = "ko"] {
+    font-size: 50px;
+    font-family: "Comic Sans Ms", cursive, sans-serif;
+    }
+    
+core-hello[lang = "ja"] {
+    font-size: 20px;
+    font-family: Georgia, serif;
+    }
+    
+core-hello {
+    font-size: 10px;
+    font-family: cursive;
+    }
+    
+</style>
+    
 <script>
 //to access the correct core-hello element if there are multiple
 var which_element = 0;
