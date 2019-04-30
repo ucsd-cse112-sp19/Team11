@@ -18,13 +18,15 @@
   },
   "scripts": {
     "lint": "eslint src/*.js",
-    "test": "testcafe chrome,firefox tests", 
-    "local-test": "testcafe chrome tests",
+    "test": "testcafe chrome,firefox test", 
+    "local-test": "testcafe chrome test/cafeTest.js",
     "gulp": "^4.0.1",
     "gulp-documentation": "^3.2.1",
     "gulp-uglify": "^3.0.2",
     "gulp4-run-sequence": "^0.3.2",
     "mocha": "^6.1.4",
+    "puppeteer": "^1.15.0",
+    "showroom": "^0.9.3",
     "run-sequence": "^2.2.1"
   },
   "repository": {
