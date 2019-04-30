@@ -27,7 +27,6 @@ cache:
 
 script:
   - npm run lint
-  - npm run showroom
   - npm run test-mocha
   - npm run browser-test
   
