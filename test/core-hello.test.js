@@ -1,8 +1,9 @@
+/* eslint-disable no-undef */
+/* eslint-disable node/no-deprecated-api */
 const showroom = require('showroom/puppeteer')()
 const assert = require('assert')
 
 describe('core-hello', () => {
-
   before(async () => {
     await showroom.start()
   })
@@ -21,7 +22,7 @@ describe('core-hello', () => {
       const text = await showroom.getTextContent(innerSpan)
       assert.equal(text, 'New Message')
     })
-  
+
     it('Should dispatch event when message is updated', async () => {
       await showroom.setAttribute('message', 'New Message')
       const events = await showroom.getEventList()
@@ -59,8 +60,8 @@ describe('core-hello', () => {
   })
 
   it('Should say hello to the name', async () => {
-    //TODO find out how to pull textcontent of <core-hello> to test against
-    //should say "Hello World <name>"
+    // TODO find out how to pull textcontent of <core-hello> to test against
+    // should say "Hello World <name>"
   })
 
   it('Font size should be 16 by default', async () => {
@@ -74,6 +75,4 @@ describe('core-hello', () => {
     const changed = await showroom.getAttribute('font-size')
     assert.notEqual(unchanged, changed)
   })
-
-
 })
