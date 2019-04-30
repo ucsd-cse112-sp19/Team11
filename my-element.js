@@ -1,4 +1,4 @@
-// I had to install Node.js in order to have access to npm and install the lit-element base class
+// We need to re-install node in our repo because we don't have all the packages we need: lit-element is missing
 // I then import this base class before extending it
 
 import { LitElement, html } from 'lit-element';
