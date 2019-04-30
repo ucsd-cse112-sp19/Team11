@@ -5,19 +5,29 @@ import { Selector } from 'testcafe'
 fixture`Getting Started`
   .page`https://ucsd-cse112.github.io/Team11/`
 
-test('My first wee baby test', async t => {
+test('test attribute rainbow', async t => {
   const coreHello = await Selector('core-hello')
-  const p = await Selector('#hello')
+  // const p = await Selector('#hello')
   await t
-    // .typeText('#developer-name', 'John Smith')
-    // .typeText('#comments', 'helllo I hope dis works or else im totally lost')
-    // .click('#submit-button')
-    // helloWorld = Selector('.core-hello').exists
-    .expect(coreHello.exists).eql(true)//works
-    .expect(coreHello.hasAttribute('rainbow')).eql(true)//works
-    .expect(p.exists).eql(true)//broke 
-    .expect(coreHello.hasAttribute('blackpink')).eql(true)//broke 
+    // .expect(coreHello.exists).eql(true)//works
+    .expect(coreHello.hasAttribute('rainbow')).eql(true)
+    // .expect(p.exists).eql(true)
+    // v.expect(coreHello.hasAttribute('blackpink')).eql(true)
     // .expect(Selector('#shadow-root').innerText).eql('Hello world blackpink')
     // const articleHeader = await Selector('.result-content').find('h1')
     // let headerText = await articleHeader.innerText
+})
+
+test('test if core-hello element exists', async t => {
+  const coreHello = await Selector('core-hello')
+  await t
+    .expect(coreHello.exists).eql(true)
+})
+
+test('Testing input for component', async t => {
+  await Selector('core-hello')
+  const p = await Selector(() => document.querySelector('core-hello').shadowRoot.querySelector('#hello'))
+  await t
+    .expect(p.exists).eql(true)
+    .expect(p.innerText).eql('Hello world blackpink')
 })

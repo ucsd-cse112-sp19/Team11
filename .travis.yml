@@ -28,5 +28,6 @@ cache:
 script:
   - npm run lint
   - npm test tests/
+  - npm run browser-test
  
 after_success: gulp
