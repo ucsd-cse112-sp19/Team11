@@ -20,7 +20,7 @@
     "lint": "eslint src/*.js",
     "test-mocha": "mocha --exit --timeout 5000 test/core-hello.test.js",
     "local-test": "testcafe chrome test/cafeTest.js",
-    "browser-test":"testcafe chrome,firefox test/cafeTest.js",
+    "browser-test": "testcafe chrome,firefox test/cafeTest.js",
     "gulp": "^4.0.1",
     "gulp-documentation": "^3.2.1",
     "gulp-uglify": "^3.0.2",
