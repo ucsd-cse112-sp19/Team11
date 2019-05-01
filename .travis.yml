@@ -22,7 +22,7 @@ before_script:
   - fluxbox >/dev/null 2>&1 &
 
 cache:
-  directoies:
+  directories:
     - "node_modules"
 
 script:
