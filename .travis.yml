@@ -39,8 +39,8 @@ matrix:
       
       script:
         - npm run lint
-        - npm run test-mocha
-        - npm run browser-test
+        - istanbul cover npm run test-mocha -- -R spec
+        - istanbul cover npm run browser-test -- - R spec
       
  #  - language: ruby
  #     rvm:

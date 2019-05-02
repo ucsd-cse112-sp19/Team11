@@ -4,7 +4,8 @@
   "description": "",
   "main": "test.js",
   "dependencies": {
-    "chai": "^4.2.0"
+    "chai": "^4.2.0",
+    "istanbul": "^0.4.5"
   },
   "devDependencies": {
     "del": "^4.1.1",
