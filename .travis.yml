@@ -14,7 +14,7 @@ matrix:
       sudo: required
 
       addons:
-        code_climage: 
+        code_climate: 
           repo_token: 56b4d0bd7e39c085bacccf8b63492ace01b88f1032c1853737145fc658290c27
         firefox: latest
         apt:
