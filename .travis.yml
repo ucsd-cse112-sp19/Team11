@@ -1,3 +1,6 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=56b4d0bd7e39c085bacccf8b63492ace01b88f1032c1853737145fc658290c27
 matrix:
   include:
     - language: node_js
