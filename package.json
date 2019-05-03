@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "test.js",
-  "dependencies": {},
+  "dependencies": {
+    "lit-element": "^2.1.0"
+  },
   "devDependencies": {
     "del": "^4.1.1",
     "documentation": "^10.1.0",
