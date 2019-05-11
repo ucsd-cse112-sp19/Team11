@@ -13,7 +13,6 @@ template.innerHTML = `
     }
 </style>
 <button> Im a Button </button>
-<h1> helllo <h1> 
 `;
 
 
@@ -42,17 +41,19 @@ class BeerButton extends HTMLElement{
          * }
          * 
          */
-        
-        this.$beerButton.addEventListener('click', this.linkFunction.bind(this));
-    }
-     
+        if(this.hasAttribute('link')){
+            this.$beerButton.addEventListener('click', this.linkFunction.bind(this));
+        }
+    }     
     /**
      * @description : Takes a link and when the button is clicked will navigate the browser to the new link
-     * @param userLink : the link that the user provides
      * @return : void
      */
     linkFunction(){
-        this.$findh1.innerHTML = "hello suicide team";
+        //this first pat grabs the value of link 
+        var linkValue = this.getAttribute('link');
+        //second part navigates the browser to a new webpage
+        window.location.href = linkValue;
     }
 }
 
