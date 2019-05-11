@@ -25,20 +25,11 @@ class BeerButton extends HTMLElement{
         this.$beerButton = this._shadowRoot.querySelector('button');
         
         
-        //Observation I think were going to need some kinda if statment here where we check an attribute to see which
-        //kinda button our user wants to use some pseudo code
-        /**
-         * if (attribute == link){
-         *  execute link code;
-         * }
-         * else if (attribute == increment/decrement){
-         *  execute code to increment or decrement
-         * }
-         * else if(attribute == maybe just maybe we can take in a function from the user hmmmmmmm, Ill think more on this){
-         *  execute code
-         * }
-         * 
-         */
+        
+        // else if(attribute == maybe just maybe we can take in a function from the user hmmmmmmm, Ill think more on this){
+        //  execute code
+        // }
+         
         if(!this.hasAttribute('disable')){
             if(this.hasAttribute('link')){
                 this.$beerButton.addEventListener('click', this.linkFunction.bind(this));
