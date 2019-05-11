@@ -52,9 +52,9 @@ class BeerButton extends HTMLElement{
      * @return : void
      */
     linkFunction(){
-        //this first pat grabs the value of link 
+        //grabs the value of link 
         var linkValue = this.getAttribute('link');
-        //second part navigates the browser to a new webpage
+        //navigates the browser to a new webpage
         window.location.href = linkValue;
     }
 }
