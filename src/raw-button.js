@@ -41,8 +41,10 @@ class BeerButton extends HTMLElement{
          * }
          * 
          */
-        if(this.hasAttribute('link')){
-            this.$beerButton.addEventListener('click', this.linkFunction.bind(this));
+        if(!this.hasAttribute('disable')){
+            if(this.hasAttribute('link')){
+                this.$beerButton.addEventListener('click', this.linkFunction.bind(this));
+            }
         }
     }     
     /**
