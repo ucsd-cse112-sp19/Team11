@@ -22,8 +22,6 @@ class BeerButton extends HTMLElement{
         this._shadowRoot = this.attachShadow({'mode' : 'open'});
         //this is the piece of code that takes all that html stuff up top and makes it visible
         this._shadowRoot.appendChild(template.content.cloneNode(true));
-
-        this.$findh1 = this._shadowRoot.querySelector('h1');
         this.$beerButton = this._shadowRoot.querySelector('button');
         
         
@@ -45,6 +43,17 @@ class BeerButton extends HTMLElement{
             if(this.hasAttribute('link')){
                 this.$beerButton.addEventListener('click', this.linkFunction.bind(this));
             }
+            else if(this.hasAttribute('increment')){
+                this.inc = true;
+              
+                this.$beerButton.addEventListener('click', this.incrementDecrementFunction.bind(this));
+            }
+            else if(this.hasAttribute('decrement')){
+                this.inc = false;
+
+                this.$beerButton.addEventListener('click', this.incrementDecrementFunction.bind(this));
+            }
+
         }
     }     
     /**
@@ -54,8 +63,49 @@ class BeerButton extends HTMLElement{
     linkFunction(){
         //grabs the value of link 
         var linkValue = this.getAttribute('link');
+        if( linkValue.length <= 0 ){
+            console.log( "Invalid Link" );
+        }
+        else{
         //navigates the browser to a new webpage
         window.location.href = linkValue;
+        }
+    }
+
+    /**
+     * @description: Function that allows the user to increment a selected field 
+     * @param value: boolean when true increments when false decrements
+     * @returns: void 
+     */
+    incrementDecrementFunction(){
+        if(this.inc){
+            var incrementId = this.getAttribute('increment');
+            //check to see if the value not null
+            if( incrementId <= 0 ){
+                console.log( "Invalid input");
+            }
+            else{
+            //take the field and parse it into an integer and then perform the increment operation
+            //on that returned value and then set this as the new value 
+            var value = parseInt(document.getElementById(incrementId).value, 10);
+            value ++;
+            document.getElementById(incrementId).value = value;
+            }
+        }
+        else{
+            //grabs the attribute value
+            var decrementId = this.getAttribute('decrement');
+            //check to see if the value not null
+            if( decrementId <= 0 ){
+                console.log( "Invalid input");
+            }
+            //take the field and parse it into an integer and then perform the decrement operation
+            //on that returned value and then set this as the new value 
+            var value = parseInt(document.getElementById(decrementId).value, 10);
+            value --;
+            document.getElementById(decrementId).value = value;
+        }
+
     }
 }
 
