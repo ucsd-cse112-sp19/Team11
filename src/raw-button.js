@@ -10,6 +10,7 @@ template.innerHTML = `
     button {
         border: 2px solid;
         cursor: pointer;
+        background: white;
     }
 </style>
 <button> Im a Button </button>
@@ -46,6 +47,10 @@ class BeerButton extends HTMLElement{
             }
 
         }
+
+        if(this.hasAttribute('color')){
+            this.changeColorOfBackground();
+        }
     }     
     /**
      * @description : Takes a link and when the button is clicked will navigate the browser to the new link
@@ -58,8 +63,8 @@ class BeerButton extends HTMLElement{
             console.log( "Invalid Link" );
         }
         else{
-        //navigates the browser to a new webpage
-        window.location.href = linkValue;
+            //navigates the browser to a new webpage
+            window.location.href = linkValue;
         }
     }
 
@@ -97,6 +102,17 @@ class BeerButton extends HTMLElement{
             document.getElementById(decrementId).value = value;
         }
 
+    }
+    /**
+     * @description: Function that allows the user to change the background color of the button
+     * @param color: The string of the color
+     * @returns: void
+     */
+    changeColorOfBackground(){
+        // grab the attribute color
+        var color = this.getAttribute('color');
+        // Set the color
+        this._shadowRoot.querySelector('button').style.background = color;
     }
 }
 
