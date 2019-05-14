@@ -1,5 +1,16 @@
 import {LitElement, html, css} from "https://unpkg.com/lit-element@2.0.1/lit-element.js?module";
 
+// Color of button depending on type attribute
+const types = [
+    {type: "primary", bgColor: "#409EFF"}, 
+    {type: "success", bgColor: "#67C23A"}, 
+    {type: "info",    bgColor: "#909399"}, 
+    {type: "warning", bgColor: "#F4A338"}, 
+    {type: "danger",  bgColor: "#F56C6C"}
+];
+
+// filter: brightness(85%);
+
 class BeerButtonLit extends LitElement {
     static get properties() {
         return {
@@ -25,13 +36,17 @@ class BeerButtonLit extends LitElement {
             loading: {
                 type: Boolean,
                 reflect: true
+            },
+            mainColor: {
+                type: String
             }
         };
     }
+
     constructor() {
         super();
         this.type = ""; // Default
-        this.text = "Click Me";
+        this.text = "Default";
         this.size = "";
         this.disabled = false;
         this.loading = false;
@@ -43,18 +58,46 @@ class BeerButtonLit extends LitElement {
         display: block;
         font-family: sans-serif;
       }
+
+      /* Default button styling */
       button {
         cursor: pointer;
-        border: none;
-        background-color: salmon;
+        border: 1px solid #DCDFE6;
+        border-radius: 0.3rem;
+        background-color: white;
+        padding: 0.8rem 1rem;
+        margin: 0.2rem;
+        color: #60627D;
       }
+
+      button:hover {
+          border: 1px solid #CAE4FF;
+          background-color: #ECF5FF;
+          color: #409EFF;
+          transition: 0.05s;
+      }
+      
     `;
     }
 
+
     render() {
+        var isDefault = this.type === "";
+        var typesItem = types.find((elem) => {
+            return elem.type === this.type;
+        });
+
+        if(!isDefault) {
+            var style_background = "background-color:" + typesItem.bgColor + ";";
+            var style_border     = "border:none;";
+            var style_textColor  = "color:white;";
+        }
+
         return html`
-      <button>${this.text}</button>
-    `;
+        <button style=${!isDefault? style_background + style_border + style_textColor: ""}>
+        ${this.text}
+        </button>
+        `;
     }
 }
 customElements.define("beer-button-lit", BeerButtonLit);
