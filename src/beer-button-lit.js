@@ -123,7 +123,7 @@ class BeerButtonLit extends LitElement {
 
     /**
      * Returns string representing CSS classes this web
-     *  component will have
+     * component will have
      */
     _getClass() {
         let _class = "";
@@ -142,35 +142,47 @@ class BeerButtonLit extends LitElement {
         return _class;
     }
 
-
-    render() {
+    /**
+     * Returns string representing CSS style this web
+     * component will have
+     */
+    _getStyle() {
+        let _style = "";
         var isDefault = this.type === ""; // Check to see if type is default
+
         // Find the corresponding type to select appropriate button color
         if(!isDefault) {
-            var typesItem = types.find((elem) => {
-                var match = elem.type === this.type;
+            let typesItem = types.find((elem) => {
+                let match = elem.type === this.type;
                 this.text = this.type;
                 return match;
             });
 
             // Generate appropriate style string
-            var style_background = "background-color:" + typesItem.bgColor + ";";
-            var style_border     = "border:none;";
-            var style_textColor  = "color:white;";
+            let style_background = "background-color:" + typesItem.bgColor + ";";
+            let style_border     = "border:none;";
+            let style_textColor  = "color:white;";
+
+            _style = style_background + style_border + style_textColor;
+            return _style;
         }
+    }
+
+
+    render() {
 
         // If the loading attribute is set to true, render custom html
         if(this.loading){
             return html`
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <button class=${this._getClass()} style=${!isDefault ? style_background + style_border + style_textColor: ""}>
+            <button class=${this._getClass()} style=${this._getStyle()}>
             <i class="fa fa-spinner fa-spin"></i>Loading
             </button>
             `;
         }
 
         return html`
-        <button class=${this._getClass()} style=${!isDefault ? style_background + style_border + style_textColor: ""}>
+        <button class=${this._getClass()} style=${this._getStyle()}>
         ${this.text}
         </button>
         `;
