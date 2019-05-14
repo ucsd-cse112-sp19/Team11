@@ -17,8 +17,6 @@ template.innerHTML = `
 class BeerButton extends HTMLElement {
     constructor() {
         super();
-        const main = document.querySelector("main");
-        
         this._shadowRoot = this.attachShadow({"mode" : "open"});
         
         // this is the piece of code that takes all that html stuff up top and makes 
@@ -27,19 +25,10 @@ class BeerButton extends HTMLElement {
         this.$beerButton = this._shadowRoot.querySelector("button");
         this.$rawButton = document.querySelector("beer-button");
         
-        // TODO when we get the ID functionality working this should get moved into a 
-        // function 
-        if(this.$rawButton.innerHTML.length > 0){
-            console.log(this.$rawButton.innerHTML);
-            console.log(this.$beerButton.innerHTML);
-            this.$beerButton.innerHTML = this.$rawButton.innerHTML;
+        if(this.hasAttribute("id")){
+            this.setButtonName(this.getAttribute("id"));
         }
-        
-        // else if(attribute == maybe just maybe we can take in a function from 
-        //  the user hmmmmmmm, Ill think more on this){
-        //  execute code
-        // }
-        // TODO DELETE THE ABOVE COMMENTS BEFORE MERGING TO DEV!!!
+
         if(!this.hasAttribute("disable")){
             if(this.hasAttribute("link")){
                 this.$beerButton.addEventListener("click", this.linkFunction.bind(this));
@@ -63,6 +52,24 @@ class BeerButton extends HTMLElement {
     } 
 
     /**
+     * @description Function that allows the use to set the buttons name bassed on the
+     * value of the inner html
+     * @param buttonId the Id for a specific button
+     * @retun void 
+     */
+    setButtonName(buttonId){
+        //grabs the correct button that corresponds with the Id
+        var $id = document.getElementById(buttonId);
+        if($id.innerHTML.length > 0){
+            console.log($id.innerHTML);
+            this.$beerButton.innerHTML= $id.innerHTML;
+        }
+        else{
+            throw "no Name provided";
+        }
+    }
+
+    /**
      * @description: Takes a script and function then loads the function from 
      * the script so that it can be used with the button
      * @return void
@@ -71,19 +78,21 @@ class BeerButton extends HTMLElement {
         var scriptName = this.getAttribute("script")
         var functionName = this.getAttribute("functionName")  
         if(scriptName.length > 0){
-            import(scriptName).then(script =>{
-                if(functionName.length > 0 ){
-                    //script.loadPageInto(this.main);
-                    script[functionName]();
-                }
-                else{
-                    throw "FunctionName cant be null";
-                }
-            });
+            try{
+                import(scriptName).then(script =>{
+                    if(functionName.length > 0 ){
+                        //script.loadPageInto(this.main);
+                        script[functionName]();
+                    }
+                    else{
+                        throw "FunctionName cant be null";
+                    }
+                });
+            }
+            catch(err){
+                err.message;
+            } 
         }
-        else{
-            throw "Script cant be null"; 
-         }  
     }
         
     /**
@@ -95,7 +104,7 @@ class BeerButton extends HTMLElement {
         // grabs the value of link 
         var linkValue = this.getAttribute("link");
         if( linkValue.length <= 0 ){
-            console.log( "Invalid Link" );
+            throw "Invalid Link";
         }
         else{
         // navigates the browser to a new webpage
@@ -114,7 +123,7 @@ class BeerButton extends HTMLElement {
             var incrementId = this.getAttribute("increment");
             // check to see if the value not null
             if( incrementId <= 0 ){
-                console.log( "Invalid input");
+                throw "Invalid input";
             }
             else{
             // take the field and parse it into an integer and then perform the 
@@ -130,7 +139,7 @@ class BeerButton extends HTMLElement {
             var decrementId = this.getAttribute("decrement");
             // check to see if the value not null
             if( decrementId <= 0 ){
-                console.log( "Invalid input");
+                throw "Invalid input";
             }
             // take the field and parse it into an integer and then perform 
             // the decrement operationon that returned value and then set this 
