@@ -14,6 +14,7 @@
     },
     "rules": {
 	"space-before-function-paren": ["error", "never"],
+	"spaced-comment": ["error", "always"],
 	"comma-spacing": ["error"],
 	"no-unused-vars": "off", 
 	"no-console": "off",
