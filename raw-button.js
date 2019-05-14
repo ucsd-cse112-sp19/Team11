@@ -28,6 +28,15 @@ class BeerButton extends HTMLElement {
         if(this.hasAttribute("id")){
             this.setButtonName(this.getAttribute("id"));
         }
+        
+        
+       
+        if(this.hasAttribute("newStyle")){
+            var Style = document.createElement("link");
+            this._shadowRoot.appendChild(Style);
+            this.setStyle(Style, this.getAttribute("newStyle"), this.getAttribute("id"));
+        }
+        
 
         if(!this.hasAttribute("disable")){
             if(this.hasAttribute("link")){
@@ -61,12 +70,22 @@ class BeerButton extends HTMLElement {
         //grabs the correct button that corresponds with the Id
         var $id = document.getElementById(buttonId);
         if($id.innerHTML.length > 0){
-            console.log($id.innerHTML);
             this.$beerButton.innerHTML= $id.innerHTML;
         }
         else{
-            throw "no Name provided";
+            console.log( "no Name provided");
         }
+    }
+   
+    /**
+     * @description: Function that allows for a custom style sheet to be applied
+     * @param {string} style 
+     * @param {string} buttonId 
+     */
+    setStyle(Style, newStyle){
+        Style.setAttribute("rel", "stylesheet");
+        Style.setAttribute("href", newStyle);
+        Style.setAttribute("type", "text/css");
     }
 
     /**
