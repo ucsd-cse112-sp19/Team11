@@ -19,10 +19,10 @@ template.innerHTML = `
 class BeerButton extends HTMLElement{
     constructor() {
         super();
-        this._shadowRoot = this.attachShadow({'mode' : 'open'});
-        //this is the piece of code that takes all that html stuff up top and makes it visible
+        this._shadowRoot = this.attachShadow({"mode" : "open"});
+        // this is the piece of code that takes all that html stuff up top and makes it visible
         this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.$beerButton = this._shadowRoot.querySelector('button');
+        this.$beerButton = this._shadowRoot.querySelector("button");
         
         
         
@@ -30,19 +30,19 @@ class BeerButton extends HTMLElement{
         //  execute code
         // }
          
-        if(!this.hasAttribute('disable')){
-            if(this.hasAttribute('link')){
-                this.$beerButton.addEventListener('click', this.linkFunction.bind(this));
+        if(!this.hasAttribute("disable")){
+            if(this.hasAttribute("link")){
+                this.$beerButton.addEventListener("click", this.linkFunction.bind(this));
             }
-            else if(this.hasAttribute('increment')){
+            else if(this.hasAttribute("increment")){
                 this.inc = true;
               
-                this.$beerButton.addEventListener('click', this.incrementDecrementFunction.bind(this));
+                this.$beerButton.addEventListener("click", this.incrementDecrementFunction.bind(this));
             }
-            else if(this.hasAttribute('decrement')){
+            else if(this.hasAttribute("decrement")){
                 this.inc = false;
 
-                this.$beerButton.addEventListener('click', this.incrementDecrementFunction.bind(this));
+                this.$beerButton.addEventListener("click", this.incrementDecrementFunction.bind(this));
             }
 
         }
@@ -52,14 +52,14 @@ class BeerButton extends HTMLElement{
      * @return : void
      */
     linkFunction(){
-        //grabs the value of link 
-        var linkValue = this.getAttribute('link');
+        // grabs the value of link 
+        var linkValue = this.getAttribute("link");
         if( linkValue.length <= 0 ){
             console.log( "Invalid Link" );
         }
         else{
-        //navigates the browser to a new webpage
-        window.location.href = linkValue;
+        // navigates the browser to a new webpage
+            window.location.href = linkValue;
         }
     }
 
@@ -69,30 +69,31 @@ class BeerButton extends HTMLElement{
      * @returns: void 
      */
     incrementDecrementFunction(){
+        var value;
         if(this.inc){
-            var incrementId = this.getAttribute('increment');
-            //check to see if the value not null
+            var incrementId = this.getAttribute("increment");
+            // check to see if the value not null
             if( incrementId <= 0 ){
                 console.log( "Invalid input");
             }
             else{
-            //take the field and parse it into an integer and then perform the increment operation
-            //on that returned value and then set this as the new value 
-            var value = parseInt(document.getElementById(incrementId).value, 10);
-            value ++;
-            document.getElementById(incrementId).value = value;
+            // take the field and parse it into an integer and then perform the increment operation
+            // on that returned value and then set this as the new value 
+                value = parseInt(document.getElementById(incrementId).value, 10);
+                value ++;
+                document.getElementById(incrementId).value = value;
             }
         }
         else{
-            //grabs the attribute value
-            var decrementId = this.getAttribute('decrement');
-            //check to see if the value not null
+            // grabs the attribute value
+            var decrementId = this.getAttribute("decrement");
+            // check to see if the value not null
             if( decrementId <= 0 ){
                 console.log( "Invalid input");
             }
-            //take the field and parse it into an integer and then perform the decrement operation
-            //on that returned value and then set this as the new value 
-            var value = parseInt(document.getElementById(decrementId).value, 10);
+            // take the field and parse it into an integer and then perform the decrement operation
+            // on that returned value and then set this as the new value 
+            value = parseInt(document.getElementById(decrementId).value, 10);
             value --;
             document.getElementById(decrementId).value = value;
         }
@@ -100,4 +101,4 @@ class BeerButton extends HTMLElement{
     }
 }
 
-window.customElements.define('beer-button', BeerButton)
+window.customElements.define("beer-button", BeerButton);

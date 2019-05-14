@@ -13,7 +13,7 @@
         "ecmaVersion": 2018
     },
     "rules": {
-	"space-before-function-paren": ["error", "never"],
+    "space-before-function-paren": ["error", "never"],    
 	"spaced-comment": ["error", "always"],
 	"comma-spacing": ["error"],
 	"no-unused-vars": "off", 
