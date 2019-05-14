@@ -7,8 +7,7 @@ matrix:
       node_js:
       - "stable"
       before_install:
-        - stty cols 80
-      
+        - stty cols 80     
       
       dist: trusty
       sudo: required
