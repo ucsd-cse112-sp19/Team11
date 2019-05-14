@@ -30,7 +30,7 @@
     "uglify-es": "^3.3.9"
   },
   "scripts": {
-    "lint": "eslint src/*.js",
+    "lint": "eslint src/**/*.js",
     "test-mocha": "mocha test/test.js",
     "local-test": "testcafe chrome test/cafeTest.js",
     "browser-test": "testcafe chrome,firefox test/cafeTest.js",

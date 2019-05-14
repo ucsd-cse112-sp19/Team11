@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
 var assert = require("assert");
-var beer = require("../src/raw-button.js")
-
+var beer = require("../src/raw-button.js");
 
 describe("raw-button", function() {
     describe("increment", function() {
