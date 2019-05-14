@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import {Selector} from "testcafe";
 fixture `Getting Started`
-    .page `http://localhost:5500/src/Raw-Button/incrementTest.html`;
+    .page `https://ucsd-cse112.github.io/Team11/incrementTest.html`;
 
 /**
  * Once id's are implemented, will need to refactor the code to select proper
