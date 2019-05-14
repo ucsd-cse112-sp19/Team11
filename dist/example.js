@@ -1,0 +1,1 @@
+function addOne(n){return n+1}function addTwo(n){return n+2}function minusOne(n){return n-1}
