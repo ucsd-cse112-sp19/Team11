@@ -25,6 +25,14 @@ class BeerButtonLit extends LitElement {
       loading: {
         type: Boolean,
         reflect: true
+      },
+      round: {
+        type: Boolean,
+        reflect: true
+      },
+      circle: {
+        type: Boolean,
+        reflect: true
       }
     }
   }
@@ -35,6 +43,8 @@ class BeerButtonLit extends LitElement {
     this.size = ''
     this.disabled = false
     this.loading = false
+    this.round = false
+    this.circle = false
   }
 
   static get styles () {
@@ -48,12 +58,32 @@ class BeerButtonLit extends LitElement {
         border: none;
         background-color: salmon;
       }
+      .round {
+        border-radius: 15px;
+      }
+      .circle {
+        border-radius: 50%;
+      }
     `
+  }
+
+  _getClass() {
+    let _class = '';
+  
+    if(this.round) {
+      _class += 'round ';
+    }
+
+    if(this.circle) {
+      _class += 'circle ';
+    }
+
+    return _class;
   }
 
   render () {
     return html`
-      <button>${this.text}</button>
+      <button class=${this._getClass()}>${this.text}</button>
     `
   }
 }
