@@ -68,7 +68,7 @@ class BeerButtonLit extends LitElement {
         if(loading_attr == ""){
             this.loading = true;
             this.disabled = true;
-            this.text = "Loading";
+            this.text = "Loading"; //this is setting the text of every button to Loading
         }
 
         this.loading = false;
@@ -164,7 +164,7 @@ class BeerButtonLit extends LitElement {
         }
 
         return html`
-        <button class=${this._getCLass()} style=${!isDefault ? style_background + style_border + style_textColor: ""}>
+        <button class=${this._getClass()} style=${!isDefault ? style_background + style_border + style_textColor: ""}>
         ${this.text}
         </button>
         `;
