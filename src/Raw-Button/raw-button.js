@@ -1,4 +1,4 @@
-const template = document.createElement( "template" );
+const template = document.createElement("template");
 template.innerHTML = `
 <style>
     :host{
@@ -14,39 +14,37 @@ template.innerHTML = `
 </style>
 <button> Im a Button </button>
 `;
-
-
-class BeerButton extends HTMLElement{
+class BeerButton extends HTMLElement {
     constructor() {
         super();
         this._shadowRoot = this.attachShadow({"mode" : "open"});
+        
         // this is the piece of code that takes all that html stuff up top and makes it visible
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.$beerButton = this._shadowRoot.querySelector("button");
         
-        
-        
         // else if(attribute == maybe just maybe we can take in a function from the user hmmmmmmm, Ill think more on this){
         //  execute code
         // }
-         
         if(!this.hasAttribute("disable")){
             if(this.hasAttribute("link")){
                 this.$beerButton.addEventListener("click", this.linkFunction.bind(this));
             }
             else if(this.hasAttribute("increment")){
+                // checks a value as true to be used when the incremenetDecrement Function is called
+                // Then adds a listioner for a click which calls the function
                 this.inc = true;
-              
                 this.$beerButton.addEventListener("click", this.incrementDecrementFunction.bind(this));
             }
             else if(this.hasAttribute("decrement")){
+                // checks a value as true to be used when the incremenetDecrement Function is called
+                // Then adds a listioner for a click which calls the function
                 this.inc = false;
-
                 this.$beerButton.addEventListener("click", this.incrementDecrementFunction.bind(this));
             }
-
         }
-    }     
+    } 
+        
     /**
      * @description : Takes a link and when the button is clicked will navigate the browser to the new link
      * @return : void
@@ -97,7 +95,6 @@ class BeerButton extends HTMLElement{
             value --;
             document.getElementById(decrementId).value = value;
         }
-
     }
 }
 
