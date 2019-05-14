@@ -20,19 +20,11 @@ if(!LOCAL_DEV) {
 
 const getPageURL = ClientFunction( () => window.location.href );
 
-// const linkBeer = Selector("#link-beer");
+const linkBeer = Selector("#link-beer");
 const incBeer = Selector("#increment-beer");
 const decBeer = Selector("#decrement-beer");
 const disableBeer = Selector("#disabled-beer");
 
-
-/*
-test("Button link should redirect to new location", async t => {    
-    await t
-        .click(rawBeer)
-        .expect(getPageURL()).contains("/test.html");
-});
-*/
 
 test("Disbale button should not let the button do anything", async t => {
     const box = await Selector("#number");    
@@ -67,4 +59,11 @@ test("Test click decrements the value", async t => {
     await t
         .click(decBeer).click(decBeer).click(decBeer)
         .expect(box.value).eql("-3");
+});
+
+
+test("Button link should redirect to new location", async t => {    
+    await t
+        .click(linkBeer)
+        .expect(getPageURL()).contains("/test.html");
 });
