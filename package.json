@@ -4,8 +4,7 @@
   "description": "",
   "main": "test.js",
   "dependencies": {
-    "chai": "^4.2.0",
-    "lit-element": "^2.1.0"
+    "chai": "^4.2.0"
   },
   "devDependencies": {
     "del": "^4.1.1",
@@ -16,6 +15,7 @@
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
+    "lit-element": "^2.1.0",
     "mocha": "^6.1.4",
     "testcafe": "^1.1.3"
   },

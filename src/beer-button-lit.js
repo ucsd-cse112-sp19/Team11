@@ -1,86 +1,134 @@
-import { LitElement, html, css } from 'https://unpkg.com/lit-element@2.0.1/lit-element.js?module'
+import {LitElement, html, css} from "https://unpkg.com/lit-element@2.0.1/lit-element.js?module";
+
+// Color of button depending on type attribute
+const types = [
+    {type: "primary", bgColor: "#409EFF"}, 
+    {type: "success", bgColor: "#67C23A"}, 
+    {type: "info",    bgColor: "#909399"}, 
+    {type: "warning", bgColor: "#F4A338"}, 
+    {type: "danger",  bgColor: "#F56C6C"}
+];
+
+// filter: brightness(85%);
 
 class BeerButtonLit extends LitElement {
-
-  static get properties () {
-    return {
-      type: {
-        type: String,
-        reflect: true
-      },
-      text: {
-        type: String,
-        reflect: true // true if we are reflecting the property to an attribute
-        // Example: We can even specify how we want attributes to be reflected
-        // attribute: todo
-        // <to-do-item todo="Finish blog"></to-do-item>
-      },
-      size: {
-        type: String, // Accepted values: medium, small, mini
-        reflect: true
-      },
-      disabled: {
-        type: Boolean,
-        reflect: true
-      },
-      loading: {
-        type: Boolean,
-        reflect: true
-      }
+    static get properties() {
+        return {
+            type: {
+                type: String,
+                reflect: true
+            },
+            text: {
+                type: String,
+                reflect: true // true if we are reflecting the property to an attribute
+                // Example: We can even specify how we want attributes to be reflected
+                // attribute: todo
+                // <to-do-item todo="Finish blog"></to-do-item>
+            },
+            size: {
+                type: String, // Accepted values: medium, small, mini
+                reflect: true
+            },
+            disabled: {
+                type: Boolean,
+                reflect: true
+            },
+            loading: {
+                type: Boolean,
+                reflect: true
+            },
+            mainColor: {
+                type: String
+            }
+        };
     }
-  }
 
-  static get styles () {
-    return css`
+    constructor() {
+        super();
+        this.type = ""; // Default
+        this.text = "Default";
+        this.size = "";
+        this.disabled = false;
+
+        // Checks if loading attribute exists
+        var beer_button_lit = document.getElementsByTagName("beer-button-lit").item(0);
+        var loading_attr = beer_button_lit.getAttribute("loading");
+
+        // loading attribute is present if var loading_attr is not null
+        if(loading_attr == ""){
+            this.loading = true;
+            this.disabled = true;
+            this.text = "Loading";
+        }
+
+        this.loading = false;
+    }
+
+    static get styles() {
+        return css`
       :host {
         display: block;
         font-family: sans-serif;
       }
+
+      /* Default button styling */
       button {
         cursor: pointer;
-        border: none;
-        background-color: salmon;
+        border: 1px solid #DCDFE6;
+        border-radius: 0.3rem;
+        background-color: white;
+        padding: 0.8rem 1rem;
+        margin: 0.2rem;
+        color: #60627D;
       }
+
+      button:hover {
+          border: 1px solid #CAE4FF;
+          background-color: #ECF5FF;
+          color: #409EFF;
+          transition: 0.05s;
+      }
+      
+      button.nonDefault:hover {
+        opacity: 0.8;
+        transition: 0.05s;
+    }
+
+      button:focus {
+          outline:none;
+      }
+      
     `;
-  }
-
-  constructor () {
-    super()
-    this.type = '' // Default
-    this.text = 'Click Me'
-    this.size = ''
-    this.disabled = false
-
-    //checks if loading attribute exists
-    var beer_button_lit = document.getElementsByTagName('beer-button-lit').item(0);
-    var loading_attr = beer_button_lit.getAttribute("loading");
-
-    //loading attribute is present if var loading_attr is not null
-    if(loading_attr == ""){
-      this.loading = true;
-      this.disabled = true;
-      this.text = "Loading";
     }
 
-    this.loading = false;
-  }
 
-  render () {
+    render() {
+        var isDefault = this.type === "";
+        var typesItem = types.find((elem) => {
+            return elem.type === this.type;
+        });
 
-    //if the loading attribute is set to true, render custom html
-    if(this.loading){
-      return html
-      `
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <button class="buttonload">
-      <i class="fa fa-spinner fa-spin"></i>Loading
-      </button>
-      `
+        if(!isDefault) {
+            var style_background = "background-color:" + typesItem.bgColor + ";";
+            var style_border     = "border:none;";
+            var style_textColor  = "color:white;";
+        }
+
+        // If the loading attribute is set to true, render custom html
+        if(this.loading){
+            return html`
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <button class="buttonload" class=${!isDefault ? "nonDefault" : ""} style=${!isDefault ? style_background + style_border + style_textColor: ""}>
+            <i class="fa fa-spinner fa-spin"></i>Loading
+            </button>
+            `;
+        }
+
+        return html`
+        <button class=${!isDefault ? "nonDefault" : ""} style=${!isDefault ? style_background + style_border + style_textColor: ""}>
+        ${this.text}
+        </button>
+        `;
     }
-    return html
-    `
-      <button>${this.text}</button>
-    `
-  }
 }
-customElements.define('beer-button-lit', BeerButtonLit)
+customElements.define("beer-button-lit", BeerButtonLit);
