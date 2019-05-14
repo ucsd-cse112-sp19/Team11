@@ -32,7 +32,7 @@ class BeerButtonLit extends LitElement {
     super()
     this.type = '' // Default
     this.text = 'Click Me'
-    this.size = ''
+    this.size = 'medium'
     this.disabled = false
     this.loading = false
   }
@@ -52,6 +52,21 @@ class BeerButtonLit extends LitElement {
   }
 
   render () {
+    if( this.size == 'medium') {
+        return html `
+        <button style="height: 150px; width: 150px">${this.text}</button>
+        `
+    }
+    if( this.size == 'small') {
+        return html `
+        <button style="height: 100px; width: 100px">${this.text}</button>
+        `
+    }
+    if( this.size == 'mini') {
+        return html `
+        <button style="height: 50px; width: 50px">${this.text}</button>
+        `
+    }
     return html`
       <button>${this.text}</button>
     `
