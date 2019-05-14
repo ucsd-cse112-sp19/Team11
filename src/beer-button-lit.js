@@ -77,6 +77,15 @@ class BeerButtonLit extends LitElement {
           transition: 0.05s;
       }
       
+      button.nonDefault:hover {
+        opacity: 0.8;
+        transition: 0.05s;
+    }
+
+      button:focus {
+          outline:none;
+      }
+      
     `;
     }
 
@@ -94,7 +103,7 @@ class BeerButtonLit extends LitElement {
         }
 
         return html`
-        <button style=${!isDefault? style_background + style_border + style_textColor: ""}>
+        <button class=${!isDefault ? "nonDefault" : ""} style=${!isDefault ? style_background + style_border + style_textColor: ""}>
         ${this.text}
         </button>
         `;
