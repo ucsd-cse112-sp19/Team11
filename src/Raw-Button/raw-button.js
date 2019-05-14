@@ -75,8 +75,8 @@ class BeerButton extends HTMLElement {
      * @return void
      */
     customFunction(){
-        var scriptName = this.getAttribute("script")
-        var functionName = this.getAttribute("functionName")  
+        var scriptName = this.getAttribute("script");
+        var functionName = this.getAttribute("functionName");  
         if(scriptName.length > 0){
             try{
                 import(scriptName).then(script =>{
