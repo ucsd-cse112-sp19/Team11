@@ -43,7 +43,8 @@ class BeerButton extends HTMLElement {
                 this.$beerButton.addEventListener("click", this.incrementDecrementFunction.bind(this));
             }
         }
-    }     
+    } 
+        
     /**
      * @description : Takes a link and when the button is clicked will navigate the browser to the new link
      * @return : void
