@@ -49,6 +49,18 @@ class BeerButtonLit extends LitElement {
         this.text = "Default";
         this.size = "";
         this.disabled = false;
+
+        // Checks if loading attribute exists
+        var beer_button_lit = document.getElementsByTagName("beer-button-lit").item(0);
+        var loading_attr = beer_button_lit.getAttribute("loading");
+
+        // loading attribute is present if var loading_attr is not null
+        if(loading_attr == ""){
+            this.loading = true;
+            this.disabled = true;
+            this.text = "Loading";
+        }
+
         this.loading = false;
     }
 
@@ -100,6 +112,16 @@ class BeerButtonLit extends LitElement {
             var style_background = "background-color:" + typesItem.bgColor + ";";
             var style_border     = "border:none;";
             var style_textColor  = "color:white;";
+        }
+
+        // If the loading attribute is set to true, render custom html
+        if(this.loading){
+            return html`
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <button class="buttonload" class=${!isDefault ? "nonDefault" : ""} style=${!isDefault ? style_background + style_border + style_textColor: ""}>
+            <i class="fa fa-spinner fa-spin"></i>Loading
+            </button>
+            `;
         }
 
         return html`
