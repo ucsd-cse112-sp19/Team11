@@ -83,9 +83,7 @@ class BeerButton extends HTMLElement {
         }
         else{
         throw "Script cant be null"; 
-         }
-           
-         
+         }  
     }
         
     /**
