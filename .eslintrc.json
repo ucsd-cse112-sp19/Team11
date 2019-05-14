@@ -14,14 +14,15 @@
         "sourceType": "module"
     },
     "rules": {
-    "space-before-function-paren": ["error", "never"],
-    "comma-spacing": ["error"],
-    "no-unused-vars": "off", 
-    "no-console": "off",
+	"space-before-function-paren": ["error", "never"],
+	"spaced-comment": ["error", "always"],
+	"comma-spacing": ["error"],
+	"no-unused-vars": "off", 
+	"no-console": "off",
         "indent": ["error", 4],
         "quotes": ["error", "double"],
-        "semi": ["error", "always"], 
-    "object-curly-spacing": ["error", "never"],
-    "array-bracket-spacing": ["error", "never"]
+        "semi": ["error", "always"],
+	"object-curly-spacing": ["error", "never"],
+	"array-bracket-spacing": ["error", "never"]
     }
 }
