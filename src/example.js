@@ -4,8 +4,8 @@
  * @param {number} input any number
  * @returns {number} that number, plus one
  */
-function addOne (input) {
-  return input + 1
+function addOne(input) {
+    return input + 1;
 }
 
 /**
@@ -13,8 +13,8 @@ function addOne (input) {
  * @param {number} input any number
  * @returns {number} that number, plus two
  */
-function addTwo (x) {
-  return x + 2
+function addTwo(x) {
+    return x + 2;
 }
 
 /**
@@ -22,6 +22,6 @@ function addTwo (x) {
  * @param {number} input any number
  * @retuens {number} that number, minus one
  */
-function minusOne (x) {
-  return x - 1
+function minusOne(x) {
+    return x - 1;
 }
