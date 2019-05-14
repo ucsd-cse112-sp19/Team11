@@ -68,7 +68,7 @@ class BeerButtonLit extends LitElement {
         if(loading_attr == ""){
             this.loading = true;
             this.disabled = true;
-            this.text = "Loading"; // this is setting the text of every button to Loading
+            // this.text = "Loading"; // this is setting the text of every button to Loading
         }
 
         this.loading = false;
@@ -109,11 +109,13 @@ class BeerButtonLit extends LitElement {
       }
 
       .round {
-        border-radius: 15px;
+        border-radius: 35px;
       }
       
       .circle {
         border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
       }
       
     `;
@@ -142,12 +144,16 @@ class BeerButtonLit extends LitElement {
 
 
     render() {
-        var isDefault = this.type === "";
-        var typesItem = types.find((elem) => {
-            return elem.type === this.type;
-        });
-
+        var isDefault = this.type === ""; // Check to see if type is default
+        // Find the corresponding type to select appropriate button color
         if(!isDefault) {
+            var typesItem = types.find((elem) => {
+                var match = elem.type === this.type;
+                this.text = this.type;
+                return match;
+            });
+
+            // Generate appropriate style string
             var style_background = "background-color:" + typesItem.bgColor + ";";
             var style_border     = "border:none;";
             var style_textColor  = "color:white;";
