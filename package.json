@@ -4,10 +4,10 @@
   "description": "",
   "main": "test.js",
   "dependencies": {
-    "chai": "^4.2.0",
     "lit-element": "^2.1.0"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
     "del": "^4.1.1",
     "documentation": "^10.1.0",
     "eslint": "^5.16.0",

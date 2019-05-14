@@ -20,7 +20,7 @@ class BeerButton extends HTMLElement{
     constructor() {
         super();
         this._shadowRoot = this.attachShadow({"mode" : "open"});
-        //this is the piece of code that takes all that html stuff up top and makes it visible
+        // this is the piece of code that takes all that template.innerHTML stuff up top and makes it visible
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.$beerButton = this._shadowRoot.querySelector("button");
         
