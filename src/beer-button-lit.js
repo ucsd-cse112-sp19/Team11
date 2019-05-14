@@ -37,14 +37,14 @@ class BeerButtonLit extends LitElement {
         };
     }
     constructor() {
-        super();
-        this.type = ""; // Default
-        this.text = "Click Me";
-        this.size = "";
-        this.disabled = false;
-        this.loading = false;
-        this.round = false;
-        this.circle = false;
+        super()
+        this.type = "" // Default
+        this.text = "Click Me"
+        this.size = ""
+        this.disabled = false
+        this.loading = false
+        this.round = false
+        this.circle = false
     }
 
     static get styles() {
@@ -75,7 +75,7 @@ class BeerButtonLit extends LitElement {
         if (this.circle) {
             _class += "circle "
         }
-        return _class;
+        return _class
     }
 
     render() {
