@@ -41,8 +41,8 @@ class BeerButtonLit extends LitElement {
                 type: String
             },
             round: {
-              type: Boolean,
-              reflect: true
+                type: Boolean,
+                reflect: true
             },
             circle: {
                 type: Boolean,
@@ -68,7 +68,7 @@ class BeerButtonLit extends LitElement {
         if(loading_attr == ""){
             this.loading = true;
             this.disabled = true;
-            this.text = "Loading"; //this is setting the text of every button to Loading
+            this.text = "Loading"; // this is setting the text of every button to Loading
         }
 
         this.loading = false;
@@ -124,21 +124,21 @@ class BeerButtonLit extends LitElement {
      *  component will have
      */
     _getClass() {
-      let _class = "";
-      if (this.round) {
-          _class += "round ";
-      }
-      if (this.circle) {
-          _class += "circle ";
-      }
-      if (this.loading) {
-          _class += "buttonload ";
-      }
-      if (!this.isDefault) {
-          _class += "nonDefault";
-      }
-      return _class;
-  }
+        let _class = "";
+        if (this.round) {
+            _class += "round ";
+        }
+        if (this.circle) {
+            _class += "circle ";
+        }
+        if (this.loading) {
+            _class += "buttonload ";
+        }
+        if (!this.isDefault) {
+            _class += "nonDefault";
+        }
+        return _class;
+    }
 
 
     render() {
