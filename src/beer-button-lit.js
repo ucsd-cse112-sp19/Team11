@@ -39,6 +39,14 @@ class BeerButtonLit extends LitElement {
             },
             mainColor: {
                 type: String
+            },
+            round: {
+                type: Boolean,
+                reflect: true
+            },
+            circle: {
+                type: Boolean,
+                reflect: true
             }
         };
     }
@@ -49,6 +57,8 @@ class BeerButtonLit extends LitElement {
         this.text = "Default";
         this.size = "";
         this.disabled = false;
+        this.round = false;
+        this.circle = false;
 
         // Checks if loading attribute exists
         var beer_button_lit = document.getElementsByTagName("beer-button-lit").item(0);
@@ -58,7 +68,7 @@ class BeerButtonLit extends LitElement {
         if(loading_attr == ""){
             this.loading = true;
             this.disabled = true;
-            this.text = "Loading";
+            this.text = "Loading"; // this is setting the text of every button to Loading
         }
 
         this.loading = false;
@@ -92,13 +102,42 @@ class BeerButtonLit extends LitElement {
       button.nonDefault:hover {
         opacity: 0.8;
         transition: 0.05s;
-    }
+      }
 
       button:focus {
-          outline:none;
+        outline:none;
+      }
+
+      .round {
+        border-radius: 15px;
+      }
+      
+      .circle {
+        border-radius: 50%;
       }
       
     `;
+    }
+
+    /**
+     * Returns string representing CSS classes this web
+     *  component will have
+     */
+    _getClass() {
+        let _class = "";
+        if (this.round) {
+            _class += "round ";
+        }
+        if (this.circle) {
+            _class += "circle ";
+        }
+        if (this.loading) {
+            _class += "buttonload ";
+        }
+        if (!this.isDefault) {
+            _class += "nonDefault";
+        }
+        return _class;
     }
 
 
@@ -118,14 +157,14 @@ class BeerButtonLit extends LitElement {
         if(this.loading){
             return html`
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <button class="buttonload" class=${!isDefault ? "nonDefault" : ""} style=${!isDefault ? style_background + style_border + style_textColor: ""}>
+            <button class=${this._getClass()} style=${!isDefault ? style_background + style_border + style_textColor: ""}>
             <i class="fa fa-spinner fa-spin"></i>Loading
             </button>
             `;
         }
 
         return html`
-        <button class=${!isDefault ? "nonDefault" : ""} style=${!isDefault ? style_background + style_border + style_textColor: ""}>
+        <button class=${this._getClass()} style=${!isDefault ? style_background + style_border + style_textColor: ""}>
         ${this.text}
         </button>
         `;
