@@ -20,51 +20,42 @@ if(!LOCAL_DEV) {
 
 const getPageURL = ClientFunction( () => window.location.href );
 
-/**
- * Once id's are implemented, will need to refactor the code to select proper
- * beer-button elements
- */
-const rawBeer = Selector("beer-button");
-
-
 // const linkBeer = Selector("#link-beer");
-// const incBeer = Selector("#increment-beer");
-// const decBeer = Selector("#decrement-beer");
-// const disableBeer = Selector("#disabled-beer");
+const incBeer = Selector("#increment-beer");
+const decBeer = Selector("#decrement-beer");
+const disableBeer = Selector("#disabled-beer");
 
 
-
+/*
 test("Button link should redirect to new location", async t => {    
     await t
         .click(rawBeer)
         .expect(getPageURL()).contains("/test.html");
 });
+*/
 
-/*
 test("Disbale button should not let the button do anything", async t => {
     const box = await Selector("#number");    
     await t
-        .click(rawBeer).click(rawBeer).click(rawBeer)
+        .click(disableBeer).click(disableBeer).click(disableBeer)
         .expect(box.value).eql("0");
 });
 
 test("Verify component has increment attribute", async t => {
     
     await t 
-        .expect(rawBeer.hasAttribute("increment")).eql(true)
-        .expect(rawBeer.hasAttribute("decrement")).eql(false);
+        .expect(incBeer.hasAttribute("increment")).eql(true)
+        .expect(incBeer.hasAttribute("decrement")).eql(false);
 }); 
 
 test("Test click increments the value", async t => {
     const box = await Selector("#number");    
     await t
-        .click(rawBeer).click(rawBeer).click(rawBeer)
+        .click(incBeer).click(incBeer).click(incBeer)
         .expect(box.value).eql("3");
 });
-*/
 
 
-/* Tests once ID is implemented
 test("Verify component has decrement attribute", async t => {
     await t
         .expect(decBeer.hasAttribute("decrement")).eql(true)
@@ -77,4 +68,3 @@ test("Test click decrements the value", async t => {
         .click(decBeer).click(decBeer).click(decBeer)
         .expect(box.value).eql("-3");
 });
-*/
