@@ -25,6 +25,14 @@ class BeerButtonLit extends LitElement {
       loading: {
         type: Boolean,
         reflect: true
+      },
+      round: {
+        type: Boolean,
+        reflect: true
+      },
+      circle: {
+        type: Boolean,
+        reflect: true
       }
     }
   }
@@ -32,9 +40,11 @@ class BeerButtonLit extends LitElement {
     super()
     this.type = '' // Default
     this.text = 'Click Me'
-    this.size = 'medium'
+    this.size = 'small'
     this.disabled = false
     this.loading = false
+    this.round = false
+    this.circle = true
   }
 
   static get styles () {
@@ -48,27 +58,48 @@ class BeerButtonLit extends LitElement {
         border: none;
         background-color: salmon;
       }
+      .round {
+        border-radius: 10px;
+      }
+      .circle {
+        border-radius: 50%;
+      }
+      .medium {
+        height: 200px;
+        width: 200px;
+      }
+      .small {
+        height: 100px;
+        width: 100px;
+      }
+
     `
   }
 
+  _getClass() {
+    let _class = '';
+  
+    if(this.round) {
+      _class += 'round ';
+    }
+
+    if(this.circle) {
+      _class += 'circle ';
+    }
+      
+      if(this.size == 'medium' ) {
+          _class += 'medium';
+      }
+      if(this.size == 'small' ) {
+          _class += 'small';
+      }
+
+    return _class;
+  }
+
   render () {
-    if( this.size == 'medium') {
-        return html `
-        <button style="height: 150px; width: 150px">${this.text}</button>
-        `
-    }
-    if( this.size == 'small') {
-        return html `
-        <button style="height: 100px; width: 100px">${this.text}</button>
-        `
-    }
-    if( this.size == 'mini') {
-        return html `
-        <button style="height: 50px; width: 50px">${this.text}</button>
-        `
-    }
     return html`
-      <button>${this.text}</button>
+      <button class=${this._getClass()}>${this.text}</button>
     `
   }
 }
