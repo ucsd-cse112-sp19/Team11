@@ -37,14 +37,14 @@ class BeerButtonLit extends LitElement {
         };
     }
     constructor() {
-        super()
-        this.type = "" // Default
-        this.text = "Click Me"
-        this.size = ""
-        this.disabled = false
-        this.loading = false
-        this.round = false
-        this.circle = false
+        super();
+        this.type = ""; // Default
+        this.text = "Click Me";
+        this.size = "";
+        this.disabled = false;
+        this.loading = false;
+        this.round = false;
+        this.circle = false;
     }
 
     static get styles() {
@@ -67,21 +67,21 @@ class BeerButtonLit extends LitElement {
     `;
     }
 
-    _getClass () {
-        let _class = ""
+    _getClass() {
+        let _class = "";
         if (this.round) {
-            _class += "round "
+            _class += "round ";
         }
         if (this.circle) {
-            _class += "circle "
+            _class += "circle ";
         }
-        return _class
+        return _class;
     }
 
     render() {
         return html`
       <button class=${this._getClass()}>${this.text}</button>
-    `
+    `;
     }
 }
-customElements.define("beer-button-lit", BeerButtonLit)
+customElements.define("beer-button-lit", BeerButtonLit);
