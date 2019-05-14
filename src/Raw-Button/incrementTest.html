@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test Increment Button</title>
+    <title>Test Raw Beer Button</title>
 </head>
 <body>
     <h1>TestCafe Runner, Increment the value by clicking the button</h1>
-    <beer-button increment="number"></beer-button>
+    <beer-button increment="number" id="increment-beer"></beer-button>
+    <beer-button id="decrement-beer" decrement="decnumber"></beer-button>
+    <beer-button id ="disabled-beer" increment="number" disable></beer-button>
+    <!-- <beer-button link="test.html"></beer-button> -->
     <form>
         <input type="text" id="number" value="0"/>
+        <input type="text" id="decnumber" value="0"/>
     </form>
 </body>
 </html>
