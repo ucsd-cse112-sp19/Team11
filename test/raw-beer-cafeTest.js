@@ -13,7 +13,8 @@ const rawBeer = Selector("beer-button");
 // const incBeer = Selector("#increment-beer");
 // const decBeer = Selector("#decrement-beer");
 
-/*
+
+
 test("Verify component has increment attribute", async t => {
     
     await t 
@@ -27,7 +28,7 @@ test("Test click increments the value", async t => {
         .click(rawBeer).click(rawBeer).click(rawBeer)
         .expect(box.value).eql("3");
 });
-*/
+
 
 /* Tests once ID is implemented
 test("Verify component has decrement attribute", async t => {
