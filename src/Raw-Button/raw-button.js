@@ -73,7 +73,7 @@ class BeerButton extends HTMLElement {
             this.$beerButton.innerHTML= $id.innerHTML;
         }
         else{
-            throw "no Name provided";
+            console.log("no Name provided");
         }
     }
    
