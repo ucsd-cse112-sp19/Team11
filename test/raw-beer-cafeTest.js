@@ -1,8 +1,16 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import {Selector} from "testcafe";
-fixture `Getting Started`
-    .page `https://ucsd-cse112.github.io/Team11/incrementTest.html`;
+const LOCAL_DEV = true;
+
+if(!LOCAL_DEV) {
+    fixture `Getting Started`
+        .page `https://ucsd-cse112.github.io/Team11/incrementTest.html`;
+} else {
+    fixture `Getting Started`
+        .page `localhost:5500/src/Raw-Button/incrementTest.html`;
+}
+
 
 /**
  * Once id's are implemented, will need to refactor the code to select proper
@@ -12,8 +20,18 @@ const rawBeer = Selector("beer-button");
 
 // const incBeer = Selector("#increment-beer");
 // const decBeer = Selector("#decrement-beer");
+// const disableBeer = Selector("#disabled-beer");
 
 
+
+
+/*
+test("Disbale button should not let the button do anything", async t => {
+    const box = await Selector("#number");    
+    await t
+        .click(rawBeer).click(rawBeer).click(rawBeer)
+        .expect(box.value).eql("0");
+});
 
 test("Verify component has increment attribute", async t => {
     
@@ -28,6 +46,7 @@ test("Test click increments the value", async t => {
         .click(rawBeer).click(rawBeer).click(rawBeer)
         .expect(box.value).eql("3");
 });
+*/
 
 
 /* Tests once ID is implemented
