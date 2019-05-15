@@ -113,7 +113,8 @@ class BeerButton extends HTMLElement {
         
     /**
      * @description : Takes a link and when the button is clicked will navigate 
-     * the browser to the new link
+     * the browser to the new link. Has the optional attribute "tab" to allow users
+     * to open a new tab instead.
      * @return : void
      */
     linkFunction(){
@@ -123,8 +124,17 @@ class BeerButton extends HTMLElement {
             throw "Invalid Link";
         }
         else{
-        // navigates the browser to a new webpage
-            window.location.href = linkValue;
+            // navigates the browser to a new webpage
+            if(this.hasAttribute("tab")){
+                // Opens a new tab instead of loading the link on the current tab
+                var win = window.open(linkValue, "_blank");
+                // Focuses onto the new tab
+                win.focus();
+            }
+            else {
+                // Loads the link on the current tab
+                window.location.href = linkValue;
+            }
         }
     }
 
