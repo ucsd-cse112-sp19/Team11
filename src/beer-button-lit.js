@@ -9,6 +9,11 @@ const types = [
     {type: "danger",  bgColor: "#F56C6C"}
 ];
 
+const sizes = [
+    {size: "medium", height: "200px", width: "200px"},
+    {size: "", height: "100px", width: "100px"},
+];
+
 // filter: brightness(85%);
 
 class BeerButtonLit extends LitElement {
@@ -158,12 +163,21 @@ class BeerButtonLit extends LitElement {
                 return match;
             });
 
+            let sizesItem = sizes.find((elem) => {
+                let match = elem.size === this.size;
+                return match;
+            });
+            
             // Generate appropriate style string
             let style_background = "background-color:" + typesItem.bgColor + ";";
             let style_border     = "border:none;";
             let style_textColor  = "color:white;";
+          
+            let style_height = "height:" +sizesItem.height+";";
+            let style_width = "width:"+sizesItem.width+";";
 
-            _style = style_background + style_border + style_textColor;
+            _style = style_background + style_border + style_textColor +style_height+style_width;
+
             return _style;
         }
     }
