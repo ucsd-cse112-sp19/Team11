@@ -11,8 +11,7 @@ const types = [
 
 const sizes = [
     {size: "medium", height: "200px", width: "200px"},
-    {size: "small", height: "100px", width: "100px"},
-    {size: "", height: "50px", width: "80px"}
+    {size: "", height: "100px", width: "100px"},
 ];
 
 // filter: brightness(85%);
@@ -74,7 +73,7 @@ class BeerButtonLit extends LitElement {
         if(loading_attr == ""){
             this.loading = true;
             this.disabled = true;
-            this.text = "Loading"; // this is setting the text of every button to Loading
+            // this.text = "Loading"; // this is setting the text of every button to Loading
         }
 
         this.loading = false;
@@ -115,11 +114,13 @@ class BeerButtonLit extends LitElement {
       }
 
       .round {
-        border-radius: 15px;
+        border-radius: 35px;
       }
       
       .circle {
         border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
       }
       
     `;
@@ -127,7 +128,7 @@ class BeerButtonLit extends LitElement {
 
     /**
      * Returns string representing CSS classes this web
-     *  component will have
+     * component will have
      */
     _getClass() {
         let _class = "";
@@ -146,38 +147,54 @@ class BeerButtonLit extends LitElement {
         return _class;
     }
 
+    /**
+     * Returns string representing CSS style this web
+     * component will have
+     */
+    _getStyle() {
+        let _style = "";
+        var isDefault = this.type === ""; // Check to see if type is default
+
+        // Find the corresponding type to select appropriate button color
+        if(!isDefault) {
+            let typesItem = types.find((elem) => {
+                let match = elem.type === this.type;
+                this.text = this.type;
+                return match;
+            });
+
+            let sizesItem = sizes.find((elem) => {
+                let match = elem.size === this.size;
+                return match;
+            });
+            
+            // Generate appropriate style string
+            let style_background = "background-color:" + typesItem.bgColor + ";";
+            let style_border     = "border:none;";
+            let style_textColor  = "color:white;";
+            let style_height = "height:" +sizesItem.height+";";
+            let style_width = "width:"+sizesItem.width+";";
+
+            _style = style_background + style_border + style_textColor +style_height+style_width;
+            return _style;
+        }
+    }
+
 
     render() {
-        var isDefault = this.type === "";
-        var typesItem = types.find((elem) => {
-            return elem.type === this.type;
-        });
-
-        var sizesItem = sizes.find((elem) => {
-            return elem.size === this.size;
-        });
-        
-        if(!isDefault) {
-            var style_background = "background-color:" + typesItem.bgColor + ";";
-            var style_border     = "border:none;";
-            var style_textColor  = "color:white;";
-        }
-
-        var style_height = "height:"+sizesItem.height+ ";";
-        var style_width = "width:"+sizesItem.width+";";
 
         // If the loading attribute is set to true, render custom html
         if(this.loading){
             return html`
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <button class=${this._getClass()} style=${!isDefault + style_height + style_width? style_background + style_border + style_textColor + style_height +style_width: ""}>
+            <button class=${this._getClass()} style=${this._getStyle()}>
             <i class="fa fa-spinner fa-spin"></i>Loading
             </button>
             `;
         }
 
         return html`
-        <button class=${this._getClass()} style=${!isDefault + style_height + style_width? style_background + style_border + style_textColor+style_height+style_width: ""}>
+        <button class=${this._getClass()} style=${this._getStyle()}>
         ${this.text}
         </button>
         `;
