@@ -1,16 +1,21 @@
 <html>
 <head>
-	<script type="module" src="beer-button-lit.js"></script>
+  <script type="module" src="beer-button-lit.js"></script>
+  <style>
+    beer-button-lit {
+      display:inline-block;
+    }
+  </style>
 </head>
+
 <body>
-  <h3 style="font-family:sans-serif">Page to visually test button</h3>
-  
+
   <h1 style="font-family:sans-serif">Loading attribute</h1>
   <beer-button-lit loading></beer-button-lit>
   <beer-button-lit type="primary" loading></beer-button-lit>
   
   <h1 style="font-family:sans-serif">Type attribute</h1>
-  <beer-button-lit></beer-button-lit>
+  <beer-button-lit>Default</beer-button-lit>
   <beer-button-lit type="primary">Primary</beer-button-lit>
   <beer-button-lit type="success">Success</beer-button-lit>
   <beer-button-lit type="info">Info</beer-button-lit>
@@ -18,16 +23,18 @@
   <beer-button-lit type="danger">Danger</beer-button-lit>
 
   <h1 style="font-family: sans-serif">Size attribute</h1>
+  <beer-button-lit>default size</beer-button-lit>
   <beer-button-lit size="medium">medium</beer-button-lit>
-  <beer-button-lit type="primary" size="medium">medium</beer-button-lit>
+  <beer-button-lit size="small">small</beer-button-lit>
+  <beer-button-lit size="mini">small</beer-button-lit>
 
   <h1 style="font-family: sans-serif">Round attribute</h1>
   <beer-button-lit round>Round</beer-button-lit>
   <beer-button-lit type="primary" round>Round</beer-button-lit>
 
   <h1 style="font-family: sans-serif">Circle attribute</h1>
-  <beer-button-lit circle>C</beer-button-lit>
-  <beer-button-lit type="primary" circle>Round</beer-button-lit>
+  <beer-button-lit circle>C1</beer-button-lit>
+  <beer-button-lit type="primary" circle>C2</beer-button-lit>
   
 </body>
 

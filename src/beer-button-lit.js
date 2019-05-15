@@ -9,12 +9,9 @@ const types = [
     {type: "danger",  bgColor: "#F56C6C"}
 ];
 
-const sizes = [
-    {size: "medium", height: "200px", width: "200px"},
-    {size: "", height: "100px", width: "100px"},
-];
-
-// filter: brightness(85%);
+// Index to keep track of which beer-button-lit component in a given HTML page
+// when there are multiple
+var idx = 0;
 
 class BeerButtonLit extends LitElement {
     static get properties() {
@@ -59,14 +56,16 @@ class BeerButtonLit extends LitElement {
     constructor() {
         super();
         this.type = ""; // Default
-        this.text = "Default";
-        this.size = "";
+        this.text = "";
+        this.size = ""; // Default
         this.disabled = false;
         this.round = false;
         this.circle = false;
 
         // Checks if loading attribute exists
-        var beer_button_lit = document.getElementsByTagName("beer-button-lit").item(0);
+        var beer_button_lit = document.getElementsByTagName("beer-button-lit").item(idx);
+        idx++;
+        this.text = beer_button_lit.textContent;
         var loading_attr = beer_button_lit.getAttribute("loading");
 
         // loading attribute is present if var loading_attr is not null
@@ -122,6 +121,20 @@ class BeerButtonLit extends LitElement {
         width: 3rem;
         height: 3rem;
       }
+
+      .medium {
+        transform: scale(0.90);
+      }
+
+      .small {
+        transform: scale(0.80);
+      }
+
+      .mini {
+        transform: scale(0.70);
+      }
+
+      
       
     `;
     }
@@ -142,7 +155,10 @@ class BeerButtonLit extends LitElement {
             _class += "buttonload ";
         }
         if (!this.isDefault) {
-            _class += "nonDefault";
+            _class += "nonDefault ";
+            if (this.size == "medium") _class += "medium ";
+            else if (this.size == "small") _class += "small ";
+            else if (this.size == "mini") _class += "mini ";
         }
         return _class;
     }
@@ -159,12 +175,6 @@ class BeerButtonLit extends LitElement {
         if(!isDefault) {
             let typesItem = types.find((elem) => {
                 let match = elem.type === this.type;
-                this.text = this.type;
-                return match;
-            });
-
-            let sizesItem = sizes.find((elem) => {
-                let match = elem.size === this.size;
                 return match;
             });
             
@@ -172,11 +182,8 @@ class BeerButtonLit extends LitElement {
             let style_background = "background-color:" + typesItem.bgColor + ";";
             let style_border     = "border:none;";
             let style_textColor  = "color:white;";
-          
-            let style_height = "height:" +sizesItem.height+";";
-            let style_width = "width:"+sizesItem.width+";";
 
-            _style = style_background + style_border + style_textColor +style_height+style_width;
+            _style = style_background + style_border + style_textColor;
 
             return _style;
         }
