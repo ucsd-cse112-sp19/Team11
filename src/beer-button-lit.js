@@ -172,10 +172,12 @@ class BeerButtonLit extends LitElement {
             let style_background = "background-color:" + typesItem.bgColor + ";";
             let style_border     = "border:none;";
             let style_textColor  = "color:white;";
+          
             let style_height = "height:" +sizesItem.height+";";
             let style_width = "width:"+sizesItem.width+";";
 
             _style = style_background + style_border + style_textColor +style_height+style_width;
+
             return _style;
         }
     }
