@@ -30,14 +30,14 @@ class BeerButton extends HTMLElement {
         }
         
         
-       
+        // checks for a style and if it exists imports a .css style sheet
         if(this.hasAttribute("newStyle")){
             var Style = document.createElement("link");
             this._shadowRoot.appendChild(Style);
-            this.setStyle(Style, this.getAttribute("newStyle"), this.getAttribute("id"));
+            this.setStyle(Style, this.getAttribute("newStyle"));
         }
         
-
+        // if statement that only runs if the disable attribute is not present 
         if(!this.hasAttribute("disable")){
             if(this.hasAttribute("link")){
                 this.$beerButton.addEventListener("click", this.linkFunction.bind(this));
@@ -63,7 +63,7 @@ class BeerButton extends HTMLElement {
     /**
      * @description Function that allows the use to set the buttons name bassed on the
      * value of the inner html
-     * @param buttonId the Id for a specific button
+     * @param {string} buttonId the Id for a specific button
      * @retun void 
      */
     setButtonName(buttonId){
@@ -79,8 +79,8 @@ class BeerButton extends HTMLElement {
    
     /**
      * @description: Function that allows for a custom style sheet to be applied
-     * @param {string} style 
-     * @param {string} buttonId 
+     * @param {string} newStyle: string that is the .css file to be imported
+     * @param {string} Style: the link element that is being updated in the shadow dom
      */
     setStyle(Style, newStyle){
         Style.setAttribute("rel", "stylesheet");
@@ -99,13 +99,7 @@ class BeerButton extends HTMLElement {
         if(scriptName.length > 0){
             try{
                 import(scriptName).then(script =>{
-                    if(functionName.length > 0 ){
-                        //script.loadPageInto(this.main);
-                        script[functionName]();
-                    }
-                    else{
-                        throw "FunctionName cant be null";
-                    }
+                    script[functionName]();
                 });
             }
             catch(err){
