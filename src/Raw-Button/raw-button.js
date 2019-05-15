@@ -29,6 +29,9 @@ class BeerButton extends HTMLElement {
             this.setButtonName(this.getAttribute("id"));
         }
         
+        if(this.hasAttribute("color")){
+            this.changeColorOfBackground();
+        }
         
         // checks for a style and if it exists imports a .css style sheet
         if(this.hasAttribute("newStyle")){
@@ -161,6 +164,18 @@ class BeerButton extends HTMLElement {
             value --;
             document.getElementById(decrementId).value = value;
         }
+    }
+    
+    /**
+     * @description: Function that allows the user to change the background color of the button
+     * @param {}color: The string of the color
+     * @returns: void
+     */
+    changeColorOfBackground(){
+        // grab the attribute color
+        var color = this.getAttribute("color");
+        // Set the color
+        this._shadowRoot.querySelector("button").style.background = color;
     }
 }
 
