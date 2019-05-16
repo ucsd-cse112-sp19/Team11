@@ -14,6 +14,7 @@ template.innerHTML = `
 </style>
 <button> Im a Button </button>
 `;
+
 class BeerButton extends HTMLElement {
     constructor() {
         super();
