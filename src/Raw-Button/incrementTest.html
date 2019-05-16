@@ -5,13 +5,26 @@
 </head>
 <body>
     <h1>TestCafe Runner, Click the button to perform the action</h1>
+
+    <!-- increment decrement -->
     <beer-button increment="number" id="increment-beer">Increment Me</beer-button>
-    <beer-button id="decrement-beer" decrement="decnumber">Decrement Me</beer-button>
+    <beer-button decrement="decnumber" id="decrement-beer" >Decrement Me</beer-button>
+
+    <!-- disabled -->
     <beer-button id ="disabled-beer" increment="number" disable>Disabled</beer-button>
+
+    <!-- link -->
     <beer-button id="link-beer" link="test.html"></beer-button>
     <form>
         <input type="text" id="number" value="0"/>
         <input type="text" id="decnumber" value="0"/>
     </form>
+
+    <!-- custom stylesheet -->
+    <beer-button newStyle="styles.css" id="style-beer">Style Testing</beer-button>
+
+    <!-- img -->
+    <beer-button image="test.jpg" id="img-beer">Image Testing</beer-button>
+
 </body>
 </html>
