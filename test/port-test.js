@@ -11,7 +11,7 @@ fixture `fixture`
 /**
  * MAKE SURE TO CHANGE THIS VALUE BEFORE PUSHING
  */
-const LOCAL_DEV = true;
+const LOCAL_DEV = false;
 /* ================================================= */
 
 
