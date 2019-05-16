@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import {Selector, ClientFunction} from "testcafe";
 
 fixture `fixture`
@@ -63,10 +64,10 @@ test("Attribute testing: components have intended text", async t => {
 });
 
 test("Attribute Testing: verify button size", async t => {
-    await Selector("#mini-me"); const mi = await Selector(() => document.querySelector("#mini-me").shadowRoot.querySelector("button"))
-    await Selector("#round-success"); const inv = await Selector(() => document.querySelector("#round-success").shadowRoot.querySelector("button"))
-    await Selector("#smol"); const sm = await Selector(() => document.querySelector("#smol").shadowRoot.querySelector("button"))
-    await Selector("#medi"); const me = await Selector(() => document.querySelector("#medi").shadowRoot.querySelector("button"))
+    await Selector("#mini-me"); const mi = await Selector(() => document.querySelector("#mini-me").shadowRoot.querySelector("button"));
+    await Selector("#round-success"); const inv = await Selector(() => document.querySelector("#round-success").shadowRoot.querySelector("button"));
+    await Selector("#smol"); const sm = await Selector(() => document.querySelector("#smol").shadowRoot.querySelector("button"));
+    await Selector("#medi"); const me = await Selector(() => document.querySelector("#medi").shadowRoot.querySelector("button"));
 
     await t 
         .expect(miniButton.getAttribute("size")).eql("mini")
@@ -80,12 +81,12 @@ test("Attribute Testing: verify button size", async t => {
 }); 
 
 test("Attribute testing: verify button color", async t => {
-    await Selector("#plain"); const plain = await Selector(() => document.querySelector("#plain").shadowRoot.querySelector("button"))
-    await Selector("#primary"); const primary = await Selector(() => document.querySelector("#primary").shadowRoot.querySelector("button"))
-    await Selector("#success"); const success = await Selector(() => document.querySelector("#success").shadowRoot.querySelector("button"))
-    await Selector("#info"); const info = await Selector(() => document.querySelector("#info").shadowRoot.querySelector("button"))
-    await Selector("#warning"); const warning = await Selector(() => document.querySelector("#warning").shadowRoot.querySelector("button"))
-    await Selector("#danger"); const danger = await Selector(() => document.querySelector("#danger").shadowRoot.querySelector("button"))
+    await Selector("#plain"); const plain = await Selector(() => document.querySelector("#plain").shadowRoot.querySelector("button"));
+    await Selector("#primary"); const primary = await Selector(() => document.querySelector("#primary").shadowRoot.querySelector("button"));
+    await Selector("#success"); const success = await Selector(() => document.querySelector("#success").shadowRoot.querySelector("button"));
+    await Selector("#info"); const info = await Selector(() => document.querySelector("#info").shadowRoot.querySelector("button"));
+    await Selector("#warning"); const warning = await Selector(() => document.querySelector("#warning").shadowRoot.querySelector("button"));
+    await Selector("#danger"); const danger = await Selector(() => document.querySelector("#danger").shadowRoot.querySelector("button"));
 
     await t 
         .expect(plain.getStyleProperty("background-color")).eql("rgb(255, 255, 255)")
@@ -97,8 +98,8 @@ test("Attribute testing: verify button color", async t => {
 });
 
 test("Function testing: loading buttons are animated and disabled", async t => {
-    await Selector("#animated"); const text = await Selector(() => document.querySelector("#animated").shadowRoot.querySelector("button"))
-    await Selector("#animated"); const ani = await Selector(() => document.querySelector("#animated").shadowRoot.querySelector("i"))
+    await Selector("#animated"); const text = await Selector(() => document.querySelector("#animated").shadowRoot.querySelector("button"));
+    await Selector("#animated"); const ani = await Selector(() => document.querySelector("#animated").shadowRoot.querySelector("i"));
     await t
         .expect(text.innerText).eql(" Loading")
         // .expect(ani.hasClass('fa fa-spinner fa-spin')).eql(true)
@@ -121,5 +122,5 @@ test("Function testing: cannot click disabled buttons", async t => {
     await t
         .setNativeDialogHandler(() => false)
         .click("#round-success")
-        .click("#animated")
+        .click("#animated");
 });
