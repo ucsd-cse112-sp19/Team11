@@ -61,6 +61,10 @@ class BeerButton extends HTMLElement {
                 this.$beerButton.addEventListener("click", this.customFunction.bind(this));
             }
         }
+
+        if(this.hasAttribute("image")){
+            this.setImgAsBackground();
+        }
     } 
 
     /**
@@ -176,6 +180,20 @@ class BeerButton extends HTMLElement {
         var color = this.getAttribute("color");
         // Set the color
         this._shadowRoot.querySelector("button").style.background = color;
+    }
+    /**
+     * @description:
+     * @param {string} img: The string of the img file to be imported
+     * @returns: void
+     */
+    setImgAsBackground(){
+        // You get the attribute image as a string here; it's basically the img url
+        var image = this.getAttribute("image");
+        // Set the image as a background using the Background-Img CSS property
+        // The trick here is to remember that backgroundImage wants a url, not a string of the path
+        // Syntax is tricky aswell: "url(image)" doesn't work because it doesn't recognize image as
+        // a proper var. That's why you put empty strings and "add" image to it so it will get it as a var
+        this._shadowRoot.querySelector("button").style.backgroundImage = "url("+image+")";
     }
 }
 
