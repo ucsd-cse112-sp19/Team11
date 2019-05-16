@@ -33,13 +33,21 @@ class BeerButton extends HTMLElement {
             this.changeColorOfBackground();
         }
         
-        // checks for a style and if it exists imports a .css style sheet
-        if(this.hasAttribute("newStyle")){
-            var Style = document.createElement("link");
-            this._shadowRoot.appendChild(Style);
-            this.setStyle(Style, this.getAttribute("newStyle"));
-        }
         
+        // statement to control the flow of style so that newStyle has priority over
+        // libstyle
+        if(this.hasAttribute("newStyle") || this.hasAttribute("libStyle")){
+        // checks for a style and if it exists imports a .css style sheet
+            if(this.hasAttribute("newStyle")){
+                this.setStyle(this.getAttribute("newStyle"));
+            }
+
+            else if(this.hasAttribute("libStyle")){
+                this.libStyle(this.getAttribute("libStyle"));
+            }
+        }
+
+
         // if statement that only runs if the disable attribute is not present 
         if(!this.hasAttribute("disable")){
             if(this.hasAttribute("link")){
@@ -60,6 +68,9 @@ class BeerButton extends HTMLElement {
             else if(this.hasAttribute("script") && this.hasAttribute("functionName")){
                 this.$beerButton.addEventListener("click", this.customFunction.bind(this));
             }
+        }
+        else{
+            this.setStyle("./ButtonStyles/disable.css");
         }
     } 
 
@@ -83,9 +94,10 @@ class BeerButton extends HTMLElement {
     /**
      * @description: Function that allows for a custom style sheet to be applied
      * @param {string} newStyle: string that is the .css file to be imported
-     * @param {string} Style: the link element that is being updated in the shadow dom
      */
-    setStyle(Style, newStyle){
+    setStyle(newStyle){
+        var Style = document.createElement("link");
+        this._shadowRoot.appendChild(Style);
         Style.setAttribute("rel", "stylesheet");
         Style.setAttribute("href", newStyle);
         Style.setAttribute("type", "text/css");
@@ -168,7 +180,6 @@ class BeerButton extends HTMLElement {
     
     /**
      * @description: Function that allows the user to change the background color of the button
-     * @param {}color: The string of the color
      * @returns: void
      */
     changeColorOfBackground(){
@@ -176,6 +187,60 @@ class BeerButton extends HTMLElement {
         var color = this.getAttribute("color");
         // Set the color
         this._shadowRoot.querySelector("button").style.background = color;
+    }
+
+    /**
+     * @description: Function which allows the user to use one of our built in styles 
+     * @param {string} styleName takes a string that the user provides and then matches
+     * it against a .css stylesheet stored in the componenets library 
+     * @returns void
+     */
+    libStyle(styleName){
+        if(styleName == "block"){
+            this.setStyle("./ButtonStyles/block.css");
+        }
+        if(styleName == "border"){
+            this.setStyle("./ButtonStyles/border.css");
+        }
+        if(styleName == "danger"){
+            this.setStyle("./ButtonStyles/danger.css");
+        }
+        if(styleName == "disable"){
+            this.setStyle("./ButtonStyles/disable.css");
+        }
+        if(styleName == "hoverButton"){
+            this.setStyle("./ButtonStyles/hoverButton.css");
+        }
+        if(styleName == "info"){
+            this.setStyle("./ButtonStyles/info.css");
+        }
+        if(styleName == "link"){
+            this.setStyle("./ButtonStyles/link.css");
+        }
+        if(styleName == "medium"){
+            this.setStyle("./ButtonStyles/medium.css");
+        }
+        if(styleName == "primary"){
+            this.setStyle("./ButtonStyles/primary.css");
+        }
+        if(styleName == "round"){
+            this.setStyle("./ButtonStyles/round.css");
+        }
+        if(styleName == "small"){
+            this.setStyle("./ButtonStyles/small.css");
+        }
+        if(styleName == "success"){
+            this.setStyle("./ButtonStyles/success.css");
+        }
+        if(styleName == "warning"){
+            this.setStyle("./ButtonStyles/warning.css");
+        }
+        if(styleName == "xsmall"){
+            this.setStyle("./ButtonStyles/xsmall.css");
+        }
+        if(styleName == "large"){
+            this.setStyle("./ButtonStyles/large.css");
+        }
     }
 }
 
