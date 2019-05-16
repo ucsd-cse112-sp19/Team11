@@ -191,6 +191,7 @@ class BeerButton extends HTMLElement {
         // Set the color
         this._shadowRoot.querySelector("button").style.background = color;
     }
+    
     /**
      * @description:
      * @param {string} img: The string of the img file to be imported

@@ -6,7 +6,7 @@ import {Selector, ClientFunction} from "testcafe";
 /**
  * MAKE SURE TO CHANGE THIS VALUE BEFORE PUSHING
  */
-const LOCAL_DEV = false;
+const LOCAL_DEV = true;
 /* ================================================= */
 
 
@@ -25,8 +25,21 @@ const incBeer = Selector("#increment-beer");
 const decBeer = Selector("#decrement-beer");
 const disableBeer = Selector("#disabled-beer");
 
+/**
+ * Grab the id of the component that 
+ */
+test("Button should have its own custom style", async t => {
+    const link = Selector(() => document.querySelector("#style-beer").shadowRoot.querySelector("link"));        
+    
+    await t
+        .expect(link.hasAttribute("rel")).eql(true)
+        .expect(link.getAttribute("type")).eql("text/css");     
+    
 
-test("Disbale button should not let the button do anything", async t => {
+});
+
+/*
+test("Disable button should not let the button do anything", async t => {
     const box = await Selector("#number");    
     await t
         .click(disableBeer).click(disableBeer).click(disableBeer)
@@ -67,3 +80,5 @@ test("Button link should redirect to new location", async t => {
         .click(linkBeer)
         .expect(getPageURL()).contains("/test.html");
 });
+
+*/
