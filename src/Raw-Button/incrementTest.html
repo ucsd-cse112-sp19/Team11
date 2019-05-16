@@ -1,16 +1,34 @@
 <html lang="en">
 <head>
-    <script  src="./raw-button.js" defer></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test Increment Button</title>
+    <script  src="./raw-button.js" defer></script>    
+    <title>Test Raw Beer Button</title>
 </head>
 <body>
-    <h1>TestCafe Runner, Increment the value by clicking the button</h1>
-    <beer-button increment="number"></beer-button>
+    <h1>TestCafe Runner, Click the button to perform the action</h1>
+
+    <!-- increment decrement -->
+    <beer-button increment="number" id="increment-beer">Increment Me</beer-button>
+    <beer-button decrement="decnumber" id="decrement-beer" >Decrement Me</beer-button>
+
+    <!-- disabled -->
+    <beer-button id ="disabled-beer" increment="number" disable>Disabled</beer-button>
+
+    <!-- link, link to new tab -->
+    <beer-button id="link-beer" link="test.html">I link to a page</beer-button>
+    <beer-button id="tab-beer" link="test.html" tab>I link to a new tab</beer-button>
+
+
     <form>
         <input type="text" id="number" value="0"/>
+        <input type="text" id="decnumber" value="0"/>
     </form>
+
+
+    <!-- custom stylesheet -->
+    <beer-button newStyle="styles.css" id="style-beer">Style Testing</beer-button>
+
+    <!-- img -->
+    <beer-button image="test.jpg" id="img-beer">Image Testing</beer-button>
+
 </body>
 </html>
