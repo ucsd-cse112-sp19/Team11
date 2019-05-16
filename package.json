@@ -4,7 +4,11 @@
   "description": "",
   "main": "test.js",
   "dependencies": {
-    "chai": "^4.2.0"
+    "chai": "^4.2.0",
+    "gulp": "^4.0.2",
+    "gulp-documentation": "^3.2.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp4-run-sequence": "^0.3.3"
   },
   "devDependencies": {
     "del": "^4.1.1",
