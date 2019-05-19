@@ -7,6 +7,12 @@
 <!-- increment + decrement -->
 <beer-button libStyle="info">Style Testing</beer-button>
 <beer-button decrement="decnumber"></beer-button>
+<beer-button script="./testFunction.js" functionName="testFunction" id="bill">I'm a link button</beer-button>
+<beer-button disable id="disab"> Im disabled button</beer-button>
+<beer-button decrement id="deco">Im a decrementer button</beer-button>
+<beer-button increment id="inc">Im a Increment button </beer-button>
+<beer-button newStyle="styles.css" id="customStyle">Im an import style </beer-button>
+<beer-button libStyle= "hoverButton" id="StyleT">Im a hover button</beer-button>
 <h1>CURRENTLY ON TEST PAGE</h1>
 <form>
     <input type="text" id="number" value="0"/>
@@ -15,6 +21,6 @@
  <!-- link button at bottom -->
  <beer-button link="testLink.html" id="bill">Click me to go to testLink.html </beer-button>
  <!-- image button -->
- <beer-button image="test.jpg" id="img-test">Image Testing</beer-button>
+ <beer-button libStyle="large" image="test.jpg" id="img-test">Image Testing</beer-button>
 </body>
 </html>

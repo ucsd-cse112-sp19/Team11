@@ -111,3 +111,41 @@ test("Button link should redirect to new location", async t => {
         .expect(getPageURL()).contains("/test.html");
 });
 
+/**
+ * Grab the id of the component to be tested
+ * Clicking the link button should redirect the page
+ * The page should be opened in a new tab
+ */
+test("Button link should redirect to new location with a new tab", async t => {   
+    const tabBeer = Selector("#tab-beer"); 
+    const getPageURL = ClientFunction( () => window.location.href );
+    // TestCafe doesn't support multiple tabs, so this will not work. 
+    const getOpenerURL = ClientFunction( () => window.opener.location.href );
+    await t
+        .click(tabBeer)
+        .expect(getPageURL()).contains("/test.html");
+    //     .expect(getOpenerURL()).contains("/incrementTest.html");
+});
+
+/**
+ * Grab the color of the component to be tested directly
+ * The color of the button should be equal to the attribute. 
+ */
+test("Button color should be set correctly", async t=> {
+    const getColorBeer = ClientFunction(() => document.querySelector("#color-beer").shadowRoot.querySelector("button").style.background);
+    await t
+        .expect(getColorBeer()).eql("red");
+});
+
+/**
+ * Grab the id of the component to be tested
+ * Clicking the button should invoke the custom function,
+ * which, here, is a console log. 
+ */
+test("Button accepts custom fuctions", async t=> {
+    const bill = Selector("#bill"); 
+
+    await t.click(bill);
+    const messages = await t.getBrowserConsoleMessages();
+    await t.expect(messages.log[0]).eql("hello");
+});
