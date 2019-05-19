@@ -143,9 +143,9 @@ test("Button color should be set correctly", async t=> {
  * which, here, is a console log. 
  */
 test("Button accepts custom fuctions", async t=> {
-    const bill = Selector("#bill"); 
+    const component = Selector("#custom-func-beer"); 
 
-    await t.click(bill);
-    const messages = await t.getBrowserConsoleMessages();
-    await t.expect(messages.log[0]).eql("hello");
+    await t.click(component);
+    const messages = await t.getBrowserConsoleMessages();    
+    await t.expect(messages.log[1]).eql("hello");
 });
