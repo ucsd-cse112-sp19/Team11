@@ -18,14 +18,6 @@ if(!LOCAL_DEV) {
         .page `localhost:5500/src/Raw-Button/incrementTest.html`;
 }
 
-/**
- * Grab the id of the component that you wish to test
- * Check if tab attribute exists and clicking opens a new tab
- *//*
-test("Clicking the button will open a new tab", async t => {
-
-});
-*/
 
 /**
  * Grab the id of the component that you wish to test, check for <link> attribute in shadowDom
