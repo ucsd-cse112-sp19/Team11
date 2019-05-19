@@ -13,6 +13,9 @@ const types = [
 // when there are multiple
 var idx = 0;
 
+/**
+ * Beer web component that was ported from the Element library
+ */
 class BeerButtonLit extends LitElement {
     static get properties() {
         return {
@@ -62,6 +65,9 @@ class BeerButtonLit extends LitElement {
 
     }
 
+    /**
+     * @description CSS styling that will style the button component
+     */
     static get styles() {
         return css`
       :host {
@@ -127,9 +133,10 @@ class BeerButtonLit extends LitElement {
     `;
     }
 
+
     /**
-     * Returns string representing CSS classes this web
-     * component will have
+     * @description Will get the CSS class(es) this web component will have
+     * @returns {string} CSS classes 
      */
     _getClass() {
         let _class = "";
@@ -152,8 +159,8 @@ class BeerButtonLit extends LitElement {
     }
 
     /**
-     * Returns string representing CSS style this web
-     * component will have
+     * @description CSS style this web component will have
+     * @returns {string} CSS styles
      */
     _getStyle() {
         let _style = "";
@@ -185,8 +192,9 @@ class BeerButtonLit extends LitElement {
     }
 
     /**
-     * Checks of the 'type' attribute is valid.
-     * Valid types are: primary, succuess, info, warning, danger, or "" (default)
+     * @description Checks of the 'type' attribute is valid. Valid types are: primary, succuess, info, warning, danger, or "" (default)
+     * @returns {boolean} valid
+     * 
      */
     _validType() {
         let valid = false;
@@ -200,7 +208,12 @@ class BeerButtonLit extends LitElement {
         alert("You clicked the button!");
     }
 
+    // TODO missing documentation
 
+    /**     
+     * @description
+     * @returns {html} 
+     */
     render() {
         if(!this._validType()) {
             this.type = "";
