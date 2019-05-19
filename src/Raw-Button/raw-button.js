@@ -97,8 +97,8 @@ class BeerButton extends HTMLElement {
     }
    
     /**
-     * @description: Function that allows for a custom style sheet to be applied
-     * @param {string} newStyle: string that is the .css file to be imported
+     * @description Function that allows for a custom style sheet to be applied
+     * @param {string} newStyle string that is the .css file to be imported
      */
     setStyle(newStyle){
         var Style = document.createElement("link");
@@ -109,9 +109,9 @@ class BeerButton extends HTMLElement {
     }
 
     /**
-     * @description: Takes a script and function then loads the function from 
+     * @description Takes a script and function then loads the function from 
      * the script so that it can be used with the button
-     * @return void
+     * @returns void
      */
     customFunction(){
         var scriptName = this.getAttribute("script");
@@ -129,10 +129,10 @@ class BeerButton extends HTMLElement {
     }
         
     /**
-     * @description : Takes a link and when the button is clicked will navigate 
+     * @description Takes a link and when the button is clicked will navigate 
      * the browser to the new link. Has the optional attribute "tab" to allow users
      * to open a new tab instead.
-     * @return : void
+     * @returns void
      */
     linkFunction(){
         // grabs the value of link 
@@ -156,9 +156,9 @@ class BeerButton extends HTMLElement {
     }
 
     /**
-     * @description: Function that allows the user to increment a selected field 
-     * @param value: boolean when true increments when false decrements
-     * @returns: void 
+     * @description Function that allows the user to increment a selected field 
+     * @param value boolean when true increments when false decrements
+     * @returns void 
      */
     incrementDecrementFunction(){
         var value;
@@ -194,8 +194,8 @@ class BeerButton extends HTMLElement {
     }
     
     /**
-     * @description: Function that allows the user to change the background color of the button
-     * @returns: void
+     * @description Function that allows the user to change the background color of the button
+     * @returns void
      */
     changeColorOfBackground(){
         // grab the attribute color
@@ -206,9 +206,9 @@ class BeerButton extends HTMLElement {
    
    
     /**
-     * @description:
-     * @param {string} img: The string of the img file to be imported
-     * @returns: void
+     * @description Function that sets the background of the component to be an img
+     * @param {string} img The string of the img file to be imported
+     * @returns void
      */
     setImgAsBackground(){
         // You get the attribute image as a string here; it's basically the img url
@@ -223,7 +223,7 @@ class BeerButton extends HTMLElement {
 
 
     /**
-     * @description: Function which allows the user to use one of our built in styles 
+     * @description Function which allows the user to use one of our built in styles 
      * @param {string} styleName takes a string that the user provides and then matches
      * it against a .css stylesheet stored in the componenets library 
      * @returns void
