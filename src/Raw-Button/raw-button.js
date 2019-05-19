@@ -15,6 +15,9 @@ template.innerHTML = `
 <button> Im a Button </button>
 `;
 
+/**
+ * A vanilla web-component
+ */
 class BeerButton extends HTMLElement {
     constructor() {
         super();
@@ -79,6 +82,7 @@ class BeerButton extends HTMLElement {
         }
     } 
 
+
     /**
      * @description Function that allows the use to set the buttons name bassed on the
      * value of the inner html
@@ -95,10 +99,15 @@ class BeerButton extends HTMLElement {
             console.log( "no Name provided");
         }
     }
+
    
     /**
      * @description Function that allows for a custom style sheet to be applied
      * @param {string} newStyle string that is the .css file to be imported
+     * @example
+     * 
+     * <beer-button newStyle="styles.css">Style Testing</beer-button>
+     * 
      */
     setStyle(newStyle){
         var Style = document.createElement("link");
@@ -108,10 +117,15 @@ class BeerButton extends HTMLElement {
         Style.setAttribute("type", "text/css");
     }
 
+
     /**
      * @description Takes a script and function then loads the function from 
      * the script so that it can be used with the button
      * @returns void
+     * @example 
+     * 
+     * <beer-button script="./testFunction.js" functionName="testFunction"></beer-button>
+     * 
      */
     customFunction(){
         var scriptName = this.getAttribute("script");
@@ -127,12 +141,15 @@ class BeerButton extends HTMLElement {
             } 
         }
     }
+
         
     /**
      * @description Takes a link and when the button is clicked will navigate 
      * the browser to the new link. Has the optional attribute "tab" to allow users
      * to open a new tab instead.
      * @returns void
+     * @example <beer-button link="www.google.com"></beer-button>
+     * @example <beer-button link="www.google.com" tab></beer-button>
      */
     linkFunction(){
         // grabs the value of link 
@@ -155,10 +172,20 @@ class BeerButton extends HTMLElement {
         }
     }
 
+
     /**
      * @description Function that allows the user to increment a selected field 
      * @param value boolean when true increments when false decrements
      * @returns void 
+     * @example 
+     * 
+     * <beer-button increment="increment-number"></beer-button>
+     * <beer-button increment="decrement-number"></beer-button>
+     * <form>
+     *      <input type="text" id="increment-number" value="0"/>
+     *      <input type="text" id="decrement-number" value="0"/>
+     * </form>                
+     *                
      */
     incrementDecrementFunction(){
         var value;
@@ -192,10 +219,15 @@ class BeerButton extends HTMLElement {
             document.getElementById(decrementId).value = value;
         }
     }
+
     
     /**
      * @description Function that allows the user to change the background color of the button
      * @returns void
+     * @example
+     * 
+     * <beer-button color="red">Red Button</beer-button>
+     * 
      */
     changeColorOfBackground(){
         // grab the attribute color
@@ -209,6 +241,10 @@ class BeerButton extends HTMLElement {
      * @description Function that sets the background of the component to be an img
      * @param {string} img The string of the img file to be imported
      * @returns void
+     * @example
+     * 
+     * <beer-button image="test.jpg">Image Button</beer-button>
+     * 
      */
     setImgAsBackground(){
         // You get the attribute image as a string here; it's basically the img url
@@ -219,7 +255,6 @@ class BeerButton extends HTMLElement {
         // a proper var. That's why you put empty strings and "add" image to it so it will get it as a var
         this._shadowRoot.querySelector("button").style.backgroundImage = "url("+image+")";
     }
-
 
 
     /**
