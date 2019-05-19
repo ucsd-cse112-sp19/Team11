@@ -6,7 +6,7 @@ import {Selector, ClientFunction} from "testcafe";
 /**
  * MAKE SURE TO CHANGE THIS VALUE BEFORE PUSHING
  */
-const LOCAL_DEV = false;
+const LOCAL_DEV = true;
 /* ================================================= */
 
 
@@ -139,5 +139,11 @@ test("Button accepts custom fuctions", async t=> {
 
     await t.click(component);
     const messages = await t.getBrowserConsoleMessages();    
-    await t.expect(messages.log[1]).eql("hello");
+    var msg = "";
+    if(LOCAL_DEV) {
+        msg = messages.log[1];
+    } else {
+        msg = messages.log[0];
+    }
+    await t.expect(msg).eql("hello");
 });
