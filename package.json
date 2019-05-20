@@ -34,8 +34,8 @@
   "scripts": {
     "lint": "eslint src/**/*.js",
     "test-mocha": "mocha test/test.js",
-    "local-test": "testcafe chrome test/cafeTest.js",
-    "browser-test": "testcafe chrome,firefox test/raw-beer-cafeTest.js",
+    "local-test": "testcafe chrome test/raw-beer-cafeTest.js --skip-js-errors",
+    "browser-test": "testcafe chrome,firefox test/raw-beer-cafeTest.js --skip-js-errors",
     "gulp": "^4.0.1",
     "gulp-documentation": "^3.2.1",
     "gulp-uglify": "^3.0.2",
