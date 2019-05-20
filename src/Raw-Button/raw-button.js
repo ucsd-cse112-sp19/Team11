@@ -48,7 +48,7 @@ class BeerButton extends HTMLElement {
         }
         if(this.hasAttribute("type")){
             if(this.getAttribute("type").length > 0){
-                this.$beerButton.setAttribute("type", this.getAttribute("type "));
+                this.$beerButton.setAttribute("type", this.getAttribute("type"));
             }
         }
         
