@@ -12,7 +12,7 @@ template.innerHTML = `
         cursor: pointer;
     }
 </style>
-<button> Im a Button </button>
+<button id = beerButton> Im a Button </button>
 `;
 
 class BeerButton extends HTMLElement {
@@ -26,20 +26,22 @@ class BeerButton extends HTMLElement {
         this.$beerButton = this._shadowRoot.querySelector("button");
         this.$rawButton = document.querySelector("beer-button");
         
-
         
+
+
+
         if(this.hasAttribute("id")){
             this.setButtonName(this.getAttribute("id"));
-            var buttonlist = document.getElementsByTagName("button");
-            for(var i = 0; i < buttonlist.length; i++){
-                var single = buttonlist[i];
-
-                if(single.getAttribute("type") == "button"){
-                    single.setAttribute("id", this.getAttribute("id"));
-                }
+            this.$beerButton.setAttribute("id", this.getAttribute("id"));         
+        }
+        
+        if(this.hasAttribute("class")){
+            if(this.getAttribute("class").length > 0){
+                this.$beerButton.setAttribute("class", this.getAttribute("class"));
             }
-
-            
+            else{
+                console.log("The class field is set to empty");
+            }
         }
         
         if(this.hasAttribute("color")){
