@@ -36,8 +36,6 @@ class BeerNotificationLit extends LitElement {
         this.position = "";
         this.offset = 0;
 
-        // TODO: Modify/Add where appropriate
-
     }
 
 
@@ -88,9 +86,6 @@ class BeerNotificationLit extends LitElement {
         `;
     }
 
-    // TODO: Add helper functions where appropriate
-
-    // TODO: Modify wherever appropraite
     render() {
         return html`
         <div class="popup">
