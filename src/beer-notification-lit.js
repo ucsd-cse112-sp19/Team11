@@ -3,15 +3,14 @@ import {LitElement, html, css} from "https://unpkg.com/lit-element@2.0.1/lit-ele
 class BeerNotificationLit extends LitElement {
     static get properties() {
         return {
-            type: {type: String, reflect: true},
-            text: {type: String, reflect: true}
+            type:     {type: String, reflect: true},
+            text:     {type: String, reflect: true}
             // TODO: Add properties as needed
-        }
+        };
     }
 
     constructor() {
         super();
-
     }
 
 
@@ -24,8 +23,8 @@ class BeerNotificationLit extends LitElement {
         }
         .popup {
             /*display: none;*/   /* Hidden by default. Use this when we have linked with button.
-                                    Once linked with button, notification will show up when button
-                                    is clicked. */
+                                Once linked with button, notification will show up when button
+                                is clicked. */
             position: fixed;     /* Stay in place */
             z-index: 1;          /* Sit on top */
             padding-top: 100px;  /* Location of the box */
@@ -38,7 +37,7 @@ class BeerNotificationLit extends LitElement {
         }
 
         /* The Close Button */
-            .close {
+        .close {
             color: #aaaaaa;
             float: right;
             font-size: 28px;
@@ -62,16 +61,16 @@ class BeerNotificationLit extends LitElement {
         `;
     }
 
-  render() {
-      return html`
-      <div class="popup">
-          <div class="popup-content">
-              <span class="close">&times;</span>
-              <p>${this.text}</p>
-          </div>
-      </div>
-      `;
-  }
+    render() {
+        return html`
+        <div class="popup">
+            <div class="popup-content">
+                <span class="close">&times;</span>
+                <p>${this.text}</>
+            </div>
+        </div>
+    `;
+    }
 }
 
 window.customElements.define("beer-notification-lit", BeerNotificationLit);
