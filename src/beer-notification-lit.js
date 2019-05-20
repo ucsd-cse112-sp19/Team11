@@ -3,14 +3,41 @@ import {LitElement, html, css} from "https://unpkg.com/lit-element@2.0.1/lit-ele
 class BeerNotificationLit extends LitElement {
     static get properties() {
         return {
+            // success, warning, info, error 
+            // (other values will be ignored)
             type:     {type: String, reflect: true},
-            text:     {type: String, reflect: true}
+            title:    {type: String, reflect: true},
+            message:  {type: String, reflect: true},
+
+            // If duration="0", then notification will not close automatically
+            // Else notification will automatically close after <duration> amount of milliseconds
+            // (default: 4500 ms)
+            duration: {type: Number, reflect: true},
+
+            // (default: top-right), top-left, bottom-right, bottom-left
+            position: {type: String, reflect: true},
+
+            // Notification's offset from the edge of the screen
+            // Note that every Notification instance of the same moment should have the same offset
+            offset: {type: Number, reflect: true}
+
+
             // TODO: Add properties as needed
         };
     }
 
     constructor() {
         super();
+        // Default attributes
+        this.type = "";
+        this.title = "";
+        this.message = "";
+        this.duration = 4500;
+        this.position = "";
+        this.offset = 0;
+
+        // TODO: Modify/Add where appropriate
+
     }
 
 
@@ -61,6 +88,9 @@ class BeerNotificationLit extends LitElement {
         `;
     }
 
+    // TODO: Add helper functions where appropriate
+
+    // TODO: Modify wherever appropraite
     render() {
         return html`
         <div class="popup">
