@@ -46,6 +46,11 @@ class BeerButton extends HTMLElement {
                 console.log("The class field is set to empty");
             }
         }
+        if(this.hasAttribute("type")){
+            if(this.getAttribute("type").length > 0){
+                this.$beerButton.setAttribute("type", this.getAttribute("type "));
+            }
+        }
         
         if(this.hasAttribute("color")){
             this.changeColorOfBackground();
