@@ -26,8 +26,20 @@ class BeerButton extends HTMLElement {
         this.$beerButton = this._shadowRoot.querySelector("button");
         this.$rawButton = document.querySelector("beer-button");
         
+
+        
         if(this.hasAttribute("id")){
             this.setButtonName(this.getAttribute("id"));
+            var buttonlist = document.getElementsByTagName("button");
+            for(var i = 0; i < buttonlist.length; i++){
+                var single = buttonlist[i];
+
+                if(single.getAttribute("type") == "button"){
+                    single.setAttribute("id", this.getAttribute("id"));
+                }
+            }
+
+            
         }
         
         if(this.hasAttribute("color")){
