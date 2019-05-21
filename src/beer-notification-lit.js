@@ -92,6 +92,7 @@ class BeerNotificationLit extends LitElement {
         //onClick event handler on our beer_notification element. 
         //Ideally nothing should happen when we click our own notification. I'll try to add this tmr morning (today?) TODO
          //when clicking INSIDE the notification page, the notification should disappear
+         /*
          this.onclick = () => {
             let event = new CustomEvent("Clicked", {});
             self.dispatchEvent(event);
@@ -104,7 +105,15 @@ class BeerNotificationLit extends LitElement {
             //removed notif from the page. Can't figure out how to set 
             this._removeFromDom(beer_notification_lit);
         } 
+        */
 
+        //hides the notification after a click event is registered 
+        this.addEventListener('click',hideshow,false);
+        function hideshow() {
+            beer_notification_lit.style.display = 'block'; 
+            this.style.display = 'none'
+        }
+        
         // Set the message property with the user text in between tag
         // <beer-notification-lit>USER MESSAGE</beer-notification-lit>
         this.message = beer_notification_lit.textContent;
