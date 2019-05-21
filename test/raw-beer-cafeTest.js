@@ -125,7 +125,7 @@ test("Button link should redirect to new location with a new tab", async t => {
  * The color of the button should be equal to the attribute. 
  */
 test("Button color should be set correctly", async t=> {
-    const getColorBeer = ClientFunction(() => document.querySelector("#color-beer").shadowRoot.querySelector("button").style.backgroundColor);
+    const getColorBeer = ClientFunction(() => document.querySelector("#color-beer")._shadowRoot.querySelector("button").style.backgroundColor);
     await t
         .expect(getColorBeer()).eql("red");
 });
