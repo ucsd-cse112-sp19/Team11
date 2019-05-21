@@ -227,7 +227,7 @@ class BeerNotificationLit extends LitElement {
      * @returns {string} style
      */
     _getStyle() {
-        let _style = "z-index: 1; right: 0; top: 0;width: 20em; height: auto; margin-top:2em; overflow: auto; border-radius: 0.5em; background-color: white;";
+        let _style = "z-index: 1; right: 0; top: 0;width: 20em; height: 8em; margin-top:2em; overflow: auto; border-radius: 0.5em; background-color: white;";
         
         let topMargin = "";
 
