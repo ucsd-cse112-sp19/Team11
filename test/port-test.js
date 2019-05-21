@@ -97,6 +97,29 @@ test("Attribute testing: verify button color", async t => {
         .expect(danger.getStyleProperty("background-color")).eql("rgb(245, 108, 108)");
 });
 
+test("Attribute testing: verify button roundness", async t => {
+    await Selector("#round-success"); const success = await Selector(() => document.querySelector("#round-success").shadowRoot.querySelector("button"));
+    await Selector("#rounded"); const round = await Selector(() => document.querySelector("#rounded").shadowRoot.querySelector("button"));
+    await Selector("#circular"); const circle = await Selector(() => document.querySelector("#circular").shadowRoot.querySelector("button"));
+
+    await t 
+        .expect(success.hasClass("round")).ok()
+        .expect(success.getStyleProperty("border-bottom-left-radius")).eql("35px")
+        .expect(success.getStyleProperty("border-bottom-right-radius")).eql("35px")
+        .expect(success.getStyleProperty("border-top-left-radius")).eql("35px")
+        .expect(success.getStyleProperty("border-bottom-right-radius")).eql("35px")
+        .expect(round.hasClass("round")).ok()
+        .expect(round.getStyleProperty("border-bottom-left-radius")).eql("35px")
+        .expect(round.getStyleProperty("border-bottom-right-radius")).eql("35px")
+        .expect(round.getStyleProperty("border-top-left-radius")).eql("35px")
+        .expect(round.getStyleProperty("border-bottom-right-radius")).eql("35px")
+        .expect(circle.hasClass("circle")).ok()
+        .expect(circle.getStyleProperty("border-bottom-left-radius")).eql("50%")
+        .expect(circle.getStyleProperty("border-bottom-right-radius")).eql("50%")
+        .expect(circle.getStyleProperty("border-top-left-radius")).eql("50%")
+        .expect(circle.getStyleProperty("border-bottom-right-radius")).eql("50%");
+});
+
 test("Function testing: loading buttons are animated and disabled", async t => {
     await Selector("#animated"); const text = await Selector(() => document.querySelector("#animated").shadowRoot.querySelector("button"));
     await Selector("#animated"); const ani = await Selector(() => document.querySelector("#animated").shadowRoot.querySelector("i"));
