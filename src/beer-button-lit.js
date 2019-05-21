@@ -201,7 +201,7 @@ class BeerButtonLit extends LitElement {
         types.find((elem) => {
             if(elem.type === this.type) valid = true;
         });
-        return valid | this.isDefault;
+        return valid || this.isDefault;
     }
 
     _clickHandler() {

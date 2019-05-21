@@ -2,6 +2,9 @@
 <head>
     <script type="module" src="beer-notification-lit.js"></script>
     <style>
+        * {
+            font-family:sans-serif;
+        }
         beer-button-lit {
             display:inline-block;
         }
@@ -9,9 +12,18 @@
 </head>
 
 <body>  
-    <h1 style="font-family:sans-serif">Notification</h1>
-    <beer-notification-lit>Hello World!</beer-notification-lit>
-    <beer-notification-lit duration="60000">Will be removed in a minute</beer-notification-lit>
+    <h1>Notification</h1>
+
+    <beer-notification-lit type="success" title="Title" duration="0">Hello Peter! 
+    This is a notification from team BEER reminding you to have a great day! :)
+    </beer-notification-lit>
+
+    <p>Note from Esther: Currently we do not have stacking notification boxes. 
+       A new notification will cover old notification
+       
+       Still need attributes done</p>
+
+    <!-- <beer-notification-lit duration="10000">Will be removed in 10 seconds</beer-notification-lit> -->
 </body>
 
 </html>
