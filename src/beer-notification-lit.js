@@ -26,6 +26,21 @@ class BeerNotificationLit extends LitElement {
         };
     }
 
+    /**
+     * @description Callback that is called when element is inserted into DOM
+     */
+    connectedCallback() {
+        super.connectedCallback();
+        // check if duration is not 0. If it is not set timer for callback function to 
+        // remove from dom
+        if(this.duration != 0) {
+            window.setTimeout(() => {
+                // this is passed in because it is a reference to the element that must be removed
+                this._removeFromDom(this);
+            }, this.duration);
+        }
+    }
+
     constructor() {
         super();
         // Default attributes
@@ -35,6 +50,7 @@ class BeerNotificationLit extends LitElement {
         this.duration = 4500;
         this.position = "";
         this.offset = 0;
+
 
     }
 
@@ -84,6 +100,15 @@ class BeerNotificationLit extends LitElement {
             cursor: pointer;
         }
         `;
+    }
+
+    /**
+     * @description Removes this LitElement from the DOM Tree
+     * @param {LitElement} _this Reference to this LitElement
+     */
+    _removeFromDom(_this) {
+        // _this is used instead of this because this will reference the window
+        _this.parentNode.removeChild(_this);
     }
 
     render() {
