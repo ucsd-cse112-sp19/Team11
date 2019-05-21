@@ -1,17 +1,6 @@
 const template = document.createElement("template");
 template.innerHTML = `
-<style>
-    :host{
-        display block;
-        font-family: sans-serif;
-        text-align: center
-    }
-    
-    button {
-        border: 2px solid;
-        cursor: pointer;
-    }
-</style>
+
 <button> Im a Button </button>
 `;
 
@@ -34,21 +23,25 @@ class BeerButton extends HTMLElement {
 
 
         if(this.hasAttribute("id")){
+            if(this.hasAttribute("beerId")){
+                this.setButtonName(this.getAttribute("id"));
+                this.$beerButton.setAttribute("id", this.getAttribute("beerId"));
+            }
             this.setButtonName(this.getAttribute("id"));
             this.$beerButton.setAttribute("id", this.getAttribute("id"));         
         }
         
-        if(this.hasAttribute("class")){
-            if(this.getAttribute("class").length > 0){
-                this.$beerButton.setAttribute("class", this.getAttribute("class"));
+        if(this.hasAttribute("beerclass")){
+            if(this.getAttribute("beerclass").length > 0){
+                this.$beerButton.setAttribute("class", this.getAttribute("beerclass"));
             }
             else{
                 console.log("The class field is set to empty");
             }
         }
-        if(this.hasAttribute("type")){
-            if(this.getAttribute("type").length > 0){
-                this.$beerButton.setAttribute("type", this.getAttribute("type"));
+        if(this.hasAttribute("beertype")){
+            if(this.getAttribute("beertype").length > 0){
+                this.$beerButton.setAttribute("type", this.getAttribute("beertype"));
             }
         }
         
@@ -110,6 +103,7 @@ class BeerButton extends HTMLElement {
      */
     setButtonName(buttonId){
         //grabs the correct button that corresponds with the Id
+        console.log(buttonId);
         var $id = document.getElementById(buttonId);
         if($id.innerHTML.length > 0){
             this.$beerButton.innerHTML= $id.innerHTML;
