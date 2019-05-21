@@ -5,7 +5,7 @@
   <h1>BOOOOT STRAPP!!!</h1>
 </head>
 <body>
-  <h2>Examples</h2>
+  <h2>Solid Buttons</h2>
   <div class = "bd-example">
     <beer-button id="primary" class="btn btn-primary" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Primary</beer-button>
     <beer-button id="secondary" class="btn btn-secondary" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Secondary</beer-button>
@@ -16,21 +16,7 @@
     <beer-button id="light" class="btn btn-light" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Light</beer-button>
     <beer-button id="dark" class="btn btn-dark" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Dark</beer-button>
     <beer-button id="link" class="btn btn-link" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Link</beer-button>
-    <div class="highlight">
-      <pre>
-        <code class="language-html" data-lang="html">
-            beer-button id="primary" class="btn btn-primary" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Primary beer-button
-            beer-button id="secondary" class="btn btn-secondary" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Secondary beer-button
-            beer-button id="success" class="btn btn-succcess" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Success beer-button
-            beer-button id="danger" class="btn btn-danger" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Danger beer-button>
-            beer-button id="warning" class="btn btn-warning" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Warning beer-button
-            beer-button id="info" class="btn btn-info" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Info beer-button
-            beer-button id="light" class="btn btn-light" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Light beer-button
-            beer-button id="dark" class="btn btn-dark" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Dark beer-button
-            beer-button id="link" class="btn btn-link" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Link beer-button
-        </code>
-      </pre>
-    </div>
+  
     <h2>Outline buttons</h2>
     <div class="bd-example">
         <beer-button id="primary1" class="btn btn-outline-primary" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Primary</beer-button>
@@ -41,8 +27,23 @@
         <beer-button id="info2" class="btn btn-outline-info" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Info</beer-button>
         <beer-button id="light2" class="btn btn-outline-light" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Light</beer-button>
         <beer-button id="dark2" class="btn btn-outline-dark" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Dark</beer-button>
-
     </div>
+    <div class="highlight">
+            <pre>
+              <code class="language-html" data-lang="html">
+                  beer-button id="primary" class="btn btn-primary" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Primary beer-button
+                  beer-button id="secondary" class="btn btn-secondary" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Secondary beer-button
+                  beer-button id="success" class="btn btn-succcess" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Success beer-button
+                  beer-button id="danger" class="btn btn-danger" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Danger beer-button>
+                  beer-button id="warning" class="btn btn-warning" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Warning beer-button
+                  beer-button id="info" class="btn btn-info" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Info beer-button
+                  beer-button id="light" class="btn btn-light" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Light beer-button
+                  beer-button id="dark" class="btn btn-dark" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Dark beer-button
+                  beer-button id="link" class="btn btn-link" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css Link beer-button
+              </code>
+            </pre>
+          </div>
+    <h1>Built In Stuff</h1>
     <h2> Increment and Decrement </h2>
     <div class="bd-example">
         <beer-button decrement="decnumber" id="dec">Decrement</beer-button>
@@ -55,7 +56,7 @@
     </div>
     <h2> Navigate to a new page </h2>
     <div>
-        <beer-button script="./testFunction.js" functionName="testFunction" id="bill" >I'm a link button</beer-button>
+        <beer-button link="./testLink.html" functionName="testFunction" id="bill" >I'm a link button</beer-button>
     </div>
     <h2> Custom Function </h2>
     <div>
@@ -69,19 +70,24 @@
      <div>
         <beer-button disable id="disab"> Im disabled button</beer-button> 
      </div>
-     <h2> Hover Button</h2>
-     <div>
-        <beer-button libStyle= "hoverButton" id="StyleT">Im a hover button</beer-button>
+     <h2> Built In Styles</h2>
+     <div class="bd-example">
+        <beer-button libStyle= "hoverButton" id="a">hoverButton</beer-button>
+        <beer-button libStyle= "block" id="b">block</beer-button>
+        <beer-button libStyle= "border" id="c">border</beer-button>
+        <beer-button libStyle= "danger" id="d">danger</beer-button>
+        <beer-button libStyle= "bouncy" id="e">bouncy</beer-button>
+        <beer-button libStyle= "info" id="f">info</beer-button>
+        <beer-button libStyle= "large" id="g">large</beer-button>
+        <beer-button libStyle= "link" id="h">link</beer-button>
+        <beer-button libStyle= "medium" id="i">medium</beer-button>
+        <beer-button libStyle= "primary" id="j">primary</beer-button>
+        <beer-button libStyle= "round" id="k">round</beer-button>
+        <beer-button libStyle= "small" id="l">small</beer-button>
+        <beer-button libStyle= "success" id="m">success</beer-button>
+        <beer-button libStyle= "warning" id="n">warning</beer-button>
+        <beer-button libStyle= "xsmall" id="o">xmsall</beer-button>
+
      </div>
   </div>
-<!-- increment + decrement -->
-<h1>CURRENTLY ON TEST PAGE</h1>
-<form>
-    <input type="text" id="number" value="0"/>
-    <input type="text" id="decnumber" value="0"/>
- </form>
- <!-- link button at bottom -->
- <beer-button link="testLink.html" id="testLink">Click me to go to testLink.html </beer-button>
- <!-- image button -->
-</body>
 </html>
