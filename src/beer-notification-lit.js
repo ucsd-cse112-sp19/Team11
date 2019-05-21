@@ -227,16 +227,6 @@ class BeerNotificationLit extends LitElement {
         
         return _style;
     }
-    
-    _getMargin() {
-        let margin = "";
-        
-        let number = idx * 2;
-        
-        margin = number.toString(10);
-        
-        return margin;
-    }
 
     render() {
         return html`
@@ -249,7 +239,7 @@ class BeerNotificationLit extends LitElement {
                 </span>
                 <p class="popup-title">${this.title}</> 
                 <span class="close">&times;</span>
-                <p>${this.message + this._getMargin()}</>
+                <p>${this.message}</>
             </div>
         </div>
     `;
