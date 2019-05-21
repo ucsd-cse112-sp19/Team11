@@ -246,7 +246,9 @@ class BeerButton extends HTMLElement {
         // grab the attribute color
         var color = this.getAttribute("color");
         // Set the color
-        this._shadowRoot.querySelector("button").style.background = color;
+        console.log("Color button Check");
+        this._shadowRoot.querySelector("button").style.backgroundColor = color;
+        
     }
    
    
