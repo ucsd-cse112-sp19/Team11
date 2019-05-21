@@ -12,7 +12,7 @@ template.innerHTML = `
         cursor: pointer;
     }
 </style>
-<button id = beerButton> Im a Button </button>
+<button> Im a Button </button>
 `;
 
 /**
