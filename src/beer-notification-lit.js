@@ -10,7 +10,7 @@ var types = [
 // Index to keep track of which beer-notication-lit component in a given HTML page
 // when there are multiple
 var idx = 0;
-
+var count = 0;
 //if we click out of a notif that also has a duration timer, we need to make sure we don't remove 
 //the same notification twice so thus a removed lock? woah 120 stuff? TODO
 var removed = false;
@@ -65,6 +65,7 @@ class BeerNotificationLit extends LitElement {
         //our precious beer-notification
         var beer_notification_lit = document.getElementsByTagName("beer-notification-lit").item(idx);
         idx++;
+        count = idx;
         // Increment the index for each new beer-button component in case of multiple
 
         // Default attributes
@@ -211,16 +212,21 @@ class BeerNotificationLit extends LitElement {
         _this.parentNode.removeChild(_this);
     }
     
+    /**
+     * @description It controls the stacks of notification so every 
+     * notification can be showed.
+     * @returns {string} style
+     */
     _getStyle() {
-        let _style = "z-index: 1; right: 0; top: 0;width: 20em; height: auto; margin-top:2em; overflow: auto; border-radius: 0.5em; background-color: white;";
+        let _style = "z-index: 1; right: 0; top: 0;width: 20em; height: 6em; margin-top:2em; overflow: auto; border-radius: 0.5em; background-color: white;";
         
         let topMargin = "";
 
         idx++;
         
-        let margin = idx - 4;
+        let margin = idx - (count+1);
         
-        margin *= 9;
+        margin *= 6;
         
         topMargin += margin.toString(10);
         _style += "margin-top:" + topMargin +"em;";
