@@ -5,12 +5,12 @@ var types = [
     {type: "warning", svg: "./svg/notif-icon-warning.svg"},
     {type: "danger",  svg: "./svg/notif-icon-danger.svg"},
     {type: "info",    svg: "./svg/notif-icon-info.svg"},
-];
+];    
 
 // Index to keep track of which beer-notication-lit component in a given HTML page
 // when there are multiple
 var idx = 0;
-
+var count = 0;
 //if we click out of a notif that also has a duration timer, we need to make sure we don't remove 
 //the same notification twice so thus a removed lock? woah 120 stuff? TODO
 var removed = false;
@@ -34,9 +34,7 @@ class BeerNotificationLit extends LitElement {
 
             // Notification's offset from the edge of the screen
             // Note that every Notification instance of the same moment should have the same offset
-            offset: {type: Number, reflect: true}
-
-
+            offset: {type: Number, reflect: true},
             // TODO: Add properties as needed
         };
     }
@@ -63,12 +61,12 @@ class BeerNotificationLit extends LitElement {
 
     constructor() {
         super();
-
+        
         //our precious beer-notification
         var beer_notification_lit = document.getElementsByTagName("beer-notification-lit").item(idx);
-
-        // Increment the index for each new beer-button component in case of multiple
         idx++;
+        count = idx;
+        // Increment the index for each new beer-button component in case of multiple
 
         // Default attributes
         this.type = "";
@@ -133,7 +131,7 @@ class BeerNotificationLit extends LitElement {
             width: 20em;         /* Fixed width */
             height: auto;        /* Dynamically adjust height based on content */
             overflow: auto;      /* Enable scroll if needed */
-            margin: 2em;
+            margin-top: 2em;
             border-radius: 0.5em;
             background-color: white;
         }
@@ -213,10 +211,32 @@ class BeerNotificationLit extends LitElement {
         // _this is used instead of this because this will reference the window
         _this.parentNode.removeChild(_this);
     }
+    
+    /**
+     * @description It controls the stacks of notification so every 
+     * notification can be showed.
+     * @returns {string} style
+     */
+    _getStyle() {
+        let _style = "z-index: 1; right: 0; top: 0;width: 20em; height: 6em; margin-top:2em; overflow: auto; border-radius: 0.5em; background-color: white;";
+        
+        let topMargin = "";
+
+        idx++;
+        
+        let margin = idx - (count+1);
+        
+        margin *= 6;
+        
+        topMargin += margin.toString(10);
+        _style += "margin-top:" + topMargin +"em;";
+        
+        return _style;
+    }
 
     render() {
         return html`
-        <div class="popup shadow">
+        <div class="popup shadow" style=${this._getStyle()}>
             <div class="popup-content">
                 <span>
                     <img class=${this._validType() ? "icon" : ""} 
