@@ -28,8 +28,14 @@ class BeerNotificationLit extends LitElement {
             // Notification's offset from the edge of the screen
             // Note that every Notification instance of the same moment should have the same offset
             offset: {type: Number, reflect: true},
+
+            // Boolean property to keep track of whether the notification is closed or not
             closed: {type: Boolean},
+
+            // Index of the notification component, useful when there are multiple components
             index:  {type: Number},
+
+            // The cumulative offset positioning to determine the position of notification dynamically
             prevHeights:  {type: Number}
 
 
@@ -46,8 +52,13 @@ class BeerNotificationLit extends LitElement {
         this.duration = 4500; // Default will close after 4500 ms
         this.position = "";
         this.offset = 0;
+
+        // Default properties (unrelated to attributes)
+        
+        // By default the notification is not closed.
+        // This will become true when user clicks on X, or duration time is up
         this.closed = false;
-        this.prevHeights = 0;
+        this.prevHeights = 0; 
 
         var beer_notif_lit = document.getElementsByTagName("beer-notification-lit").item(total_notifs);
 
@@ -71,13 +82,16 @@ class BeerNotificationLit extends LitElement {
         for( var i = 0; i < this.index; i++ ) {
             // Get the current beer-notification-lit component with index i
             let curr = document.getElementsByTagName("beer-notification-lit").item(i);
+
             // Get the <div> from this component's shadow DOM that has class=".popup"
             // referring to the template in render()
             let currDiv = curr.shadowRoot.querySelector(".popup");
+
             // Since in the CSS, we made the "height" style property as "height: auto",
             // the height of the notification box changes dynamically to fit the user text.
             // Thus, getComputedStyle() gets the actual height of the box as a string (Example: "123.4px")
             let notif_height = window.getComputedStyle(currDiv, null).getPropertyValue("height");
+
             // Using regex, remove "px" from the string (Example: "123.4px" --> "123.4")
             let notif_height_value = parseFloat(notif_height.replace(/px/gi, ""));
 
