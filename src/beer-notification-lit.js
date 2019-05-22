@@ -106,7 +106,7 @@ class BeerNotificationLit extends LitElement {
     connectedCallback() {
         super.connectedCallback();
         // check if duration is not 0. If it is not set timer for callback function to 
-        // remove from dom
+        // close this notification
         if(this.duration != 0) {
             window.setTimeout(() => {
                 this.closed = true;
