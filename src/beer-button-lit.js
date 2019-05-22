@@ -29,7 +29,8 @@ class BeerButtonLit extends LitElement {
             disabled: {type: Boolean, reflect: true},
             loading:  {type: Boolean, reflect: true},
             round:    {type: Boolean, reflect: true},
-            circle:   {type: Boolean, reflect: true}
+            circle:   {type: Boolean, reflect: true},
+            onClickFunction: {type: Function, reflect: false},
         };
     }
 
@@ -205,7 +206,17 @@ class BeerButtonLit extends LitElement {
     }
 
     _clickHandler() {
-        alert("You clicked the button!");
+        if (this.onClickFunction == undefined || this.onClickFunction == null) {
+            // alert("You clicked the button!");
+            // set default behavior to create a new notification
+            let newNotification = `<beer-notification-lit type="success" title="Success" duration="4500">
+                                        Hello Peter! This notification was created by clicking a button!
+                                    </beer-notification-lit>`;
+            document.querySelector("body").insertAdjacentHTML("afterbegin", newNotification); 
+        }
+        else {
+            this.onClickFunction(this);
+        }
     }
 
     // TODO missing documentation
