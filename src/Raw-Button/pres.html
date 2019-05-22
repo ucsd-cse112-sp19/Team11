@@ -5,6 +5,7 @@
 
 <!-- Bootstrap core CSS -->
 
+
 <style class="anchorjs"></style><link href="./pres_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
@@ -22,6 +23,17 @@
           <h1 class="bd-title" id="content">Buttons</h1>
           <p class="bd-lead">BoooooooooooooooooooooooooooooooooooooooooooooooooooooootStraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaap</p>
           
+<h2 id="examples"><div>Adding an ID to your Buttons</div></h2>
+<p>The user can provide a custom ID to make changes to a specific beer-button</p>
+<div class="bd-example">
+<beer-button id="name">I'm a named button</beer-button>
+</div>
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+<span class="nt">&lt;beer-button</span> <span class="na"> <span class="na">id=</span><span class="s">"name"</span><span class="nt">&gt;</span>Im a named button<span class="nt">&lt;/beer-button&gt;</span>
+</code></pre>
+</div>
+
+
 
 <h2 id="examples"><div>Solid Buttons</div></h2>
 <div class = "bd-example">
@@ -104,11 +116,14 @@
 
 <h2 id="examples"><div>Navigate to a New Page</div></h2>
 <p>Provide the link attribute with a valid website link and it will navigate the browser to that page when the button is clicked.</p>
+<p>The link attribute has another optional attribute "tab" to open the link on a new tab</p>
 <div class="bd-example">
 <beer-button link="./testLink.html" functionName="testFunction" id="bill" >I'm a link button</beer-button>
+<beer-button link="./testLink.html" tab functionName="testFunction" id="bill" >I'm a tab button</beer-button>
 </div>
 <div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
 <span class="nt">&lt;beer-button</span> <span class="na">link=</span><span class="s">"./testLink.html"</span> <span class="na">functionName=</span><span class="s">"testFunction"</span><span class="na">id=</span><span class="s">"bill"</span><span class="nt">&gt;</span>Im a link button<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">link=</span><span class="s">"./testLink.html"</span> <span class="na">tab</span> <span class="na">functionName=</span><span class="s">"testFunction"</span><span class="na">id=</span><span class="s">"bill"</span><span class="nt">&gt;</span>Im a link button<span class="nt">&lt;/beer-button&gt;</span>
 </code></pre>
 </div>
 
