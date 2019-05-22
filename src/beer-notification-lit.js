@@ -11,8 +11,8 @@ var types = [
 // when there are multiple
 var idx = 0;
 var count = 0;
-//if we click out of a notif that also has a duration timer, we need to make sure we don't remove 
-//the same notification twice so thus a removed lock? woah 120 stuff? TODO
+// if we click out of a notif that also has a duration timer, we need to make sure we don't remove 
+// the same notification twice so thus a removed lock? woah 120 stuff? TODO
 var removed = false;
 
 class BeerNotificationLit extends LitElement {
@@ -49,7 +49,7 @@ class BeerNotificationLit extends LitElement {
         if(this.duration != 0) {
             window.setTimeout(() => {
 
-                //only remove the notification if it's present in the DOM
+                // only remove the notification if it's present in the DOM
                 if(!removed){
                     // this is passed in because it is a reference to the element that must be removed
                     this._removeFromDom(this);
@@ -62,7 +62,7 @@ class BeerNotificationLit extends LitElement {
     constructor() {
         super();
         
-        //our precious beer-notification
+        // our precious beer-notification
         var beer_notification_lit = document.getElementsByTagName("beer-notification-lit").item(idx);
         idx++;
         count = idx;
@@ -73,8 +73,8 @@ class BeerNotificationLit extends LitElement {
         this.title = "";
         this.message = "";
 
-        //we are removing the notif after 4500 (milliseconds?) not what is specified from user specified value
-        //fixed
+        // we are removing the notif after 4500 (milliseconds?) not what is specified from user specified value
+        // fixed
         var duration_len = 0;
         try{
             beer_notification_lit.getAttribute("duration");
@@ -82,21 +82,21 @@ class BeerNotificationLit extends LitElement {
             console.log("caught duration!");
         }
 
-        //if the duration length is not empty we set it to be what is specified in duration attribute
+        // if the duration length is not empty we set it to be what is specified in duration attribute
         if(duration_len != 0){
             this.duration = duration_len;
         }
 
-        //default
+        // default
         this.duration = 4500;
         this.position = "";
         this.offset = 0;
-        //console.log("Which notif am i on? : " + beer_notification_lit.innerHTML);
+        // console.log("Which notif am i on? : " + beer_notification_lit.innerHTML);
 
-        //onClick event handler on our beer_notification element. 
-        //Ideally nothing should happen when we click our own notification. I'll try to add this tmr morning (today?) TODO
-         //when clicking INSIDE the notification page, the notification should disappear
-         /*
+        // onClick event handler on our beer_notification element. 
+        // Ideally nothing should happen when we click our own notification. I'll try to add this tmr morning (today?) TODO
+        // when clicking INSIDE the notification page, the notification should disappear
+        /*
          this.onclick = () => {
             let event = new CustomEvent("Clicked", {});
             self.dispatchEvent(event);
@@ -111,11 +111,11 @@ class BeerNotificationLit extends LitElement {
         } 
         */
 
-        //hides the notification after a click event is registered 
-        this.addEventListener('click',hideshow,false);
+        // hides the notification after a click event is registered 
+        this.addEventListener("click", hideshow, false);
         function hideshow() {
-            //beer_notification_lit.style.display = 'block'; 
-            this.style.display = 'none'
+            // beer_notification_lit.style.display = 'block'; 
+            this.style.display = "none";
         }
 
         // Set the message property with the user text in between tag
@@ -236,7 +236,7 @@ class BeerNotificationLit extends LitElement {
      * @returns {string} style
      */
     _getStyle() {
-        let _style = "z-index: 1; right: 0; top: 0;width: 20em; height: auto; margin-top:2em; overflow: auto; border-radius: 0.5em; background-color: white;";
+        let _style = "position: fixed; z-index: 1; right: 1em; top: 1em; width: 20em; height: auto; margin-top:2em; overflow: auto; border-radius: 0.5em; background-color: white;";
         
         let topMargin = "";
 
