@@ -11,8 +11,8 @@ var types = [
 // when there are multiple
 var idx = 0;
 var count = 0;
-//if we click out of a notif that also has a duration timer, we need to make sure we don't remove 
-//the same notification twice so thus a removed lock? woah 120 stuff? TODO
+// if we click out of a notif that also has a duration timer, we need to make sure we don't remove 
+// the same notification twice so thus a removed lock? woah 120 stuff? TODO
 var removed = false;
 
 class BeerNotificationLit extends LitElement {
@@ -49,7 +49,7 @@ class BeerNotificationLit extends LitElement {
         if(this.duration != 0) {
             window.setTimeout(() => {
 
-                //only remove the notification if it's present in the DOM
+                // only remove the notification if it's present in the DOM
                 if(!removed){
                     // this is passed in because it is a reference to the element that must be removed
                     this._removeFromDom(this);
@@ -62,7 +62,7 @@ class BeerNotificationLit extends LitElement {
     constructor() {
         super();
         
-        //our precious beer-notification
+        // our precious beer-notification
         var beer_notification_lit = document.getElementsByTagName("beer-notification-lit").item(idx);
         idx++;
         count = idx;
@@ -73,37 +73,44 @@ class BeerNotificationLit extends LitElement {
         this.title = "";
         this.message = "";
 
-        //we are removing the notif after 4500 (milliseconds?) not what is specified from user specified value
-        //fixed
+        // we are removing the notif after 4500 (milliseconds?) not what is specified from user specified value
+        // fixed
         var duration_len = beer_notification_lit.getAttribute("duration");
 
-        //if the duration length is not empty we set it to be what is specified in duration attribute
+        // if the duration length is not empty we set it to be what is specified in duration attribute
         if(duration_len != null){
             this.duration = duration_len;
         }
 
-        //default
+        // default
+        console.log(this.duration);
         this.duration = 4500;
         this.position = "";
         this.offset = 0;
+        
+        // if closed before notification naturally times out then hide it until timer finishes and 
+        // it gets removed from the DOM
+        this.hidden = false;
 
-        //console.log("Which notif am i on? : " + beer_notification_lit.innerHTML);
+        // console.log("Which notif am i on? : " + beer_notification_lit.innerHTML);
 
-        //onClick event handler on our beer_notification element. 
-        //Ideally nothing should happen when we click our own notification. I'll try to add this tmr morning (today?) TODO
-         //when clicking INSIDE the notification page, the notification should disappear
-         this.onclick = () => {
+        // onClick event handler on our beer_notification element. 
+        // Ideally nothing should happen when we click our own notification. I'll try to add this tmr morning (today?) TODO
+        // when clicking INSIDE the notification page, the notification should disappear
+        this.onclick = () => {
             let event = new CustomEvent("Clicked", {});
             self.dispatchEvent(event);
-            console.log("clicked on notif")
+            console.log("clicked on notif");
 
-            //attempt to prevent the "Uncaught TypeError: Cannot read property 'removeChild'
-            //by using a lock but didn't work :(
+            // attempt to prevent the "Uncaught TypeError: Cannot read property 'removeChild'
+            // by using a lock but didn't work :(
             this.removed = true;
 
-            //removed notif from the page. Can't figure out how to set 
+            this._hide(this);
+
+            // removed notif from the page. Can't figure out how to set 
             this._removeFromDom(beer_notification_lit);
-        } 
+        }; 
 
         // Set the message property with the user text in between tag
         // <beer-notification-lit>USER MESSAGE</beer-notification-lit>
@@ -211,6 +218,10 @@ class BeerNotificationLit extends LitElement {
         // _this is used instead of this because this will reference the window
         _this.parentNode.removeChild(_this);
     }
+
+    _hide(_this) {
+        _this.hidden = true;
+    }
     
     /**
      * @description It controls the stacks of notification so every 
@@ -232,6 +243,10 @@ class BeerNotificationLit extends LitElement {
         _style += "margin-top:" + topMargin +"em;";
         
         return _style;
+    }
+
+    _getClass() {
+        let _class = "popup shadow ";
     }
 
     render() {
