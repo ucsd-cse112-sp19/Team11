@@ -27,7 +27,7 @@
     "local-test": "testcafe chrome test/cafeTest.js",
     "browser-test": "testcafe chrome,firefox test/cafeTest.js",
     "port-browser-test": "testcafe chrome,firefox test/port-test.js",
-    "notif-brower-test": "testcafe chrome,firefox test/port-test.js",
+    "notif-brower-test": "testcafe chrome,firefox test/notif-test.js",
     "gulp": "^4.0.1",
     "gulp-documentation": "^3.2.1",
     "gulp-uglify": "^3.0.2",
