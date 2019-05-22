@@ -75,10 +75,15 @@ class BeerNotificationLit extends LitElement {
 
         //we are removing the notif after 4500 (milliseconds?) not what is specified from user specified value
         //fixed
-        var duration_len = beer_notification_lit.getAttribute("duration");
+        var duration_len = 0;
+        try{
+            beer_notification_lit.getAttribute("duration");
+        }catch(err){
+            console.log("caught duration!");
+        }
 
         //if the duration length is not empty we set it to be what is specified in duration attribute
-        if(duration_len != null){
+        if(duration_len != 0){
             this.duration = duration_len;
         }
 
@@ -86,7 +91,6 @@ class BeerNotificationLit extends LitElement {
         this.duration = 4500;
         this.position = "";
         this.offset = 0;
-
         //console.log("Which notif am i on? : " + beer_notification_lit.innerHTML);
 
         //onClick event handler on our beer_notification element. 
@@ -110,14 +114,19 @@ class BeerNotificationLit extends LitElement {
         //hides the notification after a click event is registered 
         this.addEventListener('click',hideshow,false);
         function hideshow() {
-            beer_notification_lit.style.display = 'block'; 
+            //beer_notification_lit.style.display = 'block'; 
             this.style.display = 'none'
         }
-        
+
         // Set the message property with the user text in between tag
         // <beer-notification-lit>USER MESSAGE</beer-notification-lit>
-        this.message = beer_notification_lit.textContent;
+        this.message = "";
 
+        try{
+            this.message = beer_notification_lit.textContent;
+        }catch(err){
+            console.log("caught test content error!");
+        }
     }
 
     static get styles() {
