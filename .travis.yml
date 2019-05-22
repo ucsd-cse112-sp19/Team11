@@ -41,6 +41,7 @@ matrix:
         - npm run lint
         - npm run port-browser-test
         - npm run browser-test
+        - npm run notif-brower-test
       
  #  - language: ruby
  #     rvm:
