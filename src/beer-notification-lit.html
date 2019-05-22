@@ -1,0 +1,44 @@
+<html>
+<head>
+    <script type="module" src="beer-notification-lit.js"></script>
+    <style>
+        * {
+            font-family:sans-serif;
+        }
+        beer-button-lit {
+            display:inline-block;
+        }
+    </style>
+</head>
+
+<body>  
+    <h1>Notification</h1>
+    <button onclick="indefNotif()" id="indefinite">Indefinite Notifcation!</button>
+    <span id="indefiniteSpan"></span>
+    <br>
+    <script>
+        function indefNotif(){
+            document.getElementById("indefiniteSpan").innerHTML = "<beer-notification-lit type='success' title='Indefinite' duration='0' id='indefNotif'>Hello Peter! This is a notification from team BEER reminding you to have a great day! :)</beer-notification-lit>";
+        }
+    </script>
+    <button onclick="defNotif()" id="definite">Definite Notifcation!</button>
+    <span id="definiteSpan"></span>
+    <br>
+    <script>
+        function defNotif(){
+            document.getElementById("definiteSpan").innerHTML = "<beer-notification-lit type='success' title='Definite' duration='1000' id='defNotif'>Hello Peter! This is a notification from team BEER reminding you to have a great day! :)</beer-notification-lit>";
+        }
+    </script>
+    <!----<button onclick="leftNotif()" id="left">Lower Left Notifcation!</button>
+    <span id="leftSpan"></span>
+    <br>
+    <script>
+        function leftNotif(){
+            document.getElementById("leftSpan").innerHTML = "<beer-notification-lit type='success' title='Lower Left' duration='1000' >Hello Peter! This is a notification from team BEER reminding you to have a great day! :)</beer-notification-lit>";
+        }
+    </script> -->
+
+    <!-- <beer-notification-lit duration="10000">Will be removed in 10 seconds</beer-notification-lit> -->
+</body>
+
+</html>
