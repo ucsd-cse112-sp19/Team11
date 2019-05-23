@@ -6,23 +6,16 @@ import {Selector, ClientFunction} from "testcafe";
 /**
  * MAKE SURE TO CHANGE THIS VALUE BEFORE PUSHING
  */
-const LOCAL_DEV = false;
+const LOCAL_DEV = true;
 /* ================================================= */
 
 
 if(!LOCAL_DEV) {
     fixture `Getting Started`
-<<<<<<< HEAD
         .page `https://ucsd-cse112.github.io/Team11/test/rawTest.html`;
 } else {
     fixture `Getting Started`
         .page `localhost:5500/test/rawTest.html`;
-=======
-        .page `https://ucsd-cse112.github.io/Team11/test/rawTests.html`;
-} else {
-    fixture `Getting Started`
-        .page `localhost:5500/test/rawTests.html`;
->>>>>>> 35778d8d72076cc289d2ddbba00fbfc67fb04a51
 }
 
 
