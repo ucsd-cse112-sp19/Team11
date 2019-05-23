@@ -17,7 +17,7 @@
 	"space-before-function-paren": ["error", "never"],
 	"spaced-comment": ["error", "always"],
 	"comma-spacing": ["error"],
-	"no-unused-vars": "off", 
+	"no-unused-vars": "off",
 	"no-console": "off",
         "indent": ["error", 4],
         "quotes": ["error", "double"],
