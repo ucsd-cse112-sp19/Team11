@@ -5,11 +5,12 @@
   "main": "test.js",
   "dependencies": {
     "chai": "^4.2.0",
-    "lit-element": "^2.1.0",
     "gulp": "^4.0.2",
     "gulp-documentation": "^3.2.1",
     "gulp-uglify": "^3.0.2",
-    "gulp4-run-sequence": "^0.3.3"
+    "gulp-uglify-es": "^1.0.4",
+    "gulp4-run-sequence": "^0.3.3",
+    "lit-element": "^2.1.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.4.4",
@@ -33,7 +34,6 @@
     "gulp-connect": "^5.7.0",
     "gulp-rename": "^1.4.0",
     "gulp-uglify": "^3.0.2",
-    "gulp-uglify-es": "^3.3.9",
     "gulp4-run-sequence": "^0.3.3",
     "lit-element": "^2.1.0",
     "mocha": "^6.1.4",
