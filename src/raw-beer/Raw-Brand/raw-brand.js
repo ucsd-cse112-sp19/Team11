@@ -5,7 +5,7 @@ import {AttributeSelector} from "../Raw-Functions/BrandbarFunctions.js";
 const template = document.createElement("template");
 template.innerHTML = `
 <a>
-<img  width="30" height="30" class="d-inline-block align-top" alt="">
+<img>
 Bootstrap
 </a>
 
@@ -44,6 +44,30 @@ class BeerBrand extends HTMLElement {
         if(this.hasAttribute("brandImage")){
             if(this.getAttribute("brandImage").length > 0){
                 this.setBrandImage();
+            }
+        }
+
+        if(this.hasAttribute("brandHeight")){
+            if(this.getAttribute("brandHeight").length > 0){
+                this.$beerImg.setAttribute("height", this.getAttribute("brandHeight"));
+            }
+        }
+
+        if(this.hasAttribute("brandWidth")){
+            if(this.getAttribute("brandWidth").length > 0){
+                this.$beerImg.setAttribute("width", this.getAttribute("brandWidth"));
+            }
+        }
+
+        if(this.hasAttribute("imageClass")){
+            if(this.getAttribute("imageClass").length > 0){
+                this.$beerImg.setAttribute("class", this.getAttribute("imageClass"));
+            }
+        }
+
+        if(this.hasAttribute("imageAlt")){
+            if(this.getAttribute("imageAlt").length > 0){
+                this.$beerImg.setAttribute("alt", this.getAttribute("imageAlt"));
             }
         }
     }
