@@ -27,7 +27,8 @@ class BeerButtonLit extends LitElement {
             round:    {type: Boolean, reflect: true},
             circle:   {type: Boolean, reflect: true},
             onClickFunction: {type: Function, reflect: false},
-            notification: {type: String, reflect: true}
+            notification: {type: String, reflect: true},
+            bootstrap: {type: String, reflect: true}
         };
     }
 
@@ -48,6 +49,8 @@ class BeerButtonLit extends LitElement {
         var disabled_attr = this.getAttribute("disabled");
         
         this.notification = "";
+
+        this.bootstrap = "";
 
         // loading attribute is present if var loading_attr is not null
         if(loading_attr == "") {
@@ -133,6 +136,12 @@ class BeerButtonLit extends LitElement {
      */
     _getClass() {
         let _class = "";
+
+        if(this.bootstrap) {
+            _class += this.bootstrap;
+            return _class;
+        }
+
         if(this.round) {
             _class += "round ";
         }
@@ -198,7 +207,6 @@ class BeerButtonLit extends LitElement {
     }
 
     _clickHandler() {
-        console.log(this.notification);
         if (this.notification != undefined && this.notification != null && this.notification != "") {
             // alert("You clicked the button!");
             // set default behavior to create a new notification
@@ -230,7 +238,7 @@ class BeerButtonLit extends LitElement {
             //           </body>
         }
         else if (this.onClickFunction == undefined || this.onClickFunction == null) {
-            alert("No behavior specified");
+            alert("Button clicked");
         }
         else {
             this.onClickFunction(this);
