@@ -1,15 +1,11 @@
 "use strict";
-
-
-
-
 import {AttributeSelector} from "../Raw-Functions/BrandbarFunctions.js";
 
 
 const template = document.createElement("template");
 template.innerHTML = `
 <a>
-<img src="../raw-brand/beerlogo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+<img  width="30" height="30" class="d-inline-block align-top" alt="">
 Bootstrap
 </a>
 
@@ -33,11 +29,34 @@ class BeerBrand extends HTMLElement {
         this.AttributeSelector = AttributeSelector.bind(this);
         this.AttributeSelector();
 
+
+        // if statement that checks if the brandHref attribute has been applied by the user
+        // if it has then a check is made to make sure the attribute is not null
         if(this.hasAttribute("brandHref")){
             if(this.getAttribute("brandHref").length > 0){
+                // sets the href attribute for <a> in the shadowdom
                 this.$beerA.setAttribute("href", this.getAttribute("brandHref"));
             }
         }
+
+        // if statement that checks if the user has used the brandImage attribute and 
+        // then checks if that attribute is not null if its been supplied
+        if(this.hasAttribute("brandImage")){
+            if(this.getAttribute("brandImage").length > 0){
+                this.setBrandImage();
+            }
+        }
+    }
+
+
+    /**
+     * @description Function that sets the image for brand
+     * @returns void
+     */
+    setBrandImage(){
+        // You get the attribute brandImage as a string here; it's basically the path
+        var image = this.getAttribute("brandImage");
+        this.$beerImg.setAttribute("src", image);
     }
 }
 window.customElements.define("beer-brand", BeerBrand);
