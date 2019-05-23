@@ -26,8 +26,11 @@ class BeerButtonLit extends LitElement {
             loading:  {type: Boolean, reflect: true},
             round:    {type: Boolean, reflect: true},
             circle:   {type: Boolean, reflect: true},
+            bootstrap: {type: Boolean, reflect: true},
             onClickFunction: {type: Function, reflect: false},
-            notification: {type: String, reflect: true}
+            notification: {type: String, reflect: true},
+            bootstrap_class: {type: String, reflect: true}
+
         };
     }
 
@@ -41,11 +44,17 @@ class BeerButtonLit extends LitElement {
         this.round = false;
         this.circle = false;
 
+        this.bootstrap = false;
+        this.bootstrap_class = "";
+
         // Set the text property with the user text in between tag
         // <beer-button-lit>USER TEXT</beer-button-lit>
         this.text = this.textContent;
         var loading_attr = this.getAttribute("loading");
         var disabled_attr = this.getAttribute("disabled");
+        
+        // bootstrap
+        var bootstrap_attr = this.getAttribute("bootstrap");
         
         this.notification = "";
 
@@ -56,6 +65,12 @@ class BeerButtonLit extends LitElement {
         if(disabled_attr == "") {
             this.disabled = true;
         }
+
+        if(bootstrap_attr != "" && bootstrap_attr != undefined){
+            this.bootstrap = true;
+            this.bootstrap_class = bootstrap_attr;
+        }
+        
     }
 
     /**
@@ -261,6 +276,22 @@ class BeerButtonLit extends LitElement {
             `;
         }
 
+        // boostrap
+        if(this.bootstrap){
+            console.log(this.bootstrap_class);
+            console.log(this.bootstrap_attr);
+            return html`
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+            
+            <button type="button" class=${this.bootstrap_class}>
+            ${this.text}
+            </button>
+            `;
+        }
+
+        // default button css
         return html`
         <div style=${this.disabled ? "cursor: not-allowed" : "" }>
             <button class=${this._getClass()} style=${this._getStyle()} @click=${this._clickHandler}>
