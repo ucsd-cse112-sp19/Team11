@@ -1,6 +1,6 @@
 "use strict";
 
-import {AttributeSelector, setStyle} from "../Raw-Functions/AtrributeFunctions.js";
+// import { AttributeSelector, setStyle } from "../Raw-Functions/AtrributeFunctions.js";
 
 const template = document.createElement("template");
 template.innerHTML = `
@@ -25,8 +25,8 @@ class BeerButton extends HTMLElement {
         // So in order to use bind(this) which means I have access to all the variables here I need to 
         // implement like so
         
-        this.AttributeSelector = AttributeSelector.bind(this);
-        this.AttributeSelector();
+        //this.AttributeSelector = AttributeSelector.bind(this);
+        //this.AttributeSelector();
     }
     
     /**
