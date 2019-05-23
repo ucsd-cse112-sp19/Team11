@@ -24,7 +24,6 @@ class BeerButton extends HTMLElement {
         // implement like so 
         this.AttributeSelector = AttributeSelector.bind(this);
         this.AttributeSelector();
-        
     }
 
     /**

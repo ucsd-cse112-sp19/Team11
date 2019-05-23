@@ -1,5 +1,6 @@
 "use strict";
 import {AttributeSelector, setStyle} from "../Raw-Functions/AtrributeFunctions.js";
+import "../Raw-Button/raw-button.js";
 
 const template = document.createElement("template");
 template.innerHTML = `
@@ -16,10 +17,8 @@ template.innerHTML = `
     }
 </style>
 
-<nav>
- <a>hello</a>
- <a>people</a>
- <a>it seems like this all becomes one sentence</a>
+<nav id="nav">
+
 </nav>
 `;
 
@@ -41,7 +40,49 @@ class BeerNav extends HTMLElement {
         // are available to Attribute Selector 
         this.AttributeSelector = AttributeSelector.bind(this);
         this.AttributeSelector();
+        
+        var getButtons = this.getButtons.bind(this);
+        getButtons();
+       
     }  
-      
+
+
+    /**
+     * @description This function takes all the beer-buttons that the user has placed within the html and inserts them
+     * into the proper navBar bassed on the navBarID attribute.
+     */
+    getButtons(){
+        // beerButtons is a variable that holds all the beer-buttons that were placed on the
+        // page.
+        var beerButtons = document.getElementsByTagName("beer-button");
+        var navBarID = this.getAttribute("navBarID");
+        for(var i =0 ; i < beerButtons.length; i++){
+            var currBeerButton = beerButtons[i];
+            // check to see if both the beer-button and beer-nav have valid attributes 
+            if(currBeerButton.hasAttribute("navBarID") && this.hasAttribute("navBarID")){
+                // this if statement is checking to see if the ID the user has provided for 
+                // the beer-button and beer-navbar are the same if they are then the beer-button
+                // is added to the beer-navbar
+                if(currBeerButton.getAttribute("navBarID") == navBarID){   
+                    this._shadowRoot.getElementById("nav").appendChild(currBeerButton);
+                    // now because beerButton is shrinking when I append the element
+                    // I need to decrement i so that it holds its currValue and
+                    // I dont miss a beer-button  
+                    i--;
+                }
+                // this if statement checks if the user has added an actual value to navBarID 
+                // if they have left it blank and there is a beer-button with blank navBarID
+                // then it will be added to the beer-navBar
+                if(navBarID.length == 0 && currBeerButton.getAttribute("navBarID").length == 0){
+                    this._shadowRoot.getElementById("nav").appendChild(currBeerButton);
+                    // now because beerButton is shrinking when I append the element
+                    // I need to decrement i so that it holds its currValue and
+                    // I dont miss a beer-button  
+                    i--;
+                }     
+            }
+        }
+    }
+
 }
-window.customElements.define("beer-nav", BeerNav);
+window.customElements.define("beer-navbar", BeerNav);
