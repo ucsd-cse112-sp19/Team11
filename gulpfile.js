@@ -5,7 +5,7 @@ var runSequence = require("gulp4-run-sequence");
 var gulpDocumentation = require("gulp-documentation");
 var rename = require("gulp-rename");
 
-gulp.task("clean", function(done) { 
+gulp.task("clean", function(done) {
     del(["dist"]);
     del(["docs"]);
     done();
@@ -13,7 +13,7 @@ gulp.task("clean", function(done) {
 
 gulp.task("default", function(done) {
     runSequence("clean", "documentation", "uglify");
-    done(); 
+    done();
 });
 
 gulp.task("documentation", function() {
@@ -30,7 +30,7 @@ gulp.task("uglify", function() {
         .pipe(rename({suffix: ".min"}))
     // Output
         .pipe(gulp.dest("dist"));
-        
+
 });
 
 function done() {

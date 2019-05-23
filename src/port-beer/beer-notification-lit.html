@@ -13,6 +13,32 @@
 
 <body>  
     <h1>Notification</h1>
+<<<<<<< HEAD
+    <button onclick="indefNotif()" id="indefinite">Indefinite Notifcation!</button>
+    <span id="indefiniteSpan"></span>
+    <br>
+    <script>
+        function indefNotif(){
+            document.getElementById("indefiniteSpan").innerHTML = "<beer-notification-lit type='success' title='Indefinite' duration='0' id='indefNotif'>Hello Peter! This is a notification from team BEER reminding you to have a great day! :)</beer-notification-lit>";
+        }
+    </script>
+    <button onclick="defNotif()" id="definite">Definite Notifcation!</button>
+    <span id="definiteSpan"></span>
+    <br>
+    <script>
+        function defNotif(){
+            document.getElementById("definiteSpan").innerHTML = "<beer-notification-lit type='success' title='Definite' duration='1000' id='defNotif'>Hello Peter! This is a notification from team BEER reminding you to have a great day! :)</beer-notification-lit>";
+        }
+    </script>
+    <!----<button onclick="leftNotif()" id="left">Lower Left Notifcation!</button>
+    <span id="leftSpan"></span>
+    <br>
+    <script>
+        function leftNotif(){
+            document.getElementById("leftSpan").innerHTML = "<beer-notification-lit type='success' title='Lower Left' duration='1000' >Hello Peter! This is a notification from team BEER reminding you to have a great day! :)</beer-notification-lit>";
+        }
+    </script> -->
+=======
     <p>This is random text to make sure that the notification boxes are in front of the text</p>
 
     <beer-notification-lit title="Default">Hello Peter! I close in 4.5 seconds
@@ -32,6 +58,7 @@
     <beer-notification-lit type="warning" title="Warning" duration="0">Hello Peter! 
             This is a notification from team BEER reminding you to have a great day! :)
     </beer-notification-lit>
+>>>>>>> 35778d8d72076cc289d2ddbba00fbfc67fb04a51
 
     <!-- <beer-notification-lit duration="10000">Will be removed in 10 seconds</beer-notification-lit> -->
 </body>

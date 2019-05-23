@@ -42,11 +42,17 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "scripts": {
+<<<<<<< HEAD
+    "lint": "eslint src/*.js",
+    "test": "testcafe chrome,firefox tests",
+    "local-test": "testcafe chrome tests",
+=======
     "lint": "eslint src/**/*.js",
     "test-mocha": "mocha test/test.js",
     "local-test": "testcafe chrome test/raw-beer-cafeTest.js --skip-js-errors",
     "raw-test": "testcafe chrome,firefox test/raw-beer-cafeTest.js --skip-js-errors",
     "port-test": "testcafe chrome,firefox test/port-beer-cafeTest.js --skip-js-errors",
+>>>>>>> 35778d8d72076cc289d2ddbba00fbfc67fb04a51
     "gulp": "^4.0.1",
     "gulp-documentation": "^3.2.1",
     "gulp-uglify": "^3.0.2",
