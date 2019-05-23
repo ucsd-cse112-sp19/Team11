@@ -17,7 +17,7 @@ gulp.task("default", function(done) {
 });
 
 gulp.task("documentation", function() {
-    return gulp.src("./src/**/*.js")        
+    return gulp.src(["./src/raw-beer/Raw-Button/*.js", "./src/raw-beer/Raw-Functions/*.js", "./src/raw-beer/Raw-Nav/*.js"])
         .pipe(gulpDocumentation("html"))
         .pipe(gulp.dest("docs"));
 });

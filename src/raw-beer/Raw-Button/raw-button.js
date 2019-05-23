@@ -81,7 +81,6 @@ class BeerButton extends HTMLElement {
         }
     }
 
-
     /**
      * @description Function that allows the user to increment a selected field 
      * @param value boolean when true increments when false decrements
