@@ -24,7 +24,6 @@ class BeerButton extends HTMLElement {
         // implement like so 
         this.AttributeSelector = AttributeSelector.bind(this);
         this.AttributeSelector();
-        
     }
 
     /**
@@ -221,6 +220,4 @@ class BeerButton extends HTMLElement {
         }
     }
 }
-
-
 window.customElements.define("beer-button", BeerButton);
