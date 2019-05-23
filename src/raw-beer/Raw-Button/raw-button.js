@@ -1,5 +1,7 @@
 "use strict";
+
 import {AttributeSelector, setStyle} from "../Raw-Functions/AtrributeFunctions.js";
+
 const template = document.createElement("template");
 template.innerHTML = `
 
@@ -21,12 +23,14 @@ class BeerButton extends HTMLElement {
         this.$rawButton = document.querySelector("beer-button");
         
         // So in order to use bind(this) which means I have access to all the variables here I need to 
-        // implement like so 
+        // implement like so
+        
         this.AttributeSelector = AttributeSelector.bind(this);
-        this.AttributeSelector();
+        this.AttributeSelector();        
+        
         
     }
-
+    
     /**
      * @description Takes a script and function then loads the function from 
      * the script so that it can be used with the button
@@ -35,19 +39,17 @@ class BeerButton extends HTMLElement {
      * 
      * <beer-button script="./testFunction.js" functionName="testFunction"></beer-button>
      * 
-     */
+     */    
     customFunction(){
         var scriptName = this.getAttribute("script");
         var functionName = this.getAttribute("functionName");  
         if(scriptName.length > 0){
-            try{
-                import(scriptName).then(script =>{
-                    script[functionName]();
-                });
-            }
-            catch(err){
-                err.message;
-            } 
+            import(scriptName).then(script =>{
+                script[functionName]();
+            }).catch(err => {
+                return err.message;
+            });
+            
         }
     }
 
@@ -60,6 +62,7 @@ class BeerButton extends HTMLElement {
      * @example <beer-button link="www.google.com"></beer-button>
      * @example <beer-button link="www.google.com" tab></beer-button>
      */
+    
     linkFunction(){
         // grabs the value of link 
         var linkValue = this.getAttribute("link");

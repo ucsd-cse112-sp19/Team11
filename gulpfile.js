@@ -3,7 +3,7 @@ var del = require("del");
 var uglify = require("gulp-uglify-es").default;
 var runSequence = require("gulp4-run-sequence");
 var gulpDocumentation = require("gulp-documentation");
-
+var rename = require("gulp-rename");
 
 gulp.task("clean", function(done) { 
     del(["dist"]);
@@ -17,17 +17,20 @@ gulp.task("default", function(done) {
 });
 
 gulp.task("documentation", function() {
-    return gulp.src(["./src/raw-beer/Raw-Button/*.js", "./src/raw-beer/Raw-Functions/*.js", "./src/raw-beer/Raw-Nav/*.js"])
+    return gulp.src("./build/*.js")
         .pipe(gulpDocumentation("html"))
         .pipe(gulp.dest("docs"));
 });
 
 gulp.task("uglify", function() {
-    return gulp.src("./src/*.js")
+    return gulp.src("./src/**/*.js")
     // Minify the file
         .pipe(uglify())
+    // Rename the files
+        .pipe(rename({suffix: ".min"}))
     // Output
         .pipe(gulp.dest("dist"));
+        
 });
 
 function done() {
