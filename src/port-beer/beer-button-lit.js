@@ -27,6 +27,7 @@ class BeerButtonLit extends LitElement {
             round:    {type: Boolean, reflect: true},
             circle:   {type: Boolean, reflect: true},
             onClickFunction: {type: Function, reflect: false},
+            notification: {type: String, reflect: true}
         };
     }
 
@@ -45,6 +46,8 @@ class BeerButtonLit extends LitElement {
         this.text = this.textContent;
         var loading_attr = this.getAttribute("loading");
         var disabled_attr = this.getAttribute("disabled");
+        
+        this.notification = "";
 
         // loading attribute is present if var loading_attr is not null
         if(loading_attr == "") {
@@ -195,11 +198,12 @@ class BeerButtonLit extends LitElement {
     }
 
     _clickHandler() {
-        if (this.onClickFunction == undefined || this.onClickFunction == null) {
+        console.log(this.notification);
+        if (this.notification != undefined && this.notification != null && this.notification != "") {
             // alert("You clicked the button!");
             // set default behavior to create a new notification
             let newNotification = `<beer-notification-lit type="message" title="Message" duration="7000">
-                                        Hello Peter! This notification was created by clicking a button!
+                                        ${this.notification}
                                    </beer-notification-lit>`;
 
             // Syntax: node.insertAdjacentHTML(position, text)
@@ -225,13 +229,15 @@ class BeerButtonLit extends LitElement {
             //              <notification 3>
             //           </body>
         }
+        else if (this.onClickFunction == undefined || this.onClickFunction == null) {
+            alert("No behavior specified");
+        }
         else {
             this.onClickFunction(this);
         }
     }
 
     // TODO missing documentation
-
     /**     
      * @description
      * @returns {html} 
