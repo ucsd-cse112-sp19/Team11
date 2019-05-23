@@ -13,6 +13,12 @@ const types = [
 // when there are multiple
 var idx = 0;
 
+<<<<<<< HEAD
+=======
+/**
+ * Beer web component that was ported from the Element library
+ */
+>>>>>>> 35778d8d72076cc289d2ddbba00fbfc67fb04a51
 class BeerButtonLit extends LitElement {
     static get properties() {
         return {
@@ -26,7 +32,12 @@ class BeerButtonLit extends LitElement {
             disabled: {type: Boolean, reflect: true},
             loading:  {type: Boolean, reflect: true},
             round:    {type: Boolean, reflect: true},
+<<<<<<< HEAD
             circle:   {type: Boolean, reflect: true}
+=======
+            circle:   {type: Boolean, reflect: true},
+            onClickFunction: {type: Function, reflect: false},
+>>>>>>> 35778d8d72076cc289d2ddbba00fbfc67fb04a51
         };
     }
 
@@ -62,6 +73,12 @@ class BeerButtonLit extends LitElement {
 
     }
 
+<<<<<<< HEAD
+=======
+    /**
+     * @description CSS styling that will style the button component
+     */
+>>>>>>> 35778d8d72076cc289d2ddbba00fbfc67fb04a51
     static get styles() {
         return css`
       :host {
@@ -127,9 +144,16 @@ class BeerButtonLit extends LitElement {
     `;
     }
 
+<<<<<<< HEAD
     /**
      * Returns string representing CSS classes this web
      * component will have
+=======
+
+    /**
+     * @description Will get the CSS class(es) this web component will have
+     * @returns {string} CSS classes 
+>>>>>>> 35778d8d72076cc289d2ddbba00fbfc67fb04a51
      */
     _getClass() {
         let _class = "";
@@ -152,8 +176,13 @@ class BeerButtonLit extends LitElement {
     }
 
     /**
+<<<<<<< HEAD
      * Returns string representing CSS style this web
      * component will have
+=======
+     * @description CSS style this web component will have
+     * @returns {string} CSS styles
+>>>>>>> 35778d8d72076cc289d2ddbba00fbfc67fb04a51
      */
     _getStyle() {
         let _style = "";
@@ -185,14 +214,21 @@ class BeerButtonLit extends LitElement {
     }
 
     /**
+<<<<<<< HEAD
      * Checks of the 'type' attribute is valid.
      * Valid types are: primary, succuess, info, warning, danger, or "" (default)
+=======
+     * @description Checks of the 'type' attribute is valid. Valid types are: primary, succuess, info, warning, danger, or "" (default)
+     * @returns {boolean} valid
+     * 
+>>>>>>> 35778d8d72076cc289d2ddbba00fbfc67fb04a51
      */
     _validType() {
         let valid = false;
         types.find((elem) => {
             if(elem.type === this.type) valid = true;
         });
+<<<<<<< HEAD
         return valid | this.isDefault;
     }
 
@@ -201,6 +237,31 @@ class BeerButtonLit extends LitElement {
     }
 
 
+=======
+        return valid || this.isDefault;
+    }
+
+    _clickHandler() {
+        if (this.onClickFunction == undefined || this.onClickFunction == null) {
+            // alert("You clicked the button!");
+            // set default behavior to create a new notification
+            let newNotification = `<beer-notification-lit type="success" title="Success" duration="4500">
+                                        Hello Peter! This notification was created by clicking a button!
+                                    </beer-notification-lit>`;
+            document.querySelector("body").insertAdjacentHTML("afterbegin", newNotification); 
+        }
+        else {
+            this.onClickFunction(this);
+        }
+    }
+
+    // TODO missing documentation
+
+    /**     
+     * @description
+     * @returns {html} 
+     */
+>>>>>>> 35778d8d72076cc289d2ddbba00fbfc67fb04a51
     render() {
         if(!this._validType()) {
             this.type = "";
@@ -229,4 +290,8 @@ class BeerButtonLit extends LitElement {
         `;
     }
 }
+<<<<<<< HEAD
 customElements.define("beer-button-lit", BeerButtonLit);
+=======
+customElements.define("beer-button-lit", BeerButtonLit);
+>>>>>>> 35778d8d72076cc289d2ddbba00fbfc67fb04a51
