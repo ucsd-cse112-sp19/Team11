@@ -84,5 +84,9 @@ class BeerNav extends HTMLElement {
         }
     }
 
+    addBrand(){
+        
+    }
+
 }
 window.customElements.define("beer-navbar", BeerNav);
