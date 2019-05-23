@@ -1,3 +1,6 @@
+"use strict";
+import {AttributeSelector, setStyle} from "../Raw-Functions/AtrributeFunctions.js";
+
 const template = document.createElement("template");
 template.innerHTML = `
 <style>
@@ -33,6 +36,12 @@ class BeerNav extends HTMLElement {
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.$beerNav = this._shadowRoot.querySelector("nav");
         this.$rawNav= document.querySelector("beer-nav");  
-    }    
+        
+        // This is the same as before Im making it so that all the variables here 
+        // are available to Attribute Selector 
+        this.AttributeSelector = AttributeSelector.bind(this);
+        this.AttributeSelector();
+    }  
+      
 }
 window.customElements.define("beer-nav", BeerNav);
