@@ -23,6 +23,8 @@ export function AttributeSelector(){
             this.$beerA.setAttribute("type", this.getAttribute("beertype"));
         }
     }
+
+
     // statement to control the flow of style so that newStyle has priority over
     // libstyle
     if(this.hasAttribute("newStyle") || this.hasAttribute("libStyle")){
@@ -35,6 +37,8 @@ export function AttributeSelector(){
             this.libStyle(this.getAttribute("libStyle"));
         }
     }
+
+   
 }
 
 /**
@@ -53,3 +57,9 @@ export function setStyle(newStyle, shadowRoot){
     Style.setAttribute("type", "text/css");
 }
 
+/**
+     * @description Function that allows the use to set the buttons name bassed on the
+     * value of the inner html
+     * @param {string} buttonId the Id for a specific button
+     * @retun void 
+     */
