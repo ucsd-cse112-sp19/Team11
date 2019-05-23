@@ -66,7 +66,7 @@ class BeerButtonLit extends LitElement {
             this.disabled = true;
         }
 
-        if(bootstrap_attr != ""){
+        if(bootstrap_attr != "" && bootstrap_attr != undefined){
             this.bootstrap = true;
             this.bootstrap_class = bootstrap_attr;
         }
