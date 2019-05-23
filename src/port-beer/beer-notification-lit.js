@@ -9,6 +9,7 @@ var types = [
     {type: "bell",    svg: "./icons/notif-icon-bell.svg"},
 ];
 const spacing = 10; // Vertical distance between two notifications
+const delay = 200; // 0.2 seconds
 
 class BeerNotificationLit extends LitElement {
     static get properties() {
@@ -101,17 +102,19 @@ class BeerNotificationLit extends LitElement {
         // check if duration is not 0. If it is not set timer for callback function to 
         // close this notification
         if(this.duration != 0) {
-            window.setTimeout(() => {
+            window.setTimeout(() => { // Delay so can see closing notification fade out
                 this.closed = true;
-                this._recalculateOffset();
-                this._removeFromDom(this);
+                window.setTimeout(() => {
+                    this._recalculateOffset();
+                    this._removeFromDom(this);
+                }, delay);
             }, this.duration);
         }
     } 
 
     /**
      * @description Gets the appropriate path to .svg icon file
-     * @returns {string} path to corresponding type icon .svg file
+     * @returns {String} path to corresponding type icon .svg file
      */
     _getTypeIcon() {
         let typeItem = types.find((elem) => {
@@ -162,12 +165,12 @@ class BeerNotificationLit extends LitElement {
         // Changing the 'closed' property will trigger a call to render(), 
         // which will set "display: none" in _getStyle()
         this.closed = true;
-        
+
         // Set a delay so can see closing notifications fade out
         window.setTimeout(() => {
             this._recalculateOffset();
             this._removeFromDom(this); // Remove this notification completely from the DOM tree
-        }, 200);
+        }, delay);
     }
 
     /**
@@ -194,11 +197,31 @@ class BeerNotificationLit extends LitElement {
 
     /**
      * @description Determine the dynamic CSS styling of the top-level notification box div
+     * @returns {String} CSS style string
      */
     _getStyle() {
         var notif_box_style = ""; // Default nothing
-        notif_box_style += "top: " + this.prevHeights + "px;";
+        if(this._isTop()) {
+            notif_box_style += "top: " + this.prevHeights + "px;";
+        } else {
+            notif_box_style += "bottom: " + this.prevHeights + "px;";
+        }
+
         return notif_box_style;
+    }
+
+    /**
+     * @description Determine if notification spawns at top or bottom of screen
+     * @returns {boolean} top
+     */
+    _isTop() {
+        if(this.position === "" || this.position === "top-right" // Default
+                                || this.position === "top-left") {
+            return true;
+        } else if(this.position === "bottom-left" || this.position === "bottom-right") {
+            return false;
+        }
+        return true; // Default true
     }
 
     _getClass() {
@@ -258,6 +281,12 @@ class BeerNotificationLit extends LitElement {
             -webkit-box-shadow:  0 0 0.8em rgba(0, 0, 0, 0.1);
             -moz-box-shadow:     0 0 0.8em rgba(0, 0, 0, 0.1);
             box-shadow:          0 0 0.8em rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s 0.15s, opacity 0.15s linear;
         }
 
         /*--------------------- Position/Animation ---------------------*/
@@ -325,11 +354,6 @@ class BeerNotificationLit extends LitElement {
             text-decoration: none;
             cursor: pointer;
         }
-        .hidden {
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 0s 0.1s, opacity 0.1s linear;
-          }
         `;
     }
 }

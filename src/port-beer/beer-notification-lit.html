@@ -15,7 +15,7 @@
     <h1>Notification</h1>
     <p>This is random text to make sure that the notification boxes are in front of the text</p>
 
-    <beer-notification-lit title="Default">
+    <!-- <beer-notification-lit title="Default">
         Hello Peter! I close in 4.5 seconds
     </beer-notification-lit>
 
@@ -41,9 +41,36 @@
 
     <beer-notification-lit type="message" title="Message" duration="0">
         ...haha
-    </beer-notification-lit>
+    </beer-notification-lit> -->
 
-    <!-- <beer-notification-lit duration="10000">Will be removed in 10 seconds</beer-notification-lit> -->
+    <!-- TESTING A DIFFERENT POSITION -->
+    <beer-notification-lit title="Default" position="bottom-left">
+            Hello Peter! I close in 4.5 seconds
+        </beer-notification-lit>
+    
+        <beer-notification-lit type="success" title="Success" duration="0" position="bottom-left">
+            This is supposed to be a longer message so that the height expands a bit more.
+        </beer-notification-lit>
+     
+        <beer-notification-lit type="danger" title="Danger" duration="0" position="bottom-left">
+            Making this message a lot longer than the others to see if notifications are positioned
+            well relative to eachother even if they are all different sizes. If you
+            were to close this notification, the notifications below me will shift up!
+            How great is that?
+        </beer-notification-lit>
+    
+        <beer-notification-lit type="warning" title="Warning" duration="0" position="bottom-left">
+            Hello Peter! 
+            This is a notification from team BEER reminding you to have a great day! :)
+        </beer-notification-lit>
+    
+        <beer-notification-lit type="info" title="Info" duration="0" position="bottom-left">
+            Information hub
+        </beer-notification-lit>
+    
+        <beer-notification-lit type="message" title="Message" duration="0" position="bottom-left">
+            ...haha
+        </beer-notification-lit> 
 </body>
 
 </html>
