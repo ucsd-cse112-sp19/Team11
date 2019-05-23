@@ -198,10 +198,32 @@ class BeerButtonLit extends LitElement {
         if (this.onClickFunction == undefined || this.onClickFunction == null) {
             // alert("You clicked the button!");
             // set default behavior to create a new notification
-            let newNotification = `<beer-notification-lit type="success" title="Success" duration="0">
+            let newNotification = `<beer-notification-lit type="message" title="Message" duration="7000">
                                         Hello Peter! This notification was created by clicking a button!
                                    </beer-notification-lit>`;
-            document.querySelector("body").insertAdjacentHTML("afterbegin", newNotification); 
+
+            // Syntax: node.insertAdjacentHTML(position, text)
+            // document.querySelector("body").insertAdjacentHTML("afterbegin", newNotification); 
+            // ^^^ NOTE: Using "afterbegin" will inject notification elements into the HTML page
+            //           in descending order. (new notifications will be above older ones)
+            //
+            //           For example:
+            //           <body>
+            //              <notification 3>
+            //              <notification 2>
+            //              <notification 1>
+            //           </body>
+
+            document.querySelector("body").insertAdjacentHTML("beforeend", newNotification); 
+            // ^^^ NOTE: Using "beforeend" will inject notification elements into the HTML page
+            //           in ascending order (newer notifications will be below older ones)
+            //
+            //           For example:
+            //           <body>
+            //              <notification 1>
+            //              <notification 2>
+            //              <notification 3>
+            //           </body>
         }
         else {
             this.onClickFunction(this);

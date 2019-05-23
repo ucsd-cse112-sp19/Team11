@@ -25,6 +25,10 @@ class BeerNotificationLit extends LitElement {
             // (default: 4500 ms)
             duration: {type: Number, reflect: true},
 
+            // If true, hides the close button from the user so that 
+            // notification cannot be closed by the user
+            hideClose: {type: Boolean, reflect: true},
+
             // (default: top-right), top-left, bottom-right, bottom-left
             position: {type: String, reflect: true},
 
@@ -52,6 +56,7 @@ class BeerNotificationLit extends LitElement {
         this.duration = 4500; // Default will close after 4500 ms
         this.position = "";
         this.offset = 0;
+        this.hideClose = false;
 
         // Default properties (unrelated to attributes)
         
@@ -63,6 +68,10 @@ class BeerNotificationLit extends LitElement {
         // Set the message property with the user text in between tag
         // <beer-notification-lit>USER MESSAGE</beer-notification-lit>
         this.message = this.textContent;
+        var hideClose_attr = this.getAttribute("hideClose");
+        if(hideClose_attr == "") {
+            this.hideClose = true;
+        }
 
     }
 
@@ -196,7 +205,7 @@ class BeerNotificationLit extends LitElement {
     }
 
     /**
-     * @description Determine the dynamic CSS styling of the top-level notification box div
+     * @description Determine the dynamic CSS styling of the top-level notification box <div>
      * @returns {String} CSS style string
      */
     _getStyle() {
@@ -224,6 +233,10 @@ class BeerNotificationLit extends LitElement {
         return true; // Default true
     }
 
+    /**
+     * @description Get the class of the top-level notification box <div>
+     * @returns {String} HTML class
+     */
     _getClass() {
         let _class = "popup shadow ";
         if(this.position === "" || this.position === "top-right" // Default
@@ -236,6 +249,11 @@ class BeerNotificationLit extends LitElement {
         return _class;
     }
 
+    /**
+     * @description renders the DOM structure described in the element template into the shadow root
+     * For example, <beer-notification-lit></beer-notification-lit> is the custom element (host)
+     * The template rendered will be attached to the shadow root of the shadow DOM.
+     */
     render() {
         return html`
         <div class="${this._getClass()}" style="${this._getStyle()}">
@@ -245,14 +263,23 @@ class BeerNotificationLit extends LitElement {
                            src=${this._getTypeIcon()}>
                     </img>
                 </span>
+
                 <p class="popup-title">${this.title}</> 
-                <span class="close" @click="${this._handleClose}">&times;</span>
+
+                <span class="close" style=${this.hideClose ? "display: none" : ""} 
+                @click="${this._handleClose}">
+                    &times;
+                </span>
+
                 <p>${this.message}</>
             </div>
         </div>
     `;
     }
 
+    /**
+     * @description CSS style evaluated once only and applied to all instances of the component
+     */
     static get styles() {
         return css`
         :host {
