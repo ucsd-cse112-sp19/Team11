@@ -1,12 +1,12 @@
 import {LitElement, html, css} from "https://unpkg.com/lit-element@2.0.1/lit-element.js?module";
 
 var types = [
-    {type: "success", svg: "./svg/notif-icon-success.svg"},
-    {type: "warning", svg: "./svg/notif-icon-warning.svg"},
-    {type: "danger",  svg: "./svg/notif-icon-danger.svg"},
-    {type: "info",    svg: "./svg/notif-icon-info.svg"},
-    {type: "message", svg: "./svg/notif-icon-message.svg"},
-    {type: "bell",    svg: "./svg/notif-icon-bell.svg"},
+    {type: "success", svg: "./icons/notif-icon-success.svg"},
+    {type: "warning", svg: "./icons/notif-icon-warning.svg"},
+    {type: "danger",  svg: "./icons/notif-icon-danger.svg"},
+    {type: "info",    svg: "./icons/notif-icon-info.svg"},
+    {type: "message", svg: "./icons/notif-icon-message.svg"},
+    {type: "bell",    svg: "./icons/notif-icon-bell.svg"},
 ];
 const spacing = 10; // Vertical distance between two notifications
 
@@ -128,7 +128,7 @@ class BeerNotificationLit extends LitElement {
 
     /**
      * @description Checks if the 'type' attribute is valid.
-     * Valid types are: success, warning, danger, info, message, bell
+     * Valid types are: success, warning, danger, info, message
      * @returns {boolean} valid
      */
     _validType() {
@@ -162,8 +162,12 @@ class BeerNotificationLit extends LitElement {
         // Changing the 'closed' property will trigger a call to render(), 
         // which will set "display: none" in _getStyle()
         this.closed = true;
-        this._recalculateOffset();
-        this._removeFromDom(this); // Remove this notification completely from the DOM tree
+        
+        // Set a delay so can see closing notifications fade out
+        window.setTimeout(() => {
+            this._recalculateOffset();
+            this._removeFromDom(this); // Remove this notification completely from the DOM tree
+        }, 200);
     }
 
     /**
@@ -193,20 +197,25 @@ class BeerNotificationLit extends LitElement {
      */
     _getStyle() {
         var notif_box_style = ""; // Default nothing
-        notif_box_style += (this.closed ? "display: none;" : "display: block;");
-        notif_box_style += "position: fixed;";
-
         notif_box_style += "top: " + this.prevHeights + "px;";
         return notif_box_style;
     }
 
     _getClass() {
         let _class = "popup shadow ";
+        if(this.position === "" || this.position === "top-right" // Default
+                                || this.position === "bottom-right") {
+            _class += "right ";
+        } else if (this.position === "top-left" || this.position === "bottom-left") {
+            _class += "left ";
+        }
+        _class += (this.closed ? "hidden " : "");
+        return _class;
     }
 
     render() {
         return html`
-        <div class="popup shadow" style="${this._getStyle()}">
+        <div class="${this._getClass()}" style="${this._getStyle()}">
             <div class="popup-content">
                 <span>
                     <img class=${this._validType() ? "icon" : ""} 
@@ -228,63 +237,71 @@ class BeerNotificationLit extends LitElement {
             font-family: sans-serif;
             text-align: left;
         }
-        /* Notification box */
+        /*---------------------- Notification box ----------------------*/
         .popup {
-            /*display: none;*/   /* Hidden by default. Use this when we have linked with button.
-                                Once linked with button, notification will show up when button
-                                is clicked. */
-            /*position: fix;*/     /* Stay in place on screen */
-            z-index: 1;          /* In front of everything else with smaller z-indices 
-                                 /* (default z-index is 0 if unspecified) */
-            right: 0;            /* By default, positioned on top-right of screen */
-            top: 0;
-            width: 20em;         /* Fixed width */
-            height: auto;        /* Dynamically adjust height based on content */
-            overflow: auto;      /* Enable scroll if needed */
-            margin: 2em;
-            border-radius: 0.5em;
+            position: fixed;
             background-color: white;
+            z-index: 1;              /* In front of everything else with smaller z-indices 
+                                     /* (default z-index is 0 if unspecified) */
+
+            width: 20em;             /* Fixed width */
+            height: auto;            /* Dynamically adjust height based on content */
+
+            overflow: auto;          /* Enable scroll if needed */
+            margin: 1em;
+            border-radius: 0.5em;    /* Corner roundness */
+        }
+
+        /* Shadow around notification box */
+        .shadow {
+            /* horizontal-length, vertical-length, blur-radius, shadow-with-opacity */
+            -webkit-box-shadow:  0 0 0.8em rgba(0, 0, 0, 0.1);
+            -moz-box-shadow:     0 0 0.8em rgba(0, 0, 0, 0.1);
+            box-shadow:          0 0 0.8em rgba(0, 0, 0, 0.1);
+        }
+
+        /*--------------------- Position/Animation ---------------------*/
+        .right {
+            right: 0;
             -webkit-animation-name: animateright;
             -webkit-animation-duration: 0.4s;
             animation-name: animateright;
             animation-duration: 0.4s;
         }
+
+        .left {
+            left: 0;
+            -webkit-animation-name: animateleft;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animateleft;
+            animation-duration: 0.4s;
+        }
+
         /* Add Animation */
-        @-webkit-keyframes animate-right {
+        @-webkit-keyframes animate-right { /* From right to left */
         from {right:-300px; opacity:0} 
         to {right:0; opacity:1}
         }
+
         @keyframes animateright {
         from {right:-300px; opacity:0}
         to {right:0; opacity:1}
         }
-        /* Shadow around notification box */
-        .shadow {
-            /* horizontal-length, vertical-length, blur-radius, shadow-with-opacity */
-            -webkit-box-shadow:  0em 0em 0.8em rgba(0, 0, 0, 0.1);
-            -moz-box-shadow:     0em 0em 0.8em rgba(0, 0, 0, 0.1);
-            box-shadow:          0em 0em 0.8em rgba(0, 0, 0, 0.1);
+
+        @-webkit-keyframes animate-left { /* From left to right */
+        from {left:-300px; opacity:0} 
+        to {left:0; opacity:1}
         }
-        /* Notification Content */
-        .popup-title {
-            font-weight: bold;
+        
+        @keyframes animateleft {
+        from {left:-300px; opacity:0}
+        to {left:0; opacity:1}
         }
+
+        /*--------------------- Notification Content ---------------------*/
         .popup-content {
             margin: auto;
             width: 90%;
-        }
-        /* The Close Button */
-        .close {
-            color: #a8a8a8;
-            float: right;
-            font-size: 28px;
-            transition: 0.1s;
-        }
-      
-        .close:hover, .close:focus {
-            color: #636363;
-            text-decoration: none;
-            cursor: pointer;
         }
         .icon {
             width: 1.3em;
@@ -292,6 +309,27 @@ class BeerNotificationLit extends LitElement {
             float: left;
             padding: 0 0.7em 0 0;
         }
+        .popup-title {
+            font-weight: bold;
+        }
+
+        /*----------------------- The Close Button ----------------------*/
+        .close {
+            color: #a8a8a8;
+            float: right;
+            font-size: 28px;
+            transition: 0.1s;
+        }
+        .close:hover, .close:focus {
+            color: #636363;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .hidden {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s 0.1s, opacity 0.1s linear;
+          }
         `;
     }
 }
