@@ -118,8 +118,8 @@
 <p>Provide the link attribute with a valid website link and it will navigate the browser to that page when the button is clicked.</p>
 <p>The link attribute has another optional attribute "tab" to open the link on a new tab</p>
 <div class="bd-example">
-<beer-button link="./testLink.html" functionName="testFunction" id="bill" >I'm a link button</beer-button>
-<beer-button link="./testLink.html" tab functionName="testFunction" id="bill" >I'm a tab button</beer-button>
+<beer-button link="./testLink.html" functionName="testFunction" id="link-button" >I'm a link button</beer-button>
+<beer-button link="./pres.html?#custom-function" tab functionName="testFunction" id="tab-button" >I'm a tab button</beer-button>
 </div>
 <div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
 <span class="nt">&lt;beer-button</span> <span class="na">link=</span><span class="s">"./testLink.html"</span> <span class="na">functionName=</span><span class="s">"testFunction"</span><span class="na">id=</span><span class="s">"bill"</span><span class="nt">&gt;</span>Im a link button<span class="nt">&lt;/beer-button&gt;</span>
@@ -128,7 +128,7 @@
 </div>
 
 
-<h2 id="examples"><div>Custom Function</div></h2>
+<h2 id="examples"><div id="custom-function">Custom Function</div></h2>
 <p>By adding a JavaScript path to the script attribute and a function name to the functionName attribute, the user can create their own function and use it by clicking on the button.</p>
 <div class="bd-example">
 <beer-button script="./testFunction.js" functionName="testFunction" id="func">I'm a Custom Function button</beer-button>
