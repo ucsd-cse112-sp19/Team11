@@ -84,8 +84,8 @@ export function AttributeSelector(){
      * @retun void 
      */
 function setButtonName(buttonId, beerButton){
-    //grabs the correct button that corresponds with the Id
-    console.log(buttonId);
+    // grabs the correct button that corresponds with the Id
+    // console.log(buttonId);
     var $id = document.getElementById(buttonId);
     if($id.innerHTML.length > 0){
         beerButton.innerHTML= $id.innerHTML;
