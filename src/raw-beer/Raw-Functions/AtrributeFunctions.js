@@ -3,6 +3,7 @@
  * @description Function that helps with selecting attributes
  */
 export function AttributeSelector(){
+    
     if(this.hasAttribute("id")){
         if(this.hasAttribute("beerId")){
             setButtonName(this.getAttribute("id"), this.$beerButton);
@@ -83,9 +84,9 @@ export function AttributeSelector(){
      * @param {string} buttonId the Id for a specific button
      * @retun void 
      */
-function setButtonName(buttonId, beerButton){
-    // grabs the correct button that corresponds with the Id
-    // console.log(buttonId);
+export function setButtonName(buttonId, beerButton){
+    //grabs the correct button that corresponds with the Id
+    console.log(buttonId);
     var $id = document.getElementById(buttonId);
     if($id.innerHTML.length > 0){
         beerButton.innerHTML= $id.innerHTML;
