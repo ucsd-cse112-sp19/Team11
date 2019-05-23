@@ -8,7 +8,7 @@ import {AttributeSelector} from "../Raw-Functions/BrandbarFunctions.js";
 
 const template = document.createElement("template");
 template.innerHTML = `
-<a  href="#">
+<a>
 <img src="../raw-brand/beerlogo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
 Bootstrap
 </a>
@@ -32,6 +32,12 @@ class BeerBrand extends HTMLElement {
 
         this.AttributeSelector = AttributeSelector.bind(this);
         this.AttributeSelector();
+
+        if(this.hasAttribute("brandHref")){
+            if(this.getAttribute("brandHref").length > 0){
+                this.$beerA.setAttribute("href", this.getAttribute("brandHref"));
+            }
+        }
     }
 }
 window.customElements.define("beer-brand", BeerBrand);
