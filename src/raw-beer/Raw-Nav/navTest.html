@@ -4,15 +4,60 @@
 <script src="../Raw-Brand/raw-brand.js" defer type="module"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <head>
-  <title></title>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Beer Nav</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"/>
+
 </head>
 <body>
-    <beer-brand navBarBrandID="bill" id="bob" beerClass="navbar-brand"  brandHref="./navTest2.html" brandImage="../raw-brand/beerlogo.jpg" brandHeight="30" brandwidth="30" imageClass="d-inline-block align-top"  imageAlt=" "newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  > TEAM BEER! </beer-brand>
-    <beer-button navBarID="bill" id="hello" beerClass="btn btn-outline-success" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" ></beer-button>
-    <beer-button navBarID="bill" id="b" beerId="c" beerClass="btn btn-outline-success" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>page 4</beer-button>
-    <beer-button navBarID="bill" id="a" beerId="a" beerClass="btn btn-outline-success" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>page 3</beer-button>
-    <beer-button navBarID="bill" id="h" beerId="a" beerClass="btn btn-outline-success" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >page 2</beer-button>
-    <beer-button navBarID="bill" id="heello" beerId="d" beerClass="btn btn-outline-success"  newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  >Page 1</beer-button>
-    <beer-navbar navBarBrandID="bill" navBarId="bill" beerClass="navbar navbar-light bg-light" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></beer-navbar>
+
+<div class="container-fluid">
+   <div class="row flex-xl-nowrap">
+          <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+            <h1 class="bd-title" id="content">Beer-Nav</h1>          
+            
+  <h2 id="examples"><div>Creating a navbar using beer-button</div></h2>
+  <p>The nav bar uses beer-buttons and adding these buttons to the navbar is as simple as 
+    creating the button you want and then passing the navbar and the button the navBarID attribute. 
+    There are two ways in which this attribute can be used
+  </p>
+  
+  <div class="highlight">
+    <pre><code class="language-html" data-lang="html">
+      <span class="nt">&lt;beer-button</span> <span class="na"> <span class="na">navBarID=</span><span class="s">"bill"</span><span class="nt">&gt;</span>Im a button<span class="nt">&lt;/beer-button&gt;</span>
+      <span class="nt">&lt;beer-navbar</span> <span class="na"> <span class="na">navBarID=</span><span class="s">"bill"</span><span class="nt">&gt;</span><span class="nt">&lt;/beer-navbar&gt;</span>
+    </code></pre>
+  </div>
+  <p>And</p>
+  <div class="highlight">
+      <pre><code class="language-html" data-lang="html">
+        <span class="nt">&lt;beer-button</span> <span class="na"> <span class="na">navBarID</span><span class="nt">&gt;</span>Im a button<span class="nt">&lt;/beer-button&gt;</span>
+        <span class="nt">&lt;beer-navbar</span> <span class="na"> <span class="na">navBarID</span><span class="nt">&gt;</span><span class="nt">&lt;/beer-navbar&gt;</span>
+      </code></pre>
+    </div>
+
+  <p>The first will allow you to specify which navBar you want the button to go to. 
+    When adding Buttons to the navBar they will appear in order.
+  </p>
+  
+  <div class="bd-example">
+  
+      <beer-brand navBarBrandID="bill" id="bob" beerClass="navbar-brand"  brandHref="./navTest2.html" brandImage="../raw-brand/beerlogo.jpg" brandHeight="30" brandwidth="30" imageClass="d-inline-block align-top"  imageAlt=" "newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  > TEAM BEER! </beer-brand>
+      <beer-button navBarID="bill" id="hello" beerClass="btn btn-outline-success" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" ></beer-button>
+      <beer-button navBarID="bill" id="b" beerId="c" beerClass="btn btn-outline-success" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>page 1</beer-button>
+      <beer-button navBarID="bill" id="a" beerId="a" beerClass="btn btn-outline-success" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>page 2</beer-button>
+      <beer-button navBarID="bill" id="h" beerId="a" beerClass="btn btn-outline-success" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >page 3</beer-button>
+      <beer-button navBarID="bill" id="heello" beerId="d" beerClass="btn btn-outline-success"  newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  >Page 4</beer-button>
+      <beer-navbar navBarBrandID="bill" navBarId="bill" beerClass="navbar navbar-light bg-light" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></beer-navbar>  
+
+  </div>
+  
+
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
+
 </body>
 </html>
