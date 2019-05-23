@@ -6,7 +6,7 @@ import {Selector, ClientFunction} from "testcafe";
 /**
  * MAKE SURE TO CHANGE THIS VALUE BEFORE PUSHING
  */
-const LOCAL_DEV = true;
+const LOCAL_DEV = false;
 /* ================================================= */
 
 
@@ -137,6 +137,7 @@ test("Button color should be set correctly", async t=> {
  * Clicking the button should invoke the custom function,
  * which, here, is a console log.
  */
+/*
 test("Button accepts custom fuctions", async t=> {
     const component = Selector("#custom-func-beer");
 
@@ -150,3 +151,4 @@ test("Button accepts custom fuctions", async t=> {
     }
     await t.expect(msg).eql("hello");
 });
+*/
