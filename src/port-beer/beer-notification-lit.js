@@ -105,7 +105,7 @@ class BeerNotificationLit extends LitElement {
 
             //removed notif from the page. Can't figure out how to set 
             this._removeFromDom(beer_notification_lit);
-        } 
+        }; 
 
         // Set the message property with the user text in between tag
         // <beer-notification-lit>USER MESSAGE</beer-notification-lit>
