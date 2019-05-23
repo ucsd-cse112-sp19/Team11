@@ -23,6 +23,8 @@ export function AttributeSelector(){
             this.$beerA.setAttribute("type", this.getAttribute("beertype"));
         }
     }
+
+
     // statement to control the flow of style so that newStyle has priority over
     // libstyle
     if(this.hasAttribute("newStyle") || this.hasAttribute("libStyle")){
