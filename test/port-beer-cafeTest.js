@@ -3,7 +3,7 @@
 /* eslint-disable no-unused-vars */
 import { Selector } from 'testcafe'
 fixture`Getting Started`
-  .page`https://ucsd-cse112.github.io/Team11/`
+  .page`https://ucsd-cse112.github.io/Team11/tests/portTest.html`
 
 test('test attribute rainbow', async t => {
   const coreHello = await Selector('core-hello')
