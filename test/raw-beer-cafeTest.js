@@ -12,10 +12,10 @@ const LOCAL_DEV = false;
 
 if(!LOCAL_DEV) {
     fixture `Getting Started`
-        .page `https://ucsd-cse112.github.io/Team11/test/rawTests.html`;
+        .page `https://ucsd-cse112.github.io/Team11/test/rawTest.html`;
 } else {
     fixture `Getting Started`
-        .page `localhost:5500/test/rawTests.html`;
+        .page `localhost:5500/test/rawTest.html`;
 }
 
 
