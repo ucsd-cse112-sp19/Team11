@@ -9,10 +9,6 @@ const types = [
     {type: "danger",  bgColor: "#F56C6C", bgLighter:"#F9A6A6", bgPlain: "#FEF0F0"}
 ];
 
-// Index to keep track of which beer-button-lit component in a given HTML page
-// when there are multiple
-var idx = 0;
-
 /**
  * Beer web component that was ported from the Element library
  */
@@ -44,17 +40,11 @@ class BeerButtonLit extends LitElement {
         this.round = false;
         this.circle = false;
 
-        // Checks if loading attribute exists
-        var beer_button_lit = document.getElementsByTagName("beer-button-lit").item(idx);
-
-        // Increment the index for each new beer-button component
-        idx++;
-
         // Set the text property with the user text in between tag
         // <beer-button-lit>USER TEXT</beer-button-lit>
-        this.text = beer_button_lit.textContent;
-        var loading_attr = beer_button_lit.getAttribute("loading");
-        var disabled_attr = beer_button_lit.getAttribute("disabled");
+        this.text = this.textContent;
+        var loading_attr = this.getAttribute("loading");
+        var disabled_attr = this.getAttribute("disabled");
 
         // loading attribute is present if var loading_attr is not null
         if(loading_attr == "") {
@@ -63,7 +53,6 @@ class BeerButtonLit extends LitElement {
         if(disabled_attr == "") {
             this.disabled = true;
         }
-
     }
 
     /**
@@ -209,9 +198,9 @@ class BeerButtonLit extends LitElement {
         if (this.onClickFunction == undefined || this.onClickFunction == null) {
             // alert("You clicked the button!");
             // set default behavior to create a new notification
-            let newNotification = `<beer-notification-lit type="success" title="Success" duration="4500">
+            let newNotification = `<beer-notification-lit type="success" title="Success" duration="0">
                                         Hello Peter! This notification was created by clicking a button!
-                                    </beer-notification-lit>`;
+                                   </beer-notification-lit>`;
             document.querySelector("body").insertAdjacentHTML("afterbegin", newNotification); 
         }
         else {
