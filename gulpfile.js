@@ -6,24 +6,24 @@ var gulpDocumentation = require('gulp-documentation')
 
 
 gulp.task('clean', function(done) { 
-  del(['dist'])
+  // del(['dist'])
   del(['docs'])
   done()
 })
 
 gulp.task('default', function(done) {
   runSequence('clean', 'documentation', 'uglify')
-  done() 
+  done(); 
 })
 
 gulp.task('documentation', function() {
-  return gulp.src('./src/*.js')
+  return gulp.src('./src/**/*.js')
   .pipe(gulpDocumentation('html'))
   .pipe(gulp.dest('docs'))
 })
 
 gulp.task('uglify', function() {
-  return gulp.src('./src/*.js')
+  return gulp.src('./src/**/*.js')
     // Minify the file
     .pipe(uglify())
     // Output
