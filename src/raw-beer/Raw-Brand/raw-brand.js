@@ -6,7 +6,6 @@ const template = document.createElement("template");
 template.innerHTML = `
 <a>
 <img>
-Bootstrap
 </a>
 
 `;
@@ -26,10 +25,23 @@ class BeerBrand extends HTMLElement {
         this.$beerImg = this._shadowRoot.querySelector("img");
         this.$rawBrand = document.querySelector("beer-brand");
 
+        console.log("yooooo + " + this.innerHTML);
+
+
+
         this.AttributeSelector = AttributeSelector.bind(this);
         this.AttributeSelector();
 
 
+
+
+        if(this.hasAttribute("id")){
+            if(this.getAttribute("id").length > 0){
+                var setBrandName = this.setBrandName.bind(this);
+                setBrandName();
+            }
+        }
+    
         // if statement that checks if the brandHref attribute has been applied by the user
         // if it has then a check is made to make sure the attribute is not null
         if(this.hasAttribute("brandHref")){
@@ -70,6 +82,7 @@ class BeerBrand extends HTMLElement {
                 this.$beerImg.setAttribute("alt", this.getAttribute("imageAlt"));
             }
         }
+
     }
 
 
@@ -82,5 +95,18 @@ class BeerBrand extends HTMLElement {
         var image = this.getAttribute("brandImage");
         this.$beerImg.setAttribute("src", image);
     }
+
+
+
+    setBrandName(){
+        //grabs the correct brand that corresponds with the Id
+        if(this.innerHTML.length > 0){
+            this.$beerA.append(this.innerHTML);
+        }
+        else{
+            console.log( "no Name provided");
+        }
+    }
+
 }
 window.customElements.define("beer-brand", BeerBrand);

@@ -37,6 +37,8 @@ export function AttributeSelector(){
             this.libStyle(this.getAttribute("libStyle"));
         }
     }
+
+   
 }
 
 /**
@@ -55,3 +57,9 @@ export function setStyle(newStyle, shadowRoot){
     Style.setAttribute("type", "text/css");
 }
 
+/**
+     * @description Function that allows the use to set the buttons name bassed on the
+     * value of the inner html
+     * @param {string} buttonId the Id for a specific button
+     * @retun void 
+     */
