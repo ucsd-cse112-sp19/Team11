@@ -2,7 +2,7 @@
 <html lang="en">
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script  src="./raw-button.js" defer type="module"></script>
-<title>Buttons · Bootstrap</title>
+<title>Beer Button</title>
 
 <!-- Bootstrap core CSS -->
 
@@ -28,9 +28,13 @@
 <div class="bd-example">
 <beer-button id="name">I'm a named button</beer-button>
 </div>
-<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
-<span class="nt">&lt;beer-button</span> <span class="na"> <span class="na">id=</span><span class="s">"name"</span><span class="nt">&gt;</span>Im a named button<span class="nt">&lt;/beer-button&gt;</span>
-</code></pre>
+
+<div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
+
+<div class="highlight">
+  <pre><code class="language-html" data-lang="html">
+    <span class="nt">&lt;beer-button</span> <span class="na"> <span class="na">id=</span><span class="s">"name"</span><span class="nt">&gt;</span>Im a named button<span class="nt">&lt;/beer-button&gt;</span>
+  </code></pre>
 </div>
 
 
