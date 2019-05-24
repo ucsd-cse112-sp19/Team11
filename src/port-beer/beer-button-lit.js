@@ -217,10 +217,29 @@ class BeerButtonLit extends LitElement {
         if (this.notification != undefined && this.notification != null && this.notification != "") {
             // alert("You clicked the button!");
             // set default behavior to create a new notification
-            let newNotification = `<beer-notification-lit type="message" title="Message" duration="7000">
+            let newNotification = ""
+            if(this.type === "danger") {
+                newNotification = `<beer-notification-lit type="danger" title="Message" duration="7000">
                                         ${this.notification}
                                    </beer-notification-lit>`;
-
+            }
+            else if(this.type === "info") {
+                newNotification = `<beer-notification-lit type="info" title="Message" duration="7000">
+                                        ${this.notification}
+                                   </beer-notification-lit>`;
+            }else if(this.type === "success") {
+                newNotification = `<beer-notification-lit type="success" title="Message" duration="7000">
+                                        ${this.notification}
+                                   </beer-notification-lit>`;
+            }else if(this.type === "warning") {
+                newNotification = `<beer-notification-lit type="warning" title="Message" duration="7000">
+                                        ${this.notification}
+                                   </beer-notification-lit>`;
+            }else {
+                newNotification = `<beer-notification-lit type="message" title="Message" duration="7000">
+                                        ${this.notification}
+                                   </beer-notification-lit>`;
+            }
             // Syntax: node.insertAdjacentHTML(position, text)
             // document.querySelector("body").insertAdjacentHTML("afterbegin", newNotification); 
             // ^^^ NOTE: Using "afterbegin" will inject notification elements into the HTML page
