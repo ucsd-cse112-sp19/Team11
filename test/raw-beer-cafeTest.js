@@ -18,14 +18,6 @@ if(!LOCAL_DEV) {
         .page `localhost:5500/src/Raw-Button/incrementTest.html`;
 }
 
-/**
- * Grab the id of the component that you wish to test
- * Check if tab attribute exists and clicking opens a new tab
- *//*
-test("Clicking the button will open a new tab", async t => {
-
-});
-*/
 
 /**
  * Grab the id of the component that you wish to test, check for <link> attribute in shadowDom
@@ -127,17 +119,18 @@ test("Button link should redirect to new location with a new tab", async t => {
     //     .expect(getOpenerURL()).contains("/incrementTest.html");
 });
 
+
 /**
  * Grab the color of the component to be tested directly
  * The color of the button should be equal to the attribute. 
  */
 test("Button color should be set correctly", async t=> {
-    const getColorBeer = ClientFunction(() => document.querySelector("#color-beer").shadowRoot.querySelector("button").style.backgroundColor);
-    // const getStyle = ClientFunction(() => document.querySelector("#color-beer").shadowRoot.querySelector("button").style);
-    // console.log(await getStyle());
+    const getColorBeer = ClientFunction(() => document.querySelector("#color-beer")._shadowRoot.querySelector("button").style.backgroundColor);
     await t
         .expect(getColorBeer()).eql("red");
 });
+
+
 
 /**
  * Grab the id of the component to be tested
@@ -145,9 +138,15 @@ test("Button color should be set correctly", async t=> {
  * which, here, is a console log. 
  */
 test("Button accepts custom fuctions", async t=> {
-    const bill = Selector("#bill"); 
+    const component = Selector("#custom-func-beer"); 
 
-    await t.click(bill);
-    const messages = await t.getBrowserConsoleMessages();
-    await t.expect(messages.log[0]).eql("hello");
+    await t.click(component);
+    const messages = await t.getBrowserConsoleMessages();    
+    var msg = "";
+    if(LOCAL_DEV) {
+        msg = messages.log[1];
+    } else {
+        msg = messages.log[0];
+    }
+    await t.expect(msg).eql("hello");
 });
