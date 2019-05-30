@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script  src="./raw-button.js" defer type="module"></script>
+<title>Beer Button</title>
+
+<!-- Bootstrap core CSS -->
+
+
+<style class="anchorjs"></style><link href="./pres_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+<!-- Documentation extras -->
+
+<!--<link href="./pres_files/docsearch.min.css" rel="stylesheet"> -->
+
+<link href="./pres_files/docs.min.css" rel="stylesheet">
+
+</head>
+  <body>
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 class="bd-title" id="content">Beer-Button</h1>          
+          
+<h2 id="examples"><div>Adding an ID to your Buttons</div></h2>
+<p>The user can provide a custom ID to make changes to a specific beer-button</p>
+<div class="bd-example">
+<beer-button id="name">I'm a named button</beer-button>
+</div>
+
+<div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
+
+<div class="highlight">
+  <pre><code class="language-html" data-lang="html">
+    <span class="nt">&lt;beer-button</span> <span class="na"> <span class="na">id=</span><span class="s">"name"</span><span class="nt">&gt;</span>Im a named button<span class="nt">&lt;/beer-button&gt;</span>
+  </code></pre>
+</div>
+
+
+
+<h2 id="examples"><div>Solid Buttons</div></h2>
+<div class = "bd-example">
+<beer-button  id="primary" beerClass="btn btn-primary" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Primary</beer-button>
+<beer-button  id="secondary" beerClass="btn btn-secondary" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Secondary</beer-button>
+<beer-button  id="success" beerClass="btn btn-success" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Success</beer-button>
+<beer-button  id="danger" beerClass="btn btn-danger" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Danger</beer-button>
+<beer-button  id="warning" beerClass="btn btn-warning" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Warning</beer-button>
+<beer-button  id="info" beerClass="btn btn-info" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Info</beer-button>
+<beer-button  id="light" beerClass="btn btn-light" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Light</beer-button>
+<beer-button  id="dark" beerClass="btn btn-dark" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Dark</beer-button>
+<beer-button  id="link" beerClass="btn btn-link" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Link</beer-button>
+</div>
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"primary"</span> <span class="na">beerClass=</span><span class="s">"btn btn-primary"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"secondary"</span> <span class="na">beerClass=</span><span class="s">"btn btn-secondary"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"success"</span> <span class="na">beerClass=</span><span class="s">"btn btn-success"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"danger"</span> <span class="na">beerClass=</span><span class="s">"btn btn-danger"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Warning<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"warning"</span> <span class="na">beerClass=</span><span class="s">"btn btn-warning"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Info<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"info"</span> <span class="na">beerClass=</span><span class="s">"btn btn-info"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Light<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"light"</span> <span class="na">beerClass=</span><span class="s">"btn btn-light"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Dark<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"dark"</span> <span class="na">beerClass=</span><span class="s">"btn btn-dark"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"link"</span> <span class="na">beerClass=</span><span class="s">"btn btn-link"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/beer-button&gt;</span>
+</code></pre>
+</div>
+
+
+<h2 id="examples"><div>Outline Buttons</div></h2>
+<div class = "bd-example">
+<beer-button  id="primary1" beerClass="btn btn-outline-primary" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Primary</beer-button>
+<beer-button  id="secondary2" beerClass="btn btn-outline-secondary" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Secondary</beer-button>
+<beer-button  id="success3" beerClass="btn btn-outline-success" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Success</beer-button>
+<beer-button  id="danger2" beerClass="btn btn-outline-danger" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Danger</beer-button>
+<beer-button  id="warning2" beerClass="btn btn-outline-warning" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Warning</beer-button>
+<beer-button  id="info2" beerClass="btn btn-outline-info" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Info</beer-button>
+<beer-button  id="light2" beerClass="btn btn-outline-light" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Light</beer-button>
+<beer-button  id="dark2" beerClass="btn btn-outline-dark" newStyle=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css>Dark</beer-button>
+</div>
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"primary"</span> <span class="na">beerClass=</span><span class="s">"btn btn-outline-primary"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"secondary"</span> <span class="na">beerClass=</span><span class="s">"btn btn-outline-secondary"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"success"</span> <span class="na">beerClass=</span><span class="s">"btn btn-outline-success"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"danger"</span> <span class="na">beerClass=</span><span class="s">"btn btn-outline-danger"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Warning<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"warning"</span> <span class="na">beerClass=</span><span class="s">"btn btn-outline-warning"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Info<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"info"</span> <span class="na">beerClass=</span><span class="s">"btn btn-outline-info"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Light<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"light"</span> <span class="na">beerClass=</span><span class="s">"btn btn-outline-light"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Dark<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"dark"</span> <span class="na">beerClass=</span><span class="s">"btn btn-outline-dark"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">id=</span><span class="s">"link"</span> <span class="na">beerClass=</span><span class="s">"btn btn-outline-link"</span><span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span><span class="nt">&gt;</span>Secondary<span class="nt">&lt;/beer-button&gt;</span>
+</code></pre>
+</div>
+
+
+<h2 id="examples"><div>Increment</div></h2>
+<p>Provide the Increment attribute with an appropriate field you would wish to be incremented by one each time the button is pressed.</p>
+<div class="bd-example">
+<beer-button increment="incnumber" id="inc">I'm an Increment button </beer-button>
+</div>
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+<span class="nt">&lt;beer-button</span> <span class="na">increment=</span><span class="s">"number"</span> <span class="na">id=</span><span class="s">"inc"</span><span class="nt">&gt;</span>Im a Increment button<span class="nt">&lt;/beer-button&gt;</span>
+</code></pre>
+</div>
+<form>
+<input type="text" id="incnumber" value="0"/>
+</form>
+
+
+<h2 id="examples"><div>Decrement</div></h2>
+<p>Provide the Decrement attribute with an appropriate field you would wish to be decremented by one each time the button is pressed.</p>
+<div class="bd-example">
+<beer-button decrement="decnumber" id="dec">I'm a Decrement button </beer-button>
+</div>
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+<span class="nt">&lt;beer-button</span> <span class="na">decrement=</span><span class="s">"decnumber"</span> <span class="na">id=</span><span class="s">"dec"</span><span class="nt">&gt;</span>Im a Decrement button<span class="nt">&lt;/beer-button&gt;</span>
+</code></pre>
+</div>
+<form>
+<input type="text" id="decnumber" value="0"/>
+</form>
+
+
+<h2 id="examples"><div>Navigate to a New Page</div></h2>
+<p>Provide the link attribute with a valid website link and it will navigate the browser to that page when the button is clicked.</p>
+<p>The link attribute has another optional attribute "tab" to open the link on a new tab</p>
+<div class="bd-example">
+<beer-button link="./testLink.html" functionName="testFunction" id="link-button" >I'm a link button</beer-button>
+<beer-button link="./pres.html?#custom-function" tab functionName="testFunction" id="tab-button" >I'm a tab button</beer-button>
+</div>
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+<span class="nt">&lt;beer-button</span> <span class="na">link=</span><span class="s">"bar.html"</span><span class="nt">&gt;</span>I'm a link button<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button</span> <span class="na">link=</span><span class="s">"foo.html"</span> <span class="na">tab</span><span class="na"><span class="na"></span>&gt;</span>I'm a link button<span class="nt">&lt;/beer-button&gt;</span>
+</code></pre>
+</div>
+
+
+<h2 id="examples"><div id="custom-function">Custom Function</div></h2>
+<p>By adding a JavaScript path to the script attribute and a function name to the functionName attribute, the user can create their own function and use it by clicking on the button.</p>
+<div class="bd-example">
+<beer-button script="./testFunction.js" functionName="testFunction" id="func">I'm a Custom Function button</beer-button>
+</div>
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+<span class="nt">&lt;beer-button</span> <span class="na">script=</span><span class="s">"./testFunction.js"</span> <span class="na">functionName=</span><span class="s">"testFunction"</span><span class="nt">&gt;</span>I'm a Custom Function button<span class="nt">&lt;/beer-button&gt;</span>
+</code></pre>
+</div>
+
+
+<h2 id="examples"><div>Add your own image to a button</div></h2>
+<p>Provide a string corresponding to the path to an image. This will set the background of your button to the image.</p>
+<p>At the moment, it doesn't resize the image or the button, it just puts the image in the button as it can.</p>
+<div class="bd-example">
+<beer-button libStyle="large" image="test.jpg" id="img-test">Image Testing</beer-button>
+</div>
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+<span class="nt">&lt;beer-button</span> <span class="na">image=</span><span class="s">"test.jpg"</span><span class="nt">&gt;</span>Image Testing<span class="nt">&lt;/beer-button&gt;</span>
+</code></pre>
+</div>
+
+
+<h2 id="examples"><div>Disabled Button</div></h2>
+<p>Provide the Disable attribute to disable a button so that none of the buttons functionality works</p>
+<div class="bd-example">
+<beer-button disable id="disabled"> Im disabled button</beer-button>
+</div>
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+<span class="nt">&lt;beer-button</span> <span class="na">disable</span><span class="nt">&gt;</span>I'm a disabled button<span class="nt">&lt;/beer-button&gt;</span>
+</code></pre>
+</div>
+
+
+<h1 id="examples"><div>Built In Styles</div></h1>
+<div class="bd-example">
+  <beer-button libStyle= "hoverButton" id="hover_button">Hover</beer-button>
+  <beer-button libStyle= "block" id="block_button">Block</beer-button>
+  <beer-button libStyle= "border" id="border_button">Border</beer-button>
+  <beer-button libStyle= "danger" id="danger_button">Danger</beer-button>
+  <beer-button libStyle= "info" id="info_button">Info</beer-button>
+  <beer-button libStyle= "large" id="large_button">Large</beer-button>
+  <beer-button libStyle= "link" id="link_button">Link</beer-button>
+  <beer-button libStyle= "medium" id="medium_button">Medium</beer-button>
+  <beer-button libStyle= "primary" id="primary_button">Primary</beer-button>
+  <beer-button libStyle= "round" id="round_button">Round</beer-button>
+  <beer-button libStyle= "small" id="small_button">Small</beer-button>
+  <beer-button libStyle= "success" id="success_button">Success</beer-button>
+  <beer-button libStyle= "warning" id="warning_button">Warning</beer-button>
+  <beer-button libStyle= "xsmall" id="xsmall_button">Xsmall</beer-button>
+  
+
+
+</div>
+<div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+<span class="nt">&lt;beer-button </span><span class="na">libStyle=</span><span class="s">"hoverButton"</span><span class="nt">&gt;</span>hoverButton<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button </span><span class="na">libStyle=</span><span class="s">"block"</span><span class="nt">&gt;</span>Block<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button </span><span class="na">libStyle=</span><span class="s">"border"</span><span class="nt">&gt;</span>Border<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button </span><span class="na">libStyle=</span><span class="s">"danger"</span><span class="nt">&gt;</span>Danger<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button </span><span class="na">libStyle=</span><span class="s">"info"</span><span class="nt">&gt;</span>Info<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button </span><span class="na">libStyle=</span><span class="s">"large"</span><span class="nt">&gt;</span>Large<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button </span><span class="na">libStyle=</span><span class="s">"link"</span><span class="nt">&gt;</span>Link<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button </span><span class="na">libStyle=</span><span class="s">"medium"</span><span class="nt">&gt;</span>Medium<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button </span><span class="na">libStyle=</span><span class="s">"primary"</span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button </span><span class="na">libStyle=</span><span class="s">"round"</span><span class="nt">&gt;</span>Round<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button </span><span class="na">libStyle=</span><span class="s">"small"</span><span class="nt">&gt;</span>Small<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button </span><span class="na">libStyle=</span><span class="s">"success"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button </span><span class="na">libStyle=</span><span class="s">"warning"</span><span class="nt">&gt;</span>Warning<span class="nt">&lt;/beer-button&gt;</span>
+<span class="nt">&lt;beer-button </span><span class="na">libStyle=</span><span class="s">"xsmall"</span><span class="nt">&gt;</span>Xsmall<span class="nt">&lt;/beer-button&gt;</span>
+</code></pre>
+</div>
+
+
+</body></html>

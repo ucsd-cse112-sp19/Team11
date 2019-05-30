@@ -8,15 +8,14 @@ matrix:
       - "stable"
       before_install:
         - stty cols 80
-      
-      
+
       dist: trusty
       sudo: required
 
       addons:
-        code_climate: 
+        code_climate:
           repo_token: 56b4d0bd7e39c085bacccf8b63492ace01b88f1032c1853737145fc658290c27
-        firefox: latest
+        firefox: latest-beta
         apt:
           sources:
             - google-chrome
@@ -29,25 +28,25 @@ matrix:
         - "sh -e /etc/init.d/xvfb start"
         - sleep 3
         - fluxbox >/dev/null 2>&1 &
-      
+
       after_script:
         - codeclimate-test-reporter < ./coverage/lcov.info
-      
+
       cache:
         directories:
            - "node_modules"
-      
+
       script:
         - npm run lint
-        - npm run test-mocha
-        - npm run browser-test
-      
+        - npm run raw-test
+        - npm run port-test        
+
  #  - language: ruby
  #     rvm:
  #      - 2.2.0
- #   
+ #
  #     install:
- #       - bundle install 
+ #       - bundle install
  #     before_script:
  #       - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
  #       - chmod +x ./cc-test-reporter
@@ -56,4 +55,3 @@ matrix:
  #       - bundle exec rspec
  #     after_script:
  #       - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-
