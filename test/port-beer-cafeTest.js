@@ -10,8 +10,6 @@ fixture `Getting Started`
  
 const getPageURL = ClientFunction( () => window.location.href );
 
-
-
 const animatedButton = Selector("#animated");
 const defaultButton = Selector("#plain");
 const primaryButton = Selector("#primary");
