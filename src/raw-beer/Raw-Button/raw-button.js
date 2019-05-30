@@ -27,6 +27,7 @@ class BeerButton extends HTMLElement {
         
         this.AttributeSelector = AttributeSelector.bind(this);
         this.AttributeSelector();
+        
     }
     
     /**
@@ -41,13 +42,12 @@ class BeerButton extends HTMLElement {
     customFunction(){
         var scriptName = this.getAttribute("script");
         var functionName = this.getAttribute("functionName");  
-        if(scriptName.length > 0){
+        if(scriptName.length > 0){            
             import(scriptName).then(script =>{
                 script[functionName]();
             }).catch(err => {
                 return err.message;
             });
-            
         }
     }
 
@@ -173,7 +173,7 @@ class BeerButton extends HTMLElement {
      * @param {string} styleName takes a string that the user provides and then matches
      * it against a .css stylesheet stored in the componenets library 
      * @returns void
-     */
+     */    
     libStyle(styleName){
         if(styleName == "block"){
             setStyle("../Raw-Button/ButtonStyles/block.css", this._shadowRoot);
@@ -221,5 +221,6 @@ class BeerButton extends HTMLElement {
             setStyle("../Raw-Button/ButtonStyles/large.css", this._shadowRoot);
         }
     }
+    
 }
 window.customElements.define("beer-button", BeerButton);
