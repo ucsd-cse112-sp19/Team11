@@ -5,8 +5,7 @@ var types = [
     {type: "warning", svg: "./icons/notif-icon-warning.svg"},
     {type: "danger",  svg: "./icons/notif-icon-danger.svg"},
     {type: "info",    svg: "./icons/notif-icon-info.svg"},
-    {type: "message", svg: "./icons/notif-icon-message.svg"},
-    {type: "bell",    svg: "./icons/notif-icon-bell.svg"},
+    {type: "message", svg: "./icons/notif-icon-message.svg"}
 ];
 const spacing = 10; // Vertical distance between two notifications
 const delay = 200; // 0.2 seconds
