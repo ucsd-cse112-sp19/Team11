@@ -217,7 +217,7 @@ class BeerButtonLit extends LitElement {
         if (this.notification != undefined && this.notification != null && this.notification != "") {
             // alert("You clicked the button!");
             // set default behavior to create a new notification
-            let newNotification = ""
+            let newNotification = "";
             if(this.type === "danger") {
                 newNotification = `<beer-notification-lit type="danger" title="Message" duration="7000">
                                         ${this.notification}
