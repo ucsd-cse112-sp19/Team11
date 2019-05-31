@@ -1,9 +1,28 @@
-<!doctype html>
 <html>
 <head>
     <script type="module" src="beer-button-lit.js"></script>
+    <script type="module" src="beer-notification-lit.js"></script>
+    <style>
+        beer-button-lit {
+            display:inline-block;
+        }
+    </style>
 </head>
-<body>  
+
+<body>
+
+    <h1 style="font-family:sans-serif">Bootstrap attribute</h1>
+    <beer-button-lit>Default</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-default">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-primary">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-success">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-info">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-warning">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-danger">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-light">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-dark">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-primary btn-lg btn-block">bootstrap</beer-button-lit>
+
     <h1 style="font-family:sans-serif">Type attribute</h1>
     <beer-button-lit>Default</beer-button-lit>
     <beer-button-lit type="primary">Primary</beer-button-lit>
@@ -39,6 +58,13 @@
     <beer-button-lit circle loading>C1</beer-button-lit>
     <beer-button-lit type="primary" circle loading>C2</beer-button-lit>
 
+    <h1 style="font-family:sans-serif">Linked with Notifications</h1>
+    <beer-button-lit notification="This notification was created with a button">Notification</beer-button-lit>
+    <beer-button-lit type="danger" notification="This notification was created with a button">Danger</beer-button-lit>
+    <beer-button-lit type="warning" notification="This notification was created with a button">Warning</beer-button-lit>
+    <beer-button-lit type="info" notification="This notification was created with a button">Info</beer-button-lit>
+    <beer-button-lit type="success" notification="This notification was created with a button">Success</beer-button-lit>
+
     <!--Invalid attribute, should be default button-->
     <h1 style="font-family: sans-serif">If attribute is invalid, then use default</h1>
     <h6 style="font-family: sans-serif; color:red;">type="RANDOM_TYPE"</h6>
@@ -51,5 +77,4 @@
 </html>
 
 <script>
-
 </script>
