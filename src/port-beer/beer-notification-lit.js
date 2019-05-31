@@ -1,12 +1,14 @@
 import {LitElement, html, css} from "https://unpkg.com/lit-element@2.0.1/lit-element.js?module";
 
 var types = [
-    {type: "success", svg: "./svg/notif-icon-success.svg"},
-    {type: "warning", svg: "./svg/notif-icon-warning.svg"},
-    {type: "danger",  svg: "./svg/notif-icon-danger.svg"},
-    {type: "info",    svg: "./svg/notif-icon-info.svg"},
+    {type: "success", svg: "./icons/notif-icon-success.svg"},
+    {type: "warning", svg: "./icons/notif-icon-warning.svg"},
+    {type: "danger",  svg: "./icons/notif-icon-danger.svg"},
+    {type: "info",    svg: "./icons/notif-icon-info.svg"},
+    {type: "message", svg: "./icons/notif-icon-message.svg"}
 ];
-var total_notifs = 0;
+const spacing = 10; // Vertical distance between two notifications
+const delay = 200; // 0.2 seconds
 
 class BeerNotificationLit extends LitElement {
     static get properties() {
@@ -22,6 +24,10 @@ class BeerNotificationLit extends LitElement {
             // (default: 4500 ms)
             duration: {type: Number, reflect: true},
 
+            // If true, hides the close button from the user so that 
+            // notification cannot be closed by the user
+            hideClose: {type: Boolean, reflect: true},
+
             // (default: top-right), top-left, bottom-right, bottom-left
             position: {type: String, reflect: true},
 
@@ -31,9 +37,6 @@ class BeerNotificationLit extends LitElement {
 
             // Boolean property to keep track of whether the notification is closed or not
             closed: {type: Boolean},
-
-            // Index of the notification component, useful when there are multiple components
-            index:  {type: Number},
 
             // The cumulative offset positioning to determine the position of notification dynamically
             prevHeights:  {type: Number}
@@ -52,10 +55,7 @@ class BeerNotificationLit extends LitElement {
         this.duration = 4500; // Default will close after 4500 ms
         this.position = "";
         this.offset = 0;
-        
-        // if closed before notification naturally times out then hide it until timer finishes and 
-        // it gets removed from the DOM
-        this.hidden = false;
+        this.hideClose = false;
 
         // Default properties (unrelated to attributes)
         
@@ -64,15 +64,13 @@ class BeerNotificationLit extends LitElement {
         this.closed = false;
         this.prevHeights = 0; 
 
-        var beer_notif_lit = document.getElementsByTagName("beer-notification-lit").item(total_notifs);
-
-        // Increment the index for each new beer-button component
-        this.index = total_notifs;
-        total_notifs++;
-
         // Set the message property with the user text in between tag
         // <beer-notification-lit>USER MESSAGE</beer-notification-lit>
-        this.message = beer_notif_lit.textContent;
+        this.message = this.textContent;
+        var hideClose_attr = this.getAttribute("hideClose");
+        if(hideClose_attr == "") {
+            this.hideClose = true;
+        }
 
     }
 
@@ -80,13 +78,13 @@ class BeerNotificationLit extends LitElement {
      * @description Perform one-time work after the element’s template has been created.
      */
     firstUpdated() {
+        let all_notifs = document.getElementsByTagName("beer-notification-lit");
+        let curr; // To hold the current beer-notification-lit component with index i
+
         // Calculate the appropriate offset from the top of the screen.
         // This for-loop cumulatively adds the heights of each notification box that comes
         // before "this" notification
-        for( var i = 0; i < this.index; i++ ) {
-            // Get the current beer-notification-lit component with index i
-            let curr = document.getElementsByTagName("beer-notification-lit").item(i);
-
+        for( var i = 0; (curr = all_notifs.item(i)) !== this; i++ ) {
             // Get the <div> from this component's shadow DOM that has class=".popup"
             // referring to the template in render()
             let currDiv = curr.shadowRoot.querySelector(".popup");
@@ -100,7 +98,7 @@ class BeerNotificationLit extends LitElement {
             let notif_height_value = parseFloat(notif_height.replace(/px/gi, ""));
 
             // Add to this element's prevHeights property. Also add 10px for margin spacing between notifications
-            this.prevHeights += (notif_height_value + 10);
+            this.prevHeights += (notif_height_value + spacing);
         }
     }
 
@@ -112,16 +110,19 @@ class BeerNotificationLit extends LitElement {
         // check if duration is not 0. If it is not set timer for callback function to 
         // close this notification
         if(this.duration != 0) {
-            window.setTimeout(() => {
+            window.setTimeout(() => { // Delay so can see closing notification fade out
                 this.closed = true;
-                this._recalculateOffset();
+                window.setTimeout(() => {
+                    this._recalculateOffset();
+                    this._removeFromDom(this);
+                }, delay);
             }, this.duration);
         }
     } 
 
     /**
      * @description Gets the appropriate path to .svg icon file
-     * @returns {string} path to corresponding type icon .svg file
+     * @returns {String} path to corresponding type icon .svg file
      */
     _getTypeIcon() {
         let typeItem = types.find((elem) => {
@@ -137,8 +138,8 @@ class BeerNotificationLit extends LitElement {
     }
 
     /**
-     * @description Checks of the 'type' attribute is valid.
-     * Valid types are: success, warning, danger, info
+     * @description Checks if the 'type' attribute is valid.
+     * Valid types are: success, warning, danger, info, message
      * @returns {boolean} valid
      */
     _validType() {
@@ -168,9 +169,16 @@ class BeerNotificationLit extends LitElement {
         // console.log(event.target); // Prints the element that this event is attached to
         // In this case, will print out <span>&times;</span> because when we click on
         // the 'x', the notification box will close (this event fires)
-        this.closed = true;
-        this._recalculateOffset();
 
+        // Changing the 'closed' property will trigger a call to render(), 
+        // which will set "display: none" in _getStyle()
+        this.closed = true;
+
+        // Set a delay so can see closing notifications fade out
+        window.setTimeout(() => {
+            this._recalculateOffset();
+            this._removeFromDom(this); // Remove this notification completely from the DOM tree
+        }, delay);
     }
 
     /**
@@ -178,58 +186,99 @@ class BeerNotificationLit extends LitElement {
      * When closing a notification, the ones below it will shift up.
      */
     _recalculateOffset() {
-        // Start from bottom to up
-        for( var i = total_notifs - 1; i > this.index; i-- ) {
-            // Get the current beer-notification-lit component with index i
-            let curr = document.getElementsByTagName("beer-notification-lit").item(i);
-            // Get the beer-notification-lit component that will close
-            let removed = document.getElementsByTagName("beer-notification-lit").item(this.index);
+        let all_notifs = document.getElementsByTagName("beer-notification-lit");
+        let curr; // To hold the current beer-notification-lit component with index i
 
-            // Get the <div class=".popup"></div> for the removed component
-            let removedDiv = removed.shadowRoot.querySelector(".popup");
+        // Start from bottom to up
+        for( var i = all_notifs.length - 1; (curr = all_notifs.item(i)) !== this; i-- ) {
+            // Get the <div class=".popup"></div> for the this component, which will be removed
+            let removedDiv = this.shadowRoot.querySelector(".popup");
             // Get the height style string (Example: "123.4px")
             let notif_height_removed = window.getComputedStyle(removedDiv, null).getPropertyValue("height");
             // Convert from string to number (Example: "123.4px" --> 123.4)
             let notif_height_value_removed = parseFloat(notif_height_removed.replace(/px/gi, ""));
 
             // Update current component's offset
-            curr.prevHeights -= (notif_height_value_removed + 10);
+            curr.prevHeights -= (notif_height_value_removed + spacing);
         }
     }
 
     /**
-     * @description Determine the dynamic CSS styling of the top-level notification box div
+     * @description Determine the dynamic CSS styling of the top-level notification box <div>
+     * @returns {String} CSS style string
      */
     _getStyle() {
         var notif_box_style = ""; // Default nothing
-        notif_box_style += (this.closed ? "display: none;" : "display: block;");
-        notif_box_style += "position: fixed;";
+        if(this._isTop()) {
+            notif_box_style += "top: " + this.prevHeights + "px;";
+        } else {
+            notif_box_style += "bottom: " + this.prevHeights + "px;";
+        }
 
-        notif_box_style += "top: " + this.prevHeights + "px;";
         return notif_box_style;
     }
 
-    _getClass() {
-        let _class = "popup shadow ";
+    /**
+     * @description Determine if notification spawns at top or bottom of screen
+     * @returns {boolean} top
+     */
+    _isTop() {
+        if(this.position === "" || this.position === "top-right" // Default
+                                || this.position === "top-left") {
+            return true;
+        } else if(this.position === "bottom-left" || this.position === "bottom-right") {
+            return false;
+        }
+        return true; // Default true
     }
 
+    /**
+     * @description Get the class of the top-level notification box <div>
+     * @returns {String} HTML class
+     */
+    _getClass() {
+        let _class = "popup shadow ";
+        if(this.position === "" || this.position === "top-right" // Default
+                                || this.position === "bottom-right") {
+            _class += "right ";
+        } else if (this.position === "top-left" || this.position === "bottom-left") {
+            _class += "left ";
+        }
+        _class += (this.closed ? "hidden " : "");
+        return _class;
+    }
+
+    /**
+     * @description renders the DOM structure described in the element template into the shadow root
+     * For example, <beer-notification-lit></beer-notification-lit> is the custom element (host)
+     * The template rendered will be attached to the shadow root of the shadow DOM.
+     */
     render() {
         return html`
-        <div class="popup shadow" style="${this._getStyle()}">
+        <div class="${this._getClass()}" style="${this._getStyle()}">
             <div class="popup-content">
                 <span>
                     <img class=${this._validType() ? "icon" : ""} 
                            src=${this._getTypeIcon()}>
                     </img>
                 </span>
+
                 <p class="popup-title">${this.title}</> 
-                <span class="close" @click="${this._handleClose}">&times;</span>
+
+                <span class="close" style=${this.hideClose ? "display: none" : ""} 
+                @click="${this._handleClose}">
+                    &times;
+                </span>
+
                 <p>${this.message}</>
             </div>
         </div>
     `;
     }
 
+    /**
+     * @description CSS style evaluated once only and applied to all instances of the component
+     */
     static get styles() {
         return css`
         :host {
@@ -237,69 +286,99 @@ class BeerNotificationLit extends LitElement {
             font-family: sans-serif;
             text-align: left;
         }
-        /* Notification box */
+        /*---------------------- Notification box ----------------------*/
         .popup {
-            /*display: none;*/   /* Hidden by default. Use this when we have linked with button.
-                                Once linked with button, notification will show up when button
-                                is clicked. */
-            /*position: fix;*/     /* Stay in place on screen */
-            z-index: 1;          /* In front of everything else with smaller z-indices 
-                                 /* (default z-index is 0 if unspecified) */
-            right: 0;            /* By default, positioned on top-right of screen */
-            top: 0;
-            width: 20em;         /* Fixed width */
-            height: auto;        /* Dynamically adjust height based on content */
-            overflow: auto;      /* Enable scroll if needed */
-            margin: 2em;
-            border-radius: 0.5em;
+            position: fixed;
             background-color: white;
+            z-index: 1;              /* In front of everything else with smaller z-indices 
+                                     /* (default z-index is 0 if unspecified) */
+
+            width: 20em;             /* Fixed width */
+            height: auto;            /* Dynamically adjust height based on content */
+
+            overflow: auto;          /* Enable scroll if needed */
+            margin: 1em;
+            border-radius: 0.5em;    /* Corner roundness */
+        }
+
+        /* Shadow around notification box */
+        .shadow {
+            /* horizontal-length, vertical-length, blur-radius, shadow-with-opacity */
+            -webkit-box-shadow:  0 0 0.8em rgba(0, 0, 0, 0.1);
+            -moz-box-shadow:     0 0 0.8em rgba(0, 0, 0, 0.1);
+            box-shadow:          0 0 0.8em rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s 0.15s, opacity 0.15s linear;
+        }
+
+        /*--------------------- Position/Animation ---------------------*/
+        .right {
+            right: 0;
             -webkit-animation-name: animateright;
             -webkit-animation-duration: 0.4s;
             animation-name: animateright;
             animation-duration: 0.4s;
         }
+
+        .left {
+            left: 0;
+            -webkit-animation-name: animateleft;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animateleft;
+            animation-duration: 0.4s;
+        }
+
         /* Add Animation */
-        @-webkit-keyframes animate-right {
+        @-webkit-keyframes animate-right { /* From right to left */
         from {right:-300px; opacity:0} 
         to {right:0; opacity:1}
         }
+
         @keyframes animateright {
         from {right:-300px; opacity:0}
         to {right:0; opacity:1}
         }
-        /* Shadow around notification box */
-        .shadow {
-            /* horizontal-length, vertical-length, blur-radius, shadow-with-opacity */
-            -webkit-box-shadow:  0em 0em 0.8em rgba(0, 0, 0, 0.1);
-            -moz-box-shadow:     0em 0em 0.8em rgba(0, 0, 0, 0.1);
-            box-shadow:          0em 0em 0.8em rgba(0, 0, 0, 0.1);
+
+        @-webkit-keyframes animate-left { /* From left to right */
+        from {left:-300px; opacity:0} 
+        to {left:0; opacity:1}
         }
-        /* Notification Content */
-        .popup-title {
-            font-weight: bold;
+        
+        @keyframes animateleft {
+        from {left:-300px; opacity:0}
+        to {left:0; opacity:1}
         }
+
+        /*--------------------- Notification Content ---------------------*/
         .popup-content {
             margin: auto;
             width: 90%;
-        }
-        /* The Close Button */
-        .close {
-            color: #a8a8a8;
-            float: right;
-            font-size: 28px;
-            transition: 0.1s;
-        }
-      
-        .close:hover, .close:focus {
-            color: #636363;
-            text-decoration: none;
-            cursor: pointer;
         }
         .icon {
             width: 1.3em;
             height: 1.3em;
             float: left;
             padding: 0 0.7em 0 0;
+        }
+        .popup-title {
+            font-weight: bold;
+        }
+
+        /*----------------------- The Close Button ----------------------*/
+        .close {
+            color: #a8a8a8;
+            float: right;
+            font-size: 28px;
+            transition: 0.1s;
+        }
+        .close:hover, .close:focus {
+            color: #636363;
+            text-decoration: none;
+            cursor: pointer;
         }
         `;
     }
