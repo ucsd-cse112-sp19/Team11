@@ -1,24 +1,12 @@
 "use strict";
-import {AttributeSelector, setStyle} from "../Raw-Functions/AtrributeFunctions.js";
+import {AttributeSelector, setStyle} from "../Raw-Functions/NavBarFunctions.js";
 import "../Raw-Button/raw-button.js";
 
 const template = document.createElement("template");
 template.innerHTML = `
-<style>
-    :host{
-        display block;
-        font-family: sans-serif;
-        text-align: center
-    }
-    
-    nav {
-        border: 2px solid;
-        cursor: pointer;
-    }
-</style>
-
-<nav id="nav">
-
+<nav>
+<div>
+</div>
 </nav>
 `;
 
@@ -34,7 +22,8 @@ class BeerNav extends HTMLElement {
         // it visible
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.$beerNav = this._shadowRoot.querySelector("nav");
-        this.$rawNav= document.querySelector("beer-nav");  
+        this.$beerDiv = this._shadowRoot.querySelector("div");
+        this.$rawNav= document.querySelector("beer-navbar");  
         
         // This is the same as before Im making it so that all the variables here 
         // are available to Attribute Selector 
@@ -43,6 +32,17 @@ class BeerNav extends HTMLElement {
         
         var getButtons = this.getButtons.bind(this);
         getButtons();
+
+        if(this.hasAttribute("divId")){
+            if(this.getAttribute("divID").length > 0){
+                this.$beerDiv.setAttribute("id", this.getAttribute("divID"));
+            }
+        }
+        if(this.hasAttribute("divClass")){
+            if(this.getAttribute("divClass").length > 0){
+                this.$beerDiv.setAttribute("class", this.getAttribute("divClass"));
+            }
+        }
        
     }  
 
@@ -64,7 +64,7 @@ class BeerNav extends HTMLElement {
                 // the beer-button and beer-navbar are the same if they are then the beer-button
                 // is added to the beer-navbar
                 if(currBeerButton.getAttribute("navBarID") == navBarID){   
-                    this._shadowRoot.getElementById("nav").appendChild(currBeerButton);
+                    this.$beerDiv.appendChild(currBeerButton);
                     // now because beerButton is shrinking when I append the element
                     // I need to decrement i so that it holds its currValue and
                     // I dont miss a beer-button  
