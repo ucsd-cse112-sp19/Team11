@@ -220,6 +220,9 @@ class BeerButton extends HTMLElement {
         if(styleName == "large"){
             setStyle("../Raw-Button/ButtonStyles/large.css", this._shadowRoot);
         }
+        if(styleName == "brand"){
+            setStyle("../Raw-Button/ButtonStyles/brand.css", this._shadowRoot);
+        }
     }
     
 }
