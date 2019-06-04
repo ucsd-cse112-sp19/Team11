@@ -1,11 +1,11 @@
 import {LitElement, html, css} from "https://unpkg.com/lit-element@2.0.1/lit-element.js?module";
 
 var types = [
-    {type: "success", svg: "./icons/notif-icon-success.svg"},
-    {type: "warning", svg: "./icons/notif-icon-warning.svg"},
-    {type: "danger",  svg: "./icons/notif-icon-danger.svg"},
-    {type: "info",    svg: "./icons/notif-icon-info.svg"},
-    {type: "message", svg: "./icons/notif-icon-message.svg"}
+    {type: "success", svg: "./svg/notif-icon-success.svg"},
+    {type: "warning", svg: "./svg/notif-icon-warning.svg"},
+    {type: "danger",  svg: "./svg/notif-icon-danger.svg"},
+    {type: "info",    svg: "./svg/notif-icon-info.svg"},
+    {type: "message", svg: "./svg/notif-icon-message.svg"}
 ];
 const spacing = 10; // Vertical distance between two notifications
 const delay = 200; // 0.2 seconds
