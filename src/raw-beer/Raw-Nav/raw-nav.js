@@ -28,9 +28,7 @@ class BeerNav extends HTMLElement {
         
         var getBrand = this.getBrand.bind(this);
         getBrand();
-
-       
-
+        
         this.$beerDiv = document.createElement("div");
         this.$beerNav.appendChild(this.$beerDiv);
 
@@ -51,6 +49,31 @@ class BeerNav extends HTMLElement {
        
     }  
 
+    /**
+     * @description Function which gets the attributes for an element, if you want to listen for an attribute change 
+     * they must be listed in this function 
+     */
+    static get observedAttributes(){
+        console.log("hello an attribute was observed");
+        return ["navbarid"];
+    }
+
+    /**
+     * @description Function that acts as a listener for when an attribute changes in an element
+     * @param {string} attrName attribute thats been changed 
+     * @param {*} oldVal old value of the attribute 
+     * @param {*} newVal new value of the attribute 
+     */
+    attributeChangedCallback(attrName, oldVal, newVal){
+        console.log("yoooo an attributes been changed ");
+        var currNav = document.querySelector("beer-navbar");
+        currNav.getBrand();
+        currNav.getButtons();
+    }
+
+    /**
+     * @description Function which gets the brand for a navbar element 
+     */
     getBrand(){
         var beerbrands = document.getElementsByTagName("beer-brand");
         var navBarBrandID = this.getAttribute("navBarBrandID");
