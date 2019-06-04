@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script  src="../raw-beer/Raw-Button/raw-button.js" defer type="module"></script>
+<script src="../raw-beer/Raw-Nav/raw-nav.js" defer type="module"></script>
+<script src="../raw-beer/Raw-Brand/raw-brand.js" defer type="module"></script>
+<script type="module" src="beer-button-lit.js"></script>
+<script type="module" src="beer-notification-lit.js"></script>
+
+
+<title>Beer Button</title>
+
+<!-- Bootstrap core CSS -->
+
+
+<style class="anchorjs"></style><link href="./pres_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+<!-- Documentation extras -->
+
+<!--<link href="./pres_files/docsearch.min.css" rel="stylesheet"> -->
+
+<link href="../raw-beer/Raw-Button/pres_files/docs.min.css" rel="stylesheet">
+<style>
+  .bd-example > * {
+    display: inline-block;
+  }
+
+  .container-fluid {
+      margin-right: 30%;
+  }
+
+</style>
+
+</head>
+  <body>
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 class="bd-title" id="content">Beer-Button</h1>          
+<!-- Nav Bar -->
+<beer-brand navBarBrandID="brand" id="home" beerClass="navbar-brand"  brandHref="WHERES THE TEAM PAGE????" brandImage="../raw-beer/Raw-Brand/beer_team_logo.png" brandHeight="30" brandwidth="30" imageClass="d-inline-block align-top"  imageAlt=" "newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  > Team </beer-brand>
+<beer-button link="../raw-beer/Raw-Button/pres.html" navBarID="navbar" id="raw-btn" beerClass="btn btn-outline-dark" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Buttons</beer-button>
+<beer-button link="../raw-beer/Raw-Nav/navTest.html" navBarID="navbar" id="raw-nav" beerClass="btn btn-outline-dark" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Navigation Bar</beer-button>
+<beer-button link="../port-beer/beer-button-lit.html" navBarID="navbar" id="lit-btn" beerClass="btn btn-outline-dark" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Buttons</beer-button>
+<beer-button link="../port-beer/beer-notification-lit.html" navBarID="navbar" id="lit-ntf" beerClass="btn btn-outline-dark" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Notifications</beer-button>
+<beer-navbar navBarBrandID="brand" navBarId="navbar" beerClass="navbar navbar-light bg-light" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></beer-navbar>
+
+<!-- Page Contents-->
+<h2 id="examples"><div id="title">Type</div></h2>
+<p id="text">The user can easily change button appearance among 6 preset themes</p>
+<div class="bd-example" id="example">
+  <beer-button-lit type="primary">Primary</beer-button-lit>
+</div>
+
+<div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
+<div class="highlight">
+  <pre><code id="editor" contenteditable="true" class="language-html" data-lang="html">
+    <span class="nt">&lt;beer-button-lit</span> <span class="na">type=</span><span class="na">"primary"</span><span class="na"> </span><span class="na"></span><span class="na"></span><span class="na"></span><span class="nt">&gt;</span>Primary<span class="nt">&lt;/beer-button-lit&gt;</span>
+</code></pre>
+</div>
+
+<script>
+        let example = document.querySelector("#example");
+        let code = document.querySelector("#editor");
+        let title = document.querySelector("#title");
+        let text = document.querySelector("#text");
+    
+    
+        info = [
+            {title: "Loading", text: "Renders the button unclickable, with loading animation feedback and text 'Loading'"},
+            {title: "Disabled", text: "Renders the button unclickable. Moving mouse over will show red disabled symbol as cursor."},
+            {title: "Size", text: "Changes the size of the button"},
+            {title: "Round", text: "Rounds out the button"},
+            {title: "Notification", text: "Links button to a beer-notification with the specified text"},
+            {title: "Circle", text: "Makes the button a circle"},
+            {title: "Bootstrap", text: "User can use Bootstrap button classes with beer-button-lit which will override the default styling that comes with the component"},
+        ]
+        var counter = 0;
+
+        example.addEventListener("click", function() {
+            console.log("hello");
+        });
+        
+        code.addEventListener("input", function() {
+            getCodeText();
+        }, false);
+
+        document.addEventListener("keypress", function(e) {
+            if (e.keyCode == 13) {
+                let nextInfo = info[counter];
+                counter++;
+                title.textContent = nextInfo.title;
+                text.textContent = nextInfo.text;
+            }
+            
+        });
+    
+        function getCodeText() {
+            str = code.textContent;
+            example.innerHTML = str;
+        }
+        
+    </script>
+
+</body></html>
