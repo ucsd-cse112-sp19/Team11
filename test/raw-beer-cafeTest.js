@@ -126,6 +126,12 @@ test("Button link should redirect to new location with a new tab", async t => {
  */
 test("Button color should be set correctly", async t=> {
     const getColorBeer = ClientFunction(() => document.querySelector("#color-beer")._shadowRoot.querySelector("button").style.backgroundColor);
+    const debug1 = Selector(() => document.querySelector("#color-beer")._shadowRoot.querySelector("button"));
+    const debug2 = Selector(() => document.querySelector("#color-beer"));
+    const m1 = await debug1();
+    const m2 = await debug2();
+    console.log(m1);
+    console.log(m2);
     await t
         .expect(getColorBeer()).eql("red");
 });
@@ -137,18 +143,17 @@ test("Button color should be set correctly", async t=> {
  * Clicking the button should invoke the custom function,
  * which, here, is a console log.
  */
-/*
-test("Button accepts custom fuctions", async t=> {
-    const component = Selector("#custom-func-beer");
+// TODO: console log changed to alert. 
+// test("Button accepts custom fuctions", async t=> {
+//     const component = Selector("#custom-func-beer"); 
 
-    await t.click(component);
-    const messages = await t.getBrowserConsoleMessages();
-    var msg = "";
-    if(LOCAL_DEV) {
-        msg = messages.log[1];
-    } else {
-        msg = messages.log[0];
-    }
-    await t.expect(msg).eql("hello");
-});
-*/
+//     await t.click(component);
+//     const messages = await t.getBrowserConsoleMessages();    
+//     var msg = "";
+//     if(LOCAL_DEV) {
+//         msg = messages.log[1];
+//     } else {
+//         msg = messages.log[0];
+//     }
+//     await t.expect(msg).eql("hello");
+// });

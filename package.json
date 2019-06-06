@@ -47,6 +47,7 @@
     "test-mocha": "mocha test/test.js",
     "raw-test": "testcafe chrome,firefox test/raw-beer-cafeTest.js --skip-js-errors",
     "port-test": "testcafe chrome,firefox test/port-beer-cafeTest.js --skip-js-errors",
+
     "gulp": "^4.0.1",
     "gulp-documentation": "^3.2.1",
     "gulp-uglify": "^3.0.2",

@@ -2,6 +2,9 @@
 <head>
     <script type="module" src="beer-button-lit.js"></script>
     <script type="module" src="beer-notification-lit.js"></script>
+    <script src="../raw-beer/Raw-Button/raw-button.js" defer type="module"></script>
+    <script src="../raw-beer/Raw-Nav/raw-nav.js" defer type="module"  ></script>
+    <script src="../raw-beer/Raw-Brand/raw-brand.js" defer type="module"></script>
     <style>
         beer-button-lit {
             display:inline-block;
@@ -10,7 +13,15 @@
 </head>
 
 <body>
+    <!-- Nav Bar -->
+    <beer-brand navBarBrandID="brand" id="home" beerClass="navbar-brand"  brandHref="WHERES THE TEAM PAGE????" brandImage="../raw-beer/Raw-Brand/beer_team_logo.png" brandHeight="30" brandwidth="30" imageClass="d-inline-block align-top"  imageAlt=" "newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  > Team </beer-brand>
+    <beer-button link="../raw-beer/Raw-Button/pres.html" navBarID="navbar" id="raw-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Buttons</beer-button>
+    <beer-button link="../raw-beer/Raw-Nav/navTest.html" navBarID="navbar" id="raw-nav" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Navigation Bar</beer-button>
+    <beer-button link="./beer-button-lit.html" navBarID="navbar" id="lit-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Buttons</beer-button>
+    <beer-button link="./beer-notification-lit.html" navBarID="navbar" id="lit-ntf" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Notifications</beer-button>
+    <beer-navbar navBarBrandID="brand" navBarId="navbar" beerClass="navbar navbar-light bg-light" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></beer-navbar>
 
+    <!-- Page Contents-->
     <h1 style="font-family:sans-serif">Bootstrap attribute</h1>
     <beer-button-lit>Default</beer-button-lit>
     <beer-button-lit bootstrap="btn btn-default">bootstrap</beer-button-lit>
