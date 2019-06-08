@@ -36,8 +36,8 @@ class BeerButton extends HTMLElement {
      * @example 
      * 
      * <beer-button script="./testFunction.js" functionName="testFunction"></beer-button>
-     * 
-     */    
+     */ 
+         
     customFunction(){
         var scriptName = this.getAttribute("script");
         var functionName = this.getAttribute("functionName");  
@@ -50,6 +50,7 @@ class BeerButton extends HTMLElement {
             
         }
     }
+    
 
         
     /**

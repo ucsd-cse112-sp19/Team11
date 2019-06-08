@@ -8,7 +8,8 @@ template.innerHTML = `
 `;
 
 /**
- * A vanilla web-component
+ * <h3>hello<h3>
+ * 
  */
 class BeerNav extends HTMLElement {
     constructor() {
