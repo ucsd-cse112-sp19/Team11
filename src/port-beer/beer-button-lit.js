@@ -53,8 +53,9 @@ class BeerButtonLit extends LitElement {
         var loading_attr = this.getAttribute("loading");
         var disabled_attr = this.getAttribute("disabled");
         
-        // bootstrap
-        var bootstrap_attr = this.getAttribute("bootstrap");
+        // bootstrap 
+        //CHANGED TO beerClass for better naming?
+        var bootstrap_attr = this.getAttribute("beerClass");
         
         this.notification = "";
 
