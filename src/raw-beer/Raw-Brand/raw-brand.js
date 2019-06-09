@@ -6,7 +6,7 @@ import {AttributeSelector} from "../Raw-Functions/BrandbarFunctions.js";
 const template = document.createElement("template");
 template.innerHTML = `
 <a>
-<img width="30" height="30">
+<img>
 </a>
 
 `;
@@ -56,6 +56,8 @@ class BeerBrand extends HTMLElement {
         // if statement that checks if the user has used the brandImage attribute and 
         // then checks if that attribute is not null if its been supplied
         if(this.hasAttribute("brandImage")){
+            this.$beerImg.setAttribute("height", "30");
+            this.$beerImg.setAttribute("width", "30");
             if(this.getAttribute("brandImage").length > 0){
                 this.setBrandImage();
             }
@@ -140,6 +142,7 @@ class BeerBrand extends HTMLElement {
             this.$beerA.append(this.innerHTML);
         }
         else{
+            this.$beerA.append("Beer-Brand");
             console.log( "no Name provided");
         }
     }
