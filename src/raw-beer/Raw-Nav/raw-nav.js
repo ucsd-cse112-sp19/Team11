@@ -8,11 +8,19 @@ template.innerHTML = `
 `;
 
 /**
+<<<<<<< HEAD
  * @description Web-Component that functions as a navigation bar. 
  * Can be linked with beer-button and beer-nav components
+=======
+ * @description A class which contains the beer-nav web component 
+ * @example
+>>>>>>> 1fd49e8ecb16e8d28e8357216abec2e3cf432e8d
  * 
+ * <beer-navbar> </beer-navbar>
  */
 class BeerNav extends HTMLElement {
+
+    
     constructor() {
         super();
         this._shadowRoot = this.attachShadow({"mode" : "open"});
@@ -30,9 +38,7 @@ class BeerNav extends HTMLElement {
         
         var getBrand = this.getBrand.bind(this);
         getBrand();
-
-       
-
+        
         this.$beerDiv = document.createElement("div");
         this.$beerNav.appendChild(this.$beerDiv);
 
@@ -52,6 +58,7 @@ class BeerNav extends HTMLElement {
         }
        
     }  
+<<<<<<< HEAD
 
     /**
      * @description When this function is called it gets a beer-brand element from the DOM 
@@ -60,6 +67,16 @@ class BeerNav extends HTMLElement {
      * TODO: the below needs to be tested
      * <beer-navbar navBarBrandID="beer"></beer-navbar>  
      * <beer-brand navBarBrandID="beer"></beer-brand> 
+=======
+    /**
+     * @description When this function is called it gets a beer-brand element from the DOM and then adds 
+     * it to the navBar by checking to see if the beer-brand and beer-navbar have the same navBarBrandid
+     * attribute if they do then the beer-brand is then brought connected to the beer-navBar
+     * @example
+     * 
+     * <beer-brand navbarBrandID="barbrand"> </beer-brand>
+     * <beer-navbar navbarBrandID="barbrand"> </beer-navbar>
+>>>>>>> 1fd49e8ecb16e8d28e8357216abec2e3cf432e8d
      */
     getBrand(){
         var beerbrands = document.getElementsByTagName("beer-brand");
@@ -136,10 +153,6 @@ class BeerNav extends HTMLElement {
                 }     
             }
         }
-    }
-
-    addBrand(){
-
     }
 
 }

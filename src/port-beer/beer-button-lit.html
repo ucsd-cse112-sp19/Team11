@@ -1,0 +1,91 @@
+<html>
+<head>
+    <script type="module" src="beer-button-lit.js"></script>
+    <script type="module" src="beer-notification-lit.js"></script>
+    <script src="../raw-beer/Raw-Button/raw-button.js" defer type="module"></script>
+    <script src="../raw-beer/Raw-Nav/raw-nav.js" defer type="module"  ></script>
+    <script src="../raw-beer/Raw-Brand/raw-brand.js" defer type="module"></script>
+    <style>
+        beer-button-lit {
+            display:inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <beer-brand navBarBrandID="brand" id="home" beerClass="navbar-brand"  brandHref="WHERES THE TEAM PAGE????" brandImage="../raw-beer/Raw-Brand/beer_team_logo.png" brandHeight="30" brandwidth="30" imageClass="d-inline-block align-top"  imageAlt=" "newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  > Team </beer-brand>
+    <beer-button link="../raw-beer/Raw-Button/pres.html" navBarID="navbar" id="raw-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Buttons</beer-button>
+    <beer-button link="../raw-beer/Raw-Nav/navTest.html" navBarID="navbar" id="raw-nav" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Navigation Bar</beer-button>
+    <beer-button link="./beer-button-lit.html" navBarID="navbar" id="lit-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Buttons</beer-button>
+    <beer-button link="./beer-notification-lit.html" navBarID="navbar" id="lit-ntf" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Notifications</beer-button>
+    <beer-navbar navBarBrandID="brand" navBarId="navbar" beerClass="navbar navbar-light bg-light" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></beer-navbar>
+
+    <!-- Page Contents-->
+    <h1 style="font-family:sans-serif">Bootstrap attribute</h1>
+    <beer-button-lit>Default</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-default">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-primary">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-success">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-info">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-warning">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-danger">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-light">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-dark">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-primary btn-lg btn-block">bootstrap</beer-button-lit>
+
+    <h1 style="font-family:sans-serif">Type attribute</h1>
+    <beer-button-lit>Default</beer-button-lit>
+    <beer-button-lit type="primary">Primary</beer-button-lit>
+    <beer-button-lit type="success">Success</beer-button-lit>
+    <beer-button-lit type="info">Info</beer-button-lit>
+    <beer-button-lit type="warning">Warning</beer-button-lit>
+    <beer-button-lit type="danger">Danger</beer-button-lit>
+
+    <h1 style="font-family:sans-serif">Loading attribute</h1>
+    <beer-button-lit loading></beer-button-lit>
+    <beer-button-lit type="primary" loading></beer-button-lit>
+    <beer-button-lit type="success" loading></beer-button-lit>
+
+    <h1 style="font-family:sans-serif">Disabled attribute</h1>
+    <beer-button-lit disabled>CSE 110</beer-button-lit>
+    <beer-button-lit type="primary" disabled>CSE 112</beer-button-lit>
+    <beer-button-lit type="success" disabled>Disabled</beer-button-lit>
+
+    <h1 style="font-family: sans-serif">Size attribute</h1>
+    <beer-button-lit>default size</beer-button-lit>
+    <beer-button-lit size="medium">medium</beer-button-lit>
+    <beer-button-lit size="small">small</beer-button-lit>
+    <beer-button-lit size="mini">mini</beer-button-lit>
+
+    <h1 style="font-family: sans-serif">Round attribute</h1>
+    <beer-button-lit round>Round</beer-button-lit>
+    <beer-button-lit type="primary" round>Round</beer-button-lit>
+
+    <h1 style="font-family: sans-serif">Circle attribute</h1>
+    <beer-button-lit circle>C1</beer-button-lit>
+    <beer-button-lit type="primary" circle>C2</beer-button-lit>
+
+    <beer-button-lit circle loading>C1</beer-button-lit>
+    <beer-button-lit type="primary" circle loading>C2</beer-button-lit>
+
+    <h1 style="font-family:sans-serif">Linked with Notifications</h1>
+    <beer-button-lit notification="This notification was created with a button">Notification</beer-button-lit>
+    <beer-button-lit type="danger" notification="This notification was created with a button">Danger</beer-button-lit>
+    <beer-button-lit type="warning" notification="This notification was created with a button">Warning</beer-button-lit>
+    <beer-button-lit type="info" notification="This notification was created with a button">Info</beer-button-lit>
+    <beer-button-lit type="success" notification="This notification was created with a button">Success</beer-button-lit>
+
+    <!--Invalid attribute, should be default button-->
+    <h1 style="font-family: sans-serif">If attribute is invalid, then use default</h1>
+    <h6 style="font-family: sans-serif; color:red;">type="RANDOM_TYPE"</h6>
+    <beer-button-lit type="invalidType">Invalid type</beer-button-lit>
+    <h6 style="font-family: sans-serif; color:red;">size="RANDOM_SIZE"</h6>
+    <beer-button-lit type="invalidType">Invalid type</beer-button-lit>
+  
+</body>
+
+</html>
+
+<script>
+</script>

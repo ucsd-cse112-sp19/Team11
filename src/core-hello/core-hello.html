@@ -3,13 +3,12 @@
 <body>
 
 <!-- simple visual tests -->
-<core-hello rainbow >blackpink</core-hello>
+<core-hello rainbow > blackpink</core-hello>
 <core-hello lang="ko"> ddu du ddu du</core-hello>
 <core-hello> gary </core-hello>
 <core-hello lang="en" rainbow> GILLESPIE </core-hello>
 
 <script>
-//
 //to access the correct core-hello element if there are multiple
 var which_element = 0;
 
@@ -22,7 +21,7 @@ class CoreHello extends HTMLElement{
         //the core-hello tag to get information in text and attributes
         var core_hello_tag = document.getElementsByTagName('core-hello').item(which_element);
         which_element = which_element+1;
-
+        
         //need to read in the information from the attribute within the element
         //var lan_attr = "en"; //This variable decides a language to be displayed "ko" = Korean, "ja" = Japanese, "en" = English
 
@@ -34,7 +33,7 @@ class CoreHello extends HTMLElement{
 
         var wrapper = document.createElement('span');
         wrapper.setAttribute('class','wrapper');
-
+        
         var phrase = document.createElement('p');
         phrase.setAttribute('id', 'hello');
         phrase.setAttribute('lang', lan_attr); //Setting 'lang' tag here

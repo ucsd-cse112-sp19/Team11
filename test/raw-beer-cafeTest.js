@@ -12,11 +12,10 @@ const LOCAL_DEV = false;
 
 if(!LOCAL_DEV) {
     fixture `Getting Started`
-        // .page `https://ucsd-cse112.github.io/Team11/src/raw-beer/Raw-Button/incrementTest.html`;
         .page `https://ucsd-cse112.github.io/Team11/test/rawTest.html`;
 } else {
     fixture `Getting Started`
-        .page `localhost:5500/src/raw-beer/Raw-Button/incrementTest.html`;
+        .page `localhost:5500/test/rawTest.html`;
 }
 
 
@@ -25,11 +24,11 @@ if(!LOCAL_DEV) {
  */
 test("Button should have its own custom style", async t => {
     const link = Selector(() => document.querySelector("#style-beer").shadowRoot.querySelector("link"));
-    
+
     await t
         .expect(link).notEql(undefined)
         .expect(link.hasAttribute("rel")).eql(true)
-        .expect(link.getAttribute("type")).eql("text/css");     
+        .expect(link.getAttribute("type")).eql("text/css");
 });
 
 /**
@@ -38,7 +37,7 @@ test("Button should have its own custom style", async t => {
  */
 test("Disable button should not let the button do anything", async t => {
     const disableBeer = Selector("#disabled-beer");
-    const box = await Selector("#number");    
+    const box = await Selector("#number");
     await t
         .expect(box.value).eql("0")
         .click(disableBeer).click(disableBeer).click(disableBeer)
@@ -50,11 +49,11 @@ test("Disable button should not let the button do anything", async t => {
  */
 test("Verify component has increment attribute", async t => {
     const incBeer = Selector("#increment-beer");
-    
-    await t 
+
+    await t
         .expect(incBeer.hasAttribute("increment")).eql(true)
         .expect(incBeer.hasAttribute("decrement")).eql(false);
-}); 
+});
 
 /**
  * Grab the id of the component to be tested and the DOM element the component is pointing to
@@ -62,7 +61,7 @@ test("Verify component has increment attribute", async t => {
  */
 test("Test click increments the value", async t => {
     const incBeer = Selector("#increment-beer");
-    const box = await Selector("#number");    
+    const box = await Selector("#number");
     await t
         .expect(box.value).eql("0")
         .click(incBeer).click(incBeer).click(incBeer)
@@ -85,7 +84,7 @@ test("Verify component has decrement attribute", async t => {
  */
 test("Test click decrements the value", async t => {
     const decBeer = Selector("#decrement-beer");
-    const box = await Selector("#decnumber");   
+    const box = await Selector("#decnumber");
     await t
         .expect(box.value).eql("0")
         .click(decBeer).click(decBeer).click(decBeer)
@@ -96,8 +95,8 @@ test("Test click decrements the value", async t => {
  * Grab the id of the component to be tested
  * Clicking the link button should redirect the page
  */
-test("Button link should redirect to new location", async t => {   
-    const linkBeer = Selector("#link-beer"); 
+test("Button link should redirect to new location", async t => {
+    const linkBeer = Selector("#link-beer");
     const getPageURL = ClientFunction( () => window.location.href );
     await t
         .click(linkBeer)
@@ -109,10 +108,10 @@ test("Button link should redirect to new location", async t => {
  * Clicking the link button should redirect the page
  * The page should be opened in a new tab
  */
-test("Button link should redirect to new location with a new tab", async t => {   
-    const tabBeer = Selector("#tab-beer"); 
+test("Button link should redirect to new location with a new tab", async t => {
+    const tabBeer = Selector("#tab-beer");
     const getPageURL = ClientFunction( () => window.location.href );
-    // TestCafe doesn't support multiple tabs, so this will not work. 
+    // TestCafe doesn't support multiple tabs, so this will not work.
     const getOpenerURL = ClientFunction( () => window.opener.location.href );
     await t
         .click(tabBeer)
@@ -123,7 +122,7 @@ test("Button link should redirect to new location with a new tab", async t => {
 
 /**
  * Grab the color of the component to be tested directly
- * The color of the button should be equal to the attribute. 
+ * The color of the button should be equal to the attribute.
  */
 test("Button color should be set correctly", async t=> {
     const getColorBeer = ClientFunction(() => document.querySelector("#color-beer")._shadowRoot.querySelector("button").style.backgroundColor);
@@ -142,7 +141,7 @@ test("Button color should be set correctly", async t=> {
 /**
  * Grab the id of the component to be tested
  * Clicking the button should invoke the custom function,
- * which, here, is a console log. 
+ * which, here, is a console log.
  */
 // TODO: console log changed to alert. 
 // test("Button accepts custom fuctions", async t=> {
