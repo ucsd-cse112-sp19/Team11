@@ -54,9 +54,9 @@ class BeerNav extends HTMLElement {
        
     }  
     /**
-     * @description Gets the brand for a navBar and adds it to the Navbar The user simply needs
-     * to add it to the html page and set the navBarBrandId so that both the beer-brand and beer-navbar 
-     * have the same id. 
+     * @description When this function is called it gets a beer-brand element from the DOM and then adds 
+     * it to the navBar by checking to see if the beer-brand and beer-navbar have the same navBarBrandid
+     * attribute if they do then the beer-brand is then brought connected to the beer-navBar
      * @example
      * 
      * <beer-brand navbarBrandID="barbrand"> </beer-brand>
