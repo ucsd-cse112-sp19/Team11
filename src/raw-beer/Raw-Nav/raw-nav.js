@@ -8,9 +8,14 @@ template.innerHTML = `
 `;
 
 /**
- * A vanilla web-component
+ * @description A class which contains the beer-nav web component 
+ * @example
+ * 
+ * <beer-navbar> </beer-navbar>
  */
 class BeerNav extends HTMLElement {
+
+    
     constructor() {
         super();
         this._shadowRoot = this.attachShadow({"mode" : "open"});
@@ -48,31 +53,14 @@ class BeerNav extends HTMLElement {
         }
        
     }  
-
     /**
-     * @description Function which gets the attributes for an element, if you want to listen for an attribute change 
-     * they must be listed in this function 
-     */
-    static get observedAttributes(){
-        console.log("hello an attribute was observed");
-        return ["navbarid"];
-    }
-
-    /**
-     * @description Function that acts as a listener for when an attribute changes in an element
-     * @param {string} attrName attribute thats been changed 
-     * @param {*} oldVal old value of the attribute 
-     * @param {*} newVal new value of the attribute 
-     */
-    attributeChangedCallback(attrName, oldVal, newVal){
-        console.log("yoooo an attributes been changed ");
-        var currNav = document.querySelector("beer-navbar");
-        currNav.getBrand();
-        currNav.getButtons();
-    }
-
-    /**
-     * @description Function which gets the brand for a navbar element 
+     * @description Gets the brand for a navBar and adds it to the Navbar The user simply needs
+     * to add it to the html page and set the navBarBrandId so that both the beer-brand and beer-navbar 
+     * have the same id. 
+     * @example
+     * 
+     * <beer-brand navbarBrandID="barbrand"> </beer-brand>
+     * <beer-navbar navbarBrandID="barbrand"> </beer-navbar>
      */
     getBrand(){
         var beerbrands = document.getElementsByTagName("beer-brand");
@@ -143,10 +131,6 @@ class BeerNav extends HTMLElement {
                 }     
             }
         }
-    }
-
-    addBrand(){
-
     }
 
 }
