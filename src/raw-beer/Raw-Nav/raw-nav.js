@@ -67,7 +67,6 @@ class BeerNav extends HTMLElement {
 
         for(var i = 0; i < beerbrands.length; i++){
             var currBrand = beerbrands[i];
-
             if(currBrand.hasAttribute("navBarBrandID") && this.hasAttribute("navBarBrandID")){
                 // this if statement is checking to see if the ID the user has provided for 
                 // the beer-button and beer-navbar are the same if they are then the beer-button
@@ -82,7 +81,7 @@ class BeerNav extends HTMLElement {
                 // this if statement checks if the user has added an actual value to navBarID 
                 // if they have left it blank and there is a beer-button with blank navBarID
                 // then it will be added to the beer-navBar
-                if(navBarBrandID.length == 0 && currBrand.getAttribute("navBarBrandID").length == 0){
+                else if(navBarBrandID.length == 0 && currBrand.getAttribute("navBarBrandID").length == 0){
                     this.$beerNav.appendChild(currBrand);
                     // now because beerButton is shrinking when I append the element
                     // I need to decrement i so that it holds its currValue and
@@ -127,7 +126,7 @@ class BeerNav extends HTMLElement {
                 // this if statement checks if the user has added an actual value to navBarID 
                 // if they have left it blank and there is a beer-button with blank navBarID
                 // then it will be added to the beer-navBar
-                if(navBarID.length == 0 && currBeerButton.getAttribute("navBarID").length == 0){
+                else if(navBarID.length == 0 && currBeerButton.getAttribute("navBarID").length == 0){
                     this._shadowRoot.getElementById("nav").appendChild(currBeerButton);
                     // now because beerButton is shrinking when I append the element
                     // I need to decrement i so that it holds its currValue and

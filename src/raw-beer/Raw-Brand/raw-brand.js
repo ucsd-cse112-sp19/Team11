@@ -2,10 +2,11 @@
 import {AttributeSelector} from "../Raw-Functions/BrandbarFunctions.js";
 
 
+
 const template = document.createElement("template");
 template.innerHTML = `
 <a>
-<img>
+<img width="30" height="30">
 </a>
 
 `;
@@ -93,15 +94,48 @@ class BeerBrand extends HTMLElement {
     setBrandImage(){
         // You get the attribute brandImage as a string here; it's basically the path
         var image = this.getAttribute("brandImage");
-        this.$beerImg.setAttribute("src", image);
+        var altImg = this.getAttribute("imageAlt");
+        console.log(image);
+        if(this.doesFileExist(image)){
+            this.$beerImg.setAttribute("src", image);
+        }
+        else if(this.doesFileExist(altImg)){
+            console.log("There is a problem with the path provided to brandImage");
+            this.$beerImg.setAttribute("src", altImg);
+        }
+        else{
+            console.log("The image path for brandImage and imageAlt (if imageAlt was also used) is incorrect");
+        }
     }
 
+
+    /**
+     * @description This function is used to check if a file exists on the system 
+     * @deprecated
+     * @param {*} urlToFile pass the url of the file to the function so that it can check 
+     * if the file is a valid file on the system
+     * @return true if the file file is found
+     * @reutnr false if the file is not found
+     */
+    doesFileExist(urlToFile) {
+        console.log(urlToFile);
+        var xhr = new XMLHttpRequest();
+        
+        xhr.open("HEAD", urlToFile, false);
+        xhr.send();
+         
+        if (xhr.status == "404") {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     /**
      * Sets the name of the brand image
      */
     setBrandName(){
-        //grabs the correct brand that corresponds with the Id
+        // grabs the correct brand that corresponds with the Id
         if(this.innerHTML.length > 0){
             this.$beerA.append(this.innerHTML);
         }
