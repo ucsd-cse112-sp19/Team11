@@ -170,6 +170,40 @@
               
                 
                 <li><a
+                  href='#beernav'
+                  class=" toggle-sibling">
+                  BeerNav
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#beernavgetbrand'
+                        class='regular pre-open'>
+                        #getBrand
+                      </a></li>
+                      
+                      <li><a
+                        href='#beernavgetbuttons'
+                        class='regular pre-open'>
+                        #getButtons
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
                   href='#beernotificationlit'
                   class=" toggle-sibling">
                   BeerNotificationLit
@@ -263,40 +297,6 @@
                         href='#beernotificationlitrender'
                         class='regular pre-open'>
                         #render
-                      </a></li>
-                      
-                    </ul>
-                  
-                  
-                  
-                </div>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#beernav'
-                  class=" toggle-sibling">
-                  BeerNav
-                  <span class='icon'>▸</span>
-                </a>
-                
-                <div class='toggle-target display-none'>
-                  
-                  
-                    <ul class='list-reset py1-ul pl1'>
-                      <li class='h5'><span>Instance members</span></li>
-                      
-                      <li><a
-                        href='#beernavgetbrand'
-                        class='regular pre-open'>
-                        #getBrand
-                      </a></li>
-                      
-                      <li><a
-                        href='#beernavgetbuttons'
-                        class='regular pre-open'>
-                        #getButtons
                       </a></li>
                       
                     </ul>
@@ -1359,6 +1359,178 @@ it against a .css stylesheet stored in the componenets library
   
   <div class='clearfix'>
     
+    <h3 class='fl m0' id='beernav'>
+      BeerNav
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>A class which contains the beer-nav web component has the following attributes: id,
+beerclass, beertype, newStyle, libStyle, navBarID, divID, divClass, navBarBrandId
+<beer-navbar> </beer-navbar></p>
+
+    <div class='pre p1 fill-light mt0'>new BeerNav()</div>
+  
+  
+    <p>
+      Extends
+      
+        <a href="https://developer.mozilla.org/docs/Web/HTML/Element">HTMLElement</a>
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='beernavgetbrand'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getBrand()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>When this function is called it gets a beer-brand element from the DOM
+and then adds it to the navBar by checking to see if the beer-brand and beer-navbar
+have the same navBarBrandid attribute if they do then the beer-brand is then brought connected to the beer-navBar     * @example
+TODO: the below needs to be tested
+<beer-navbar navBarBrandID="beer"></beer-navbar><br>
+<beer-brand navBarBrandID="beer"></beer-brand></p>
+
+    <div class='pre p1 fill-light mt0'>getBrand()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='beernavgetbuttons'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getButtons()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function takes all the beer-buttons that the user
+has placed within the html and inserts them into the proper navBar
+bassed on the navBarID attribute.</p>
+
+    <div class='pre p1 fill-light mt0'>getButtons()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>&lt;beer-button navBarID=<span class="hljs-string">"bill"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">beer-button</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">beer-button</span> <span class="hljs-attr">navBarID</span>=<span class="hljs-string">"bill"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"heello"</span> <span class="hljs-attr">beerId</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">beerClass</span>=<span class="hljs-string">"btn btn-outline-success"</span>  <span class="hljs-attr">newStyle</span>=<span class="hljs-string">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span>  &gt;</span>Page 4<span class="hljs-tag">&lt;/<span class="hljs-name">beer-button</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">beer-navbar</span>  <span class="hljs-attr">navBarId</span>=<span class="hljs-string">"bill"</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">beer-navbar</span>&gt;</span></span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
     <h3 class='fl m0' id='beernotificationlit'>
       BeerNotificationLit
     </h3>
@@ -2094,178 +2266,6 @@ The template rendered will be attached to the shadow root of the shadow DOM.</p>
 
   
 
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-</div>
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='beernav'>
-      BeerNav
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Web-Component that functions as a navigation bar.
-Can be linked with beer-button and beer-nav components</p>
-<p><beer-navbar> </beer-navbar></p>
-
-    <div class='pre p1 fill-light mt0'>new BeerNav()</div>
-  
-  
-    <p>
-      Extends
-      
-        <a href="https://developer.mozilla.org/docs/Web/HTML/Element">HTMLElement</a>
-      
-    </p>
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
-    <div class="clearfix">
-  
-    <div class='border-bottom' id='beernavgetbrand'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>getBrand()</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>When this function is called it gets a beer-brand element from the DOM
-and then adds it to the navBar by checking to see if the beer-brand and beer-navbar
-have the same navBarBrandid attribute if they do then the beer-brand is then brought connected to the beer-navBar     * @example
-TODO: the below needs to be tested
-<beer-navbar navBarBrandID="beer"></beer-navbar><br>
-<beer-brand navBarBrandID="beer"></beer-brand></p>
-
-    <div class='pre p1 fill-light mt0'>getBrand()</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-    <div class='border-bottom' id='beernavgetbuttons'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>getButtons()</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>This function takes all the beer-buttons that the user
-has placed within the html and inserts them into the proper navBar
-bassed on the navBarID attribute.</p>
-
-    <div class='pre p1 fill-light mt0'>getButtons()</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Example</div>
-    
-      
-      <pre class='p1 overflow-auto round fill-light'>&lt;beer-button navBarID=<span class="hljs-string">"bill"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">beer-button</span>&gt;</span></span>
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">beer-button</span> <span class="hljs-attr">navBarID</span>=<span class="hljs-string">"bill"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"heello"</span> <span class="hljs-attr">beerId</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">beerClass</span>=<span class="hljs-string">"btn btn-outline-success"</span>  <span class="hljs-attr">newStyle</span>=<span class="hljs-string">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span>  &gt;</span>Page 4<span class="hljs-tag">&lt;/<span class="hljs-name">beer-button</span>&gt;</span></span>
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">beer-navbar</span>  <span class="hljs-attr">navBarId</span>=<span class="hljs-string">"bill"</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">beer-navbar</span>&gt;</span></span></pre>
-    
   
 
   

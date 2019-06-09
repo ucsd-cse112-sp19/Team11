@@ -8,9 +8,8 @@ template.innerHTML = `
 `;
 
 /**
- * @description Web-Component that functions as a navigation bar. 
- * Can be linked with beer-button and beer-nav components
- * 
+ * @description A class which contains the beer-nav web component has the following attributes: id, 
+ * beerclass, beertype, newStyle, libStyle, navBarID, divID, divClass, navBarBrandId
  * <beer-navbar> </beer-navbar>
  */
 class BeerNav extends HTMLElement {
