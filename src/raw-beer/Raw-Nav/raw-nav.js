@@ -8,9 +8,8 @@ template.innerHTML = `
 `;
 
 /**
- * @description A class which contains the beer-nav web component 
- * @example
- * 
+ * @description A class which contains the beer-nav web component has the following attributes: id, 
+ * beerclass, beertype, newStyle, libStyle, navBarID, divID, divClass, navBarBrandId
  * <beer-navbar> </beer-navbar>
  */
 class BeerNav extends HTMLElement {
@@ -53,14 +52,14 @@ class BeerNav extends HTMLElement {
         }
        
     }  
+
     /**
-     * @description Gets the brand for a navBar and adds it to the Navbar The user simply needs
-     * to add it to the html page and set the navBarBrandId so that both the beer-brand and beer-navbar 
-     * have the same id. 
-     * @example
-     * 
-     * <beer-brand navbarBrandID="barbrand"> </beer-brand>
-     * <beer-navbar navbarBrandID="barbrand"> </beer-navbar>
+     * @description When this function is called it gets a beer-brand element from the DOM 
+     * and then adds it to the navBar by checking to see if the beer-brand and beer-navbar 
+     * have the same navBarBrandid attribute if they do then the beer-brand is then brought connected to the beer-navBar     * @example
+     * TODO: the below needs to be tested
+     * <beer-navbar navBarBrandID="beer"></beer-navbar>  
+     * <beer-brand navBarBrandID="beer"></beer-brand> 
      */
     getBrand(){
         var beerbrands = document.getElementsByTagName("beer-brand");
@@ -97,8 +96,14 @@ class BeerNav extends HTMLElement {
 
 
     /**
-     * @description This function takes all the beer-buttons that the user has placed within the html and inserts them
-     * into the proper navBar bassed on the navBarID attribute.
+     * @description This function takes all the beer-buttons that the user 
+     * has placed within the html and inserts them into the proper navBar 
+     * bassed on the navBarID attribute.
+     * @example
+     * 
+     * <beer-button navBarID="bill"></beer-button>
+     * <beer-button navBarID="bill" id="heello" beerId="d" beerClass="btn btn-outline-success"  newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  >Page 4</beer-button>
+     * <beer-navbar  navBarId="bill" ></beer-navbar>  
      */
     getButtons(){
         // beerButtons is a variable that holds all the beer-buttons that were placed on the

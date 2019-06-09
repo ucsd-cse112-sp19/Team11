@@ -10,7 +10,15 @@ var types = [
 const spacing = 10; // Vertical distance between two notifications
 const delay = 200; // 0.2 seconds
 
+/**
+ * Notification that pops up in browser containing text with variable text and lifetime
+ */
 class BeerNotificationLit extends LitElement {
+    /**
+     * Gets expected properties of notifiation, will all be reflected to attributes.
+     * Properties are: type, title, message, duration, position, offset
+     * @returns {object} object containing notification properties 
+     */
     static get properties() {
         return {
             // success, warning, info, error 
@@ -103,6 +111,10 @@ class BeerNotificationLit extends LitElement {
     }
 
     /**
+<<<<<<< HEAD
+     * Gets the appropriate path to .svg icon file
+     * @returns {string} path to corresponding type icon .svg file
+=======
      * @description Callback that is called when element is inserted into DOM
      */
     connectedCallback() {
@@ -153,8 +165,8 @@ class BeerNotificationLit extends LitElement {
     }
 
     /**
-     * @description Removes this LitElement from the DOM Tree
-     * @param {LitElement} _this Reference to this LitElement
+     * Removes this LitElement from the DOM Tree
+     * @param {LitElement} _this Reference to the LitElement that will be removed
      */
     _removeFromDom(_this) {
         // _this is used instead of this because this will reference the window
