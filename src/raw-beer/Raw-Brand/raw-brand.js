@@ -11,7 +11,8 @@ template.innerHTML = `
 `;
 
 /**
- * A vanilla web-component
+ * Web-Component that functions as a button with the appearance of a given image. Can be linked with beer-nav.
+ * 
  */
 class BeerBrand extends HTMLElement {
     constructor() {
@@ -87,8 +88,7 @@ class BeerBrand extends HTMLElement {
 
 
     /**
-     * @description Function that sets the image for brand
-     * @returns void
+     * Function that sets the image for the brand
      */
     setBrandImage(){
         // You get the attribute brandImage as a string here; it's basically the path
@@ -97,7 +97,9 @@ class BeerBrand extends HTMLElement {
     }
 
 
-
+    /**
+     * Sets the name of the brand image
+     */
     setBrandName(){
         //grabs the correct brand that corresponds with the Id
         if(this.innerHTML.length > 0){

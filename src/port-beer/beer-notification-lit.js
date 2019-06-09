@@ -15,7 +15,15 @@ var idx = 0;
 //the same notification twice so thus a removed lock? woah 120 stuff? TODO
 var removed = false;
 
+/**
+ * Notification that pops up in browser containing text with variable text and lifetime
+ */
 class BeerNotificationLit extends LitElement {
+    /**
+     * Gets expected properties of notifiation, will all be reflected to attributes.
+     * Properties are: type, title, message, duration, position, offset
+     * @returns {object} object containing notification properties 
+     */
     static get properties() {
         return {
             // success, warning, info, error 
@@ -42,7 +50,8 @@ class BeerNotificationLit extends LitElement {
     }
 
     /**
-     * @description Callback that is called when element is inserted into DOM
+     * Callback that is called when element is inserted into DOM. Will set timer before automatic removal from DOM
+     * 
      */
     connectedCallback() {
         super.connectedCallback();
@@ -113,6 +122,10 @@ class BeerNotificationLit extends LitElement {
 
     }
 
+    /**
+     * Returns CSS styling for shadow-dom of notification
+     * @returns {css} CSS template for notification shadow-dom
+     */
     static get styles() {
         return css`
         :host {
@@ -174,7 +187,7 @@ class BeerNotificationLit extends LitElement {
     }
 
     /**
-     * @description Gets the appropriate path to .svg icon file
+     * Gets the appropriate path to .svg icon file
      * @returns {string} path to corresponding type icon .svg file
      */
     _getTypeIcon() {
@@ -191,9 +204,9 @@ class BeerNotificationLit extends LitElement {
     }
 
     /**
-     * @description Checks of the 'type' attribute is valid.
+     * Checks if the 'type' attribute is valid.
      * Valid types are: success, warning, danger, info
-     * @returns {boolean} valid
+     * @returns {boolean} valid true if valid, false if not
      */
     _validType() {
         let valid = false;
@@ -206,14 +219,18 @@ class BeerNotificationLit extends LitElement {
     }
 
     /**
-     * @description Removes this LitElement from the DOM Tree
-     * @param {LitElement} _this Reference to this LitElement
+     * Removes this LitElement from the DOM Tree
+     * @param {LitElement} _this Reference to the LitElement that will be removed
      */
     _removeFromDom(_this) {
         // _this is used instead of this because this will reference the window
         _this.parentNode.removeChild(_this);
     }
 
+    /**
+     * Creates template of notification shadow-dom
+     * @returns {HTML-Template} HTML shadow-dom for notification 
+     */
     render() {
         return html`
         <div class="popup shadow">

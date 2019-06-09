@@ -1,6 +1,7 @@
 
 /**
- * @description Function that helps with selecting attributes
+ * Function that helps with selecting attributes
+ * 
  */
 export function AttributeSelector(){
     
@@ -82,7 +83,7 @@ export function AttributeSelector(){
      * @description Function that allows the use to set the buttons name bassed on the
      * value of the inner html
      * @param {string} buttonId the Id for a specific button
-     * @retun void 
+     * 
      */
 export function setButtonName(buttonId, beerButton){
     //grabs the correct button that corresponds with the Id
