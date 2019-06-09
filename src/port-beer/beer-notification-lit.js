@@ -46,25 +46,8 @@ class BeerNotificationLit extends LitElement {
             // Boolean property to keep track of whether the notification is closed or not
             closed: {type: Boolean},
 
-<<<<<<< HEAD
-            // TODO: Add properties as needed
-        };
-    }
-
-    /**
-     * Callback that is called when element is inserted into DOM. Will set timer before automatic removal from DOM
-     * 
-     */
-    connectedCallback() {
-        super.connectedCallback();
-        // check if duration is not 0. If it is not set timer for callback function to 
-        // remove from dom
-        if(this.duration != 0) {
-            window.setTimeout(() => {
-=======
             // The cumulative offset positioning to determine the position of notification dynamically
             prevHeights:  {type: Number}
->>>>>>> 1fd49e8ecb16e8d28e8357216abec2e3cf432e8d
 
 
             // TODO: Add properties as needed
@@ -100,67 +83,6 @@ class BeerNotificationLit extends LitElement {
     }
 
     /**
-<<<<<<< HEAD
-     * Returns CSS styling for shadow-dom of notification
-     * @returns {css} CSS template for notification shadow-dom
-     */
-    static get styles() {
-        return css`
-        :host {
-            display: block;
-            font-family: sans-serif;
-            text-align: left;
-        }
-        /* Notification box */
-        .popup {
-            /*display: none;*/   /* Hidden by default. Use this when we have linked with button.
-                                Once linked with button, notification will show up when button
-                                is clicked. */
-            position: fixed;     /* Stay in place on screen */
-            z-index: 1;          /* In front of everything else with smaller z-indices 
-                                 /* (default z-index is 0 if unspecified) */
-            right: 0;            /* By default, positioned on top-right of screen */
-            top: 0;
-            width: 20em;         /* Fixed width */
-            height: auto;        /* Dynamically adjust height based on content */
-            overflow: auto;      /* Enable scroll if needed */
-            margin: 2em;
-            border-radius: 0.5em;
-            background-color: white;
-        }
-        /* Shadow around notification box */
-        .shadow {
-            /* horizontal-length, vertical-length, blur-radius, shadow-color */
-            -webkit-box-shadow:  0em 0em 0.8em #E3E3E3;
-            -moz-box-shadow:     0em 0em 0.8em #E3E3E3;
-            box-shadow:          0em 0em 0.8em #E3E3E3;
-        }
-        /* Notification Content */
-        .popup-title {
-            font-weight: bold;
-        }
-        .popup-content {
-            margin: auto;
-            width: 90%;
-        }
-        /* The Close Button */
-        .close {
-            color: #a8a8a8;
-            float: right;
-            font-size: 28px;
-        }
-      
-        .close:hover, .close:focus {
-            color: #636363;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .icon {
-            width: 1.3em;
-            height: 1.3em;
-            float: left;
-            padding: 0 0.7em 0 0;
-=======
      * @description Perform one-time work after the element’s template has been created.
      */
     firstUpdated() {
@@ -185,7 +107,6 @@ class BeerNotificationLit extends LitElement {
 
             // Add to this element's prevHeights property. Also add 10px for margin spacing between notifications
             this.prevHeights += (notif_height_value + spacing);
->>>>>>> 1fd49e8ecb16e8d28e8357216abec2e3cf432e8d
         }
     }
 
@@ -214,7 +135,6 @@ class BeerNotificationLit extends LitElement {
     /**
      * @description Gets the appropriate path to .svg icon file
      * @returns {String} path to corresponding type icon .svg file
->>>>>>> 1fd49e8ecb16e8d28e8357216abec2e3cf432e8d
      */
     _getTypeIcon() {
         let typeItem = types.find((elem) => {
@@ -230,15 +150,9 @@ class BeerNotificationLit extends LitElement {
     }
 
     /**
-<<<<<<< HEAD
-     * Checks if the 'type' attribute is valid.
-     * Valid types are: success, warning, danger, info
-     * @returns {boolean} valid true if valid, false if not
-=======
      * @description Checks if the 'type' attribute is valid.
      * Valid types are: success, warning, danger, info, message
      * @returns {boolean} valid
->>>>>>> 1fd49e8ecb16e8d28e8357216abec2e3cf432e8d
      */
     _validType() {
         let valid = false;
@@ -260,10 +174,6 @@ class BeerNotificationLit extends LitElement {
     }
 
     /**
-<<<<<<< HEAD
-     * Creates template of notification shadow-dom
-     * @returns {HTML-Template} HTML shadow-dom for notification 
-=======
      * @description Handles a click event on the top-right 'x'. CLoses the notification.
      * @param {*} event 
      */
@@ -354,7 +264,6 @@ class BeerNotificationLit extends LitElement {
      * @description renders the DOM structure described in the element template into the shadow root
      * For example, <beer-notification-lit></beer-notification-lit> is the custom element (host)
      * The template rendered will be attached to the shadow root of the shadow DOM.
->>>>>>> 1fd49e8ecb16e8d28e8357216abec2e3cf432e8d
      */
     render() {
         return html`
