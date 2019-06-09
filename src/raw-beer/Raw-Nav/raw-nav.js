@@ -56,8 +56,9 @@ class BeerNav extends HTMLElement {
     /**
      * @description When this function is called it gets a beer-brand element from the DOM 
      * and then adds it to the navBar by checking to see if the beer-brand and beer-navbar 
-     * have the same navBarBrandid attribute if they do then the beer-brand is then brought connected to the beer-navBar     * @example
-     * TODO: the below needs to be tested
+     * have the same navBarBrandid attribute if they do then the beer-brand is then brought 
+     * connected to the beer-navBar     
+     * @example
      * <beer-navbar navBarBrandID="beer"></beer-navbar>  
      * <beer-brand navBarBrandID="beer"></beer-brand> 
      */
@@ -95,6 +96,7 @@ class BeerNav extends HTMLElement {
 
 
     /**
+     * TODO: Think about using getElementsbyattribute so that anything could be brought in
      * @description This function takes all the beer-buttons that the user 
      * has placed within the html and inserts them into the proper navBar 
      * bassed on the navBarID attribute.
