@@ -8,10 +8,14 @@ template.innerHTML = `
 `;
 
 /**
- * <h3>hello<h3>
+ * @description A class which contains the beer-nav web component 
+ * @example
  * 
+ * <beer-navbar> </beer-navbar>
  */
 class BeerNav extends HTMLElement {
+
+    
     constructor() {
         super();
         this._shadowRoot = this.attachShadow({"mode" : "open"});
@@ -51,7 +55,15 @@ class BeerNav extends HTMLElement {
         }
        
     }  
-
+    /**
+     * @description Gets the brand for a navBar and adds it to the Navbar The user simply needs
+     * to add it to the html page and set the navBarBrandId so that both the beer-brand and beer-navbar 
+     * have the same id. 
+     * @example
+     * 
+     * <beer-brand navbarBrandID="barbrand"> </beer-brand>
+     * <beer-navbar navbarBrandID="barbrand"> </beer-navbar>
+     */
     getBrand(){
         var beerbrands = document.getElementsByTagName("beer-brand");
         var navBarBrandID = this.getAttribute("navBarBrandID");
@@ -121,10 +133,6 @@ class BeerNav extends HTMLElement {
                 }     
             }
         }
-    }
-
-    addBrand(){
-
     }
 
 }

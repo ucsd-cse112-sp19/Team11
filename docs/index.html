@@ -113,34 +113,6 @@
               
                 
                 <li><a
-                  href='#beernav'
-                  class=" toggle-sibling">
-                  BeerNav
-                  <span class='icon'>▸</span>
-                </a>
-                
-                <div class='toggle-target display-none'>
-                  
-                  
-                    <ul class='list-reset py1-ul pl1'>
-                      <li class='h5'><span>Instance members</span></li>
-                      
-                      <li><a
-                        href='#beernavgetbuttons'
-                        class='regular pre-open'>
-                        #getButtons
-                      </a></li>
-                      
-                    </ul>
-                  
-                  
-                  
-                </div>
-                
-                </li>
-              
-                
-                <li><a
                   href='#beerbrand'
                   class=" toggle-sibling">
                   BeerBrand
@@ -157,6 +129,40 @@
                         href='#beerbrandsetbrandimage'
                         class='regular pre-open'>
                         #setBrandImage
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#beernav'
+                  class=" toggle-sibling">
+                  BeerNav
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#beernavgetbrand'
+                        class='regular pre-open'>
+                        #getBrand
+                      </a></li>
+                      
+                      <li><a
+                        href='#beernavgetbuttons'
+                        class='regular pre-open'>
+                        #getButtons
                       </a></li>
                       
                     </ul>
@@ -891,115 +897,6 @@ it against a .css stylesheet stored in the componenets library
   
   <div class='clearfix'>
     
-    <h3 class='fl m0' id='beernav'>
-      BeerNav
-    </h3>
-    
-    
-  </div>
-  
-
-  <h1>hello<h1>
-
-    <div class='pre p1 fill-light mt0'>new BeerNav()</div>
-  
-  
-    <p>
-      Extends
-      
-        <a href="https://developer.mozilla.org/docs/Web/HTML/Element">HTMLElement</a>
-      
-    </p>
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
-    <div class="clearfix">
-  
-    <div class='border-bottom' id='beernavgetbuttons'>
-      <div class="clearfix small pointer toggle-sibling">
-        <div class="py1 contain">
-            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>getButtons()</span>
-        </div>
-      </div>
-      <div class="clearfix display-none toggle-target">
-        <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-
-  <p>This function takes all the beer-buttons that the user has placed within the html and inserts them
-into the proper navBar bassed on the navBarID attribute.</p>
-
-    <div class='pre p1 fill-light mt0'>getButtons()</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-      </div>
-    </div>
-  
-</div>
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
     <h3 class='fl m0' id='beerbrand'>
       BeerBrand
     </h3>
@@ -1081,6 +978,177 @@ into the proper navBar bassed on the navBarID attribute.</p>
 
       
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+          <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='beernav'>
+      BeerNav
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>A class which contains the beer-nav web component</p>
+
+    <div class='pre p1 fill-light mt0'>new BeerNav()</div>
+  
+  
+    <p>
+      Extends
+      
+        <a href="https://developer.mozilla.org/docs/Web/HTML/Element">HTMLElement</a>
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>&lt;beer-navbar&gt; <span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">beer-navbar</span>&gt;</span></span></pre>
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='beernavgetbrand'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getBrand()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>Gets the brand for a navBar and adds it to the Navbar The user simply needs
+to add it to the html page and set the navBarBrandId so that both the beer-brand and beer-navbar
+have the same id.</p>
+
+    <div class='pre p1 fill-light mt0'>getBrand()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>&lt;beer-brand navbarBrandID=<span class="hljs-string">"barbrand"</span>&gt; <span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">beer-brand</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">beer-navbar</span> <span class="hljs-attr">navbarBrandID</span>=<span class="hljs-string">"barbrand"</span>&gt;</span> <span class="hljs-tag">&lt;/<span class="hljs-name">beer-navbar</span>&gt;</span></span></pre>
+    
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='beernavgetbuttons'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>getButtons()</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+
+  <p>This function takes all the beer-buttons that the user has placed within the html and inserts them
+into the proper navBar bassed on the navBarID attribute.</p>
+
+    <div class='pre p1 fill-light mt0'>getButtons()</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
   
 
   
