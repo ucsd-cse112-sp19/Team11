@@ -1,3 +1,4 @@
+
 /**
  * @description Function that helps with selecting attributes
  */
@@ -8,6 +9,9 @@ export function AttributeSelector(){
             this.$beerA.setAttribute("id", this.getAttribute("beerId"));
         }
         this.$beerA.setAttribute("id", this.getAttribute("id"));         
+    }
+    else{
+        this.$beerA.append("Beer-Brand");
     }
         
     if(this.hasAttribute("beerclass")){
