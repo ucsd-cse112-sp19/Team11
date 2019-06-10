@@ -54,7 +54,8 @@
     "gulp-uglify": "^3.0.2",
     "gulp4-run-sequence": "^0.3.2",
     "mocha": "^6.1.4",
-    "run-sequence": "^2.2.1"
+    "run-sequence": "^2.2.1",
+    "docs:build": "documentation build --shallow ./src/** -f html -o docs"
   },
   "repository": {
     "type": "git",

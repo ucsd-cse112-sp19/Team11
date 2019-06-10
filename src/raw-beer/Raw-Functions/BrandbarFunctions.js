@@ -1,3 +1,4 @@
+
 /**
  * @description Function that helps with selecting attributes
  */
@@ -8,6 +9,9 @@ export function AttributeSelector(){
             this.$beerA.setAttribute("id", this.getAttribute("beerId"));
         }
         this.$beerA.setAttribute("id", this.getAttribute("id"));         
+    }
+    else{
+        this.$beerA.append("Beer-Brand");
     }
         
     if(this.hasAttribute("beerclass")){
@@ -61,5 +65,4 @@ export function setStyle(newStyle, shadowRoot){
      * @description Function that allows the use to set the buttons name bassed on the
      * value of the inner html
      * @param {string} buttonId the Id for a specific button
-     * @retun void 
      */
