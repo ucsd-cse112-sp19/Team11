@@ -188,15 +188,15 @@ class BeerNotificationLit extends LitElement {
         let all_notifs = document.getElementsByTagName("beer-notification-lit");
         let curr; // To hold the current beer-notification-lit component with index i
 
+        // Get the <div class=".popup"></div> for the this component, which will be removed
+        let removedDiv = this.shadowRoot.querySelector(".popup");
+        // Get the height style string (Example: "123.4px")
+        let notif_height_removed = window.getComputedStyle(removedDiv, null).getPropertyValue("height");
+        // Convert from string to number (Example: "123.4px" --> 123.4)
+        let notif_height_value_removed = parseFloat(notif_height_removed.replace(/px/gi, ""));
+
         // Start from bottom to up
         for( var i = all_notifs.length - 1; (curr = all_notifs.item(i)) !== this; i-- ) {
-            // Get the <div class=".popup"></div> for the this component, which will be removed
-            let removedDiv = this.shadowRoot.querySelector(".popup");
-            // Get the height style string (Example: "123.4px")
-            let notif_height_removed = window.getComputedStyle(removedDiv, null).getPropertyValue("height");
-            // Convert from string to number (Example: "123.4px" --> 123.4)
-            let notif_height_value_removed = parseFloat(notif_height_removed.replace(/px/gi, ""));
-
             // Update current component's offset
             curr.prevHeights -= (notif_height_value_removed + spacing);
         }
