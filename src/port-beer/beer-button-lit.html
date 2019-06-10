@@ -6,6 +6,9 @@
     <script src="../raw-beer/Raw-Nav/raw-nav.js" defer type="module"  ></script>
     <script src="../raw-beer/Raw-Brand/raw-brand.js" defer type="module"></script>
     <style>
+        * {
+            font-family:sans-serif;
+        }
         beer-button-lit {
             display:inline-block;
         }
@@ -15,17 +18,17 @@
 <body>
     <!-- Nav Bar -->
     <beer-brand navBarBrandID="brand" id="home" beerClass="navbar-brand"  brandHref="WHERES THE TEAM PAGE????" brandImage="../raw-beer/Raw-Brand/beer_team_logo.png" brandHeight="30" brandwidth="30" imageClass="d-inline-block align-top"  imageAlt=" "newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  > Team </beer-brand>
-    <beer-button link="../raw-beer/Raw-Button/pres.html" navBarID="navbar" id="raw-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Buttons</beer-button>
-    <beer-button link="../raw-beer/Raw-Nav/navTest.html" navBarID="navbar" id="raw-nav" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Navigation Bar</beer-button>
-    <beer-button link="./beer-button-lit.html" navBarID="navbar" id="lit-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Buttons</beer-button>
-    <beer-button link="./beer-notification-lit.html" navBarID="navbar" id="lit-ntf" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Notifications</beer-button>
+    <beer-button link="./pres.html" navBarID="navbar" id="raw-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Buttons</beer-button>
+    <beer-button link="../Raw-Nav/navTest.html" navBarID="navbar" id="raw-nav" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Navigation Bar</beer-button>
+    <beer-button link="../../port-beer/beer-button-lit.html" navBarID="navbar" id="lit-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Buttons</beer-button>
+    <beer-button link="../../port-beer/beer-notification-lit.html" navBarID="navbar" id="lit-ntf" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Notifications</beer-button>
     <beer-navbar navBarBrandID="brand" navBarId="navbar" beerClass="navbar navbar-light bg-light" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></beer-navbar>
 
     <!-- Page Contents-->
     <h1 style="font-family:sans-serif">Bootstrap attribute</h1>
     <beer-button-lit>Default</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-default">bootstrap</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-primary">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-default" script="./testFunction.js" functionName="spawnNotif">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-primary" loading>bootstrap</beer-button-lit>
     <beer-button-lit bootstrap="btn btn-success">bootstrap</beer-button-lit>
     <beer-button-lit bootstrap="btn btn-info">bootstrap</beer-button-lit>
     <beer-button-lit bootstrap="btn btn-warning">bootstrap</beer-button-lit>
@@ -35,7 +38,7 @@
     <beer-button-lit bootstrap="btn btn-primary btn-lg btn-block">bootstrap</beer-button-lit>
 
     <h1 style="font-family:sans-serif">Type attribute</h1>
-    <beer-button-lit>Default</beer-button-lit>
+    <beer-button-lit script="./spawnFunc.js" functionName="spawnNotif">Function Button</beer-button-lit>
     <beer-button-lit type="primary">Primary</beer-button-lit>
     <beer-button-lit type="success">Success</beer-button-lit>
     <beer-button-lit type="info">Info</beer-button-lit>
@@ -70,11 +73,11 @@
     <beer-button-lit type="primary" circle loading>C2</beer-button-lit>
 
     <h1 style="font-family:sans-serif">Linked with Notifications</h1>
-    <beer-button-lit notification="This notification was created with a button">Notification</beer-button-lit>
-    <beer-button-lit type="danger" notification="This notification was created with a button">Danger</beer-button-lit>
-    <beer-button-lit type="warning" notification="This notification was created with a button">Warning</beer-button-lit>
-    <beer-button-lit type="info" notification="This notification was created with a button">Info</beer-button-lit>
-    <beer-button-lit type="success" notification="This notification was created with a button">Success</beer-button-lit>
+    <beer-button-lit>Notification</beer-button-lit>
+    <beer-button-lit type="danger">Danger</beer-button-lit>
+    <beer-button-lit type="warning">Warning</beer-button-lit>
+    <beer-button-lit type="info">Info</beer-button-lit>
+    <beer-button-lit type="success">Success</beer-button-lit>
 
     <!--Invalid attribute, should be default button-->
     <h1 style="font-family: sans-serif">If attribute is invalid, then use default</h1>
@@ -88,4 +91,10 @@
 </html>
 
 <script>
+    function spawnNotif() {
+        newNotification = `<beer-notification-lit type="success" title="Button page" duration="4500">
+                                User Message here
+                           </beer-notification-lit>`;
+        document.querySelector("body").insertAdjacentHTML("beforeend", newNotification); 
+    }
 </script>

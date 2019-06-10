@@ -48,7 +48,7 @@ class BeerNotificationLit extends LitElement {
         this.duration = 4500; // Default will close after 4500 ms
         this.position = "";
         this.offset = 0;
-        this.hideClose = false;
+        this.hideClose = this.getAttribute("hideClose");
 
         // Default properties (unrelated to attributes)
         
@@ -60,10 +60,6 @@ class BeerNotificationLit extends LitElement {
         // Set the message property with the user text in between tag
         // <beer-notification-lit>USER MESSAGE</beer-notification-lit>
         this.message = this.textContent;
-        var hideClose_attr = this.getAttribute("hideClose");
-        if(hideClose_attr == "") {
-            this.hideClose = true;
-        }
 
     }
 
