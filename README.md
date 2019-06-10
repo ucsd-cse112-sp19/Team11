@@ -8,7 +8,8 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![](src/raw-beer/Raw-Brand/beer_team_logo.png)
 
-[Team B.E.E.R Page](https://zhaoesther.github.io/cse112-team11-website/) <!-- TODO - Change the link when Esther migrates page to Team 11 repo -->
+<a href="https://zhaoesther.github.io/cse112-team11-website/"><img src="src/raw-beer/Raw-Brand/beer_team_logo.png" align="left" height="48" width="48" ></a>
+<!-- TODO - Change the link when Esther migrates page to Team 11 repo -->
 
 Our goal for this project is to create an extensible library of raw and lit-element web components. Head on over to our team page above to know more about us.
 
@@ -104,7 +105,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 <!-- TODO - Adopt a versioning guideline on meeting -->
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+TEMPORARY - We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Team Members
 
