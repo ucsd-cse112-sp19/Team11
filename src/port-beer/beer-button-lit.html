@@ -9,8 +9,13 @@
         * {
             font-family:sans-serif;
         }
+
         beer-button-lit {
             display:inline-block;
+        }
+
+        #exception {
+            display:block;
         }
     </style>
 </head>
@@ -26,16 +31,18 @@
 
     <!-- Page Contents-->
     <h1 style="font-family:sans-serif">Bootstrap attribute</h1>
-    <beer-button-lit>Default</beer-button-lit>
     <beer-button-lit bootstrap="btn btn-default">bootstrap</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-primary" loading>bootstrap</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-success">bootstrap</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-info">bootstrap</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-warning">bootstrap</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-danger">bootstrap</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-light">bootstrap</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-dark">bootstrap</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-primary btn-lg btn-block">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-primary" loading>primary</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-secondary">secondary</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-success">success</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-info">info</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-warning">warning</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-danger">danger</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-light">light</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-dark">dark</beer-button-lit>
+    <!-- Using a div to break the display:inline-block style from the header -->
+    <beer-button-lit id="exception" bootstrap="btn btn-primary btn-lg btn-block">large block</beer-button-lit>
+
 
     <h1 style="font-family:sans-serif">Type attribute</h1>
     <beer-button-lit script="./spawnFunc.js" functionName="spawnNotifDefault">Default</beer-button-lit>
