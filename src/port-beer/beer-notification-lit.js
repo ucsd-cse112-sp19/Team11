@@ -100,10 +100,8 @@ class BeerNotificationLit extends LitElement {
     }
 
     /**
-<<<<<<< HEAD
      * Gets the appropriate path to .svg icon file
      * @returns {string} path to corresponding type icon .svg file
-=======
      * @description Callback that is called when element is inserted into DOM
      */
     connectedCallback() {
