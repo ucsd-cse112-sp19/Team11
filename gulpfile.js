@@ -15,13 +15,13 @@ gulp.task("default", function(done) {
     runSequence("clean", "documentation", "uglify");
     done(); 
 });
-
+/*
 gulp.task("documentation", function() {
-    return gulp.src("./src/**/*.js")        
+    return gulp.src("./src/**//* .js") TODO: commented out dont think we need it      
         .pipe(gulpDocumentation("html"))
         .pipe(gulp.dest("docs"));
 });
-
+*/
 gulp.task("uglify", function() {
     return gulp.src("./src/*.js")
     // Minify the file
