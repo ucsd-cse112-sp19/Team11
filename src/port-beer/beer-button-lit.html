@@ -27,7 +27,7 @@
     <!-- Page Contents-->
     <h1 style="font-family:sans-serif">Bootstrap attribute</h1>
     <beer-button-lit>Default</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-default" script="./testFunction.js" functionName="spawnNotif">bootstrap</beer-button-lit>
+    <beer-button-lit bootstrap="btn btn-default">bootstrap</beer-button-lit>
     <beer-button-lit bootstrap="btn btn-primary" loading>bootstrap</beer-button-lit>
     <beer-button-lit bootstrap="btn btn-success">bootstrap</beer-button-lit>
     <beer-button-lit bootstrap="btn btn-info">bootstrap</beer-button-lit>
@@ -38,12 +38,12 @@
     <beer-button-lit bootstrap="btn btn-primary btn-lg btn-block">bootstrap</beer-button-lit>
 
     <h1 style="font-family:sans-serif">Type attribute</h1>
-    <beer-button-lit script="./spawnFunc.js" functionName="spawnNotif">Function Button</beer-button-lit>
-    <beer-button-lit type="primary">Primary</beer-button-lit>
-    <beer-button-lit type="success">Success</beer-button-lit>
-    <beer-button-lit type="info">Info</beer-button-lit>
-    <beer-button-lit type="warning">Warning</beer-button-lit>
-    <beer-button-lit type="danger">Danger</beer-button-lit>
+    <beer-button-lit script="./spawnFunc.js" functionName="spawnNotifDefault">Default</beer-button-lit>
+    <beer-button-lit type="primary" script="./spawnFunc.js" functionName="spawnNotifMessage">Primary</beer-button-lit>
+    <beer-button-lit type="success" script="./spawnFunc.js" functionName="spawnNotifSuccess">Success</beer-button-lit>
+    <beer-button-lit type="info" script="./spawnFunc.js" functionName="spawnNotifInfo">Info</beer-button-lit>
+    <beer-button-lit type="warning" script="./spawnFunc.js" functionName="spawnNotifWarning">Warning</beer-button-lit>
+    <beer-button-lit type="danger" script="./spawnFunc.js" functionName="spawnNotifDanger">Danger</beer-button-lit>
 
     <h1 style="font-family:sans-serif">Loading attribute</h1>
     <beer-button-lit loading></beer-button-lit>
@@ -71,13 +71,6 @@
 
     <beer-button-lit circle loading>C1</beer-button-lit>
     <beer-button-lit type="primary" circle loading>C2</beer-button-lit>
-
-    <h1 style="font-family:sans-serif">Linked with Notifications</h1>
-    <beer-button-lit>Notification</beer-button-lit>
-    <beer-button-lit type="danger">Danger</beer-button-lit>
-    <beer-button-lit type="warning">Warning</beer-button-lit>
-    <beer-button-lit type="info">Info</beer-button-lit>
-    <beer-button-lit type="success">Success</beer-button-lit>
 
     <!--Invalid attribute, should be default button-->
     <h1 style="font-family: sans-serif">If attribute is invalid, then use default</h1>
