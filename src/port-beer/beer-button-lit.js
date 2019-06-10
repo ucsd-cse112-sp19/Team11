@@ -29,8 +29,7 @@ class BeerButtonLit extends LitElement {
             bootstrap:       {type: Boolean, reflect: true},
             bootstrap_class: {type: String},
             script:          {type: String, reflect: true},
-            functionName:    {type: String, reflect: true},
-            customFunction:  {type: Function}
+            functionName:    {type: String, reflect: true}
         };
     }
 
