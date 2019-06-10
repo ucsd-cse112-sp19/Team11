@@ -6,9 +6,8 @@
 
 <!-- TODO - Don't need if closed source -->
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
-![](src/raw-beer/Raw-Brand/beer_team_logo.png)
 
-<a href="https://zhaoesther.github.io/cse112-team11-website/"><img src="src/raw-beer/Raw-Brand/beer_team_logo.png" align="left" height="48" width="48" ></a>
+<a href="https://zhaoesther.github.io/cse112-team11-website/"><img src="src/raw-beer/Raw-Brand/beer_team_logo.png" height="400" width="400" ></a>
 <!-- TODO - Change the link when Esther migrates page to Team 11 repo -->
 
 Our goal for this project is to create an extensible library of raw and lit-element web components. Head on over to our team page above to know more about us.
