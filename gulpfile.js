@@ -16,11 +16,13 @@ gulp.task("default", function(done) {
     done();
 });
 
-gulp.task("documentation", function() {
-    return gulp.src("./src/**/*.js")
+/*
+gulp.task("documentation", function() { TODO: commented this out to see if documentation.js works
+    return gulp.src("./src/**//*.js")
         .pipe(gulpDocumentation("html"))
         .pipe(gulp.dest("docs"));
 });
+*/
 
 gulp.task("uglify", function() {
     return gulp.src("./src/**/*.js")
