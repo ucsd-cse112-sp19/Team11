@@ -18,7 +18,7 @@ gulp.task("default", function(done) {
 
 /*
 gulp.task("documentation", function() { TODO: commented this out to see if documentation.js works
-    return gulp.src("./src/**//*.js")
+    return gulp.src("./src/**//* .js")
         .pipe(gulpDocumentation("html"))
         .pipe(gulp.dest("docs"));
 });
