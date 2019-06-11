@@ -9,7 +9,10 @@ template.innerHTML = `
 `;
 
 /**
- * A vanilla web-component
+ * A Web component which acts as a button with a couple of features built in such as the abiltiy
+ * to increment/decrement a field and accept a custom user defined function. it accepts the following
+ * attributes: link, disable, increment, decrement, script, functionName, id, newStyle, color, image, 
+ * libStyle
  */
 class BeerButton extends HTMLElement {
     constructor() {
