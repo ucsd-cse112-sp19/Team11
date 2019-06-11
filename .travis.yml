@@ -38,7 +38,7 @@ matrix:
 
       script:
         - npm run lint
-	- npm run gulp
+	- gulp
         - npm run raw-test
         - npm run port-test        
 
