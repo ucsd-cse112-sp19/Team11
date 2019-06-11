@@ -82,7 +82,7 @@ class BeerNotificationLit extends LitElement {
         //      page so we only get the notification already on page and hide it
         //      until the button is clicked
         this.buttonID = this.getAttribute("id");
-
+        
         //checks if there is a button ID
         if(this.buttonID != null){
 
@@ -98,6 +98,7 @@ class BeerNotificationLit extends LitElement {
         //same checks as beer-button-lit.js
         //console.log(this.buttonID);
         //console.log(this.parentButton);
+
     }
 
     /**
@@ -282,6 +283,35 @@ class BeerNotificationLit extends LitElement {
      * The template rendered will be attached to the shadow root of the shadow DOM.
      */
     render() {
+
+        /*
+         *The only time the developer specfies a BEER-NOTIFICATION-LIT
+         *is when they want it to link to a BEER-BUTTON-LIT (maybe this
+         *is different for raw? just need to make this clear)
+         *
+         *Therefore, we know that if there exists a id to a corresponding
+         *parent button (if this.buttonID != null), that means we want to
+         *spawn the notification on button click, not right after writing
+         *the <beer-notification-lit> abc </beer-notification-lit> tag.
+         *
+         * The solution is to just not render any html at all ON THE FIRST
+         * TRY. How do we know that this is our first try at rendering the
+         * notification? We create some sort of "password". The password is
+         * SPAWN. Since on the first time rendering the notif, the id is 
+         * something user specified, in the example in beer-button-lit.html,
+         * the id="apple". In our if statement below, the evaluation is 
+         * true because "apple" != null and "apple != "SPAWN"
+         * 
+         * In our onclick function for the button, we linked the childNotif
+         * and the childNotif's code as this.childNotification. On button click
+         * we change the id of this.childNotification to be "SPAWN" or our password
+         * so that we bypass the if statement and go directly to our original
+         * notification html render stuff. 
+         */
+        if(this.buttonID != null && this.buttonID != "SPAWN"){
+            return html ``
+        }
+
         return html`
         <div class="${this._getClass()}" style="${this._getStyle()}">
             <div class="popup-content">

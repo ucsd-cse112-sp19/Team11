@@ -174,12 +174,22 @@ class BeerButtonLit extends LitElement {
         return valid || this.isDefault;
     }
 
-
     /**
      * @description Handle a click event using imported user defined functions
      * @returns {string} error message such that script or function not found
      */
     _handleClick() {
+
+        //create a new div to spawn the notifs within it
+        var newDiv = document.createElement('DIV');
+
+        //changes the id in the notif to be the "password" or "SPAWN"
+        //so that when we spawn this new notif with a new id, it actually renders
+        newDiv.innerHTML = this.childNotification.replace(new RegExp(this.notifID,"gi"),"SPAWN");
+
+        //displays the div onto the DOM
+        document.body.appendChild(newDiv)
+
         if(this.hasAttribute("script") && this.hasAttribute("functionName")) {
             if(!this.loading && !this.disabled) {
                 var scriptName = this.script;
