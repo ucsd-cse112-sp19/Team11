@@ -59,7 +59,7 @@ class BeerButtonLit extends LitElement {
         
         // bootstrap
         if(this.bootstrap) {
-            this.bootstrap_class = this.getAttribute("bootstrap");
+            this.bootstrap_class = this.getAttribute("beerClass");
         }
 
         //linking button to notification
