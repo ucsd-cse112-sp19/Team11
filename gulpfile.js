@@ -3,24 +3,16 @@ var del = require("del");
 var uglify = require("gulp-uglify-es").default;
 var terser = require("gulp-terser");
 var runSequence = require("gulp4-run-sequence");
-var gulpDocumentation = require("gulp-documentation");
 var rename = require("gulp-rename");
 
 gulp.task("clean", function(done) {
     del(["dist"]);
-    del(["docs"]);
-    done();
+    return done();
 });
 
 gulp.task("default", function(done) {
-    runSequence("clean", "documentation", "terser");
-    done();
-});
-
-gulp.task("documentation", function() {
-    return gulp.src("./src/**/*.js")
-        .pipe(gulpDocumentation("html"))
-        .pipe(gulp.dest("docs"));
+    runSequence("clean", "terser");
+    return done();
 });
 
 gulp.task("terser", function() {
