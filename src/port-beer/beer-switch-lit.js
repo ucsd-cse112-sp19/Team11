@@ -37,7 +37,8 @@ class BeerSwitchLit extends LitElement {
         this.round = false;
         this.circle = false;
 
-        this.color = "#2196F3";
+        this.type = "checkbox"
+        this.color = "red";
 
         // Set the text property with the user text in between tag
         // <beer-button-lit>USER TEXT</beer-button-lit>
@@ -53,7 +54,7 @@ class BeerSwitchLit extends LitElement {
     }
 
     /**
-     * @description CSS styling that will style the button component
+     * @description CSS styling that will style the switch component
      */
     static get styles() {
         return css`
@@ -100,7 +101,7 @@ class BeerSwitchLit extends LitElement {
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: #ccc;
+        background-color: blue;
         -webkit-transition: .4s;
         transition: .4s;
       }
@@ -116,9 +117,9 @@ class BeerSwitchLit extends LitElement {
         -webkit-transition: .4s;
         transition: .4s;
       }
-      
+
       input:checked + .slider {
-        background-color: red;
+        background-color: black;
       }
       
       input:focus + .slider {
@@ -140,6 +141,10 @@ class BeerSwitchLit extends LitElement {
         border-radius: 50%;
       }
     `;
+    }
+
+    _getColor(){
+        return "black";
     }
 
     /**
@@ -169,11 +174,22 @@ class BeerSwitchLit extends LitElement {
     /**
      * @description CSS style this web component will have
      * @returns {string} CSS styles
-     */
+     *
     _getStyle() {
         let _style = "";
-        var isDefault = this.type === ""; // Check to see if type is default
+        console.log("Asdfasdfad")
+        
+        let style_background = ` 
+            background-color: white;
+            `
+        ;
 
+        _style = style_background;
+        console.log(_style)
+
+        //var isDefault = this.type === ""; // Check to see if type is default
+
+        /*
         // Find the corresponding type to select appropriate button color
         if(!isDefault) {
             let style_background = "background-color:";
@@ -197,7 +213,7 @@ class BeerSwitchLit extends LitElement {
             _style += "cursor: default;";
         }
         return _style;
-    }
+}*/
 
     _clickHandler() {
         
