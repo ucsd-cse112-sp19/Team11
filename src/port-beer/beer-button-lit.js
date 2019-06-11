@@ -29,7 +29,10 @@ class BeerButtonLit extends LitElement {
             bootstrap:       {type: Boolean, reflect: true},
             bootstrap_class: {type: String},
             script:          {type: String, reflect: true},
-            functionName:    {type: String, reflect: true}
+            functionName:    {type: String, reflect: true},
+            notifID:         {type: String,  reflect: true},
+            notification:    {type: String,  reflect: true},
+
         };
     }
 
@@ -45,6 +48,16 @@ class BeerButtonLit extends LitElement {
 
         this.bootstrap = this.hasAttribute("bootstrap");
         this.bootstrap_class = "";
+
+        //linking button to notification
+        //make user define type of notification in notifID?
+        this.notifID = this.getAttribute("notifID");
+        //console.log(this.notifID)
+        //checks if there is a notification ID
+        if(this.notifID != null){
+            this.notification = document.getElementById(this.notifID);
+            this.notification = this.notification.outerHTML;
+        }
 
         // Set the text property with the user text in between tag
         // <beer-button-lit>USER TEXT</beer-button-lit>
