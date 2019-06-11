@@ -31,10 +31,10 @@ class BeerButtonLit extends LitElement {
             script:          {type: String, reflect: true},
             functionName:    {type: String, reflect: true},
 
-            //id of the notificaiton element
+            // id of the notificaiton element
             notifID:         {type: String,  reflect: true},
 
-            //content or html code of the notification element
+            // content or html code of the notification element
             childNotification:    {type: String,  reflect: true},
 
         };
@@ -62,23 +62,23 @@ class BeerButtonLit extends LitElement {
             this.bootstrap_class = this.getAttribute("beerClass");
         }
 
-        //linking button to notification
-        //make user define type of notification in notifID?
+        // linking button to notification
+        // make user define type of notification in notifID?
         this.notifID = this.getAttribute("id");
 
-        //checks if there is a notification ID
+        // checks if there is a notification ID
         if(this.notifID != null){
             this.childNotification = document.getElementById(this.notifID);
             
-            //cannot read this.notification if this.notification is null
+            // cannot read this.notification if this.notification is null
             if(this.childNotification != null){
                 this.childNotification = this.childNotification.outerHTML;
             }
         }
 
-        //check if the right id and notification html is displayed
-        //console.log("notification id: " + this.notifID);
-        //console.log("notiifcation code: "  + this.childNotification);
+        // check if the right id and notification html is displayed
+        // console.log("notification id: " + this.notifID);
+        // console.log("notiifcation code: "  + this.childNotification);
     
     }
 
@@ -180,14 +180,14 @@ class BeerButtonLit extends LitElement {
      */
     _handleClick() {
 
-        //create a new div to spawn the notifs within it
+        // create a new div to spawn the notifs within it
         var newDiv = document.createElement('DIV');
 
-        //changes the id in the notif to be the "password" or "SPAWN"
-        //so that when we spawn this new notif with a new id, it actually renders
+        // changes the id in the notif to be the "password" or "SPAWN"
+        // so that when we spawn this new notif with a new id, it actually renders
         newDiv.innerHTML = this.childNotification.replace(new RegExp(this.notifID,"gi"),"SPAWN");
 
-        //displays the div onto the DOM
+        // displays the div onto the DOM
         document.body.appendChild(newDiv)
 
         if(this.hasAttribute("script") && this.hasAttribute("functionName")) {
