@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script  src="../Raw-Button/raw-button.js" defer type="module"></script>
+<script src="../Raw-Nav/raw-nav.js" defer type="module"></script>
+<script src="./raw-brand.js" defer type="module"></script>
+
+<!-- Bootstrap core CSS -->
+
+
+<style class="anchorjs"></style><link href="../Raw-Button/raw_beer_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+<!-- Documentation extras -->
+
+<!--<link href="./raw_beer_files/docsearch.min.css" rel="stylesheet"> -->
+
+<link href="../Raw-Button/raw_beer_files/docs.min.css" rel="stylesheet">
+
+</head>
+  <body>
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 class="bd-title" id="content">Beer-Brand</h1>          
+<!-- Nav Bar -->
+<beer-brand navBarBrandID="brand" id="home" beerClass="navbar-brand"  brandHref="WHERES THE TEAM PAGE????" brandImage="../Raw-Brand/beer_team_logo.png" brandHeight="30" brandwidth="30" imageClass="d-inline-block align-top"  imageAlt=" "newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  > Team </beer-brand>
+<beer-button link="./raw-beer-button.html" navBarID="navbar" id="raw-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Buttons</beer-button>
+<beer-button link="../Raw-Nav/raw-beer-nav.html" navBarID="navbar" id="raw-nav" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Navigation Bar</beer-button>
+<beer-button link="../../port-beer/beer-button-lit.html" navBarID="navbar" id="lit-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Buttons</beer-button>
+<beer-button link="../../port-beer/beer-notification-lit.html" navBarID="navbar" id="lit-ntf" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Notifications</beer-button>
+<beer-navbar navBarBrandID="brand" navBarId="navbar" beerClass="navbar navbar-light bg-light" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></beer-navbar>
+
+<!-- Page Contents-->
+<h2 id="examples"><div>Using Text</div></h2>
+<p>To add some text with the beer-brand tag, simply add an id attribute and then set the inner html to whatever you like</p>
+<div class="bd-example">
+<beer-brand id="brand">Team Beer</beer-brand>
+</div>
+
+<div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
+
+<div class="highlight">
+  <pre><code class="language-html" data-lang="html">
+    <span class="nt">&lt;beer-brand</span> <span class="na"> <span class="na">id=</span><span class="s">"brand"</span><span class="nt">&gt;</span>Team Beer<span class="nt">&lt;/beer-brand&gt;</span>
+  </code></pre>
+</div>
+
+<h2 id="examples"><div>Using an Image</div></h2>
+<p>To add an image for your brand, simply add the brand image attribute with a path to the image from where the .html is located.
+    The default height and width for an image are set to 30.
+</p>
+<div class="bd-example">
+    <beer-brand brandImage="./beer_team_logo.png"></beer-brand>
+</div>
+
+<div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
+
+<div class="highlight">
+  <pre><code class="language-html" data-lang="html">
+    <span class="nt">&lt;beer-brand</span> <span class="na"><span class="na">brandImage=</span><span class="s">"./beer_taeam_logo.png"</span><span class="nt">&gt;</span><span class="nt">&lt;/beer-brand&gt;</span>
+  </code></pre>
+</div>
+
+<h2 id="examples"><div>Alternate Image</div></h2>
+<p>You can use the alt attribute of an image to give the beer-brand tag a second image to load if their is a problem with the one you supply to brandImage using the imageAlt attribute</p>
+<div class="bd-example">
+    <beer-brand brandImage="./beer_teaam_logo.png" imageAlt="../Raw-Button/images/test.jpg"></beer-brand>
+</div>
+<div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
+
+<div class="highlight">
+  <pre><code class="language-html" data-lang="html">
+    <span class="nt">&lt;beer-brand</span> <span class="na"> <span class="na">brandImage=</span><span class="s">"./beer_team_logo.png"</span><span class="na">ImageAlt=</span><span class="s">"../Raw-Button/images/test.jpg"</span><span class="nt">&gt;</span><span class="nt">&lt;/beer-brand&gt;</span>
+  </code></pre>
+</div>
+
+<h2 id="examples"><div>Adjusting the Height and Width</div></h2>
+<p>You can adjust the height and width of the image you supply the beer-brand tag by using the brandHeight and brandWidth attributes, you can chose to add them both or simply one or the other. </p>
+<div class="bd-example">
+    <beer-brand brandImage="../raw-brand/beer_team_logo.png" brandHeight="200" 
+brandWidth="200"></beer-brand>
+</div>
+<div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
+
+<div class="highlight">
+  <pre><code class="language-html" data-lang="html">
+    <span class="nt">&lt;beer-brand</span> <span class="na"> <span class="na">brandImage=</span><span class="s">"./beer_team_logo.png"</span><span class="na">brandHeight=</span><span class="s">"200"</span><span class="na">brandWidth</span><span class="s">"200"</span><span class="nt">&gt;</span><span class="nt">&lt;/beer-brand&gt;</span>
+  </code></pre>
+</div>
+
+<h2 id="examples"><div>Adding Link Functionality</div></h2>
+<p>You can add link functionality to the beer-brand tag by using the brandHref property</p>
+<div class="bd-example">
+    <beer-brand brandHref="./navTest1.html"/><beer-brand>
+</div>
+
+<div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
+
+<div class="highlight">
+  <pre><code class="language-html" data-lang="html">
+    <span class="nt">&lt;beer-brand</span> <span class="na"> <span class="na">brandHref=</span><span class="s">"../Raw-Brand/raw-beer-nav.html"</span><span class="nt">&gt;</span><span class="nt">&lt;/beer-brand&gt;</span>
+  </code></pre>
+</div>
+
+<h2 id="examples"><div>Adding CSS</div></h2>
+<p>You can add CSS to beer-brand tag in the same way you would normally 
+    do it by simply using the attributes beerClass, imageClass, and newStyle 
+    beerClass will change the anchor elements class of the Brand and imageClass 
+    will change the class of the image element of beer-brand</p>
+<div class="bd-example">
+        <beer-brand navBarBrandID="bill" 
+        beerClass="navbar-brand" 
+        brandImage="./beer_team_logo.png" 
+        imageClass="d-inline-block align-top"  
+        newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  
+        ></beer-brand>
+</div>
+
+<div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
+
+<div class="highlight">
+  <pre><code class="language-html" data-lang="html">
+    <span class="nt">&lt;beer-brand</span> <span class="na">
+    <span class="na">beerClass=</span><span class="s">"navbar-brand"</span>
+    <span class="na">brandImage=</span><span class="s">"./beer_team_logo.png"</span>
+    <span class="na">ImageClass=</span><span class="s">"d-inline-block align-top"</span>
+    <span class="na">newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span>    
+    <span class="nt">&gt;</span><span class="nt">&lt;/beer-brand&gt;</span>
+  </code></pre>
+</div>
+
+<h2 id="examples"><div>Putting it all Together</div></h2>
+<div class="bd-example">
+        <beer-brand navBarBrandID="bill" 
+        id="bob" 
+        beerClass="navbar-brand"  
+        brandHref="../Raw-Nav/navTest1.html" 
+        brandImage="../Raw-Brand/beer_team_logo.png" 
+        brandHeight="30" 
+        brandwidth="30" 
+        imageClass="d-inline-block align-top"  
+        imageAlt="../Raw-Button/test.jpg"
+        newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        >TEAM BEER!</beer-brand>
+</div>
+
+<div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
+
+<div class="highlight">
+  <pre><code class="language-html" data-lang="html">
+    <span class="nt">&lt;beer-brand</span> <span class="na">
+    <span class="na">navBarBrandID=</span><span class="s">"bill"</span>
+    <span class="na">id=</span><span class="s">"bob"</span>
+    <span class="na">beerClass=</span><span class="s">"navbar-brand"</span>
+    <span class="na">beerHref=</span><span class="s">"./navTest1.html"</span>
+    <span class="na">brandImage=</span><span class="s">"./beer_team_logo.png"</span>
+    <span class="na">brandHeight=</span><span class="s">"30"</span>
+    <span class="na">brandWidth=</span><span class="s">"30"</span>
+    <span class="na">ImageClass=</span><span class="s">"d-inline-block align-top"</span>
+    <span class="na">ImageAlt=</span><span class="s">"../Raw-Button/images/test.jpg"</span>    
+    <span class="na">newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span>    
+    TEAM BEER!
+    <span class="nt">&gt;</span><span class="nt">&lt;/beer-brand&gt;</span>
+  </code></pre>
+</div>
+
+</body></html>
