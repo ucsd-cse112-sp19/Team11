@@ -1,5 +1,6 @@
 # Team B.E.E.R (11) Web Components
 
+
 [![Build Status](https://travis-ci.com/ucsd-cse112/Team11.svg?token=fWJAAQS1tpDVdKvzGfj7&branch=master)](https://travis-ci.com/ucsd-cse112/Team11)
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
@@ -10,7 +11,7 @@
 <!-- TODO - Change the link when Esther migrates page to Team 11 repo -->
 <a href="https://zhaoesther.github.io/cse112-team11-website/"><img src="src/raw-beer/Raw-Brand/beer_team_logo.png" height="400" width="400" ></a>
 
-Our goal for this project is to create an extensible library of raw and lit-element web components. Click on our logo above to head over to our team page. 
+Our goal for this project is to create an extensible library of vanilla and lit-element web-components. Click on our logo above to head over to our team page. 
 
 ## Getting Started
 
