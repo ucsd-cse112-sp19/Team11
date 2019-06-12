@@ -5,7 +5,8 @@ var types = [
     {type: "warning", svg: "./icons/notif-icon-warning.svg"},
     {type: "danger",  svg: "./icons/notif-icon-danger.svg"},
     {type: "info",    svg: "./icons/notif-icon-info.svg"},
-    {type: "message", svg: "./icons/notif-icon-message.svg"}
+    {type: "message", svg: "./icons/notif-icon-message.svg"},
+    {type: "mail",    svg: "./icons/notif-icon-mail.svg"}
 ];
 const spacing = 10; // Vertical distance between two notifications
 const delay = 200; // 0.2 seconds
@@ -21,9 +22,11 @@ class BeerNotificationLit extends LitElement {
      */
     static get properties() {
         return {
-            // success, warning, info, error 
+            // success, warning, danger, info, message, mail
             // (other values will be ignored)
             type:     {type: String, reflect: true},
+            
+            // Content of the notification
             title:    {type: String, reflect: true},
             message:  {type: String, reflect: true},
 
