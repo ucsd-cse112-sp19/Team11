@@ -152,7 +152,7 @@ class BeerBrand extends HTMLElement {
         }
         else{
             this.$beerA.append("Beer-Brand");
-            console.log( "no Name provided");
+            console.log("no Name provided");
         }
     }
 
