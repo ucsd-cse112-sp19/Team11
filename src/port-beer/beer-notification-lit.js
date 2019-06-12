@@ -45,10 +45,10 @@ class BeerNotificationLit extends LitElement {
             // The cumulative offset positioning to determine the position of notification dynamically
             prevHeights:  {type: Number},
 
-            //id of button for blacklink 
+            // id of button for blacklink 
             buttonID: {type: String, reflect: true},
             
-            //code for the parent button
+            // code for the parent button
             parentButton: {type: String, reflect: true}
         };
     }
@@ -75,29 +75,29 @@ class BeerNotificationLit extends LitElement {
         // <beer-notification-lit>USER MESSAGE</beer-notification-lit>
         this.message = this.textContent;
 
-        //linking notification to parent button spawner
-        //linking button to notification
-        //make user define type of notification in notifID?
+        // linking notification to parent button spawner
+        // linking button to notification
+        // make user define type of notification in notifID?
         //    ^^no because user already defines the notification on the html
         //      page so we only get the notification already on page and hide it
         //      until the button is clicked
         this.buttonID = this.getAttribute("id");
         
-        //checks if there is a button ID
+        // checks if there is a button ID
         if(this.buttonID != null){
 
-            //parent button's html tag/element reference
+            // parent button's html tag/element reference
             this.parentButton = document.getElementById(this.buttonID);
 
-            //cannot read this.parentButton if this.parentButton is null
+            // cannot read this.parentButton if this.parentButton is null
             if(this.parentButton != null){
                 this.parentButton = this.parentButton.outerHTML;
             }
         }
 
-        //same checks as beer-button-lit.js
-        //console.log(this.buttonID);
-        //console.log(this.parentButton);
+        // same checks as beer-button-lit.js
+        // console.log(this.buttonID);
+        // console.log(this.parentButton);
 
     }
 
@@ -309,7 +309,7 @@ class BeerNotificationLit extends LitElement {
          * notification html render stuff. 
          */
         if(this.buttonID != null && this.buttonID != "SPAWN"){
-            return html ``
+            return html ``;
         }
 
         return html`
