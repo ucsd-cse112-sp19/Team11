@@ -4,6 +4,7 @@
   "description": "",
   "main": "test.js",
   "dependencies": {
+    "@hapi/hawk": "^7.1.0",
     "gulp-terser": "^1.2.0",
     "lit-element": "^2.1.0"
   },
