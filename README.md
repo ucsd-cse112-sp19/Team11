@@ -11,7 +11,7 @@
 <!-- TODO - Change the link when Esther migrates page to Team 11 repo -->
 <a href="https://zhaoesther.github.io/cse112-team11-website/"><img src="src/raw-beer/Raw-Brand/beer_team_logo.png" height="400" width="400" ></a>
 
-Our goal for this project is to create an extensible library of raw and lit-element web components. Click on our logo above to head over to our team page. 
+Our goal for this project is to create an extensible library of vanilla and lit-element web-components. Click on our logo above to head over to our team page. 
 
 ## Getting Started
 
