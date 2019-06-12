@@ -1,7 +1,0 @@
-button {
-    cursor: not-allowed;
-    filter: alpha(opacity=65);
-    opacity: .65;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
