@@ -9,6 +9,7 @@
     "lit-element": "^2.1.0"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "browserify": "^16.2.3",
     "documentation": "^10.1.0",
     "end-of-stream": "^1.4.1",
