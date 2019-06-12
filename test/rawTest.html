@@ -2,10 +2,24 @@
 <head>
     <script  src="/Team11/src/raw-beer/Raw-Button/raw-button.js" type="module"></script>
     <title>Test Raw Beer Button</title>
+    <style>
+        .final-sprint {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;          
+        }
+    </style>
 </head>
 <body>
     <h1>TestCafe Runner, Click the button to perform the action</h1>
 
+<!-- first & second sprint -->
+<div>
     <!-- increment decrement -->
     <beer-button increment="number" id="increment-beer">Increment Me</beer-button>
     <beer-button decrement="decnumber" id="decrement-beer" >Decrement Me</beer-button>
@@ -35,6 +49,12 @@
 
     <!-- custon function button -->
     <beer-button script="./testFunction.js" functionName="testFunction" id="custom-func-beer">custom function button</beer-button>
+</div>
+
+<!-- final sprint -->
+<beer-button class="final-sprint" id="has-class">I am "has-class"</beer-button>
+
+<beer-button id="has-bootstrap" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">I am "has-bootstrap"</beer-button>
 
 </body>
 </html>
