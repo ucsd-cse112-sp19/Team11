@@ -44,3 +44,10 @@ export function spawnNotifMessage(type, title, message, position, duration, hide
                           </beer-notification-lit>`;
     document.querySelector("body").insertAdjacentHTML("beforeend", newNotification); 
 }
+
+export function spawnNotifMail(type, title, message, position, duration, hideClose) {
+    var newNotification = `<beer-notification-lit type="mail" title="New Mail" duration="7500">
+                            Notification Message here
+                          </beer-notification-lit>`;
+    document.querySelector("body").insertAdjacentHTML("beforeend", newNotification); 
+}

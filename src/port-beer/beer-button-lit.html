@@ -31,7 +31,7 @@
 
     <!-- Page Contents-->
     <h1 style="font-family:sans-serif">Bootstrap attribute</h1>
-    <beer-button-lit beerClass="btn btn-default">bootstrap</beer-button-lit>
+    <beer-button-lit beerClass="btn btn-default" script="./spawnFunc.js" functionName="spawnNotifMail">bootstrap</beer-button-lit>
     <beer-button-lit beerClass="btn btn-primary" loading>primary</beer-button-lit>
     <beer-button-lit beerClass="btn btn-secondary">secondary</beer-button-lit>
     <beer-button-lit beerClass="btn btn-success">success</beer-button-lit>
@@ -43,8 +43,8 @@
     <!-- Using a div to break the display:inline-block style from the header -->
     <beer-button-lit id="exception" beerClass="btn btn-primary btn-lg btn-block">large block bootstrap button</beer-button-lit>
 
-    <h1 style="font-family:sans-serif">Type attribute (Click to spawn notification)</h1>
-    <beer-button-lit script="./spawnFunc.js" functionName="spawnNotifDefault">Default</beer-button-lit>
+    <h1 style="font-family:sans-serif" >Type attribute (Click to spawn notification)</h1>
+    <beer-button-lit script="./spawnFunc.js" functionName="spawnNotifMail">Default</beer-button-lit>
     <beer-button-lit type="primary" script="./spawnFunc.js" functionName="spawnNotifMessage">Primary</beer-button-lit>
     <beer-button-lit type="success" script="./spawnFunc.js" functionName="spawnNotifSuccess">Success</beer-button-lit>
     <beer-button-lit type="info" script="./spawnFunc.js" functionName="spawnNotifInfo">Info</beer-button-lit>
