@@ -96,13 +96,13 @@ export function setButtonName(buttonId, beerButton){
 }
 
 /**
-     * @description Function that allows for a custom style sheet to be applied
-     * @param {string} newStyle string that is the .css file to be imported
-     * @example
-     * 
-     * <beer-button newStyle="styles.css">Style Testing</beer-button>
-     * 
-     */
+ * @description Function that allows for a custom style sheet to be applied
+ * @param {string} newStyle string that is the .css file to be imported
+ * @example
+ * 
+ * <beer-button newStyle="styles.css">Style Testing</beer-button>
+ * 
+ */
 export function setStyle(newStyle, shadowRoot){
     var Style = document.createElement("link");
     shadowRoot.appendChild(Style);

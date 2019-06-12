@@ -29,21 +29,24 @@
     <beer-button link="../../port-beer/beer-notification-lit.html" navBarID="navbar" id="lit-ntf" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Notifications</beer-button>
     <beer-navbar navBarBrandID="brand" navBarId="navbar" beerClass="navbar navbar-light bg-light" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></beer-navbar>
 
+    <!-- notification refactor tests TODO: delete when done-->
+    <h1 style="font-family:sans-serif">Notication refactor tests</h1>
+    <beer-notification-lit type="danger" id="apple">child</beer-notification-lit>
+    <beer-button-lit type="success" id="apple">parent</beer-button-lit>
+
     <!-- Page Contents-->
     <h1 style="font-family:sans-serif">Bootstrap attribute</h1>
-    <beer-notification-lit id="notif1">Hello</beer-notification-lit>
-    <beer-button-lit notifID="notif1" bootstrap="btn btn-default">bootstrap</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-primary" loading>primary</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-secondary">secondary</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-success">success</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-info">info</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-warning">warning</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-danger">danger</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-light">light</beer-button-lit>
-    <beer-button-lit bootstrap="btn btn-dark">dark</beer-button-lit>
+    <beer-button-lit beerClass="btn btn-default">bootstrap</beer-button-lit>
+    <beer-button-lit beerClass="btn btn-primary" loading>primary</beer-button-lit>
+    <beer-button-lit beerClass="btn btn-secondary">secondary</beer-button-lit>
+    <beer-button-lit beerClass="btn btn-success">success</beer-button-lit>
+    <beer-button-lit beerClass="btn btn-info">info</beer-button-lit>
+    <beer-button-lit beerClass="btn btn-warning">warning</beer-button-lit>
+    <beer-button-lit beerClass="btn btn-danger">danger</beer-button-lit>
+    <beer-button-lit beerClass="btn btn-light">light</beer-button-lit>
+    <beer-button-lit beerClass="btn btn-dark">dark</beer-button-lit>
     <!-- Using a div to break the display:inline-block style from the header -->
     <beer-button-lit id="exception" bootstrap="btn btn-primary btn-lg btn-block">large block</beer-button-lit>
-
 
     <h1 style="font-family:sans-serif">Type attribute</h1>
     <beer-button-lit script="./spawnFunc.js" functionName="spawnNotifDefault">Default</beer-button-lit>
@@ -87,6 +90,7 @@
     <h6 style="font-family: sans-serif; color:red;">size="RANDOM_SIZE"</h6>
     <beer-button-lit type="invalidType">Invalid type</beer-button-lit>
   
+   
 </body>
 
 </html>
