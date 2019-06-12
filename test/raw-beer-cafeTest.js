@@ -130,8 +130,6 @@ test("Button color should be set correctly", async t=> {
     const debug2 = Selector(() => document.querySelector("#color-beer"));
     const m1 = await debug1();
     const m2 = await debug2();
-    console.log(m1);
-    console.log(m2);
     await t
         .expect(getColorBeer()).eql("red");
 });
@@ -143,7 +141,6 @@ test("Button color should be set correctly", async t=> {
  * Clicking the button should invoke the custom function,
  * which, here, is a console log.
  */
-// TODO: console log changed to alert. 
 // test("Button accepts custom fuctions", async t=> {
 //     const component = Selector("#custom-func-beer"); 
 
