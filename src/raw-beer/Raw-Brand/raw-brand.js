@@ -132,11 +132,7 @@ class BeerBrand extends HTMLElement {
         xhr.open("HEAD", urlToFile, false);
         xhr.send();
          
-        if (xhr.status == "404") {
-            return false;
-        } else {
-            return true;
-        }
+        return xhr.status != "404"            
     }
 
     /**
