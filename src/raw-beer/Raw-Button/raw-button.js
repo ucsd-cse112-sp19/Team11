@@ -32,7 +32,7 @@ class BeerButton extends HTMLElement {
         this.AttributeSelector();
         
     }
-    
+
     /**
      * @description Takes a script and function then loads the function from 
      * the script so that it can be used with the button
@@ -40,8 +40,7 @@ class BeerButton extends HTMLElement {
      * @example 
      * 
      * <beer-button script="./testFunction.js" functionName="testFunction"></beer-button>
-     */ 
-         
+     */          
     customFunction(){
         var scriptName = this.getAttribute("script");
         var functionName = this.getAttribute("functionName");  

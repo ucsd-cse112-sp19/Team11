@@ -40,6 +40,12 @@ class BeerNav extends HTMLElement {
         var getButtons = this.getButtons.bind(this);
         getButtons();
 
+        var getLitButtons = this.getLitButtons.bind(this);
+        getLitButtons();
+
+        var getRegButtons = this.getRegButtons.bind(this);
+        getRegButtons();
+
         if(this.hasAttribute("divId")){
             if(this.getAttribute("divID").length > 0){
                 this.$beerDiv.setAttribute("id", this.getAttribute("divID"));
@@ -110,6 +116,107 @@ class BeerNav extends HTMLElement {
         // beerButtons is a variable that holds all the beer-buttons that were placed on the
         // page.
         var beerButtons = document.getElementsByTagName("beer-button");
+        var navBarID = this.getAttribute("navBarID");
+        for(var i =0 ; i < beerButtons.length; i++){
+            var currBeerButton = beerButtons[i];
+            // check to see if both the beer-button and beer-nav have valid attributes 
+            if(currBeerButton.hasAttribute("navBarID") && this.hasAttribute("navBarID")){
+                // this if statement is checking to see if the ID the user has provided for 
+                // the beer-button and beer-navbar are the same if they are then the beer-button
+                // is added to the beer-navbar
+                if(currBeerButton.getAttribute("navBarID") == navBarID){   
+                    this.$beerDiv.appendChild(currBeerButton);
+                    // now because beerButton is shrinking when I append the element
+                    // I need to decrement i so that it holds its currValue and
+                    // I dont miss a beer-button  
+                    i--;
+                }
+                // this if statement checks if the user has added an actual value to navBarID 
+                // if they have left it blank and there is a beer-button with blank navBarID
+                // then it will be added to the beer-navBar
+                else if(navBarID.length == 0 && currBeerButton.getAttribute("navBarID").length == 0){
+                    this._shadowRoot.getElementById("nav").appendChild(currBeerButton);
+                    // now because beerButton is shrinking when I append the element
+                    // I need to decrement i so that it holds its currValue and
+                    // I dont miss a beer-button  
+                    i--;
+                }     
+            }
+        }
+    }
+
+
+  
+    
+    /**
+     * TODO: test and check this to make sure it works with lit-button
+     * @description This function takes all the beer-buttons that the user 
+     * has placed within the html and inserts them into the proper navBar 
+     * bassed on the navBarID attribute.
+     * @example
+     * 
+     * <beer-button navBarID="bill"></beer-button>
+     * <beer-button navBarID="bill" id="heello" beerId="d" beerClass="btn btn-outline-success"  newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  >Page 4</beer-button>
+     * <beer-navbar  navBarId="bill" ></beer-navbar>  
+     */
+    getRegButtons(){
+        // beerButtons is a variable that holds all the beer-buttons that were placed on the
+        // page.
+        console.log("hellloooooooooooooooooo");
+        console.log("hellloooooooooooooooooo");
+
+
+        var beerButtons = document.getElementsByTagName("button");
+        console.log("hello this lit button ", beerButtons);
+        var navBarID = this.getAttribute("navBarID");
+        for(var i =0 ; i < beerButtons.length; i++){
+            var currBeerButton = beerButtons[i];
+            // check to see if both the beer-button and beer-nav have valid attributes 
+            if(currBeerButton.hasAttribute("navBarID") && this.hasAttribute("navBarID")){
+                // this if statement is checking to see if the ID the user has provided for 
+                // the beer-button and beer-navbar are the same if they are then the beer-button
+                // is added to the beer-navbar
+                if(currBeerButton.getAttribute("navBarID") == navBarID){   
+                    this.$beerDiv.appendChild(currBeerButton);
+                    // now because beerButton is shrinking when I append the element
+                    // I need to decrement i so that it holds its currValue and
+                    // I dont miss a beer-button  
+                    i--;
+                }
+                // this if statement checks if the user has added an actual value to navBarID 
+                // if they have left it blank and there is a beer-button with blank navBarID
+                // then it will be added to the beer-navBar
+                else if(navBarID.length == 0 && currBeerButton.getAttribute("navBarID").length == 0){
+                    this._shadowRoot.getElementById("nav").appendChild(currBeerButton);
+                    // now because beerButton is shrinking when I append the element
+                    // I need to decrement i so that it holds its currValue and
+                    // I dont miss a beer-button  
+                    i--;
+                }     
+            }
+        }
+    }
+
+    /**
+     * TODO: test and check this to make sure it works with lit-button
+     * @description This function takes all the beer-buttons that the user 
+     * has placed within the html and inserts them into the proper navBar 
+     * bassed on the navBarID attribute.
+     * @example
+     * 
+     * <beer-button navBarID="bill"></beer-button>
+     * <beer-button navBarID="bill" id="heello" beerId="d" beerClass="btn btn-outline-success"  newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  >Page 4</beer-button>
+     * <beer-navbar  navBarId="bill" ></beer-navbar>  
+     */
+    getLitButtons(){
+        // beerButtons is a variable that holds all the beer-buttons that were placed on the
+        // page.
+        console.log("hellloooooooooooooooooo");
+        console.log("hellloooooooooooooooooo");
+
+
+        var beerButtons = document.getElementsByTagName("beer-button-lit");
+        console.log("hello this lit button ", beerButtons);
         var navBarID = this.getAttribute("navBarID");
         for(var i =0 ; i < beerButtons.length; i++){
             var currBeerButton = beerButtons[i];
