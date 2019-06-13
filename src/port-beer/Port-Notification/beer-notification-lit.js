@@ -1,12 +1,14 @@
 import {LitElement, html, css} from "https://unpkg.com/lit-element@2.0.1/lit-element.js?module";
 
 var types = [
-    {type: "success", svg: "./icons/notif-icon-success.svg"},
-    {type: "warning", svg: "./icons/notif-icon-warning.svg"},
-    {type: "danger",  svg: "./icons/notif-icon-danger.svg"},
-    {type: "info",    svg: "./icons/notif-icon-info.svg"},
-    {type: "message", svg: "./icons/notif-icon-message.svg"},
-    {type: "mail", svg: "./icons/notif-icon-mail.svg"}
+    // Make sure icon paths are in top level directory so that icons
+    // can be seen throughout the library
+    {type: "success", svg: "./../../../icons/notif-icon-success.svg"},
+    {type: "warning", svg: "./../../../icons/notif-icon-warning.svg"},
+    {type: "danger",  svg: "./../../../icons/notif-icon-danger.svg"},
+    {type: "info",    svg: "./../../../icons/notif-icon-info.svg"},
+    {type: "message", svg: "./../../../icons/notif-icon-message.svg"},
+    {type: "mail",    svg: "./../../..//icons/notif-icon-mail.svg"}
 ];
 const spacing = 10; // Vertical distance between two notifications
 const delay = 200; // 0.2 seconds

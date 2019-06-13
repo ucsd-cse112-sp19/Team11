@@ -23,10 +23,10 @@
 <body>
     <!-- Nav Bar -->
     <beer-brand navBarBrandID="brand" id="home" beerClass="navbar-brand"  brandHref="WHERES THE TEAM PAGE????" brandImage="../raw-beer/Raw-Brand/beer_team_logo.png" brandHeight="30" brandwidth="30" imageClass="d-inline-block align-top"  imageAlt=" "newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  > Team </beer-brand>
-    <beer-button link="./pres.html" navBarID="navbar" id="raw-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Buttons</beer-button>
-    <beer-button link="../Raw-Nav/navTest.html" navBarID="navbar" id="raw-nav" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Navigation Bar</beer-button>
-    <beer-button link="../../port-beer/beer-button-lit.html" navBarID="navbar" id="lit-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Buttons</beer-button>
-    <beer-button link="../../port-beer/beer-notification-lit.html" navBarID="navbar" id="lit-ntf" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Notifications</beer-button>
+    <beer-button link="./../../raw-beer/Raw-Button/raw-beer-button.html" navBarID="navbar" id="raw-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Buttons</beer-button>
+    <beer-button link="./../../raw-beer/Raw-Nav/navTest.html" navBarID="navbar" id="raw-nav" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Navigation Bar</beer-button>
+    <beer-button link="./beer-button-lit.html" navBarID="navbar" id="lit-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Buttons</beer-button>
+    <beer-button link="./../Port-Notification/beer-notification-lit.html" navBarID="navbar" id="lit-ntf" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Notifications</beer-button>
     <beer-navbar navBarBrandID="brand" navBarId="navbar" beerClass="navbar navbar-light bg-light" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></beer-navbar>
 
     <!-- Page Contents-->
@@ -44,12 +44,12 @@
     <beer-button-lit id="exception" beerClass="btn btn-primary btn-lg btn-block">large block bootstrap button</beer-button-lit>
 
     <h1 style="font-family:sans-serif" >Type attribute (Click to spawn notification)</h1>
-    <beer-button-lit script="./spawnFunc.js" functionName="spawnNotifMail">Default</beer-button-lit>
-    <beer-button-lit type="primary" script="./spawnFunc.js" functionName="spawnNotifMessage">Primary</beer-button-lit>
-    <beer-button-lit type="success" script="./spawnFunc.js" functionName="spawnNotifSuccess">Success</beer-button-lit>
-    <beer-button-lit type="info" script="./spawnFunc.js" functionName="spawnNotifInfo">Info</beer-button-lit>
-    <beer-button-lit type="warning" script="./spawnFunc.js" functionName="spawnNotifWarning">Warning</beer-button-lit>
-    <beer-button-lit type="danger" script="./spawnFunc.js" functionName="spawnNotifDanger">Danger</beer-button-lit>
+    <beer-button-lit                script="./spawnFunc.js" functionName="spawnNotif">Default</beer-button-lit>
+    <beer-button-lit type="primary" script="./spawnFunc.js" functionName="spawnNotif">Primary</beer-button-lit>
+    <beer-button-lit type="success" script="./spawnFunc.js" functionName="spawnNotif">Success</beer-button-lit>
+    <beer-button-lit type="info"    script="./spawnFunc.js" functionName="spawnNotif">Info</beer-button-lit>
+    <beer-button-lit type="warning" script="./spawnFunc.js" functionName="spawnNotif">Warning</beer-button-lit>
+    <beer-button-lit type="danger"  script="./spawnFunc.js" functionName="spawnNotif">Danger</beer-button-lit>
 
     <h1 style="font-family:sans-serif">Loading attribute</h1>
     <beer-button-lit loading></beer-button-lit>

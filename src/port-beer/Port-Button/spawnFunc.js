@@ -1,53 +1,18 @@
+// These are user-defined functions that the user wants a button to do when they click on a button
+// The ones here are just sample ones that will spawn a notification onto the screen when
+// the user clicks on the corresponding button element which has the functionName attribute defined
+//
+// For example:
+//     <beer-button-lit script="./spawnFunc.js" functionName="spawnNotifDefault"> Click Me! </beer-button-lit>
+//     Clicking on this button will trigger the spawnNotifDefault function inside the javascript file "spawnFunc.js"
+//
+// To change the text and atributes of the notification spawned, just change it in the literal template
+//     <beer-notification-lit title="Button page"> Notification Message here </beer-notification-lit>
 
-export function bob(type, title, message, position, duration, hideClose) {
-    var newNotification = `<beer-notification-lit title="Button page">
+
+export function spawnNotif(type, title, message, position, duration, hideClose) {
+    var newNotification = `<beer-notification-lit type="message" title="Notification Title" position="top-right" duration="7500">
                             Notification Message here
                            </beer-notification-lit>`;
     document.querySelector("body").insertAdjacentHTML("beforeend", newNotification); 
 }
-
-// export function spawnNotifSuccess(type, title, message, position, duration, hideClose) {
-//     var newNotification = `<beer-notification-lit type="success" title="Default" duration="7500">
-//                                 Congratulations class of 2019! You made it. Isn't that awesome :D
-//                                 This message is to be longer than the other ones to show that
-//                                 the notification will dynamically adjust its height depending on
-//                                 how much text you have. But then again why would you want
-//                                 a notification to be an essay lol.
-//                           </beer-notification-lit>`;
-//     document.querySelector("body").insertAdjacentHTML("beforeend", newNotification); 
-// }
-
-// export function spawnNotifWarning(type, title, message, position, duration, hideClose) {
-//     var newNotification = `<beer-notification-lit type="warning" title="Warning" duration="7500">
-//                             Notification Message here
-//                           </beer-notification-lit>`;
-//     document.querySelector("body").insertAdjacentHTML("beforeend", newNotification); 
-// }
-
-// export function spawnNotifInfo(type, title, message, position, duration, hideClose) {
-//     var newNotification = `<beer-notification-lit type="info" title="Info" duration="7500">
-//                             Notification Message here
-//                           </beer-notification-lit>`;
-//     document.querySelector("body").insertAdjacentHTML("beforeend", newNotification); 
-// }
-
-// export function spawnNotifDanger(type, title, message, position, duration, hideClose) {
-//     var newNotification = `<beer-notification-lit type="danger" title="Danger" duration="7500">
-//                             Notification Message here
-//                           </beer-notification-lit>`;
-//     document.querySelector("body").insertAdjacentHTML("beforeend", newNotification); 
-// }
-
-// export function spawnNotifMessage(type, title, message, position, duration, hideClose) {
-//     var newNotification = `<beer-notification-lit type="message" title="Message" duration="7500">
-//                             Notification Message here
-//                           </beer-notification-lit>`;
-//     document.querySelector("body").insertAdjacentHTML("beforeend", newNotification); 
-// }
-
-// export function spawnNotifMail(type, title, message, position, duration, hideClose) {
-//     var newNotification = `<beer-notification-lit type="mail" title="New Mail" duration="7500">
-//                             Notification Message here
-//                           </beer-notification-lit>`;
-//     document.querySelector("body").insertAdjacentHTML("beforeend", newNotification); 
-// }
