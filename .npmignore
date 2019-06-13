@@ -1,0 +1,12 @@
+.eslintignore
+.eslintrc.json
+.gitignore
+.travis.yml
+gulpfile.js
+npm-debug.log
+package-lock.json
+package.json	
+website/
+test/
+src/
+Demo/
