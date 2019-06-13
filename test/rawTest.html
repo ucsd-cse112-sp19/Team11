@@ -1,7 +1,8 @@
 <html lang="en">
 <head>
-    <script  src="/Team11/src/raw-beer/Raw-Button/raw-button.js" type="module"></script>
-    <script src="/Team11/src/raw-beer/Raw-Brand/raw-brand.js" defer type="module"></script>
+    <script  src="/src/raw-beer/Raw-Button/raw-button.js" type="module"></script>
+    <script src="/src/raw-beer/Raw-Brand/raw-brand.js" defer type="module"></script>
+    <script src="/src/raw-beer/Raw-Nav/raw-nav.js" defer type="module"></script>
     <title>Test Raw Beer Button</title>
     <style>
         .final-sprint {
@@ -18,8 +19,7 @@
 </head>
 <body>
     <h1>TestCafe Runner, Click the button to perform the action</h1>
-
-<!-- first & second sprint -->
+    <!-- first & second sprint-->
 <div>
     <!-- increment decrement -->
     <beer-button increment="number" id="increment-beer">Increment Me</beer-button>
@@ -43,7 +43,7 @@
     <beer-button newStyle="styles.css" id="style-beer">Style Testing</beer-button>
 
     <!-- img -->
-    <beer-button image="backgroundImgTest.png" id="img-beer">Image Testing</beer-button>
+    <beer-button image="test.jpg" id="img-beer">Image Testing</beer-button>
 
     <!-- button color -->
     <beer-button color="red" id="color-beer">Color Testing</beer-button>
@@ -52,24 +52,44 @@
     <beer-button script="./testFunction.js" functionName="testFunction" id="custom-func-beer">custom function button</beer-button>
 </div>
 
-<!-- final sprint -->
+    <!-- final sprint -->
 <div>
-    <beer-button class="final-sprint" id="has-class">I am "has-class"</beer-button>
+    <beer-button beerClass="final-sprint" id="has-class">I am "has-class"</beer-button>
     <beer-button id="has-bootstrap" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">I am "has-bootstrap"</beer-button>
     <br>
 
     <!-- beer-brand -->
-    <beer-brand id="beer-brand-std">I am "has-beer-brand"</beer-brand><br>
-    <beer-brand id="beer-brand-image" brandImage="/Team11/src/raw-beer/Raw-Brand/beer_team_logo.png"></beer-brand><br>
-    <beer-brand id="beer-brand-alt-img" brandImage="raw-beer/Raw-Brand/beer_team_logo.png" imageAlt="/Team11/src/raw-beer/Raw-Brand/beer_team_logo.png"></beer-brand><br>
-    <beer-brand id="beer-brand-alt-width" brandHeight="400"></beer-brand><br>
-    <beer-brand id="beer-brand-href" brandHref="https://www.google.com"></beer-brand><br>
-    <beer-brand newStyle="a {color: hotpink;}"></beer-brand><br>
-    <beer-brand newStyle="./hotpink.css"></beer-brand>
-    
+    <beer-brand id="beer-brand-std">I am "beer-brand-std"</beer-brand><br>
+    <beer-brand id="beer-brand-image" brandImage="/src/raw-beer/Raw-Brand/beer_team_logo.png">I am "beer-brand-image"</beer-brand><br>
+    <beer-brand id="beer-brand-alt-img" brandImage="raw-beer/Raw-Brand/beer_team_logo.png" imageAlt="/src/raw-beer/Raw-Brand/beer_team_logo.png">I am "beer-brand-alt-img"</beer-brand><br>
+    <beer-brand id="beer-brand-alt-width" brandImage="/src/raw-beer/Raw-Brand/beer_team_logo.png" brandWidth="400">I am "beer-brand-alt-width"</beer-brand><br>
+    <beer-brand id="beer-brand-alt-height" brandImage="/src/raw-beer/Raw-Brand/beer_team_logo.png" brandHeight="400">I am "beer-brand-alt-height"</beer-brand><br>
+    <beer-brand id="beer-brand-href" brandImage="/src/raw-beer/Raw-Brand/beer_team_logo.png" brandHref="https://www.google.com">I am "beer-brand-href"</beer-brand><br>    
+    <beer-brand id="beer-brand-pink" brandImage="/src/raw-beer/Raw-Brand/beer_team_logo.png" newStyle="./hotpink.css">I am "beer-brand-pink"</beer-brand><br>
 
+    <!-- beer-navbar -->    
+    <beer-brand 
+        navBarBrandID="bar"
+        id="nav-brand"
+        brandImage="/src/raw-beer/Raw-Brand/beer_team_logo.png"
+        brandHref="https://www.google.com">
+        BEER!
+    </beer-brand><br>
+
+    <beer-button id="nav-button" link="test.html" navBarID></beer-button>
+    <beer-navbar  
+        navBarBrandID="bar"
+        id="nav-bar"       
+        navBarID  
+        beerClass="navbar navbar-light bg-dark"
+        newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    </beer-navbar>
 
 </div>
+
+
+</body>
+</html>
 
 </body>
 </html>
