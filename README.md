@@ -7,7 +7,7 @@
 
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-<a href="website/index.html"><img src="src/raw-beer/Raw-Brand/beer_team_logo.png" height="400" width="400" ></a>
+<a href="https://ucsd-cse112.github.io/Team11/"><img src="src/raw-beer/Raw-Brand/beer_team_logo.png" height="400" width="400" ></a>
 
 Our goal for this project is to create an extensible library of vanilla and lit-element web-components. Click on our logo above to head over to our team page. 
 
