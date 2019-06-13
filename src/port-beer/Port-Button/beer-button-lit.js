@@ -1,4 +1,5 @@
 import {LitElement, html, css} from "https://unpkg.com/lit-element@2.0.1/lit-element.js?module";
+import "./../Port-Notification/beer-notification-lit.js";
 
 // Color of button depending on type attribute
 const types = [
@@ -27,16 +28,10 @@ class BeerButtonLit extends LitElement {
             round:           {type: Boolean, reflect: true},
             circle:          {type: Boolean, reflect: true},
             bootstrap:       {type: Boolean, reflect: true},
-            bootstrap_class: {type: String},
+            class:           {type: String, reflect: true},
+            style:           {type: String, reflect: true},
             script:          {type: String, reflect: true},
-            functionName:    {type: String, reflect: true},
-
-            // id of the notificaiton element
-            notifID:         {type: String,  reflect: true},
-
-            // content or html code of the notification element
-            childNotification:    {type: String,  reflect: true},
-
+            functionName:    {type: String, reflect: true}
         };
     }
 
@@ -50,8 +45,9 @@ class BeerButtonLit extends LitElement {
         this.round = false;
         this.circle = false;
 
-        this.bootstrap = this.hasAttribute("bootstrap");
-        this.bootstrap_class = "";
+        this.bootstrap = this.hasAttribute("beerClass");
+        this.class = "";
+        this.style = "";
 
         // Set the text property with the user text in between tag
         // <beer-button-lit>USER TEXT</beer-button-lit>
@@ -59,27 +55,13 @@ class BeerButtonLit extends LitElement {
         
         // bootstrap
         if(this.bootstrap) {
-            this.bootstrap_class = this.getAttribute("beerClass");
+            this.class = this.getAttribute("beerClass");
+        }
+        // inline styling
+        if(this.hasAttribute("beerStyle")) {
+            this.style = this.getAttribute("beerStyle");
         }
 
-        // linking button to notification
-        // make user define type of notification in notifID?
-        this.notifID = this.getAttribute("id");
-
-        // checks if there is a notification ID
-        if(this.notifID != null){
-            this.childNotification = document.getElementById(this.notifID);
-            
-            // cannot read this.notification if this.notification is null
-            if(this.childNotification != null){
-                this.childNotification = this.childNotification.outerHTML;
-            }
-        }
-
-        // check if the right id and notification html is displayed
-        // console.log("notification id: " + this.notifID);
-        // console.log("notiifcation code: "  + this.childNotification);
-    
     }
 
     /**
@@ -102,7 +84,7 @@ class BeerButtonLit extends LitElement {
     _getClass() {
         let _class = "";
         if(this.bootstrap) {
-            _class += this.bootstrap_class + " ";
+            _class += this.class + " ";
         } else {
             if(this.round) {
                 _class += "round ";
@@ -121,6 +103,14 @@ class BeerButtonLit extends LitElement {
             }
         }
         return _class;
+    }
+
+    _setStyle(newStyle) {
+        var Style = document.createElement("link");
+        this.shadowRoot.appendChild(Style);
+        Style.setAttribute("rel", "stylesheet");
+        Style.setAttribute("href", newStyle);
+        Style.setAttribute("type", "text/css");
     }
 
     /**
@@ -158,6 +148,10 @@ class BeerButtonLit extends LitElement {
         if(this.loading) {
             _style += "cursor: default;";
         }
+        // User specified styling. Will override our preset button styling.
+        if(this.style != "") {
+            _style += this.style;
+        }
         return _style;
     }
 
@@ -179,17 +173,6 @@ class BeerButtonLit extends LitElement {
      * @returns {string} error message such that script or function not found
      */
     _handleClick() {
-
-        // create a new div to spawn the notifs within it
-        var newDiv = document.createElement("DIV");
-
-        // changes the id in the notif to be the "password" or "SPAWN"
-        // so that when we spawn this new notif with a new id, it actually renders
-        newDiv.innerHTML = this.childNotification.replace(new RegExp(this.notifID, "gi"), "SPAWN");
-
-        // displays the div onto the DOM
-        document.body.appendChild(newDiv);
-
         if(this.hasAttribute("script") && this.hasAttribute("functionName")) {
             if(!this.loading && !this.disabled) {
                 var scriptName = this.script;

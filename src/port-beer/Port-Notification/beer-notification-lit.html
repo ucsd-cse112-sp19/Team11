@@ -1,9 +1,9 @@
 <html>
 <head>
     <script type="module" src="beer-notification-lit.js"></script>
-    <script src="../raw-beer/Raw-Button/raw-button.js" defer type="module"></script>
-    <script src="../raw-beer/Raw-Nav/raw-nav.js" defer type="module"  ></script>
-    <script src="../raw-beer/Raw-Brand/raw-brand.js" defer type="module"></script>
+    <script src="../../raw-beer/Raw-Button/raw-button.js" defer type="module"></script>
+    <script src="../../raw-beer/Raw-Nav/raw-nav.js" defer type="module"  ></script>
+    <script src="../../raw-beer/Raw-Brand/raw-brand.js" defer type="module"></script>
     <style>
         * {
             font-family:sans-serif;
@@ -33,8 +33,8 @@
     </beer-notification-lit>
 
     <beer-notification-lit title="hideClose" duration="7000" hideClose>
-            You cannot manually close me!
-        </beer-notification-lit>
+        You cannot manually close me!
+    </beer-notification-lit>
 
     <beer-notification-lit type="success" title="Success" duration="0">
         This is supposed to be a longer message so that the height expands a bit more.
@@ -60,34 +60,33 @@
         ...haha
     </beer-notification-lit>
 
+    <beer-notification-lit type="mail" title="New Mail" duration="0">
+        You've got mail!
+    </beer-notification-lit>
+
     <!-- TESTING A DIFFERENT POSITION -->
     <!-- <beer-notification-lit title="Default" position="bottom-left" hideClose>
-            Hello Peter! I close in 4.5 seconds
-        </beer-notification-lit>
+        Hello Peter! I close in 4.5 seconds
+    </beer-notification-lit>
+
+    <beer-notification-lit type="success" title="Success" duration="7000" position="bottom-left">
+        This is supposed to be a longer message so that the height expands a bit more.
+    </beer-notification-lit>
     
-        <beer-notification-lit type="success" title="Success" duration="7000" position="bottom-left">
-            This is supposed to be a longer message so that the height expands a bit more.
-        </beer-notification-lit>
-     
-        <beer-notification-lit type="danger" title="Danger" duration="0" position="bottom-left">
-            Making this message a lot longer than the others to see if notifications are positioned
-            well relative to eachother even if they are all different sizes. If you
-            were to close this notification, the notifications below me will shift up!
-            How great is that?
-        </beer-notification-lit>
-    
-        <beer-notification-lit type="warning" title="Warning" duration="0" position="bottom-left">
-            Hello Peter! 
-            This is a notification from team BEER reminding you to have a great day! :)
-        </beer-notification-lit>
-    
-        <beer-notification-lit type="info" title="Info" duration="0" position="bottom-left">
-            Information hub
-        </beer-notification-lit>
-    
-        <beer-notification-lit type="message" title="Message" duration="0" position="bottom-left">
-            ...haha
-        </beer-notification-lit>  -->
+    <beer-notification-lit type="danger" title="Danger" duration="0" position="bottom-left">
+        Making this message a lot longer than the others to see if notifications are positioned
+        well relative to eachother even if they are all different sizes. If you
+        were to close this notification, the notifications below me will shift up!
+        How great is that?
+    </beer-notification-lit>
+
+    <beer-notification-lit type="message" title="Message" duration="0" position="bottom-left">
+        ...haha
+    </beer-notification-lit>
+
+    <beer-notification-lit type="mail" title="New Mail" duration="0" position="bottom-left">
+        You've got mail!
+    </beer-notification-lit> -->
 </body>
 
 </html>

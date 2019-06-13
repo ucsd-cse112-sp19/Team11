@@ -1,11 +1,14 @@
 import {LitElement, html, css} from "https://unpkg.com/lit-element@2.0.1/lit-element.js?module";
 
 var types = [
-    {type: "success", svg: "./icons/notif-icon-success.svg"},
-    {type: "warning", svg: "./icons/notif-icon-warning.svg"},
-    {type: "danger",  svg: "./icons/notif-icon-danger.svg"},
-    {type: "info",    svg: "./icons/notif-icon-info.svg"},
-    {type: "message", svg: "./icons/notif-icon-message.svg"}
+    // Make sure icon paths are in top level directory so that icons
+    // can be seen throughout the library
+    {type: "success", svg: "./../../../icons/notif-icon-success.svg"},
+    {type: "warning", svg: "./../../../icons/notif-icon-warning.svg"},
+    {type: "danger",  svg: "./../../../icons/notif-icon-danger.svg"},
+    {type: "info",    svg: "./../../../icons/notif-icon-info.svg"},
+    {type: "message", svg: "./../../../icons/notif-icon-message.svg"},
+    {type: "mail",    svg: "./../../..//icons/notif-icon-mail.svg"}
 ];
 const spacing = 10; // Vertical distance between two notifications
 const delay = 200; // 0.2 seconds
@@ -43,13 +46,7 @@ class BeerNotificationLit extends LitElement {
             closed: {type: Boolean},
 
             // The cumulative offset positioning to determine the position of notification dynamically
-            prevHeights:  {type: Number},
-
-            // id of button for blacklink 
-            buttonID: {type: String, reflect: true},
-            
-            // code for the parent button
-            parentButton: {type: String, reflect: true}
+            verticalOffset:  {type: Number}
         };
     }
 
@@ -69,35 +66,11 @@ class BeerNotificationLit extends LitElement {
         // By default the notification is not closed.
         // This will become true when user clicks on X, or duration time is up
         this.closed = false;
-        this.prevHeights = 0; 
+        this.verticalOffset = 0; 
 
         // Set the message property with the user text in between tag
         // <beer-notification-lit>USER MESSAGE</beer-notification-lit>
         this.message = this.textContent;
-
-        // linking notification to parent button spawner
-        // linking button to notification
-        // make user define type of notification in notifID?
-        //    ^^no because user already defines the notification on the html
-        //      page so we only get the notification already on page and hide it
-        //      until the button is clicked
-        this.buttonID = this.getAttribute("id");
-        
-        // checks if there is a button ID
-        if(this.buttonID != null){
-
-            // parent button's html tag/element reference
-            this.parentButton = document.getElementById(this.buttonID);
-
-            // cannot read this.parentButton if this.parentButton is null
-            if(this.parentButton != null){
-                this.parentButton = this.parentButton.outerHTML;
-            }
-        }
-
-        // same checks as beer-button-lit.js
-        // console.log(this.buttonID);
-        // console.log(this.parentButton);
 
     }
 
@@ -124,8 +97,8 @@ class BeerNotificationLit extends LitElement {
             // Using regex, remove "px" from the string (Example: "123.4px" --> "123.4")
             let notif_height_value = parseFloat(notif_height.replace(/px/gi, ""));
 
-            // Add to this element's prevHeights property. Also add 10px for margin spacing between notifications
-            this.prevHeights += (notif_height_value + spacing);
+            // Add to this element's verticalOffset property. Also add 10px for margin spacing between notifications
+            this.verticalOffset += (notif_height_value + spacing);
         }
     }
 
@@ -228,7 +201,7 @@ class BeerNotificationLit extends LitElement {
         // Start from bottom to up
         for( var i = all_notifs.length - 1; (curr = all_notifs.item(i)) !== this; i-- ) {
             // Update current component's offset
-            curr.prevHeights -= (notif_height_value_removed + spacing);
+            curr.verticalOffset -= (notif_height_value_removed + spacing);
         }
     }
 
@@ -239,9 +212,9 @@ class BeerNotificationLit extends LitElement {
     _getStyle() {
         var notif_box_style = ""; // Default nothing
         if(this._isTop()) {
-            notif_box_style += "top: " + this.prevHeights + "px;";
+            notif_box_style += "top: " + this.verticalOffset + "px;";
         } else {
-            notif_box_style += "bottom: " + this.prevHeights + "px;";
+            notif_box_style += "bottom: " + this.verticalOffset + "px;";
         }
 
         return notif_box_style;
@@ -283,35 +256,6 @@ class BeerNotificationLit extends LitElement {
      * The template rendered will be attached to the shadow root of the shadow DOM.
      */
     render() {
-
-        /*
-         *The only time the developer specfies a BEER-NOTIFICATION-LIT
-         *is when they want it to link to a BEER-BUTTON-LIT (maybe this
-         *is different for raw? just need to make this clear)
-         *
-         *Therefore, we know that if there exists a id to a corresponding
-         *parent button (if this.buttonID != null), that means we want to
-         *spawn the notification on button click, not right after writing
-         *the <beer-notification-lit> abc </beer-notification-lit> tag.
-         *
-         * The solution is to just not render any html at all ON THE FIRST
-         * TRY. How do we know that this is our first try at rendering the
-         * notification? We create some sort of "password". The password is
-         * SPAWN. Since on the first time rendering the notif, the id is 
-         * something user specified, in the example in beer-button-lit.html,
-         * the id="apple". In our if statement below, the evaluation is 
-         * true because "apple" != null and "apple != "SPAWN"
-         * 
-         * In our onclick function for the button, we linked the childNotif
-         * and the childNotif's code as this.childNotification. On button click
-         * we change the id of this.childNotification to be "SPAWN" or our password
-         * so that we bypass the if statement and go directly to our original
-         * notification html render stuff. 
-         */
-        if(this.buttonID != null && this.buttonID != "SPAWN"){
-            return html ``;
-        }
-
         return html`
         <div class="${this._getClass()}" style="${this._getStyle()}">
             <div class="popup-content">
