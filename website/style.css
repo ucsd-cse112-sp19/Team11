@@ -11,6 +11,7 @@ body {
 .navbar-brand img {
   height: 2rem;
 }
+
 .home-inner {
   background-image: url('img/GroupPhoto.jpg');
 }
@@ -73,7 +74,6 @@ img .gallery {
 .card h4 {
   padding-top: 1rem;
 }
-
 
 /* To make member cards stack on top of eachother when window width gets small */
 @media only screen and (min-width: 1000px) {
