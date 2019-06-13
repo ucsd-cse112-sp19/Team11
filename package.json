@@ -30,16 +30,9 @@
     "lint": "eslint src/**/*.js",
     "test": "testcafe chrome,firefox tests",
     "local-test": "testcafe chrome test/raw-beer-cafeTest.js --skip-js-errors",
-    "test-mocha": "mocha test/test.js",
     "raw-test": "testcafe chrome,firefox test/raw-beer-cafeTest.js --skip-js-errors",
     "port-test": "testcafe chrome,firefox test/port-beer-cafeTest.js --skip-js-errors",
-    "gulp": "^4.0.1",
-    "gulp-documentation": "^3.2.1",
     "gulp-terser": "^1.2.0",
-    "gulp-uglify": "^3.0.2",
-    "gulp4-run-sequence": "^0.3.2",
-    "mocha": "^6.1.4",
-    "run-sequence": "^2.2.1",
     "docs:build": "documentation build --shallow ./src/** -f html -o docs"
   },
   "repository": {
