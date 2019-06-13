@@ -11,15 +11,12 @@ const types = [
 ];
 
 /**
- * Beer web component that was ported from the Element library
+ * Beer button web component that was ported from the Element library
  */
 class BeerButtonLit extends LitElement {
     static get properties() {
         return {
             // reflect: true if we are reflecting the property to an attribute
-            // Example: We can even specify how we want attributes to be reflected
-            // attribute: todo
-            // <to-do-item todo="Finish blog"></to-do-item>
             
             // primary, success, info, warning, danger
             type:            {type: String,  reflect: true},
@@ -75,7 +72,6 @@ class BeerButtonLit extends LitElement {
         if(this.hasAttribute("beerStyle")) {
             this.style = this.getAttribute("beerStyle");
         }
-
     }
 
     /**
@@ -186,7 +182,10 @@ class BeerButtonLit extends LitElement {
 
     /**
      * @description Handle a click event using imported user defined functions
-     * @returns {string} error message such that script or function not found
+     * @returns void
+     * @example 
+     * 
+     * <beer-button-lit script="./testFunction.js" functionName="testFunction"></beer-button-lit>
      */
     _handleClick() {
         if(this.hasAttribute("script") && this.hasAttribute("functionName")) {
