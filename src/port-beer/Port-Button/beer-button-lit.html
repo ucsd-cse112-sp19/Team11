@@ -5,6 +5,7 @@
     <script src="./../../raw-beer/Raw-Button/raw-button.js" defer type="module"></script>
     <script src="./../../raw-beer/Raw-Nav/raw-nav.js" defer type="module"></script>
     <script src="./../../raw-beer/Raw-Brand/raw-brand.js" defer type="module"></script>
+    <title>Port Button</title>
     <style>
         * {
             font-family:sans-serif;
@@ -18,9 +19,19 @@
             display:block;
         }
     </style>
+   
+
+
+    <!-- Documentation extras -->
+    <link href="./../../raw-beer/Raw-Button/raw_beer_files/docs.min.css" rel="stylesheet">
 </head>
 
 <body>
+
+<div class="container-fluid">
+<div class="row flex-xl-nowrap">
+<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+    <h1 class="bd-title" id="content">Beer-Button-Lit</h1>     
     <!-- Nav Bar -->
     <beer-brand navBarBrandID="brand" id="home" beerClass="navbar-brand"  brandHref="../../../website/index.html" brandImage="../../raw-beer/Raw-Brand/beer_team_logo.png" brandHeight="30" brandwidth="30" imageClass="d-inline-block align-top"  imageAlt=" "newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  > Team </beer-brand>
     <beer-button link="./../../raw-beer/Raw-Button/raw-beer-button.html" navBarID="navbar" id="raw-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Buttons</beer-button>
@@ -30,56 +41,144 @@
     <beer-button link="../Port-Notification/beer-notification-lit.html" navBarID="navbar" id="lit-ntf" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Notifications</beer-button>
     <beer-navbar navBarBrandID="brand" navBarId="navbar" beerClass="navbar navbar-light bg-light" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></beer-navbar>
 
-    <!-- Page Contents-->
-    <h1 style="font-family:sans-serif">Bootstrap attribute</h1>
-    <beer-button-lit beerClass="btn btn-default" script="./spawnFunc.js" functionName="spawnNotifMail">bootstrap</beer-button-lit>
-    <beer-button-lit beerClass="btn btn-primary" loading>primary</beer-button-lit>
-    <beer-button-lit beerClass="btn btn-secondary">secondary</beer-button-lit>
-    <beer-button-lit beerClass="btn btn-success">success</beer-button-lit>
-    <beer-button-lit beerClass="btn btn-info">info</beer-button-lit>
-    <beer-button-lit beerClass="btn btn-warning">warning</beer-button-lit>
-    <beer-button-lit beerClass="btn btn-danger">danger</beer-button-lit>
-    <beer-button-lit beerClass="btn btn-light">light</beer-button-lit>
-    <beer-button-lit beerClass="btn btn-dark">dark</beer-button-lit>
-    <!-- Using a div to break the display:inline-block style from the header -->
-    <beer-button-lit id="exception" beerClass="btn btn-primary btn-lg btn-block">large block bootstrap button</beer-button-lit>
+    <h2 id="examples"><div>Bootstrap Compatible Buttons</div></h2>
+    <div class = "bd-example">
+            <beer-button-lit beerClass="btn btn-default">bootstrap</beer-button-lit>
+            <beer-button-lit beerClass="btn btn-primary">primary</beer-button-lit>
+            <beer-button-lit beerClass="btn btn-secondary">secondary</beer-button-lit>
+            <beer-button-lit beerClass="btn btn-success">success</beer-button-lit>
+            <beer-button-lit beerClass="btn btn-info">info</beer-button-lit>
+            <beer-button-lit beerClass="btn btn-warning">warning</beer-button-lit>
+            <beer-button-lit beerClass="btn btn-danger">danger</beer-button-lit>
+            <beer-button-lit beerClass="btn btn-light">light</beer-button-lit>
+            <beer-button-lit beerClass="btn btn-dark">dark</beer-button-lit>
+            <!-- Using a div to break the display:inline-block style from the header -->
+            <beer-button-lit id="exception" beerClass="btn btn-primary btn-lg btn-block">large block</beer-button-lit>
+    </div>
+    <div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">beerClass=</span><span class="s">"btn btn-default"</span><span class="nt">&gt;</span>default<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">beerClass=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>primary<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">beerClass=</span><span class="s">"btn btn-secondary"</span><span class="nt">&gt;</span>secondary<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">beerClass=</span><span class="s">"btn btn-success"</span><span class="nt">&gt;</span>success<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">beerClass=</span><span class="s">"btn btn-info"</span><span class="nt">&gt;</span>info<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">beerClass=</span><span class="s">"btn btn-warning"</span><span class="nt">&gt;</span>warning<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">beerClass=</span><span class="s">"btn btn-danger"</span><span class="nt">&gt;</span>danger<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">beerClass=</span><span class="s">"btn btn-light"</span><span class="nt">&gt;</span>light<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">beerClass=</span><span class="s">"btn btn-dark"</span><span class="nt">&gt;</span>dark<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">beerClass=</span><span class="s">"btn btn-primary btn-lg btn-block"</span><span class="nt">&gt;</span>block<span class="nt">&lt;/beer-button-lit&gt;</span>
+    </code></pre>
+    </div>
 
-    <h1 style="font-family:sans-serif" >Type attribute (Click to spawn notification)</h1>
-    <beer-button-lit                script="./spawnFunc.js" functionName="spawnNotif">Default</beer-button-lit>
-    <beer-button-lit type="primary" script="./spawnFunc.js" functionName="spawnNotif">Primary</beer-button-lit>
-    <beer-button-lit type="success" script="./spawnFunc.js" functionName="spawnNotif">Success</beer-button-lit>
-    <beer-button-lit type="info"    script="./spawnFunc.js" functionName="spawnNotif">Info</beer-button-lit>
-    <beer-button-lit type="warning" script="./spawnFunc.js" functionName="spawnNotif">Warning</beer-button-lit>
-    <beer-button-lit type="danger"  script="./spawnFunc.js" functionName="spawnNotif">Danger</beer-button-lit>
 
-    <h1 style="font-family:sans-serif">Loading attribute</h1>
-    <beer-button-lit loading></beer-button-lit>
-    <beer-button-lit type="primary" loading></beer-button-lit>
-    <beer-button-lit type="success" loading></beer-button-lit>
+    <h2 id="examples"><div>Type Attribute</div></h2>
+    <div class = "bd-example">
+            <beer-button-lit               >Default</beer-button-lit>
+            <beer-button-lit type="primary">Primary</beer-button-lit>
+            <beer-button-lit type="success">Success</beer-button-lit>
+            <beer-button-lit type="info"   >Info</beer-button-lit>
+            <beer-button-lit type="warning">Warning</beer-button-lit>
+            <beer-button-lit type="danger" >Danger</beer-button-lit>
+    </div>
+    <div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+            <span class="nt">&lt;beer-button-lit</span><span class="nt">&gt;</span>primary<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">type=</span><span class="s">"primary"</span><span class="nt">&gt;</span>primary<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">type=</span><span class="s">"success"</span><span class="nt">&gt;</span>success<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">type=</span><span class="s">"info"</span><span class="nt">&gt;</span>info<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">type=</span><span class="s">"warning"</span><span class="nt">&gt;</span>warning<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">type=</span><span class="s">"danger"</span><span class="nt">&gt;</span>danger<span class="nt">&lt;/beer-button-lit&gt;</span>
+    </code></pre>
+    </div>
 
-    <h1 style="font-family:sans-serif">Disabled attribute</h1>
-    <beer-button-lit disabled>CSE 110</beer-button-lit>
-    <beer-button-lit type="primary" disabled>CSE 112</beer-button-lit>
-    <beer-button-lit type="success" disabled>Disabled</beer-button-lit>
+    <h2 id="examples"><div>Linked with Notification</div></h2>
+    <div class = "bd-example">
+            <beer-button-lit                script="./spawnFunc.js" functionName="spawnNotifMail">Default</beer-button-lit>
+            <beer-button-lit type="primary" script="./spawnFunc.js" functionName="spawnNotifMessage">Primary</beer-button-lit>
+            <beer-button-lit type="success" script="./spawnFunc.js" functionName="spawnNotifSuccess">Success</beer-button-lit>
+            <beer-button-lit type="info"    script="./spawnFunc.js" functionName="spawnNotifInfo">Info</beer-button-lit>
+            <beer-button-lit type="warning" script="./spawnFunc.js" functionName="spawnNotifWarning">Warning</beer-button-lit>
+            <beer-button-lit type="danger"  script="./spawnFunc.js" functionName="spawnNotifDanger">Danger</beer-button-lit>
+    </div>
+    <div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">type=</span><span class="s">"primary"</span> <span class="na">script=</span><span class="s">"./userDefinedScript.js"</span> <span class="na">functionName=</span><span class="s">"spawnNotifMail"</span><span class="nt">&gt;</span>primary<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">type=</span><span class="s">"primary"</span> <span class="na">script=</span><span class="s">"./userDefinedScript.js"</span> <span class="na">functionName=</span><span class="s">"spawnNotifMessage"</span><span class="nt">&gt;</span>primary<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">type=</span><span class="s">"primary"</span> <span class="na">script=</span><span class="s">"./userDefinedScript.js"</span> <span class="na">functionName=</span><span class="s">"spawnNotifSuccess"</span><span class="nt">&gt;</span>primary<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">type=</span><span class="s">"primary"</span> <span class="na">script=</span><span class="s">"./userDefinedScript.js"</span> <span class="na">functionName=</span><span class="s">"spawnNotifInfo"</span><span class="nt">&gt;</span>primary<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">type=</span><span class="s">"primary"</span> <span class="na">script=</span><span class="s">"./userDefinedScript.js"</span> <span class="na">functionName=</span><span class="s">"spawnNotifWarning"</span><span class="nt">&gt;</span>primary<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">type=</span><span class="s">"primary"</span> <span class="na">script=</span><span class="s">"./userDefinedScript.js"</span> <span class="na">functionName=</span><span class="s">"spawnNotifDanger"</span><span class="nt">&gt;</span>primary<span class="nt">&lt;/beer-button-lit&gt;</span>
+    </code></pre>
+    </div>
 
-    <h1 style="font-family: sans-serif">Size attribute</h1>
-    <beer-button-lit>default size</beer-button-lit>
-    <beer-button-lit size="medium">medium</beer-button-lit>
-    <beer-button-lit size="small">small</beer-button-lit>
-    <beer-button-lit size="mini">mini</beer-button-lit>
+    <h2 id="examples"><div>Loading Attribute</div></h2>
+    <div class = "bd-example">
+            <beer-button-lit                loading>Default</beer-button-lit>
+            <beer-button-lit type="primary" loading>Primary</beer-button-lit>
+            <beer-button-lit type="success" loading>Success</beer-button-lit>
+            <beer-button-lit type="info"    loading>Info</beer-button-lit>
+            <beer-button-lit type="warning" loading>Warning</beer-button-lit>
+            <beer-button-lit type="danger"  loading>Danger</beer-button-lit>
+    </div>
+    <div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+            <span class="nt">&lt;beer-button-lit</span> <span class="s">loading</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/beer-button-lit&gt;</span>
+           
+    </code></pre>
+    </div>
 
-    <h1 style="font-family: sans-serif">Round attribute</h1>
-    <beer-button-lit round>Round</beer-button-lit>
-    <beer-button-lit type="primary" round>Round</beer-button-lit>
+    <h2 id="examples"><div>Disabled Attribute</div></h2>
+    <div class = "bd-example">
+            <beer-button-lit                disabled>Default</beer-button-lit>
+            <beer-button-lit type="primary" disabled>Primary</beer-button-lit>
+            <beer-button-lit type="success" disabled>Success</beer-button-lit>
+            <beer-button-lit type="info"    disabled>Info</beer-button-lit>
+            <beer-button-lit type="warning" disabled>Warning</beer-button-lit>
+            <beer-button-lit type="danger"  disabled>Danger</beer-button-lit>
+    </div>
+    <div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+            <span class="nt">&lt;beer-button-lit</span> <span class="s">disabled</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/beer-button-lit&gt;</span>
+    </code></pre>
+    </div>
 
-    <h1 style="font-family: sans-serif">Circle attribute</h1>
-    <beer-button-lit circle>C1</beer-button-lit>
-    <beer-button-lit type="primary" circle>C2</beer-button-lit>
+    <h2 id="examples"><div>Size Attribute</div></h2>
+    <div class = "bd-example">
+            <beer-button-lit>default size</beer-button-lit>
+            <beer-button-lit size="medium">medium</beer-button-lit>
+            <beer-button-lit size="small">small</beer-button-lit>
+            <beer-button-lit size="mini">mini</beer-button-lit>
+    </div>
+    <div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+            <span class="nt">&lt;beer-button-lit</span> <span class="nt">&gt;</span>default size<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">size=</span><span class="s">medium</span><span class="nt">&gt;</span>Medium<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">size=</span><span class="s">small</span><span class="nt">&gt;</span>Small<span class="nt">&lt;/beer-button-lit&gt;</span>
+            <span class="nt">&lt;beer-button-lit</span> <span class="na">size=</span><span class="s">mini</span><span class="nt">&gt;</span>mini<span class="nt">&lt;/beer-button-lit&gt;</span>
+    </code></pre>
+    </div>
 
-    <beer-button-lit circle loading>C1</beer-button-lit>
-    <beer-button-lit type="primary" circle loading>C2</beer-button-lit>
-  
-   
+    <h2 id="examples"><div>Round Attribute</div></h2>
+    <div class = "bd-example">
+            <beer-button-lit                round>Default</beer-button-lit>
+            <beer-button-lit type="primary" round>Primary</beer-button-lit>
+            <beer-button-lit type="success" round>Success</beer-button-lit>
+            <beer-button-lit type="info"    round>Info</beer-button-lit>
+            <beer-button-lit type="warning" round>Warning</beer-button-lit>
+            <beer-button-lit type="danger"  round>Danger</beer-button-lit>
+    </div>
+    <div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+            <span class="nt">&lt;beer-button-lit</span> <span class="s">round</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/beer-button-lit&gt;</span>
+    </code></pre>
+    </div>
+
+    <h2 id="examples"><div>Round Attribute</div></h2>
+    <div class = "bd-example">
+            <beer-button-lit                circle>Hi</beer-button-lit>
+            <beer-button-lit type="primary" circle>Hi</beer-button-lit>
+            <beer-button-lit type="success" circle>Hi</beer-button-lit>
+            <beer-button-lit type="info"    circle>Hi</beer-button-lit>
+            <beer-button-lit type="warning" circle>Hi</beer-button-lit>
+            <beer-button-lit type="danger"  circle>Hi</beer-button-lit>
+    </div>
+    <div class="bd-clipboard"><button class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div><div class="highlight"><pre><code class="language-html" data-lang="html">
+            <span class="nt">&lt;beer-button-lit</span> <span class="s">circle</span><span class="nt">&gt;</span>Hi<span class="nt">&lt;/beer-button-lit&gt;</span>
+    </code></pre>
+    </div> 
 </body>
 
 </html>
