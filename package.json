@@ -24,13 +24,14 @@
     "hoek": "^6.1.3",
     "npx": "^10.2.0",
     "ssri": "^6.0.1",
-    "testcafe": "^1.1.3"
+    "testcafe": "^1.1.3",
+    "testcafe-browser-provider-saucelabs": "^1.7.0"
   },
   "scripts": {
     "lint": "eslint src/**/*.js",
     "test": "testcafe chrome,firefox tests",
-    "local-test": "testcafe chrome test/raw-beer-cafeTest.js --skip-js-errors",
-    "raw-test": "testcafe chrome,firefox test/raw-beer-cafeTest.js --skip-js-errors",
+    "local-test": "testcafe \"saucelabs:Chrome@75.0:macOS 10.14\",\"saucelabs:Firefox@67.0:macOS 10.14\" test/raw-beer-cafeTest.js --skip-js-errors",
+    "raw-test": "testcafe \"saucelabs:Chrome@75.0:macOS 10.14\",\"saucelabs:Firefox@67.0:macOS 10.14\" test/raw-beer-cafeTest.js --skip-js-errors",
     "port-test": "testcafe chrome,firefox test/port-beer-cafeTest.js --skip-js-errors",
     "gulp-terser": "^1.2.0",
     "docs:build": "documentation build --shallow ./src/** -f html -o docs"
