@@ -189,8 +189,8 @@ test("Brand should have logo image", async t=> {
     
     await t
         .expect(brandImage.hasAttribute("brandimage")).eql(true)
-        .expect(brandImage.getAttribute("brandimage")).eql("/src/raw-beer/Raw-Brand/beer_team_logo.png")
-        .expect(getBrandImage()).contains("/src/raw-beer/Raw-Brand/beer_team_logo.png");
+        .expect(brandImage.getAttribute("brandimage")).contains("beer_team_logo.png")
+        .expect(getBrandImage()).contains("beer_team_logo.png");
 });
 
 
@@ -205,8 +205,8 @@ test("Brand should default to imagealt if brandimage doesn't load", async t=> {
     
     await t
         .expect(altBrandImage.hasAttribute("imagealt")).eql(true)
-        .expect(altBrandImage.getAttribute("imagealt")).eql("/src/raw-beer/Raw-Brand/beer_team_logo.png")
-        .expect(getAltBrandImage()).contains("/src/raw-beer/Raw-Brand/beer_team_logo.png");
+        .expect(altBrandImage.getAttribute("imagealt")).contains("beer_team_logo.png")
+        .expect(getAltBrandImage()).contains("beer_team_logo.png");
 });
 
 
@@ -253,7 +253,7 @@ test("Brand link should redirect to the correct location", async t=> {
     await t
         .expect(brandLink.hasAttribute("brandhref")).eql(true)
         .click(brandLink)
-        .expect(getPageURL()).contains("https://www.google.com");
+        .expect(getPageURL()).contains("/test.html");
 });
 
 
