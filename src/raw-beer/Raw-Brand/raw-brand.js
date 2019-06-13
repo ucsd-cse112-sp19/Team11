@@ -79,7 +79,7 @@ class BeerBrand extends HTMLElement {
         xhr.open("HEAD", urlToFile, false);
         xhr.send();
          
-        return xhr.status != "404"            
+        return xhr.status != "404";            
     }
 
     /**
@@ -202,7 +202,7 @@ class BeerBrand extends HTMLElement {
     /**
      * @description Function that sets up access to bootstrap styles
      * @example 
-     * <beer-button bootstrap beerClass="btn btn-warning">Bootstrap Button</beer-button>
+     * <beer-brand bootstrap>Bootstrap Button</beer-brand>
      */
     setBootStrap(){
         var bootstrapcss = document.createElement("link");

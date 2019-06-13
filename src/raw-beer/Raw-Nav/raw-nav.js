@@ -144,8 +144,6 @@ class BeerNav extends HTMLElement {
     }
 
 
-  
-    
     /**
      * TODO: test and check this to make sure it works with lit-button
      * @description This function takes all the beer-buttons that the user 
@@ -278,7 +276,11 @@ class BeerNav extends HTMLElement {
             this.setBootStrap();
         }
     }
-
+    /**
+     * @description Function that sets up access to bootstrap styles
+     * @example 
+     * <beer-navbar bootstrap>Bootstrap Button</beer-navbar>
+     */
     setBootStrap(){
         var bootstrapcss = document.createElement("link");
         this._shadowRoot.appendChild(bootstrapcss);
