@@ -23,15 +23,22 @@ npm install [INSERT NAME OF TEAM 11 PACKAGE]
 
 ### Prerequisites
 
-<!-- 
-testcafe
-ESLint
-Documentation.js
- -->
+If you want to install Testcafe globally,
 ```
-Give examples
+npm install -g testcafe
 ```
-
+If locally,
+```
+npm install --save-dev testcafe
+```
+To install ESLint
+```
+npm install eslint
+```
+To install Documentation.js
+```
+npm install documentation
+```
 ### Installing
 
 In order to install all dependencies of Team B.E.E.R Library
@@ -78,7 +85,6 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning.
-<!-- For the versions available, see the [tags on this repository](). -->
 
 ## Team Members
 
@@ -103,6 +109,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-<!-- TODO - Decide what we want to put here. Looks like other teams are putting SauceLabs or BrowserStack if they got some free stuff but otherwise, I don't see anything -->
 We would like to thank Professor Powell of CSE 112 for the guidance he gave us and all the TAs who assisted us in reaching this far. We would also
 like to thank Peter for giving us a glimpse of what we will see in the future as Software Engineer.
