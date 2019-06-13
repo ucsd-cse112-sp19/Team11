@@ -199,7 +199,11 @@ class BeerBrand extends HTMLElement {
 
    
     }
-
+    /**
+     * @description Function that sets up access to bootstrap
+     * @example 
+     * <beer-button bootstrap beerClass="btn btn-warning">Bootstrap Button</beer-button>
+     */
     setBootStrap(){
         var bootstrapcss = document.createElement("link");
         this._shadowRoot.appendChild(bootstrapcss);
