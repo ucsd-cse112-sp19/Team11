@@ -18,7 +18,7 @@ Our goal for this project is to create an extensible library of vanilla and lit-
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ```
-npm install [INSERT NAME OF TEAM 11 PACKAGE]
+npm install beer-library
 ```
 
 ### Prerequisites
