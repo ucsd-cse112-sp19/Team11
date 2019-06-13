@@ -1,0 +1,124 @@
+<html>
+
+<head>
+    <script type="module" src="beer-notification-lit.js"></script>
+    <script src="/Team11/src/raw-beer/Raw-Button/raw-button.js" defer type="module"></script>
+    <script src="/Team11/src/raw-beer/Raw-Nav/raw-nav.js" defer type="module"></script>
+    <script src="/Team11/src/raw-beer/Raw-Brand/raw-brand.js" defer type="module"></script>
+    <title>Port Notification</title>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        beer-button-lit {
+            display: inline-block;
+        }
+    </style>
+
+    <!-- Documentation extras -->
+    <link href=".//Team11/src/raw-beer/Raw-Button/raw_beer_files/docs.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row flex-xl-nowrap">
+            <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+                <h1 class="bd-title" id="content">Beer-Notification-Lit</h1>
+
+                <!-- Nav Bar -->
+                <beer-brand navBarBrandID="brand" id="home" beerClass="navbar-brand"
+                    brandHref="../../../website/index.html" brandImage="/Team11/src/raw-beer/Raw-Brand/beer_team_logo.png"
+                    brandHeight="30" brandwidth="30" imageClass="d-inline-block align-top" imageAlt=" "
+                    newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> Team
+                </beer-brand>
+                <beer-button link="/Team11/src/raw-beer/Raw-Button/raw-beer-button.html" navBarID="navbar" id="raw-btn"
+                    beerClass="btn btn-warning"
+                    newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">Raw Buttons
+                </beer-button>
+                <beer-button link="/Team11/src/raw-beer/Raw-Nav/raw-beer-nav.html" navBarID="navbar" id="raw-nav"
+                    beerClass="btn btn-warning"
+                    newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">Raw Navigation
+                    Bar</beer-button>
+                <beer-button link="/Team11/src/raw-beer/Raw-Brand/raw-beer-brand.html" navBarID="navbar" id="raw-brd"
+                    beerClass="btn btn-warning"
+                    newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">Raw Brand
+                </beer-button>
+                <beer-button link="/Team11/src/port-beer/Port-Button/beer-button-lit.html" navBarID="navbar" id="lit-btn"
+                    beerClass="btn btn-warning"
+                    newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">Lit Buttons
+                </beer-button>
+                <beer-button link="./beer-notification-lit.html" navBarID="navbar" id="lit-ntf"
+                    beerClass="btn btn-warning"
+                    newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">Lit
+                    Notifications</beer-button>
+                <beer-navbar navBarBrandID="brand" navBarId="navbar" beerClass="navbar navbar-light bg-light"
+                    newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></beer-navbar>
+
+                <!-- Page Contents-->
+                <h1>Notification</h1>
+                <p>This is random text to make sure that the notification boxes are in front of the text</p>
+
+                <beer-notification-lit title="Default">
+                    Hello Peter! I close in 4.5 seconds
+                </beer-notification-lit>
+
+                <beer-notification-lit title="hideClose" duration="7000" hideClose>
+                    You cannot manually close me!
+                </beer-notification-lit>
+
+                <beer-notification-lit type="success" title="Success" duration="0">
+                    This is supposed to be a longer message so that the height expands a bit more.
+                </beer-notification-lit>
+
+                <beer-notification-lit type="danger" title="Danger" duration="0">
+                    Making this message a lot longer than the others to see if notifications are positioned
+                    well relative to eachother even if they are all different sizes. If you
+                    were to close this notification, the notifications below me will shift up!
+                    How great is that?
+                </beer-notification-lit>
+
+                <beer-notification-lit type="warning" title="Warning" duration="0">
+                    Hello Peter!
+                    This is a notification from team BEER reminding you to have a great day! :)
+                </beer-notification-lit>
+
+                <beer-notification-lit type="info" title="Info" duration="0">
+                    Information hub
+                </beer-notification-lit>
+
+                <beer-notification-lit type="message" title="Message" duration="0">
+                    ...haha
+                </beer-notification-lit>
+
+                <beer-notification-lit type="mail" title="New Mail" duration="0">
+                    You've got mail!
+                </beer-notification-lit>
+
+                <!-- TESTING A DIFFERENT POSITION -->
+                <!-- <beer-notification-lit title="Default" position="bottom-left" hideClose>
+        Hello Peter! I close in 4.5 seconds
+    </beer-notification-lit>
+
+    <beer-notification-lit type="success" title="Success" duration="7000" position="bottom-left">
+        This is supposed to be a longer message so that the height expands a bit more.
+    </beer-notification-lit>
+    
+    <beer-notification-lit type="danger" title="Danger" duration="0" position="bottom-left">
+        Making this message a lot longer than the others to see if notifications are positioned
+        well relative to eachother even if they are all different sizes. If you
+        were to close this notification, the notifications below me will shift up!
+        How great is that?
+    </beer-notification-lit>
+
+    <beer-notification-lit type="message" title="Message" duration="0" position="bottom-left">
+        ...haha
+    </beer-notification-lit>
+
+    <beer-notification-lit type="mail" title="New Mail" duration="0" position="bottom-left">
+        You've got mail!
+    </beer-notification-lit> -->
+</body>
+
+</html>
