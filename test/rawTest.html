@@ -1,11 +1,25 @@
 <html lang="en">
 <head>
     <script  src="/src/raw-beer/Raw-Button/raw-button.js" type="module"></script>
+    <script src="/src/raw-beer/Raw-Brand/raw-brand.js" defer type="module"></script>
     <title>Test Raw Beer Button</title>
+    <style>
+        .final-sprint {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;          
+        }
+    </style>
 </head>
 <body>
     <h1>TestCafe Runner, Click the button to perform the action</h1>
-
+    <!-- first & second sprint-->
+<div>
     <!-- increment decrement -->
     <beer-button increment="number" id="increment-beer">Increment Me</beer-button>
     <beer-button decrement="decnumber" id="decrement-beer" >Decrement Me</beer-button>
@@ -35,6 +49,35 @@
 
     <!-- custon function button -->
     <beer-button script="./testFunction.js" functionName="testFunction" id="custom-func-beer">custom function button</beer-button>
+</div>
+
+    <!-- final sprint -->
+<div>
+    <beer-button beerClass="final-sprint" id="has-class">I am "has-class"</beer-button>
+    <beer-button id="has-bootstrap" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">I am "has-bootstrap"</beer-button>
+    <br>
+
+    <!-- beer-brand -->
+    <beer-brand id="beer-brand-std">I am "has-beer-brand"</beer-brand><br>
+    <beer-brand id="beer-brand-image" brandImage="/src/raw-beer/Raw-Brand/beer_team_logo.png"></beer-brand><br>
+    <beer-brand id="beer-brand-alt-img" brandImage="raw-beer/Raw-Brand/beer_team_logo.png" imageAlt="/src/raw-beer/Raw-Brand/beer_team_logo.png"></beer-brand><br>
+    <beer-brand id="beer-brand-alt-width" brandHeight="400"></beer-brand><br>
+    <beer-brand id="beer-brand-href" brandHref="https://www.google.com"></beer-brand><br>    
+    <beer-brand newStyle="./hotpink.css"></beer-brand><br>
+
+    <!-- beer-navbar -->    
+    <beer-button navBarID></beer-button>
+    <beer-navbar         
+        navBarID  
+        beerClass="navbar navbar-light bg-dark"
+        newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    </beer-navbar>
+
+</div>
+
+
+</body>
+</html>
 
 </body>
 </html>
