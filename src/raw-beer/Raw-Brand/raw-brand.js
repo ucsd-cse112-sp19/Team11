@@ -200,7 +200,7 @@ class BeerBrand extends HTMLElement {
    
     }
     /**
-     * @description Function that sets up access to bootstrap
+     * @description Function that sets up access to bootstrap styles
      * @example 
      * <beer-button bootstrap beerClass="btn btn-warning">Bootstrap Button</beer-button>
      */
