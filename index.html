@@ -1,82 +1,100 @@
 <!DOCTYPE html>
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>CSE 112 Team 11</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="./style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSE 112 Team 11</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./style.css">
   <link rel="icon" href="./img/favicon.png">
 </head>
+
 <body data-spy="scroll" data-target="#menu">
 
   <!-- Start Home Section -->
   <div id="home">
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-dark navbar-expand-md fixed-top">
-    <div class="container-fluid"> <!-- to take up 100% of browser width-->
-      <a class="navbar-brand" href="#"><img src="img/beer-logo.png"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="menu">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="#members">Members</a></li>
-        </ul>
-      </div>    
-    </div>
-  </nav>
-
-  <!-- Start Landing Page -->
-  <div class="landing">
-    <div class="home-wrap">
-      <div class="home-inner">
-        
-      </div>
-    </div>
-  </div>
-  <!-- Start Landing Page Caption -->
-  <div class="landing-title center-block text-center">
-    <h3>Team B.E.E.R.</h3>
-    <h6>(Bad Engineers Enjoy Rum)</h6>
-    <a class="btn btn-outline-light" href="#about">Get to know us!</a>
-  </div>
-
-  <!--- Start About Section --->
-  <div id="about">
-    <div class="jumbotron">
-      <h3 class="heading">About</h3>
-
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <h4>Our Core Values</h4>
-          <p>We seek to employ TACOS with every deliverable.</p>
-        </div>
-        <div class="col-md-12">
-          <h4><b class="bold">T</b>ransparent</h4>
-          <h4><b class="bold">A</b>ll In</h4>
-          <h4><b class="bold">C</b>ustomer <b>O</b>riented</h4>
-          <h4><b class="bold">S</b>crapy</h4>
+    <!-- Navigation -->
+    <nav class="navbar navbar-dark navbar-expand-md fixed-top">
+      <div class="container-fluid">
+        <!-- to take up 100% of browser width-->
+        <a class="navbar-brand" href="#"><img src="img/beer-logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#members">Members</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://github.com/ucsd-cse112/Team11">Github</a></li>
+          </ul>
         </div>
       </div>
+    </nav>
 
-    </div> <!-- End Jumbotron -->
+    <!-- Start Landing Page -->
+    <div class="landing">
+      <div class="home-wrap">
+        <div class="home-inner">
 
-  </div> <!-- End About section -->
+        </div>
+      </div>
+    </div>
+    <!-- Start Landing Page Caption -->
+    <div class="landing-title center-block text-center">
+      <h3>Team B.E.E.R.</h3>
+      <h6>(Bad Engineers Enjoy Rum)</h6>
+      <a class="btn btn-outline-light" href="#about">Get to know us!</a>
+    </div>
 
-  <!-- Start gallery section -->
-  <div id="gallery">
-    <div class="container-fluid padding">
-      <h3 class="heading">gallery</h3>
+    <!--- Start About Section --->
+    <div id="about">
+      <div class="jumbotron">
+        <h3 class="heading">About</h3>
+
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4 text-center">
+            <h5>For the past two months, we have been building an open source library of web components, aka lego pieces
+              of the web.
+              From day one to now, we have been refining our pipeline to ensure that our products and codebase are in
+              top shape through
+              continuous integration, unit, and browser testing.
+            </h5>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h4 class="heading" style="margin:2rem;">Our Core Values</h4>
+          </div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4 text-center">
+            <h4>All Hands On</h4>
+            <h4>Communication</h4>
+            <h4>No such thing as a dumb question</h4>
+            <h4>Helping eachother out</h4>
+            <h4>Responsibility over Blame</h4>
+
+          </div>
+        </div>
+
+      </div> <!-- End Jumbotron -->
+
+    </div> <!-- End About section -->
+
+    <!-- Start gallery section -->
+    <div id="gallery">
+      <div class="container-fluid padding">
+        <h3 class="heading">gallery</h3>
         <div class="row no-padding">
           <div class="col-md-6 img-hover-zoom">
             <img class="gallery" src="img/GroupPhoto-Smaller.jpg">
           </div>
           <div class="col-md-6 img-hover-zoom">
-            <img class="gallery" src="img/taco.jpg">
+            <img class="gallery" src="img/tools.jpg">
           </div>
           <div class="col-md-6 img-hover-zoom">
             <img class="gallery" src="img/beer.jpg">
@@ -85,155 +103,156 @@
             <img class="gallery" src="img/javascript.jpg">
           </div>
         </div>
-        
-    </div>
 
-  </div> <!-- End gallery section -->
-
-  <!-- Start member profile section -->
-  <div id="members">
-    <h3 class="heading">Team Members</h3>
-
-    <!-- Row 1 -->
-    <div class="row padding">
-      <div class="col-md-4">
-        <div class="card text-center bg-light text-dark">
-          <img class="card-img-top" src="img/RicardoPic.jpg">
-          <div>
-            <h4>Ricardo Molina</h4>
-            <p>Team Lead</p>
-          </div>
-        </div>
       </div>
 
-      <div class="col-md-4">
-        <div class="card text-center bg-light text-dark">
-          <img class="card-img-top" src="img/RichardPic.jpeg">
-          <div>
-            <h4>Richard Pena</h4>
-            <p>Co-Team Lead</p>
+    </div> <!-- End gallery section -->
+
+    <!-- Start member profile section -->
+    <div id="members">
+      <h3 class="heading">Team Members</h3>
+
+      <!-- Row 1 -->
+      <div class="row padding">
+        <div class="col-md-4">
+          <div class="card text-center bg-light text-dark">
+            <img class="card-img-top" src="img/RicardoPic.jpg">
+            <div>
+              <h4>Ricardo Molina</h4>
+              <p>Team Lead</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="card text-center bg-light text-dark">
-          <img class="card-img-top" src="img/EstherPic.jpg">
-          <div>
-            <h4>Esther Zhao</h4>
-            <p>Coder / Quality Assurance</p>
+        <div class="col-md-4">
+          <div class="card text-center bg-light text-dark">
+            <img class="card-img-top" src="img/RichardPic.jpeg">
+            <div>
+              <h4>Richard Pena</h4>
+              <p>Co-Team Lead</p>
+            </div>
           </div>
         </div>
-      </div>
 
-
-    </div> <!-- End row 1 -->
-
-    <!-- Row 2 -->
-    <div class="row padding">
-      <div class="col-md-4">
-        <div class="card text-center bg-light text-dark">
-          <img class="card-img-top" src="img/GordonPic.jpg">
-          <div>
-            <h4>Gordon Hu</h4>
-            <p>Coder / Developer Operations</p>
+        <div class="col-md-4">
+          <div class="card text-center bg-light text-dark">
+            <img class="card-img-top" src="img/EstherPic.jpg">
+            <div>
+              <h4>Esther Zhao</h4>
+              <p>Coder / Quality Assurance</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="card text-center bg-light text-dark">
-          <img class="card-img-top" src="img/EricPic.jpg">
-          <div>
-            <h4>Eric Khoi Huynh</h4>
-            <p>Developer Operations / Quality Assurance</p>
+
+      </div> <!-- End row 1 -->
+
+      <!-- Row 2 -->
+      <div class="row padding">
+        <div class="col-md-4">
+          <div class="card text-center bg-light text-dark">
+            <img class="card-img-top" src="img/GordonPic.jpg">
+            <div>
+              <h4>Gordon Hu</h4>
+              <p>Coder / Developer Operations</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="card text-center bg-light text-dark">
-          <img class="card-img-top" src="img/AustinPic.jpg">
-          <div>
-            <h4>Austin Moss-Ennis</h4>
-            <p>Quality Assurance</p>
+        <div class="col-md-4">
+          <div class="card text-center bg-light text-dark">
+            <img class="card-img-top" src="img/EricPic.jpg">
+            <div>
+              <h4>Eric Khoi Huynh</h4>
+              <p>Developer Operations / Quality Assurance</p>
+            </div>
           </div>
         </div>
-      </div>
 
-    </div> <!-- End row 2 -->
-
-    <!-- Row 3 -->
-    <div class="row padding">
-      <div class="col-md-4">
-        <div class="card text-center bg-light text-dark">
-          <img class="card-img-top" src="img/TenshiPic.jpg">
-          <div>
-            <h4>Tenshi Mori</h4>
-            <p>Coder / Tools And Utility</p>
+        <div class="col-md-4">
+          <div class="card text-center bg-light text-dark">
+            <img class="card-img-top" src="img/AustinPic.jpg">
+            <div>
+              <h4>Austin Moss-Ennis</h4>
+              <p>Quality Assurance</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="card text-center bg-light text-dark">
-          <img class="card-img-top" src="img/KylePic.jpg">
-          <div>
-            <h4>Kyle Burt</h4>
-            <p>Coder / Tools And Utility</p>
+      </div> <!-- End row 2 -->
+
+      <!-- Row 3 -->
+      <div class="row padding">
+        <div class="col-md-4">
+          <div class="card text-center bg-light text-dark">
+            <img class="card-img-top" src="img/TenshiPic.jpg">
+            <div>
+              <h4>Tenshi Mori</h4>
+              <p>Coder / Tools And Utility</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="card text-center bg-light text-dark">
-          <img class="card-img-top" src="img/ZepengPic.jpg">
-          <div>
-            <h4>Zepeng Wang</h4>
-            <p>Quality Assurance</p>
+        <div class="col-md-4">
+          <div class="card text-center bg-light text-dark">
+            <img class="card-img-top" src="img/KylePic.jpg">
+            <div>
+              <h4>Kyle Burt</h4>
+              <p>Coder / Tools And Utility</p>
+            </div>
           </div>
         </div>
-      </div>
 
-    </div> <!-- End row 3 -->
+        <div class="col-md-4">
+          <div class="card text-center bg-light text-dark">
+            <img class="card-img-top" src="img/ZepengPic.jpg">
+            <div>
+              <h4>Zepeng Wang</h4>
+              <p>Quality Assurance</p>
+            </div>
+          </div>
+        </div>
 
-    <!-- Row 4 -->
-    <div class="row padding">
-      <div class="col-md-4">
-        <div class="card text-center bg-light text-dark">
-          <img class="card-img-top" src="img/SimonPic.jpeg">
+      </div> <!-- End row 3 -->
+
+      <!-- Row 4 -->
+      <div class="row padding">
+        <div class="col-md-4">
+          <div class="card text-center bg-light text-dark">
+            <img class="card-img-top" src="img/SimonPic.jpeg">
             <h4>Simon Giraud</h4>
             <p>Coder</p>
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="card text-center bg-light text-dark">
-          <img class="card-img-top" src="img/PhillipPic.JPG">
+        <div class="col-md-4">
+          <div class="card text-center bg-light text-dark">
+            <img class="card-img-top" src="img/PhillipPic.JPG">
             <h4>Phillip Jo</h4>
             <p>Coder</p>
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-4">
-        <div class="card text-center bg-light text-dark">
-          <img class="card-img-top" src="img/AlexPic.jpg">
+        <div class="col-md-4">
+          <div class="card text-center bg-light text-dark">
+            <img class="card-img-top" src="img/AlexPic.jpg">
             <h4>Donghak Alex Oh</h4>
             <p>Coder</p>
+          </div>
         </div>
-      </div>
 
-    </div> <!-- End row 4 -->
+      </div> <!-- End row 4 -->
 
-  </div> <!-- End Members section -->
+    </div> <!-- End Members section -->
 
   </div> <!-- End Home Section-->
 
 
 
 
-<!--- Script Source Files -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <!--- Script Source Files -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </body>
+
 </html>
