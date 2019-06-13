@@ -1,6 +1,6 @@
 "use strict";
 
-import {AttributeSelector, setStyle} from "../Raw-Functions/AtrributeFunctions.js";
+import {AttributeSelector, setStyle} from "../Raw-Functions/AttributeFunctions.js";
 
 const template = document.createElement("template");
 template.innerHTML = `
