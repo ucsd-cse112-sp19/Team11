@@ -1,7 +1,5 @@
 "use strict";
 
-import {AttributeSelector, setStyle} from "../Raw-Functions/AttributeFunctions.js";
-
 const template = document.createElement("template");
 template.innerHTML = `
 
@@ -28,7 +26,6 @@ class BeerButton extends HTMLElement {
         // So in order to use bind(this) which means I have access to all the variables here I need to 
         // implement like so
         
-        this.AttributeSelector = AttributeSelector.bind(this);
         this.AttributeSelector();
         
     }
@@ -134,7 +131,8 @@ class BeerButton extends HTMLElement {
 
     
     /**
-     * @description Function that allows the user to change the background color of the button
+     * @description Function that allows the user to change the background color of the button 
+     * in the above template
      * @returns void
      * @example
      * 
@@ -152,12 +150,13 @@ class BeerButton extends HTMLElement {
    
    
     /**
-     * @description Function that sets the background of the component to be an img
+     * @description Function that sets the background of the <button> in the above template
+     * to be an image
      * @param {string} img The string of the img file to be imported
      * @returns void
      * @example
      * 
-     * <beer-button image="test.jpg">Image Button</beer-button>
+     * <button style="styleName"></button>
      * 
      */
     setImgAsBackground(){
@@ -179,53 +178,229 @@ class BeerButton extends HTMLElement {
      */    
     libStyle(styleName){
         if(styleName == "block"){
-            setStyle("../Raw-Button/ButtonStyles/block.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/block.css", this._shadowRoot);
         }
         if(styleName == "border"){
-            setStyle("../Raw-Button/ButtonStyles/border.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/border.css", this._shadowRoot);
         }
         if(styleName == "danger"){
-            setStyle("../Raw-Button/ButtonStyles/danger.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/danger.css", this._shadowRoot);
         }
         if(styleName == "disable"){
-            setStyle("../Raw-Button/ButtonStyles/disable.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/disable.css", this._shadowRoot);
         }
         if(styleName == "hoverButton"){
-            setStyle("../Raw-Button/ButtonStyles/hoverButton.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/hoverButton.css", this._shadowRoot);
         }
         if(styleName == "info"){
-            setStyle("../Raw-Button/ButtonStyles/info.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/info.css", this._shadowRoot);
         }
         if(styleName == "link"){
-            setStyle("../Raw-Button/ButtonStyles/link.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/link.css", this._shadowRoot);
         }
         if(styleName == "medium"){
-            setStyle("../Raw-Button/ButtonStyles/medium.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/medium.css", this._shadowRoot);
         }
         if(styleName == "primary"){
-            setStyle("../Raw-Button/ButtonStyles/primary.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/primary.css", this._shadowRoot);
         }
         if(styleName == "round"){
-            setStyle("../Raw-Button/ButtonStyles/round.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/round.css", this._shadowRoot);
         }
         if(styleName == "small"){
-            setStyle("../Raw-Button/ButtonStyles/small.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/small.css", this._shadowRoot);
         }
         if(styleName == "success"){
-            setStyle("../Raw-Button/ButtonStyles/success.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/success.css", this._shadowRoot);
         }
         if(styleName == "warning"){
-            setStyle("../Raw-Button/ButtonStyles/warning.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/warning.css", this._shadowRoot);
         }
         if(styleName == "xsmall"){
-            setStyle("../Raw-Button/ButtonStyles/xsmall.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/xsmall.css", this._shadowRoot);
         }
         if(styleName == "large"){
-            setStyle("../Raw-Button/ButtonStyles/large.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/large.css", this._shadowRoot);
         }
         if(styleName == "brand"){
-            setStyle("../Raw-Button/ButtonStyles/brand.css", this._shadowRoot);
+            this.setStyle("../Raw-Button/ButtonStyles/brand.css", this._shadowRoot);
         }
+    }
+
+
+    /**
+    * @description Function that helps with reading the attributes from the WebComponent 
+    */
+    AttributeSelector(){
+        // checks if the id attribute has been supplied by the user if it has then the button inside the 
+        // template then the id for the button is changed if beerid has also been supplied
+        if(this.hasAttribute("id")){
+            if(this.hasAttribute("beerId")){
+                this.setButtonName(this.getAttribute("id"), this.$beerButton);
+                this.$beerButton.setAttribute("id", this.getAttribute("beerId"));
+            }
+            this.setButtonName(this.getAttribute("id"), this.$beerButton);
+            this.$beerButton.setAttribute("id", this.getAttribute("id"));         
+        }
+        
+        // checks if the user has supplied the beerclass attribute if they have then the button
+        // in the template gets a class attribute added to it with the value that the user 
+        // supplied to beerclass
+        if(this.hasAttribute("beerclass")){
+            if(this.getAttribute("beerclass").length > 0){
+                this.$beerButton.setAttribute("class", this.getAttribute("beerclass"));
+            }
+            else{
+                console.log("The class field is set to empty");
+            }
+        }
+
+        // checks if the user has supplied a beertype if the user has then a type attribute is 
+        // added to the button and the value for the attribute is set equal to what the user 
+        // supplied to beertype
+        if(this.hasAttribute("beertype")){
+            if(this.getAttribute("beertype").length > 0){
+                this.$beerButton.setAttribute("type", this.getAttribute("beertype"));
+            }
+        }
+        
+        // checks to see if the color attribute has been supplied if it has then the background 
+        // collor of the button will change to reflect what the user has entered
+        if(this.hasAttribute("color")){
+            this.changeColorOfBackground();
+        }
+
+        // checks to see if the user has supplied an image attribute if they have then the background of the button
+        // is set to display this image
+        if(this.hasAttribute("image")){
+            this.setImgAsBackground();
+        }
+    
+        
+        
+        // statement to control the flow of style so that newStyle has priority over
+        // libstyle
+        if(this.hasAttribute("newStyle") || this.hasAttribute("libStyle")){
+            // checks for a style and if it exists imports a .css style sheet
+            if(this.hasAttribute("newStyle")){
+                this.setStyle(this.getAttribute("newStyle"), this._shadowRoot);
+            }
+
+            else if(this.hasAttribute("libStyle")){
+                this.libStyle(this.getAttribute("libStyle"));
+            }
+        }
+
+
+        // if statement that only runs if the disable attribute is not present 
+        if(!this.hasAttribute("disable")){
+            if(this.hasAttribute("link")){
+                this.$beerButton.addEventListener("click", this.linkFunction.bind(this));
+            }
+            else if(this.hasAttribute("increment")){
+                // checks a value as true to be used when the incremenetDecrement Function is called
+                // Then adds a listioner for a click which calls the function
+                this.inc = true;
+                this.$beerButton.addEventListener("click", this.incrementDecrementFunction.bind(this));
+            }
+            else if(this.hasAttribute("decrement")){
+                // checks a value as true to be used when the incremenetDecrement Function is called
+                // Then adds a listioner for a click which calls the function
+                this.inc = false;
+                this.$beerButton.addEventListener("click", this.incrementDecrementFunction.bind(this));
+            }
+            else if(this.hasAttribute("script") && this.hasAttribute("functionName")){
+                this.$beerButton.addEventListener("click", this.customFunction.bind(this));
+            }
+        }
+        else{
+            this.setStyle("./ButtonStyles/disable.css", this._shadowRoot);
+        }
+
+        if(this.hasAttribute("bootstrap")){
+            this.setBootStrap();
+        }
+
+    } 
+
+    /**
+     * @description Function that allows the user to apply the bootstrap styles to the component
+     * by appending the scripts and link to the template above as 
+     * @example
+     * <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     * <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+     * <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+     * <a>
+     * <img>
+     * </a>
+     */
+    setBootStrap(){
+        // creating a <link> on the template above and then attaching it to it
+        var bootstrapcss = document.createElement("link");
+        this._shadowRoot.appendChild(bootstrapcss);
+
+        // setting all the attributes for the above link so that the stylesheet from bootstrap is pulled in
+        bootstrapcss.setAttribute("rel", "stylesheet");
+        bootstrapcss.setAttribute("href", "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
+        bootstrapcss.setAttribute("integrity", "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T");
+        bootstrapcss.setAttribute("crossorigin", "anonymous"); 
+        bootstrapcss.setAttribute("type", "text/css");
+
+        
+        var bootstrapquery = document.createElement("script");
+        this._shadowRoot.appendChild(bootstrapquery);
+
+        // pretty much the same as above except here a script is having its attributes set 
+        bootstrapquery.setAttribute("src", "https://code.jquery.com/jquery-3.3.1.slim.min.js");
+        bootstrapquery.setAttribute("integrity", "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo");
+        bootstrapquery.setAttribute("crossorigin", "anonymous"); 
+        
+
+        var bootstrappopper = document.createElement("script");
+        this._shadowRoot.appendChild(bootstrappopper);
+        bootstrappopper.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js");
+        bootstrappopper.setAttribute("integrity", "sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1");
+        bootstrappopper.setAttribute("crossorigin", "anonymous"); 
+
+        var bootstrapjs = document.createElement("script");
+        this._shadowRoot.appendChild(bootstrapjs);
+        bootstrapjs.setAttribute("src", "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js");
+        bootstrapjs.setAttribute("integrity", "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM");
+        bootstrapjs.setAttribute("crossorigin", "anonymous");  
+    }
+
+    /**
+     * @description Function that allows the user to set the buttons name be using the
+     * inner html from <beer-button>
+     * @param {string} buttonId the Id for a specific button
+     * @example
+     * <button>"name"</button>
+     */
+    setButtonName(buttonId, beerButton){
+        var $id = document.getElementById(buttonId);
+        if($id.innerHTML.length > 0){
+            beerButton.innerHTML= $id.innerHTML;
+        }
+        else{
+            console.log( "no Name provided");
+        }
+    }
+
+    /**
+    * @description Function that allows for a custom style sheet to be applied to the
+    * button in the above template  by adding a <link> element 
+    * @param {string} newStyle string that is the .css file to be imported
+    * @example
+    * <link rel="stylesheet" href="newStyle" type="text/css">
+    * <button>Im a Button</button>
+    * 
+     */
+    setStyle(newStyle, shadowRoot){
+        var Style = document.createElement("link");
+        shadowRoot.appendChild(Style);
+        Style.setAttribute("rel", "stylesheet");
+        Style.setAttribute("href", newStyle);
+        Style.setAttribute("type", "text/css");
     }
     
 }

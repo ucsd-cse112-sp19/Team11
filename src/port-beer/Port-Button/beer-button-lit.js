@@ -11,23 +11,34 @@ const types = [
 ];
 
 /**
- * Beer web component that was ported from the Element library
+ * Beer button web component that was ported from the Element library
  */
 class BeerButtonLit extends LitElement {
     static get properties() {
         return {
             // reflect: true if we are reflecting the property to an attribute
-            // Example: We can even specify how we want attributes to be reflected
-            // attribute: todo
-            // <to-do-item todo="Finish blog"></to-do-item>
+            
+            // primary, success, info, warning, danger
             type:            {type: String,  reflect: true},
             text:            {type: String},
+            // size of button
             size:            {type: String,  reflect: true},
+            // If true, then button is disabled.
             disabled:        {type: Boolean, reflect: true},
+            
+            // If true, then there is a loading animation in the button.
             loading:         {type: Boolean, reflect: true},
+            
+            // Bollean property to make button rounded.
             round:           {type: Boolean, reflect: true},
+            
+            // If true, then the button become circle.
             circle:          {type: Boolean, reflect: true},
+            
+            // If true, then bootstrap is applied.
             bootstrap:       {type: Boolean, reflect: true},
+            
+            // bootstrap, circle, round, loading
             class:           {type: String, reflect: true},
             style:           {type: String, reflect: true},
             script:          {type: String, reflect: true},
@@ -61,7 +72,6 @@ class BeerButtonLit extends LitElement {
         if(this.hasAttribute("beerStyle")) {
             this.style = this.getAttribute("beerStyle");
         }
-
     }
 
     /**
@@ -105,6 +115,9 @@ class BeerButtonLit extends LitElement {
         return _class;
     }
 
+    /**
+     * @description It sets the style of the button.
+     */
     _setStyle(newStyle) {
         var Style = document.createElement("link");
         this.shadowRoot.appendChild(Style);
@@ -158,7 +171,6 @@ class BeerButtonLit extends LitElement {
     /**
      * @description Checks of the 'type' attribute is valid. Valid types are: primary, succuess, info, warning, danger, or "" (default)
      * @returns {boolean} valid
-     * 
      */
     _validType() {
         let valid = false;
@@ -170,7 +182,10 @@ class BeerButtonLit extends LitElement {
 
     /**
      * @description Handle a click event using imported user defined functions
-     * @returns {string} error message such that script or function not found
+     * @returns void
+     * @example 
+     * 
+     * <beer-button-lit script="./testFunction.js" functionName="testFunction"></beer-button-lit>
      */
     _handleClick() {
         if(this.hasAttribute("script") && this.hasAttribute("functionName")) {
@@ -188,10 +203,10 @@ class BeerButtonLit extends LitElement {
         }
     }
 
-    // TODO missing documentation
-    /**     
-     * @description
-     * @returns {html} 
+    /**
+     * @description renders the DOM structure described in the element template into the shadow root
+     * For example, <beer-button-lit></beer-button-lit> is the custom element (host)
+     * The template rendered will be attached to the shadow root of the shadow DOM.
      */
     render() {
         if(!this._validType()) {

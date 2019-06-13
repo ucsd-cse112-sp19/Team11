@@ -24,35 +24,37 @@
         <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
           <h1 class="bd-title" id="content">Beer-Nav</h1>    
 <!-- Nav Bar -->
-<beer-brand navBarBrandID="brand" id="home" beerClass="navbar-brand"  brandHref="WHERES THE TEAM PAGE????" brandImage="../Raw-Brand/beer_team_logo.png" brandHeight="30" brandwidth="30" imageClass="d-inline-block align-top"  imageAlt=" "newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  > Team </beer-brand>
-<beer-button link="../Raw-Button/raw-beer-button.html" navBarID="navbar" id="raw-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Buttons</beer-button>
-<beer-button link="../Raw-Nav/raw-beer-nav.html" navBarID="navbar" id="raw-nav" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Navigation Bar</beer-button>
-<beer-button link="../Raw-Brand/raw-beer-brand.html" navBarID="navbar" id="raw-brd" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Raw Brand</beer-button>
-<beer-button link="../../port-beer/beer-button-lit.html" navBarID="navbar" id="lit-btn" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Buttons</beer-button>
-<beer-button link="../../port-beer/beer-notification-lit.html" navBarID="navbar" id="lit-ntf" beerClass="btn btn-warning" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >Lit Notifications</beer-button>
-<beer-navbar navBarBrandID="brand" navBarId="navbar" beerClass="navbar navbar-light bg-light" newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></beer-navbar>
+<beer-brand navBarBrandID="brand" id="home" beerClass="navbar-brand"  brandHref="../../../website/index.html" brandImage="../Raw-Brand/beer_team_logo.png" brandHeight="30" brandwidth="30" imageClass="d-inline-block align-top"  imageAlt=" "bootstrap  > Team </beer-brand>
+<beer-button link="../Raw-Button/raw-beer-button.html" navBarID="navbar" id="raw-btn" beerClass="btn btn-warning" bootstrap >Raw Buttons</beer-button>
+<beer-button link="../Raw-Nav/raw-beer-nav.html" navBarID="navbar" id="raw-nav" beerClass="btn btn-warning" bootstrap >Raw Navigation Bar</beer-button>
+<beer-button link="../Raw-Brand/raw-beer-brand.html" navBarID="navbar" id="raw-brd" beerClass="btn btn-warning" bootstrap >Raw Brand</beer-button>
+<beer-button link="../../port-beer/Port-Button/beer-button-lit.html" navBarID="navbar" id="lit-btn" beerClass="btn btn-warning" bootstrap >Lit Buttons</beer-button>
+<beer-button link="../../port-beer/Port-Notification/beer-notification-lit.html" navBarID="navbar" id="lit-ntf" beerClass="btn btn-warning" bootstrap>Lit Notifications</beer-button>
+<beer-navbar navBarBrandID="brand" navBarId="navbar" beerClass="navbar navbar-light bg-light" bootstrap></beer-navbar>
 
 <!-- Page Contents-->
-  <h2 id="examples"><div>Creating a navbar using beer-button</div></h2>
-  <p>The nav bar uses beer-buttons and adding these buttons to the navbar is as simple as 
-    creating the button you want and then passing the navbar and the button the navBarID attribute. 
-    There are two ways in which this attribute can be used
-  </p>
+
+<h2 id="examples"><div>Creating a navbar using beer-button</div></h2>
+<p>The nav bar uses beer-buttons and adding these buttons to the navbar is as simple as 
+  creating the button you want and then passing the navbar and the button the navBarID attribute. 
+  There are two ways in which this attribute can be used
+</p>
   
 <div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
-
 <div class="highlight">
   <pre><code class="language-html" data-lang="html">
     <span class="nt">&lt;beer-button</span><span class="na"> <span class="na">id=</span><span class="s">"name"</span><span class="nt">&gt;</span>Im a named button<span class="nt">&lt;/beer-button&gt;</span>
   </code></pre>
 </div>
-  <div class="highlight">
+<div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
+<div class="highlight">
     <pre><code class="language-html" data-lang="html">
       <span class="nt">&lt;beer-button</span><span class="na"> <span class="na">navBarID=</span><span class="s">"bill"</span><span class="nt">&gt;</span><span class="nt">&lt;/beer-button&gt;</span>
       <span class="nt">&lt;beer-navbar</span><span class="na"> <span class="na">navBarID=</span><span class="s">"bill"</span><span class="nt">&gt;</span><span class="nt">&lt;/beer-navbar&gt;</span>
     </code></pre>
   </div>
   <p>And</p>
+  <div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
   <div class="highlight">
       <pre><code class="language-html" data-lang="html">
         <span class="nt">&lt;beer-button</span><span class="na"> <span class="na">navBarID</span><span class="nt">&gt;</span><span class="nt">&lt;/beer-button&gt;</span>
@@ -72,7 +74,8 @@
   <h2 id="examples"><div>Adding Style</div></h2>
   <p>Simply pass in any CSS file you want to the newStyle attribute then use the beerClass attribute to designate which class styles you want to use with the beer-navbar.
   </p>
-  
+
+  <div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
   <div class="highlight">
     <pre><code class="language-html" data-lang="html">
       <span class="nt">&lt;beer-button</span> <span class="na"><span class="na">navBarID</span><span class="nt">&gt;</span><span class="nt">&lt;/beer-button&gt;</span>
@@ -84,8 +87,21 @@
   <div class="bd-example">
       <beer-button navBarID></beer-button>
       <beer-navbar navBarID  beerClass="navbar navbar-light bg-dark"
-      newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+      bootstrap >
       </beer-navbar>
+  </div>
+
+  <h2 id="examples"><div>Adding Bootstrap</div></h2>
+  <p>
+    Instead of adding the newStyle attribute with a link to get bootstrap working, you can directly add the bootstrap attribute to do 
+    it all for you. 
+  </p>
+
+  <div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
+  <div class="highlight">
+    <pre><code class="language-html" data-lang="html">
+      <span class="nt">&lt;beer-navbar</span><span class="na"> <span class="na">beerClass=</span><span class="s">"navbar navbar-light bg-light"</span> <span class="na">bootstrap</span><span class="nt">&gt;</span><span class="nt">&lt;/beer-navbar&gt;</span>
+    </code></pre>
   </div>
 
   <h2 id="examples"><div>Adding A Brand</div></h2>
@@ -93,7 +109,8 @@
     you can pass a string to navBarBrandID to get it to link to a specific beer-navbar note: if you don't pass ID and inner html attribute to 
     beerBrand then nothing will actually show but you can still right click and check the inspector to see that the beer-navbar is actually there 
   </p>
-  
+
+  <div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
   <div class="highlight">
     <pre><code class="language-html" data-lang="html">
       <span class="nt">&lt;beer-brand</span> <span class="na"><span class="na">navBarBrandID id=</span><span class="s">"beerbrand"</span><span class="nt">&gt;</span>Team11<span class="nt">&lt;/beer-brand&gt;</span>
@@ -115,6 +132,8 @@
   </div>
 
   <h2 id="examples"><div>Example of fully functioning NavBar</div></h2>
+
+  <div class="bd-clipboard"><button id="cpy" onclick="cpyText()" class="btn-clipboard" title="" data-original-title="Copy to clipboard">Copy</button></div>
   <div class="highlight">
       <pre><code class="language-html" data-lang="html">
           <span class="nt">&lt;beer-brand</span> <span class="na">
@@ -127,7 +146,7 @@
           <span class="na">brandWidth=</span><span class="s">"30"</span>
           <span class="na">ImageClass=</span><span class="s">"d-inline-block align-top"</span>
           <span class="na">ImageAlt=</span><span class="s">"../Raw-Button/images/test.jpg"</span>    
-          <span class="na">newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span>    
+          <span class="na">bootstrap</span>    
           <span class="nt">&gt;</span>TEAM BEER!<span class="nt">&lt;/beer-brand&gt;</span>
 
           <span class="nt">&lt;beer-button</span>
@@ -135,7 +154,7 @@
           <span class="na">id=</span><span class="s">"h"</span>
           <span class="na">beerId=</span><span class="s">"a"</span>
           <span class="na">beerClass=</span><span class="s">"btn btn-outline-success"</span>
-          <span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span>
+          <span class="na">bootstrap</span>
           <span class="nt">&gt;</span>page 1<span class="nt">&lt;/button&gt;</span>
 
           <span class="nt">&lt;beer-button</span>
@@ -143,13 +162,13 @@
           <span class="na">id=</span><span class="s">"b"</span>
           <span class="na">beerId=</span><span class="s">"d"</span>
           <span class="na">beerClass=</span><span class="s">"btn btn-outline-success"</span>
-          <span class="na"> newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span>
+          <span class="na"> bootstrap</span>
           <span class="nt">&gt;</span>page 2<span class="nt">&lt;/button&gt;</span>
 
           <span class="nt">&lt;beer-navbar</span> <span class="na"><span class="na">navBarBrandID=</span><span class="s">"bill"</span>
           <span class="na">navBarId=</span><span class="s">"john"</span>
           <span class="na">beerClass=</span><span class="s">"navbar navbar-light bg-light"</span>
-          <span class="na">newStyle=</span><span class="s">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span>
+          <span class="na">bootstrap</span>
           <span class="nt">&gt;</span>Team11<span class="nt">&lt;/beer-navbar&gt;</span>
 
     </code></pre>
@@ -165,24 +184,24 @@
       brandwidth="30" 
       imageClass="d-inline-block align-top"  
       imageAlt="../Raw-Button/test.jpg"
-      newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      bootstrap
       >TEAM BEER!</beer-brand>
 
       <beer-button 
       navBarID="john" id="h" beerId="a" 
       beerClass="btn btn-outline-success" 
-      newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      bootstrap
       >page 1</beer-button>
 
       <beer-button 
       navBarID="john" id="heello" beerId="d" 
       beerClass="btn btn-outline-success" 
-      newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      bootstrap
       >page 2</beer-button>
 
       <beer-navbar navBarBrandID="bill" navBarId="john"
       beerClass="navbar navbar-light bg-light"
-      newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      bootstrap>
       </beer-navbar>
   </div>
 
