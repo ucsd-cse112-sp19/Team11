@@ -1,5 +1,5 @@
 import {LitElement, html, css} from "https://unpkg.com/lit-element@2.0.1/lit-element.js?module";
-import "./beer-notification-lit.js";
+import "./../Port-Notification/beer-notification-lit.js";
 
 // Color of button depending on type attribute
 const types = [
