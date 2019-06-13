@@ -41,8 +41,9 @@ matrix:
         - gulp
         - npm run lint
         - npm run raw-test
-        - npm run port-test        
-
+        - npm run port-test     
+        - npm run docs:build
+      
  #  - language: ruby
  #     rvm:
  #      - 2.2.0

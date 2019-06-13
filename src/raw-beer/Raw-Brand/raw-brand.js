@@ -2,6 +2,7 @@
 import {AttributeSelector} from "../Raw-Functions/BrandbarFunctions.js";
 
 
+
 const template = document.createElement("template");
 template.innerHTML = `
 <a>
@@ -11,7 +12,14 @@ template.innerHTML = `
 `;
 
 /**
- * A vanilla web-component
+ * @description Web Component that functions as a brand allowing the user to change the size 
+ * and image through various attributes as well as the displayed text and use a link atribute so
+ * that another webpage can be loaded when the <beer-brand> is clicked. 
+ * Attributes:beerClass,brandHref, navBarBrandId, ID, brandImage, brandHeight, 
+ * brandWidth imageClass, imageAlt, newStyle,
+ * @extends HTMLElement
+ * @example
+ * <beer-brand><beer-brand>
  */
 class BeerBrand extends HTMLElement {
     constructor() {
@@ -25,15 +33,9 @@ class BeerBrand extends HTMLElement {
         this.$beerImg = this._shadowRoot.querySelector("img");
         this.$rawBrand = document.querySelector("beer-brand");
 
-        console.log("yooooo + " + this.innerHTML);
-
-
 
         this.AttributeSelector = AttributeSelector.bind(this);
         this.AttributeSelector();
-
-
-
 
         if(this.hasAttribute("id")){
             if(this.getAttribute("id").length > 0){
@@ -54,6 +56,8 @@ class BeerBrand extends HTMLElement {
         // if statement that checks if the user has used the brandImage attribute and 
         // then checks if that attribute is not null if its been supplied
         if(this.hasAttribute("brandImage")){
+            this.$beerImg.setAttribute("height", "30");
+            this.$beerImg.setAttribute("width", "30");
             if(this.getAttribute("brandImage").length > 0){
                 this.setBrandImage();
             }
@@ -87,24 +91,64 @@ class BeerBrand extends HTMLElement {
 
 
     /**
-     * @description Function that sets the image for brand
-     * @returns void
+     * @description Function that sets the src attribute on the img element attribute in the defined 
+     * template 
+     * @example
+     * <img src="./hello.jpg"></img>
      */
     setBrandImage(){
         // You get the attribute brandImage as a string here; it's basically the path
         var image = this.getAttribute("brandImage");
-        this.$beerImg.setAttribute("src", image);
+        // same as the above but it grabs the image alt attribute
+        var altImg = this.getAttribute("imageAlt");
+        console.log(image);
+        // this if statement is checking if the first path is valid if it is then the file gets loaded
+        // if it is not then the  altImg is used and if that one is invalid as well then it console.log
+        // an error msg
+        if(this.doesFileExist(image)){
+            this.$beerImg.setAttribute("src", image);
+        }
+        else if(this.doesFileExist(altImg)){
+            console.log("There is a problem with the path provided to brandImage");
+            this.$beerImg.setAttribute("src", altImg);
+        }
+        else{
+            console.log("The image path for brandImage and imageAlt (if imageAlt was also used) is incorrect");
+        }
     }
 
 
+    /**
+     * @description Function is used to check if a file exists on the system 
+     * @deprecated
+     * @param {string} urlToFile pass the url of the file to the function so that it can check 
+     * if the file is a valid file on the system
+     * @return {boolean} True if the file file is found, false if the file is not found
+     */
+    doesFileExist(urlToFile) {
+        console.log(urlToFile);
+        var xhr = new XMLHttpRequest();
+        
+        xhr.open("HEAD", urlToFile, false);
+        xhr.send();
+         
+        return xhr.status != "404"            
+    }
 
+    /**
+     * @description Function that is used to append a string to the <a> element 
+     * in the above template
+     * 
+     * @example  <a> helllo <a>
+     */
     setBrandName(){
-        //grabs the correct brand that corresponds with the Id
+        // grabs the correct brand that corresponds with the Id
         if(this.innerHTML.length > 0){
             this.$beerA.append(this.innerHTML);
         }
         else{
-            console.log( "no Name provided");
+            this.$beerA.append("Beer-Brand");
+            console.log("no Name provided");
         }
     }
 

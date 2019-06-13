@@ -1,6 +1,7 @@
 
 /**
- * @description Function that helps with selecting attributes
+ * Function that helps with selecting attributes
+ * 
  */
 export function AttributeSelector(){
     
@@ -82,11 +83,9 @@ export function AttributeSelector(){
      * @description Function that allows the use to set the buttons name bassed on the
      * value of the inner html
      * @param {string} buttonId the Id for a specific button
-     * @retun void 
+     * 
      */
 export function setButtonName(buttonId, beerButton){
-    //grabs the correct button that corresponds with the Id
-    console.log(buttonId);
     var $id = document.getElementById(buttonId);
     if($id.innerHTML.length > 0){
         beerButton.innerHTML= $id.innerHTML;
@@ -97,13 +96,13 @@ export function setButtonName(buttonId, beerButton){
 }
 
 /**
-     * @description Function that allows for a custom style sheet to be applied
-     * @param {string} newStyle string that is the .css file to be imported
-     * @example
-     * 
-     * <beer-button newStyle="styles.css">Style Testing</beer-button>
-     * 
-     */
+ * @description Function that allows for a custom style sheet to be applied
+ * @param {string} newStyle string that is the .css file to be imported
+ * @example
+ * 
+ * <beer-button newStyle="styles.css">Style Testing</beer-button>
+ * 
+ */
 export function setStyle(newStyle, shadowRoot){
     var Style = document.createElement("link");
     shadowRoot.appendChild(Style);

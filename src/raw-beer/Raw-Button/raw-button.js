@@ -1,6 +1,6 @@
 "use strict";
 
-import { AttributeSelector, setStyle } from "../Raw-Functions/AtrributeFunctions.js";
+import {AttributeSelector, setStyle} from "../Raw-Functions/AtrributeFunctions.js";
 
 const template = document.createElement("template");
 template.innerHTML = `
@@ -9,7 +9,10 @@ template.innerHTML = `
 `;
 
 /**
- * A vanilla web-component
+ * A Web component which acts as a button with a couple of features built in such as the abiltiy
+ * to increment/decrement a field and accept a custom user defined function. it accepts the following
+ * attributes: link, disable, increment, decrement, script, functionName, id, newStyle, color, image, 
+ * libStyle
  */
 class BeerButton extends HTMLElement {
     constructor() {
@@ -29,7 +32,7 @@ class BeerButton extends HTMLElement {
         this.AttributeSelector();
         
     }
-    
+
     /**
      * @description Takes a script and function then loads the function from 
      * the script so that it can be used with the button
@@ -37,8 +40,7 @@ class BeerButton extends HTMLElement {
      * @example 
      * 
      * <beer-button script="./testFunction.js" functionName="testFunction"></beer-button>
-     * 
-     */    
+     */          
     customFunction(){
         var scriptName = this.getAttribute("script");
         var functionName = this.getAttribute("functionName");  
@@ -50,6 +52,7 @@ class BeerButton extends HTMLElement {
             });
         }
     }
+    
 
         
     /**
