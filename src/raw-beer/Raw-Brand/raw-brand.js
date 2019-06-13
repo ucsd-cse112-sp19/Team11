@@ -1,5 +1,4 @@
 "use strict";
-import {AttributeSelector} from "../Raw-Functions/BrandbarFunctions.js";
 
 
 
@@ -34,13 +33,82 @@ class BeerBrand extends HTMLElement {
         this.$rawBrand = document.querySelector("beer-brand");
 
 
-        this.AttributeSelector = AttributeSelector.bind(this);
+        
         this.AttributeSelector();
 
+    }
+
+
+    /**
+     * @description Function that sets the src attribute on the img element attribute in the defined 
+     * template 
+     * @example
+     * <img src="./hello.jpg"></img>
+     */
+    setBrandImage(){
+        // You get the attribute brandImage as a string here; it's basically the path
+        var image = this.getAttribute("brandImage");
+        // same as the above but it grabs the image alt attribute
+        var altImg = this.getAttribute("imageAlt");
+        // this if statement is checking if the first path is valid if it is then the file gets loaded
+        // if it is not then the  altImg is used and if that one is invalid as well then it console.log
+        // an error msg
+        if(this.doesFileExist(image)){
+            this.$beerImg.setAttribute("src", image);
+        }
+        else if(this.doesFileExist(altImg)){
+            console.log("There is a problem with the path provided to brandImage");
+            this.$beerImg.setAttribute("src", altImg);
+        }
+        else{
+            console.log("The image path for brandImage and imageAlt (if imageAlt was also used) is incorrect");
+        }
+    }
+
+
+    /**
+     * @description Function is used to check if a file exists on the system 
+     * @deprecated
+     * @param {string} urlToFile pass the url of the file to the function so that it can check 
+     * if the file is a valid file on the system
+     * @return {boolean} True if the file file is found, false if the file is not found
+     */
+    doesFileExist(urlToFile) {
+        var xhr = new XMLHttpRequest();
+        
+        xhr.open("HEAD", urlToFile, false);
+        xhr.send();
+         
+        return xhr.status != "404"            
+    }
+
+    /**
+     * @description Function that is used to append a string to the <a> element 
+     * in the above template
+     * 
+     * @example  <a> helllo <a>
+     */
+    setBrandName(){
+        // grabs the correct brand that corresponds with the Id
+        if(this.innerHTML.length > 0){
+            this.$beerA.append(this.innerHTML);
+        }
+        else{
+            this.$beerA.append("Beer-Brand");
+            console.log("no Name provided");
+        }
+    }
+
+
+    /**
+    * @description Function that helps with selecting attributes
+    */
+    AttributeSelector(){
+        
         if(this.hasAttribute("id")){
             if(this.getAttribute("id").length > 0){
                 var setBrandName = this.setBrandName.bind(this);
-                setBrandName();
+                this.setBrandName();
             }
         }
     
@@ -86,70 +154,62 @@ class BeerBrand extends HTMLElement {
                 this.$beerImg.setAttribute("alt", this.getAttribute("imageAlt"));
             }
         }
-
-    }
-
-
-    /**
-     * @description Function that sets the src attribute on the img element attribute in the defined 
-     * template 
-     * @example
-     * <img src="./hello.jpg"></img>
-     */
-    setBrandImage(){
-        // You get the attribute brandImage as a string here; it's basically the path
-        var image = this.getAttribute("brandImage");
-        // same as the above but it grabs the image alt attribute
-        var altImg = this.getAttribute("imageAlt");
-        console.log(image);
-        // this if statement is checking if the first path is valid if it is then the file gets loaded
-        // if it is not then the  altImg is used and if that one is invalid as well then it console.log
-        // an error msg
-        if(this.doesFileExist(image)){
-            this.$beerImg.setAttribute("src", image);
-        }
-        else if(this.doesFileExist(altImg)){
-            console.log("There is a problem with the path provided to brandImage");
-            this.$beerImg.setAttribute("src", altImg);
-        }
-        else{
-            console.log("The image path for brandImage and imageAlt (if imageAlt was also used) is incorrect");
-        }
-    }
-
-
-    /**
-     * @description Function is used to check if a file exists on the system 
-     * @deprecated
-     * @param {string} urlToFile pass the url of the file to the function so that it can check 
-     * if the file is a valid file on the system
-     * @return {boolean} True if the file file is found, false if the file is not found
-     */
-    doesFileExist(urlToFile) {
-        console.log(urlToFile);
-        var xhr = new XMLHttpRequest();
-        
-        xhr.open("HEAD", urlToFile, false);
-        xhr.send();
-         
-        return xhr.status != "404"            
-    }
-
-    /**
-     * @description Function that is used to append a string to the <a> element 
-     * in the above template
-     * 
-     * @example  <a> helllo <a>
-     */
-    setBrandName(){
-        // grabs the correct brand that corresponds with the Id
-        if(this.innerHTML.length > 0){
-            this.$beerA.append(this.innerHTML);
+    
+        if(this.hasAttribute("id")){
+            if(this.hasAttribute("beerId")){
+                this.$beerA.setAttribute("id", this.getAttribute("beerId"));
+            }
+            this.$beerA.setAttribute("id", this.getAttribute("id"));         
         }
         else{
             this.$beerA.append("Beer-Brand");
-            console.log("no Name provided");
         }
+        
+        if(this.hasAttribute("beerclass")){
+            if(this.getAttribute("beerclass").length > 0){
+                this.$beerA.setAttribute("class", this.getAttribute("beerclass"));
+            }
+            else{
+                console.log("The class field is set to empty");
+            }
+        }
+        if(this.hasAttribute("beertype")){
+            if(this.getAttribute("beertype").length > 0){
+                this.$beerA.setAttribute("type", this.getAttribute("beertype"));
+            }
+        }
+
+
+        // statement to control the flow of style so that newStyle has priority over
+        // libstyle
+        if(this.hasAttribute("newStyle") || this.hasAttribute("libStyle")){
+        // checks for a style and if it exists imports a .css style sheet
+            if(this.hasAttribute("newStyle")){
+                this.setStyle(this.getAttribute("newStyle"), this._shadowRoot);
+            }
+
+            else if(this.hasAttribute("libStyle")){
+                this.libStyle(this.getAttribute("libStyle"));
+            }
+        }
+
+   
+    }
+
+    /**
+     * @description Function that allows for a custom style sheet to be applied
+     * @param {string} newStyle string that is the .css file to be imported
+     * @example
+     * 
+     * <beer-button newStyle="styles.css">Style Testing</beer-button>
+     * 
+     */
+    setStyle(newStyle, shadowRoot){
+        var Style = document.createElement("link");
+        shadowRoot.appendChild(Style);
+        Style.setAttribute("rel", "stylesheet");
+        Style.setAttribute("href", newStyle);
+        Style.setAttribute("type", "text/css");
     }
 
 }
