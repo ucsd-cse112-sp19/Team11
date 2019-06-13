@@ -30,9 +30,9 @@
   "scripts": {
     "lint": "eslint src/**/*.js",
     "test": "testcafe chrome,firefox tests",
-    "local-test": "testcafe \"saucelabs:Chrome@75.0:macOS 10.14\",\"saucelabs:Firefox@67.0:macOS 10.14\" test/raw-beer-cafeTest.js --skip-js-errors",
-    "raw-test": "testcafe \"saucelabs:Chrome@75.0:macOS 10.14\",\"saucelabs:Firefox@67.0:macOS 10.14\" test/raw-beer-cafeTest.js --skip-js-errors",
-    "port-test": "testcafe chrome,firefox test/port-beer-cafeTest.js --skip-js-errors",
+    "local-test": "testcafe \"saucelabs:Chrome\",\"saucelabs:Firefox\",\"saucelabs:Safari\" test/raw-beer-cafeTest.js --skip-js-errors",
+    "raw-test": "testcafe \"saucelabs:Chrome\",\"saucelabs:Firefox\",\"saucelabs:Safari\" test/raw-beer-cafeTest.js --skip-js-errors",
+    "port-test": "testcafe \"saucelabs:Chrome\",\"saucelabs:Firefox\",\"saucelabs:Safari\" test/port-beer-cafeTest.js --skip-js-errors",
     "gulp-terser": "^1.2.0",
     "docs:build": "documentation build --shallow ./src/** -f html -o docs"
   },
