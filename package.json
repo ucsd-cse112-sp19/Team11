@@ -1,6 +1,6 @@
 {
-  "name": "team11",
-  "version": "1.0.0",
+  "name": "beer-library",
+  "version": "1.0.6",
   "description": "",
   "main": "test.js",
   "dependencies": {
