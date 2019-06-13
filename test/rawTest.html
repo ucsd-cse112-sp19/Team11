@@ -2,6 +2,7 @@
 <head>
     <script  src="/src/raw-beer/Raw-Button/raw-button.js" type="module"></script>
     <script src="/src/raw-beer/Raw-Brand/raw-brand.js" defer type="module"></script>
+    <script src="/src/raw-beer/Raw-Nav/raw-nav.js" defer type="module"></script>
     <title>Test Raw Beer Button</title>
     <style>
         .final-sprint {
@@ -58,16 +59,27 @@
     <br>
 
     <!-- beer-brand -->
-    <beer-brand id="beer-brand-std">I am "has-beer-brand"</beer-brand><br>
-    <beer-brand id="beer-brand-image" brandImage="/src/raw-beer/Raw-Brand/beer_team_logo.png"></beer-brand><br>
-    <beer-brand id="beer-brand-alt-img" brandImage="raw-beer/Raw-Brand/beer_team_logo.png" imageAlt="/src/raw-beer/Raw-Brand/beer_team_logo.png"></beer-brand><br>
-    <beer-brand id="beer-brand-alt-width" brandHeight="400"></beer-brand><br>
-    <beer-brand id="beer-brand-href" brandHref="https://www.google.com"></beer-brand><br>    
-    <beer-brand newStyle="./hotpink.css"></beer-brand><br>
+    <beer-brand id="beer-brand-std">I am "beer-brand-std"</beer-brand><br>
+    <beer-brand id="beer-brand-image" brandImage="/src/raw-beer/Raw-Brand/beer_team_logo.png">I am "beer-brand-image"</beer-brand><br>
+    <beer-brand id="beer-brand-alt-img" brandImage="raw-beer/Raw-Brand/beer_team_logo.png" imageAlt="/src/raw-beer/Raw-Brand/beer_team_logo.png">I am "beer-brand-alt-img"</beer-brand><br>
+    <beer-brand id="beer-brand-alt-width" brandImage="/src/raw-beer/Raw-Brand/beer_team_logo.png" brandWidth="400">I am "beer-brand-alt-width"</beer-brand><br>
+    <beer-brand id="beer-brand-alt-height" brandImage="/src/raw-beer/Raw-Brand/beer_team_logo.png" brandHeight="400">I am "beer-brand-alt-height"</beer-brand><br>
+    <beer-brand id="beer-brand-href" brandImage="/src/raw-beer/Raw-Brand/beer_team_logo.png" brandHref="test.html">I am "beer-brand-href"</beer-brand><br>    
+    <beer-brand id="beer-brand-pink" brandImage="/src/raw-beer/Raw-Brand/beer_team_logo.png" newStyle="./hotpink.css">I am "beer-brand-pink"</beer-brand><br>
 
     <!-- beer-navbar -->    
-    <beer-button navBarID></beer-button>
-    <beer-navbar         
+    <beer-brand 
+        navBarBrandID="bar"
+        id="nav-brand"
+        brandImage="/src/raw-beer/Raw-Brand/beer_team_logo.png"
+        brandHref="test.html">
+        BEER!
+    </beer-brand><br>
+
+    <beer-button id="nav-button" link="test.html" navBarID></beer-button>
+    <beer-navbar  
+        navBarBrandID="bar"
+        id="nav-bar"       
         navBarID  
         beerClass="navbar navbar-light bg-dark"
         newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >

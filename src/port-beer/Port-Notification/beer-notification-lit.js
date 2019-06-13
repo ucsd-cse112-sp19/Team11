@@ -1,5 +1,6 @@
 import {LitElement, html, css} from "https://unpkg.com/lit-element@2.0.1/lit-element.js?module";
 
+// Array of valid notification types
 var types = [
     // Make sure icon paths are in top level directory so that icons
     // can be seen throughout the library
@@ -10,11 +11,13 @@ var types = [
     {type: "message", svg: "./../../../icons/notif-icon-message.svg"},
     {type: "mail",    svg: "./../../..//icons/notif-icon-mail.svg"}
 ];
+
 const spacing = 10; // Vertical distance between two notifications
-const delay = 200; // 0.2 seconds
+const delay = 200;  // 0.2 seconds
 
 /**
- * Notification that pops up in browser containing text with variable text and lifetime
+ * Beer notification web component that was ported from the Element library.
+ * Notification that pops up in browser window containing user specified title and message
  */
 class BeerNotificationLit extends LitElement {
     /**
@@ -76,6 +79,7 @@ class BeerNotificationLit extends LitElement {
 
     /**
      * @description Perform one-time work after the element’s template has been created.
+     * @return void
      */
     firstUpdated() {
         let all_notifs = document.getElementsByTagName("beer-notification-lit");
@@ -103,9 +107,8 @@ class BeerNotificationLit extends LitElement {
     }
 
     /**
-     * Gets the appropriate path to .svg icon file
-     * @returns {string} path to corresponding type icon .svg file
      * @description Callback that is called when element is inserted into DOM
+     * @returns void
      */
     connectedCallback() {
         super.connectedCallback();
@@ -223,6 +226,10 @@ class BeerNotificationLit extends LitElement {
     /**
      * @description Determine if notification spawns at top or bottom of screen
      * @returns {boolean} top
+     * @example
+     * 
+     * <beer-notificaiton-lit position="top-right"></beer-notificaiton-lit>
+     * <beer-notificaiton-lit position="bottom-right"></beer-notificaiton-lit>
      */
     _isTop() {
         if(this.position === "" || this.position === "top-right" // Default
