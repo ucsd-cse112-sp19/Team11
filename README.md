@@ -18,7 +18,7 @@ Our goal for this project is to create an extensible library of vanilla and lit-
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ```
-npm install [INSERT NAME OF TEAM 11 PACKAGE]
+npm install --save beer-library
 ```
 
 ### Prerequisites
@@ -71,6 +71,14 @@ For enforcing our coding style guidelines, we use ESLint.
 ```
 npm run lint
 ```
+
+### File Structure
+
+For details on how our files are organized, check out our public notion resource.
+
+https://www.notion.so/File-Structure-9f3e436dd367401a91d4254f48c4a5b9
+
+
 
 ## Built With
 
