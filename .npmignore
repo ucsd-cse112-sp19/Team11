@@ -4,6 +4,11 @@
 .travis.yml
 gulpfile.js
 npm-debug.log
+notion_pdfs/
+docs/
+Demo/
+test/
+website/
 package-lock.json
 package.json	
 website/

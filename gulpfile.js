@@ -6,8 +6,6 @@ gulp.task("default", function() {
     return gulp.src("./src/**/*.js")
     // Minify the file
         .pipe(terser())
-    // Rename the files
-        .pipe(rename({suffix: ".min"}))
     // Output
         .pipe(gulp.dest("dist"));
 

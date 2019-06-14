@@ -9,7 +9,7 @@ var types = [
     {type: "danger",  svg: "./../../../icons/notif-icon-danger.svg"},
     {type: "info",    svg: "./../../../icons/notif-icon-info.svg"},
     {type: "message", svg: "./../../../icons/notif-icon-message.svg"},
-    {type: "mail",    svg: "./../../..//icons/notif-icon-mail.svg"}
+    {type: "mail",    svg: "./../../../icons/notif-icon-mail.svg"}
 ];
 
 const spacing = 10; // Vertical distance between two notifications
