@@ -3,7 +3,7 @@ import "./../Port-Notification/beer-notification-lit.js";
 
 // Color of button depending on type attribute
 const types = [
-    {type: "primary", bgColor: "#409EFF", bgLighter:"#8CC5FF", bgPlain: "#ECF5FF"}, 
+    {type: "primary_not_really", bgColor: "#409EFF", bgLighter:"#8CC5FF", bgPlain: "#ECF5FF"}, 
     {type: "success", bgColor: "#67C23A", bgLighter:"#A3DA88", bgPlain: "#F0F9EB"}, 
     {type: "info",    bgColor: "#909399", bgLighter:"#BCBEC2", bgPlain: "#F4F4F5"}, 
     {type: "warning", bgColor: "#F4A338", bgLighter:"#F8C887", bgPlain: "#FDF6EC"}, 
