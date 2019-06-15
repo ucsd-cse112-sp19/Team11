@@ -7,7 +7,8 @@ const types = [
     {type: "success", bgColor: "#67C23A", bgLighter:"#A3DA88", bgPlain: "#F0F9EB"}, 
     {type: "info",    bgColor: "#909399", bgLighter:"#BCBEC2", bgPlain: "#F4F4F5"}, 
     {type: "warning", bgColor: "#F4A338", bgLighter:"#F8C887", bgPlain: "#FDF6EC"}, 
-    {type: "danger",  bgColor: "#F56C6C", bgLighter:"#F9A6A6", bgPlain: "#FEF0F0"}
+    {type: "danger",  bgColor: "#F56C6C", bgLighter:"#F9A6A6", bgPlain: "#FEF0F0"},
+    {type: "foo", bgColor: "#fff"}
 ];
 
 /**
