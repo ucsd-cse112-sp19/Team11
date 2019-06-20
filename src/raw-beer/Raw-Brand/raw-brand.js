@@ -13,7 +13,7 @@ template.innerHTML = `
 /**
  * @description Web Component that functions as a brand allowing the user to change the size 
  * and image through various attributes as well as the displayed text and use a link atribute so
- * that another webpage can be loaded when the <beer-brand> is clicked. 
+ * that another webpage can be loaded when the beer-brand is clicked. 
  * Attributes:beerClass,brandHref, navBarBrandId, ID, brandImage, brandHeight, 
  * brandWidth imageClass, imageAlt, newStyle,
  * @extends HTMLElement
@@ -83,7 +83,7 @@ class BeerBrand extends HTMLElement {
     }
 
     /**
-     * @description Function that is used to append a string to the <a> element 
+     * @description Function that is used to append a string to the a element 
      * in the above template
      * 
      * @example  <a> helllo <a>

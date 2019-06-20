@@ -109,5 +109,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-We would like to thank Professor Powell of CSE 112 for the guidance he gave us and all the TAs who assisted us in reaching this far. We would also
-like to thank Peter for giving us a glimpse of what we will see in the future as Software Engineer.
+We would like to thank Professor Powell of CSE 112 for the guidance he gave us and all the TAs who assisted us. We would also like to thank Peter for giving us a glimpse of what we will see in the future as Software Engineer.

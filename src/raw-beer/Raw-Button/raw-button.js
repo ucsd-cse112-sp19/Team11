@@ -150,7 +150,7 @@ class BeerButton extends HTMLElement {
    
    
     /**
-     * @description Function that sets the background of the <button> in the above template
+     * @description Function that sets the background of the button in the above template
      * to be an image
      * @param {string} img The string of the img file to be imported
      * @returns void
@@ -388,7 +388,7 @@ class BeerButton extends HTMLElement {
 
     /**
     * @description Function that allows for a custom style sheet to be applied to the
-    * button in the above template  by adding a <link> element 
+    * button in the above template  by adding a link element 
     * @param {string} newStyle string that is the .css file to be imported
     * @example
     * <link rel="stylesheet" href="newStyle" type="text/css">

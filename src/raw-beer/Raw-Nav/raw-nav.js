@@ -49,13 +49,12 @@ class BeerNav extends HTMLElement {
     }  
 
     /**
-     * @description When this function is called it gets a beer-brand element from the DOM 
-     * and then adds it to the navBar by checking to see if the beer-brand and beer-navbar 
-     * have the same navBarBrandid attribute if they do then the beer-brand is then brought 
-     * connected to the beer-navBar     
+     * @description Function that adds a beer-brand component to the above template by 
+     * appending it to the nav element      
      * @example
-     * <beer-navbar navBarBrandID="beer"></beer-navbar>  
-     * <beer-brand navBarBrandID="beer"></beer-brand> 
+     * <nav>
+     *  <beer-brand>
+     * <nav>
      */
     getBrand(){
         var beerbrands = document.getElementsByTagName("beer-brand");
@@ -91,14 +90,17 @@ class BeerNav extends HTMLElement {
 
 
     /**
-     * @description This function takes all the beer-buttons that the user 
-     * has placed within the html and inserts them into the proper navBar 
-     * bassed on the navBarID attribute.
+     * @description This function takes all the beer-buttons web componets that the user 
+     * has placed within the html with the correct attribute values (navBarid)
+     * and appends them to the div element in the 
+     * above template
      * @example
      * 
-     * <beer-button navBarID="bill"></beer-button>
-     * <beer-button navBarID="bill" id="heello" beerId="d" beerClass="btn btn-outline-success"  newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  >Page 4</beer-button>
-     * <beer-navbar  navBarId="bill" ></beer-navbar>  
+     * <nav>
+     *  <div>
+     *    <beer-button></beer-button>
+     *  <div>
+     * </nav>
      */
     getButtons(){
         // beerButtons is a variable that holds all the beer-buttons that were placed on the
@@ -137,14 +139,17 @@ class BeerNav extends HTMLElement {
   
     
     /**
-     * @description This function takes all the beer-buttons that the user 
-     * has placed within the html and inserts them into the proper navBar 
-     * bassed on the navBarID attribute.
+     * @description This function takes all the buttons  that the user 
+     * has placed within the html with the correct attribute values (navBarid)
+     * and appends them to the div element in the 
+     * above template
      * @example
      * 
-     * <beer-button navBarID="bill"></beer-button>
-     * <beer-button navBarID="bill" id="heello" beerId="d" beerClass="btn btn-outline-success"  newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  >Page 4</beer-button>
-     * <beer-navbar  navBarId="bill" ></beer-navbar>  
+     * <nav>
+     *  <div>
+     *    <button></button>
+     *  <div>
+     * </nav>
      */
     getRegButtons(){
         // beerButtons is a variable that holds all the beer-buttons that were placed on the
@@ -181,14 +186,17 @@ class BeerNav extends HTMLElement {
     }
 
     /**
-     * @description This function takes all the beer-buttons that the user 
-     * has placed within the html and inserts them into the proper navBar 
-     * bassed on the navBarID attribute.
+     * @description This function takes all the beer-buttons-lit web componets that the user 
+     * has placed within the html with the correct attribute values (navBarid)
+     * and appends them to the div element in the 
+     * above template
      * @example
      * 
-     * <beer-button navBarID="bill"></beer-button>
-     * <beer-button navBarID="bill" id="heello" beerId="d" beerClass="btn btn-outline-success"  newStyle="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  >Page 4</beer-button>
-     * <beer-navbar  navBarId="bill" ></beer-navbar>  
+     * <nav>
+     *  <div>
+     *    <beer-button-lit></beer-button-lit>
+     *  <div>
+     * </nav>
      */
     getLitButtons(){
         // beerButtons is a variable that holds all the beer-buttons that were placed on the
@@ -335,7 +343,7 @@ class BeerNav extends HTMLElement {
      * @param {string} newStyle string that is the .css file to be imported
      * @example
      * 
-     * <beer-button newStyle="styles.css">Style Testing</beer-button>
+     * <link rel="stylesheet" href="newStyle" type="text/css"></link>
      * 
      */
     setStyle(newStyle, shadowRoot){

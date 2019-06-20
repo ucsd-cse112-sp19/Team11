@@ -480,10 +480,8 @@ beerclass, beertype, newStyle, libStyle, navBarID, divID, divClass, navBarBrandI
 
   
 
-  <p>When this function is called it gets a beer-brand element from the DOM
-and then adds it to the navBar by checking to see if the beer-brand and beer-navbar
-have the same navBarBrandid attribute if they do then the beer-brand is then brought
-connected to the beer-navBar</p>
+  <p>Function that adds a beer-brand component to the above template by
+appending it to the nav element</p>
 
     <div class='pre p1 fill-light mt0'>getBrand()</div>
   
@@ -508,8 +506,9 @@ connected to the beer-navBar</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>&lt;beer-navbar navBarBrandID=<span class="hljs-string">"beer"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">beer-navbar</span>&gt;</span></span>  
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">beer-brand</span> <span class="hljs-attr">navBarBrandID</span>=<span class="hljs-string">"beer"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">beer-brand</span>&gt;</span></span></pre>
+      <pre class='p1 overflow-auto round fill-light'>&lt;nav&gt;
+ &lt;beer-brand&gt;
+&lt;nav&gt;</pre>
     
   
 
@@ -537,9 +536,10 @@ connected to the beer-navBar</p>
 
   
 
-  <p>This function takes all the beer-buttons that the user
-has placed within the html and inserts them into the proper navBar
-bassed on the navBarID attribute.</p>
+  <p>This function takes all the beer-buttons web componets that the user
+has placed within the html with the correct attribute values (navBarid)
+and appends them to the div element in the
+above template</p>
 
     <div class='pre p1 fill-light mt0'>getButtons()</div>
   
@@ -564,9 +564,11 @@ bassed on the navBarID attribute.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>&lt;beer-button navBarID=<span class="hljs-string">"bill"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">beer-button</span>&gt;</span></span>
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">beer-button</span> <span class="hljs-attr">navBarID</span>=<span class="hljs-string">"bill"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"heello"</span> <span class="hljs-attr">beerId</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">beerClass</span>=<span class="hljs-string">"btn btn-outline-success"</span>  <span class="hljs-attr">newStyle</span>=<span class="hljs-string">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span>  &gt;</span>Page 4<span class="hljs-tag">&lt;/<span class="hljs-name">beer-button</span>&gt;</span></span>
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">beer-navbar</span>  <span class="hljs-attr">navBarId</span>=<span class="hljs-string">"bill"</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">beer-navbar</span>&gt;</span></span></pre>
+      <pre class='p1 overflow-auto round fill-light'>&lt;nav&gt;
+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">beer-button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">beer-button</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span></span></pre>
     
   
 
@@ -594,9 +596,10 @@ bassed on the navBarID attribute.</p>
 
   
 
-  <p>This function takes all the beer-buttons that the user
-has placed within the html and inserts them into the proper navBar
-bassed on the navBarID attribute.</p>
+  <p>This function takes all the buttons  that the user
+has placed within the html with the correct attribute values (navBarid)
+and appends them to the div element in the
+above template</p>
 
     <div class='pre p1 fill-light mt0'>getRegButtons()</div>
   
@@ -621,9 +624,11 @@ bassed on the navBarID attribute.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>&lt;beer-button navBarID=<span class="hljs-string">"bill"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">beer-button</span>&gt;</span></span>
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">beer-button</span> <span class="hljs-attr">navBarID</span>=<span class="hljs-string">"bill"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"heello"</span> <span class="hljs-attr">beerId</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">beerClass</span>=<span class="hljs-string">"btn btn-outline-success"</span>  <span class="hljs-attr">newStyle</span>=<span class="hljs-string">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span>  &gt;</span>Page 4<span class="hljs-tag">&lt;/<span class="hljs-name">beer-button</span>&gt;</span></span>
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">beer-navbar</span>  <span class="hljs-attr">navBarId</span>=<span class="hljs-string">"bill"</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">beer-navbar</span>&gt;</span></span></pre>
+      <pre class='p1 overflow-auto round fill-light'>&lt;nav&gt;
+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span></span></pre>
     
   
 
@@ -651,9 +656,10 @@ bassed on the navBarID attribute.</p>
 
   
 
-  <p>This function takes all the beer-buttons that the user
-has placed within the html and inserts them into the proper navBar
-bassed on the navBarID attribute.</p>
+  <p>This function takes all the beer-buttons-lit web componets that the user
+has placed within the html with the correct attribute values (navBarid)
+and appends them to the div element in the
+above template</p>
 
     <div class='pre p1 fill-light mt0'>getLitButtons()</div>
   
@@ -678,9 +684,11 @@ bassed on the navBarID attribute.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>&lt;beer-button navBarID=<span class="hljs-string">"bill"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">beer-button</span>&gt;</span></span>
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">beer-button</span> <span class="hljs-attr">navBarID</span>=<span class="hljs-string">"bill"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"heello"</span> <span class="hljs-attr">beerId</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">beerClass</span>=<span class="hljs-string">"btn btn-outline-success"</span>  <span class="hljs-attr">newStyle</span>=<span class="hljs-string">"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"</span>  &gt;</span>Page 4<span class="hljs-tag">&lt;/<span class="hljs-name">beer-button</span>&gt;</span></span>
-<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">beer-navbar</span>  <span class="hljs-attr">navBarId</span>=<span class="hljs-string">"bill"</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">beer-navbar</span>&gt;</span></span></pre>
+      <pre class='p1 overflow-auto round fill-light'>&lt;nav&gt;
+ <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">beer-button-lit</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">beer-button-lit</span>&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">nav</span>&gt;</span></span></pre>
     
   
 
@@ -861,7 +869,7 @@ by appending the scripts and link to the template above as</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>&lt;beer-button newStyle=<span class="hljs-string">"styles.css"</span>&gt;Style Testing&lt;<span class="hljs-regexp">/beer-button&gt;</span></pre>
+      <pre class='p1 overflow-auto round fill-light'>&lt;link rel=<span class="hljs-string">"stylesheet"</span> href=<span class="hljs-string">"newStyle"</span> type=<span class="hljs-string">"text/css"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">link</span>&gt;</span></span></pre>
     
   
 
@@ -1223,7 +1231,7 @@ in the above template</p>
 
   
 
-  <p>Function that sets the background of the <button> in the above template
+  <p>Function that sets the background of the button in the above template
 to be an image</p>
 
     <div class='pre p1 fill-light mt0'>setImgAsBackground(img: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>): any</div>
@@ -1552,7 +1560,7 @@ inner html from <beer-button></p>
   
 
   <p>Function that allows for a custom style sheet to be applied to the
-button in the above template  by adding a <link> element</p>
+button in the above template  by adding a link element</p>
 
     <div class='pre p1 fill-light mt0'>setStyle(newStyle: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, shadowRoot: any)</div>
   
@@ -1641,7 +1649,7 @@ button in the above template  by adding a <link> element</p>
   </div>
   
 
-  <p>Beer web component that was ported from the Element library</p>
+  <p>Beer button web component that was ported from the Element library</p>
 
     <div class='pre p1 fill-light mt0'>new BeerButtonLit()</div>
   
@@ -2016,7 +2024,7 @@ button in the above template  by adding a <link> element</p>
 
   <p>Handle a click event using imported user defined functions</p>
 
-    <div class='pre p1 fill-light mt0'>_handleClick(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>_handleClick(): any</div>
   
   
 
@@ -2034,8 +2042,8 @@ button in the above template  by adding a <link> element</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
-        error message such that script or function not found
+      <code>any</code>:
+        void
 
       
     
@@ -2043,6 +2051,12 @@ button in the above template  by adding a <link> element</p>
 
   
 
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>&lt;beer-button-lit script=<span class="hljs-string">"./testFunction.js"</span> functionName=<span class="hljs-string">"testFunction"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">beer-button-lit</span>&gt;</span></span></pre>
+    
   
 
   
@@ -2131,7 +2145,8 @@ The template rendered will be attached to the shadow root of the shadow DOM.</p>
   </div>
   
 
-  <p>Notification that pops up in browser containing text with variable text and lifetime</p>
+  <p>Beer notification web component that was ported from the Element library.
+Notification that pops up in browser window containing user specified title and message</p>
 
     <div class='pre p1 fill-light mt0'>new BeerNotificationLit()</div>
   
@@ -2290,7 +2305,7 @@ Properties are: type, title, message, duration, position, offset</p>
 
   <p>Perform one-time work after the element’s template has been created.</p>
 
-    <div class='pre p1 fill-light mt0'>firstUpdated()</div>
+    <div class='pre p1 fill-light mt0'>firstUpdated(): any</div>
   
   
 
@@ -2305,6 +2320,14 @@ Properties are: type, title, message, duration, position, offset</p>
 
   
 
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>any</code>:
+        void
+
+      
+    
   
 
   
@@ -2337,7 +2360,7 @@ Properties are: type, title, message, duration, position, offset</p>
 
   <p>Callback that is called when element is inserted into DOM</p>
 
-    <div class='pre p1 fill-light mt0'>connectedCallback(): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>connectedCallback(): any</div>
   
   
 
@@ -2355,8 +2378,8 @@ Properties are: type, title, message, duration, position, offset</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>:
-        path to corresponding type icon .svg file
+      <code>any</code>:
+        void
 
       
     
@@ -2755,6 +2778,13 @@ When closing a notification, the ones below it will shift up.</p>
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'>&lt;beer-notificaiton-lit position=<span class="hljs-string">"top-right"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">beer-notificaiton-lit</span>&gt;</span></span>
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">beer-notificaiton-lit</span> <span class="hljs-attr">position</span>=<span class="hljs-string">"bottom-right"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">beer-notificaiton-lit</span>&gt;</span></span></pre>
+    
+  
 
   
 
@@ -2899,7 +2929,7 @@ The template rendered will be attached to the shadow root of the shadow DOM.</p>
 
   <p>Web Component that functions as a brand allowing the user to change the size
 and image through various attributes as well as the displayed text and use a link atribute so
-that another webpage can be loaded when the <beer-brand> is clicked.
+that another webpage can be loaded when the beer-brand is clicked.
 Attributes:beerClass,brandHref, navBarBrandId, ID, brandImage, brandHeight,
 brandWidth imageClass, imageAlt, newStyle,</p>
 
@@ -3080,7 +3110,7 @@ if the file is a valid file on the system
 
   
 
-  <p>Function that is used to append a string to the <a> element
+  <p>Function that is used to append a string to the a element
 in the above template</p>
 
     <div class='pre p1 fill-light mt0'>setBrandName()</div>
