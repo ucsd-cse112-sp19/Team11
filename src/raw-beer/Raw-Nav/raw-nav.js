@@ -136,8 +136,6 @@ class BeerNav extends HTMLElement {
     }
 
 
-  
-    
     /**
      * @description This function takes all the buttons  that the user 
      * has placed within the html with the correct attribute values (navBarid)
@@ -293,7 +291,7 @@ class BeerNav extends HTMLElement {
 
 
     /**
-     * @description Function that allows the user to applie the bootstrap styles to the component
+     * @description Function that allows the user to apply the bootstrap styles to the component
      * by appending the scripts and link to the template above as 
      * @example
      * <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
